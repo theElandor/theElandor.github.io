@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-24 Thu 11:14 -->
+<!-- 2022-03-29 Tue 11:13 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Matlab, concetti ed esempi</title>
@@ -267,33 +267,39 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgabc89d9">1. Sistemi lineari</a>
+<li><a href="#orgf1778c9">1. Sistemi lineari</a>
 <ul>
-<li><a href="#orgd242426">1.1. Funzioni, quick reference</a></li>
-<li><a href="#org38dc379">1.2. Sfocatura di un immagine (17/03/22)</a></li>
-<li><a href="#org427cfb1">1.3. Qualche iterazione del metodo di gauss (24/03/22)</a></li>
+<li><a href="#org5b03da3">1.1. Funzioni, quick reference</a></li>
+<li><a href="#org5926bfd">1.2. Sfocatura di un immagine (17/03/22)</a></li>
+<li><a href="#org1c43da6">1.3. Qualche iterazione del metodo di gauss (24/03/22)</a></li>
+<li><a href="#org7a45c0c">1.4. Esercitazoine fattorizzazione LU 29/03/22</a>
+<ul>
+<li><a href="#org0483a24">1.4.1. Metodo senza pivoting</a></li>
+<li><a href="#org54357a8">1.4.2. Metodo LU con pivoting</a></li>
 </ul>
 </li>
-<li><a href="#orge592c21">2. Array</a>
-<ul>
-<li><a href="#orga4fabb2">2.1. Creazione di array</a></li>
 </ul>
 </li>
-<li><a href="#org80e8625">3. Matrici</a>
+<li><a href="#orgd1ac917">2. Array</a>
 <ul>
-<li><a href="#orgfcaebd5">3.1. Norma</a></li>
+<li><a href="#orgb6c44e2">2.1. Creazione di array</a></li>
 </ul>
 </li>
-<li><a href="#org9b34233">4. Quick Latex(owner only)</a></li>
+<li><a href="#org3426b99">3. Matrici</a>
+<ul>
+<li><a href="#org55eb2e1">3.1. Norma</a></li>
+</ul>
+</li>
+<li><a href="#orgd64e083">4. Quick Latex(owner only)</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgabc89d9" class="outline-2">
-<h2 id="orgabc89d9"><span class="section-number-2">1</span> Sistemi lineari</h2>
+<div id="outline-container-orgf1778c9" class="outline-2">
+<h2 id="orgf1778c9"><span class="section-number-2">1</span> Sistemi lineari</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-orgd242426" class="outline-3">
-<h3 id="orgd242426"><span class="section-number-3">1.1</span> Funzioni, quick reference</h3>
+<div id="outline-container-org5b03da3" class="outline-3">
+<h3 id="org5b03da3"><span class="section-number-3">1.1</span> Funzioni, quick reference</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Funzione che risolve il sistema: \(Ax=b\)</li>
@@ -318,8 +324,8 @@ b_immagine=reshape(b,n,m);
 </pre>
 </div>
 </div>
-<div id="outline-container-org38dc379" class="outline-3">
-<h3 id="org38dc379"><span class="section-number-3">1.2</span> Sfocatura di un immagine (17/03/22)</h3>
+<div id="outline-container-org5926bfd" class="outline-3">
+<h3 id="org5926bfd"><span class="section-number-3">1.2</span> Sfocatura di un immagine (17/03/22)</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Vengono di seguito riportati i passi fondamentali:
@@ -363,9 +369,13 @@ imshow(sol2_immagine, []); immagine con rumore --&gt; immagine originale
 </div>
 </div>
 </div>
-<div id="outline-container-org427cfb1" class="outline-3">
-<h3 id="org427cfb1"><span class="section-number-3">1.3</span> Qualche iterazione del metodo di gauss (24/03/22)</h3>
+<div id="outline-container-org1c43da6" class="outline-3">
+<h3 id="org1c43da6"><span class="section-number-3">1.3</span> Qualche iterazione del metodo di gauss (24/03/22)</h3>
 <div class="outline-text-3" id="text-1-3">
+<p>
+<b>big fat warning</b>: i moltiplicatori e le matrici L sono
+state calcolate a mano, poi sono state riportate su matlab.<br />
+</p>
 <div class="org-src-container">
 <pre class="src src-matlab">A=[1,1,1;1,1.0001,2;1,2,2];
 b=[1;2;1];
@@ -427,13 +437,161 @@ alle operazioni floating point.<br />
 </p>
 </div>
 </div>
+<div id="outline-container-org7a45c0c" class="outline-3">
+<h3 id="org7a45c0c"><span class="section-number-3">1.4</span> Esercitazoine fattorizzazione LU 29/03/22</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+<b>big fat warning</b>: il nome del file deve essere uguale al nome della funzione.<br />
+</p>
 </div>
-<div id="outline-container-orge592c21" class="outline-2">
-<h2 id="orge592c21"><span class="section-number-2">2</span> Array</h2>
+<div id="outline-container-org0483a24" class="outline-4">
+<h4 id="org0483a24"><span class="section-number-4">1.4.1</span> Metodo senza pivoting</h4>
+<div class="outline-text-4" id="text-1-4-1">
+</div>
+<ol class="org-ol">
+<li><a id="org5be0e2c"></a>Codice sorgente<br />
+<div class="outline-text-5" id="text-1-4-1-1">
+<div class="org-src-container">
+<pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">function</span> [L<span style="color: #4f97d7;">,</span>U] <span style="color: #4f97d7;">=</span> <span style="color: #bc6ec5; font-weight: bold;">my_lu_dec</span>(A)
+n <span style="color: #4f97d7;">=</span> length(A)<span style="color: #4f97d7;">;</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> k <span style="color: #4f97d7;">=</span> 1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">-</span>1
+    <span style="color: #4f97d7; font-weight: bold;">if</span>(abs(A(k<span style="color: #4f97d7;">,</span>k))<span style="color: #4f97d7;">&lt;</span>eps)
+        error(<span style="color: #2d9574;">"\n fattorizzazione non eseguibile \n"</span>)<span style="color: #4f97d7;">;</span>
+    <span style="color: #4f97d7; font-weight: bold;">end</span>
+    A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k) <span style="color: #4f97d7;">=</span> A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k) <span style="color: #4f97d7;">/</span> A(k<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">;</span>
+    A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n) <span style="color: #4f97d7;">=</span> A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n) <span style="color: #4f97d7;">-</span> A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">*</span>A(k<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n)<span style="color: #4f97d7;">;</span>
+<span style="color: #4f97d7; font-weight: bold;">end</span>
+L <span style="color: #4f97d7;">=</span> tril(A<span style="color: #4f97d7;">,-</span>1)<span style="color: #4f97d7;">;</span>
+L <span style="color: #4f97d7;">=</span> L<span style="color: #4f97d7;">+</span>eye(n)<span style="color: #4f97d7;">;</span>
+U <span style="color: #4f97d7;">=</span> triu(A)<span style="color: #4f97d7;">;</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orge42d238"></a>Commenti<br />
+<div class="outline-text-5" id="text-1-4-1-2">
+<ul class="org-ul">
+<li>Restituisce il triangolo inferiore della matrice A.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-octave">L <span style="color: #4f97d7;">=</span> tril(A<span style="color: #4f97d7;">,-</span>1)<span style="color: #4f97d7;">;</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Per lavorare su dei floating point, è meglio non usare zero, quindi uso eps che è la
+precisione di macchina. Verifico che i ppivot sulla diagonale principale siano \(!= 0\)</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">if</span>(abs(A(k<span style="color: #4f97d7;">,</span>k))<span style="color: #4f97d7;">&lt;</span>eps)
+</pre>
+</div>
+<ul class="org-ul">
+<li>Calcolo i moltiplicatori: prendo i vettori della sottodiagonale e lo divido per l'elemento della diagonale.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-octave">A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k) <span style="color: #4f97d7;">=</span> A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k) <span style="color: #4f97d7;">/</span> A(k<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">;</span>
+</pre>
+</div>
+<ul class="org-ul">
+<li>Uso i moltiplicatori per annullare gli elementi sotto la diagonale principale.
+In realtà non memorizzo gli zeri, tengo quello spazio per memorizzare direttamente la matrice L!</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-octave">A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n) <span style="color: #4f97d7;">=</span> A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n) <span style="color: #4f97d7;">-</span> A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">*</span>A(k<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n)<span style="color: #4f97d7;">;</span>
+</pre>
+</div>
+<p>
+Questa è la matrice che ottengo dopo la fine del ciclo.
+</p>
+\begin{matrix}
+u_{11} & u_{12} & u_{13} \\
+l_{21} & u_{22} & u_{23} \\
+l_{31} & l_{32} & u_{33}
+\end{matrix}
+<ul class="org-ul">
+<li>Con le ultime 3 righe di codice:
+<ol class="org-ol">
+<li>Estraggo la matrice inferiore L escludendo la diagonale principale.<br /></li>
+<li>Aggiungo degli uni sulla diagonale principale della matrice L.<br /></li>
+<li>Estraggo la matrice U.<br /></li>
+</ol></li>
+<li>Usando le operazioni in forma matriciale invece che usando un ciclo for, matlab ottimizza le operazioni e rende
+tutto più efficiente.</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-octave">L <span style="color: #4f97d7;">=</span> tril(A<span style="color: #4f97d7;">,-</span>1)<span style="color: #4f97d7;">;</span>
+L <span style="color: #4f97d7;">=</span> L<span style="color: #4f97d7;">+</span>eye(n)<span style="color: #4f97d7;">;</span>
+U <span style="color: #4f97d7;">=</span> triu(A)<span style="color: #4f97d7;">;</span>
+</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+<div id="outline-container-org54357a8" class="outline-4">
+<h4 id="org54357a8"><span class="section-number-4">1.4.2</span> Metodo LU con pivoting</h4>
+<div class="outline-text-4" id="text-1-4-2">
+<p>
+\(LU = PA\)
+</p>
+<ul class="org-ul">
+<li>All'inizio la matrice P è la matrice identità.</li>
+<li>Il pivot deve essere \(!=0\) e deve essere maggiore degli altri elementi della colonna:
+in questo modo tutti i moltiplicatori saranno minori di 1, e avrò meno problemi a livello di precisione di macchina.<br /></li>
+<li>In questo modo ho che tutti gli \(m_{ik}<1\)</li>
+</ul>
+<p>
+Di seguito viene riportata la soluzione (nostra, a quanto pare funzionante).<br />
+</p>
+</div>
+<ol class="org-ol">
+<li><a id="org1085022"></a>Codice sorgente<br />
+<div class="outline-text-5" id="text-1-4-2-1">
+<div class="org-src-container">
+<pre class="src src-octave">n<span style="color: #4f97d7;">=</span>length(A)<span style="color: #4f97d7;">;</span>
+P <span style="color: #4f97d7;">=</span> eye(n)<span style="color: #4f97d7;">;</span>
+<span style="color: #4f97d7; font-weight: bold;">for</span> k<span style="color: #4f97d7;">=</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">-</span>1
+    [m<span style="color: #4f97d7;">,</span>i] <span style="color: #4f97d7;">=</span> max(abs(A(k<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k)))<span style="color: #4f97d7;">;</span>
+    <span style="color: #4f97d7; font-weight: bold;">if</span>(A(k<span style="color: #4f97d7;">:</span>1<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">:</span>1) <span style="color: #4f97d7;">~=</span> m)
+        I <span style="color: #4f97d7;">=</span> eye(n)<span style="color: #4f97d7;">;</span>
+        I([k i]<span style="color: #4f97d7;">,:</span>) <span style="color: #4f97d7;">=</span> I([i k]<span style="color: #4f97d7;">,</span> <span style="color: #4f97d7;">:</span>)<span style="color: #4f97d7;">;</span>
+        P <span style="color: #4f97d7;">=</span> I<span style="color: #4f97d7;">*</span>P<span style="color: #4f97d7;">;</span>
+        A <span style="color: #4f97d7;">=</span> I<span style="color: #4f97d7;">*</span>A<span style="color: #4f97d7;">;</span>
+    <span style="color: #4f97d7; font-weight: bold;">end</span>
+    A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">=</span>A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">/</span>A(k<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">;</span>
+    A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n)<span style="color: #4f97d7;">=</span>A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n) <span style="color: #4f97d7;">-</span> A(k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n<span style="color: #4f97d7;">,</span>k) <span style="color: #4f97d7;">*</span> A(k<span style="color: #4f97d7;">,</span>k<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n)<span style="color: #4f97d7;">;</span>
+
+<span style="color: #4f97d7; font-weight: bold;">end</span>
+
+L<span style="color: #4f97d7;">=</span>tril(A<span style="color: #4f97d7;">,-</span>1)<span style="color: #4f97d7;">;</span>
+L<span style="color: #4f97d7;">=</span>L<span style="color: #4f97d7;">+</span>eye(n)<span style="color: #4f97d7;">;</span>
+U<span style="color: #4f97d7;">=</span>triu(A)<span style="color: #4f97d7;">;</span>
+</pre>
+</div>
+</div>
+</li>
+<li><a id="orga8a1924"></a>Commenti<br />
+<div class="outline-text-5" id="text-1-4-2-2">
+<ol class="org-ol">
+<li>Creo una matrice di permutazione \(P\) elementare per partire<br /></li>
+<li>Ogni volta cerco il massimo della colonna in cui sono: controllo che non
+sia \(=0\), in tal caso, la fattorizzazione non è eseguibile.<br /></li>
+<li>Scambio la riga i con la riga \(k\) per portare in pivot l'elemento che ho trovato.<br /></li>
+<li>Mi tengo in memoria tutti gli scambi effettuati moltiplicando la vecchia \(P\) per la nuova \(P\).<br /></li>
+<li>Applico la matrice \(P\) alla matrice \(A\), e di conseguenza anche alla matrice \(L\).<br /></li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-orgd1ac917" class="outline-2">
+<h2 id="orgd1ac917"><span class="section-number-2">2</span> Array</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-orga4fabb2" class="outline-3">
-<h3 id="orga4fabb2"><span class="section-number-3">2.1</span> Creazione di array</h3>
+<div id="outline-container-orgb6c44e2" class="outline-3">
+<h3 id="orgb6c44e2"><span class="section-number-3">2.1</span> Creazione di array</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Creare un array di lunghezza (3*n-2) e riempirlo con elementi
@@ -445,12 +603,12 @@ v = [1:3:3*(3*n-2)];
 </div>
 </div>
 </div>
-<div id="outline-container-org80e8625" class="outline-2">
-<h2 id="org80e8625"><span class="section-number-2">3</span> Matrici</h2>
+<div id="outline-container-org3426b99" class="outline-2">
+<h2 id="org3426b99"><span class="section-number-2">3</span> Matrici</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgfcaebd5" class="outline-3">
-<h3 id="orgfcaebd5"><span class="section-number-3">3.1</span> Norma</h3>
+<div id="outline-container-org55eb2e1" class="outline-3">
+<h3 id="org55eb2e1"><span class="section-number-3">3.1</span> Norma</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Per calcolare la norma <b>euclidea</b>:
@@ -469,19 +627,22 @@ Per calcolare la generica norma <b>p</b>:
 </div>
 </div>
 </div>
-<div id="outline-container-org9b34233" class="outline-2">
-<h2 id="org9b34233"><span class="section-number-2">4</span> Quick Latex(owner only)</h2>
+<div id="outline-container-orgd64e083" class="outline-2">
+<h2 id="orgd64e083"><span class="section-number-2">4</span> Quick Latex(owner only)</h2>
 <div class="outline-text-2" id="text-4">
 \begin{cases}
      x1 + 2x2     = 3\\
 .499 x1 + 1.001x2 = 1.5
 \end{cases}
+<p>
+A=randi(100,3)
+</p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Eros</p>
-<p class="date">Created: 2022-03-24 Thu 11:14</p>
+<p class="date">Created: 2022-03-29 Tue 11:13</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
