@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-03-29 Tue 14:24 -->
+<!-- 2022-03-31 Thu 16:06 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Matlab, concetti ed esempi</title>
@@ -267,43 +267,49 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgf802034">1. Sistemi lineari</a>
+<li><a href="#org0c10474">1. Sistemi lineari</a>
 <ul>
-<li><a href="#org51a19f2">1.1. Funzioni, quick reference</a></li>
-<li><a href="#orgd36f044">1.2. Sfocatura di un immagine (17/03/22)</a></li>
-<li><a href="#orgb5e81e9">1.3. Qualche iterazione del metodo di gauss (24/03/22)</a></li>
-<li><a href="#orgf216b9d">1.4. Esercitazoine fattorizzazione LU 29/03/22</a>
+<li><a href="#orge383ecc">1.1. Funzioni, quick reference</a></li>
+<li><a href="#org932987d">1.2. Sfocatura di un immagine (17/03/22)</a></li>
+<li><a href="#org64c2ef7">1.3. Qualche iterazione del metodo di gauss (24/03/22)</a></li>
+<li><a href="#orga156225">1.4. Esercitazoine fattorizzazione LU 29/03/22</a>
 <ul>
-<li><a href="#orgf968a54">1.4.1. Metodo senza pivoting</a></li>
-<li><a href="#org4292051">1.4.2. Metodo LU con pivoting</a></li>
+<li><a href="#orge12353e">1.4.1. Metodo senza pivoting</a></li>
+<li><a href="#org49a6b71">1.4.2. Metodo LU con pivoting</a></li>
 </ul>
 </li>
+<li><a href="#org48afae8">1.5. Fattorizzazione LDL<sup>t</sup></a></li>
 </ul>
 </li>
-<li><a href="#org8221140">2. Array</a>
+<li><a href="#org365cff6">2. Array</a>
 <ul>
-<li><a href="#org68fa0c4">2.1. Creazione di array</a></li>
+<li><a href="#org32cef3f">2.1. Creazione di array</a></li>
 </ul>
 </li>
-<li><a href="#org6222539">3. Matrici</a>
+<li><a href="#org64c3893">3. Matrici</a>
 <ul>
-<li><a href="#orgc188370">3.1. Norma</a></li>
+<li><a href="#org962bf73">3.1. Norma</a></li>
 </ul>
 </li>
-<li><a href="#orgf449699">4. Quick Latex(owner only)</a></li>
+<li><a href="#org1953ed2">4. Quick Latex(owner only)</a>
+<ul>
+<li><a href="#orgddcb284">4.1. Sistema</a></li>
+<li><a href="#orgae9cf2b">4.2. Matrice</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgf802034" class="outline-2">
-<h2 id="orgf802034"><span class="section-number-2">1</span> Sistemi lineari</h2>
+<div id="outline-container-org0c10474" class="outline-2">
+<h2 id="org0c10474"><span class="section-number-2">1</span> Sistemi lineari</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <b>consiglio</b>: cliccando su <b>collapse all</b> in alto a destra si possono vedere i paragrafi 
 separatamente.
 </p>
 </div>
-<div id="outline-container-org51a19f2" class="outline-3">
-<h3 id="org51a19f2"><span class="section-number-3">1.1</span> Funzioni, quick reference</h3>
+<div id="outline-container-orge383ecc" class="outline-3">
+<h3 id="orge383ecc"><span class="section-number-3">1.1</span> Funzioni, quick reference</h3>
 <div class="outline-text-3" id="text-1-1">
 <ul class="org-ul">
 <li>Funzione che risolve il sistema: \(Ax=b\)</li>
@@ -331,8 +337,8 @@ una matrice b.<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgd36f044" class="outline-3">
-<h3 id="orgd36f044"><span class="section-number-3">1.2</span> Sfocatura di un immagine (17/03/22)</h3>
+<div id="outline-container-org932987d" class="outline-3">
+<h3 id="org932987d"><span class="section-number-3">1.2</span> Sfocatura di un immagine (17/03/22)</h3>
 <div class="outline-text-3" id="text-1-2">
 <p>
 Vengono di seguito riportati i passi fondamentali:
@@ -376,8 +382,8 @@ imshow(sol2_immagine, []); immagine con rumore --&gt; immagine originale
 </div>
 </div>
 </div>
-<div id="outline-container-orgb5e81e9" class="outline-3">
-<h3 id="orgb5e81e9"><span class="section-number-3">1.3</span> Qualche iterazione del metodo di gauss (24/03/22)</h3>
+<div id="outline-container-org64c2ef7" class="outline-3">
+<h3 id="org64c2ef7"><span class="section-number-3">1.3</span> Qualche iterazione del metodo di gauss (24/03/22)</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
 <b>big fat warning</b>: i moltiplicatori e le matrici L sono
@@ -444,19 +450,19 @@ alle operazioni floating point.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-orgf216b9d" class="outline-3">
-<h3 id="orgf216b9d"><span class="section-number-3">1.4</span> Esercitazoine fattorizzazione LU 29/03/22</h3>
+<div id="outline-container-orga156225" class="outline-3">
+<h3 id="orga156225"><span class="section-number-3">1.4</span> Esercitazoine fattorizzazione LU 29/03/22</h3>
 <div class="outline-text-3" id="text-1-4">
 <p>
 <b>big fat warning</b>: il nome del file deve essere uguale al nome della funzione.<br />
 </p>
 </div>
-<div id="outline-container-orgf968a54" class="outline-4">
-<h4 id="orgf968a54"><span class="section-number-4">1.4.1</span> Metodo senza pivoting</h4>
+<div id="outline-container-orge12353e" class="outline-4">
+<h4 id="orge12353e"><span class="section-number-4">1.4.1</span> Metodo senza pivoting</h4>
 <div class="outline-text-4" id="text-1-4-1">
 </div>
 <ol class="org-ol">
-<li><a id="org58d5868"></a>Codice sorgente<br />
+<li><a id="orgd4fa533"></a>Codice sorgente<br />
 <div class="outline-text-5" id="text-1-4-1-1">
 <div class="org-src-container">
 <pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">function</span> [L<span style="color: #4f97d7;">,</span>U] <span style="color: #4f97d7;">=</span> <span style="color: #bc6ec5; font-weight: bold;">my_lu_dec</span>(A)
@@ -475,7 +481,7 @@ U <span style="color: #4f97d7;">=</span> triu(A)<span style="color: #4f97d7;">;<
 </div>
 </div>
 </li>
-<li><a id="org961108b"></a>Commenti<br />
+<li><a id="org6815e77"></a>Commenti<br />
 <div class="outline-text-5" id="text-1-4-1-2">
 <ul class="org-ul">
 <li>Restituisce il triangolo inferiore della matrice A.</li>
@@ -535,8 +541,8 @@ U <span style="color: #4f97d7;">=</span> triu(A)<span style="color: #4f97d7;">;<
 </li>
 </ol>
 </div>
-<div id="outline-container-org4292051" class="outline-4">
-<h4 id="org4292051"><span class="section-number-4">1.4.2</span> Metodo LU con pivoting</h4>
+<div id="outline-container-org49a6b71" class="outline-4">
+<h4 id="org49a6b71"><span class="section-number-4">1.4.2</span> Metodo LU con pivoting</h4>
 <div class="outline-text-4" id="text-1-4-2">
 <p>
 \(LU = PA\)
@@ -552,7 +558,7 @@ Di seguito viene riportata la soluzione (nostra, a quanto pare funzionante).<br 
 </p>
 </div>
 <ol class="org-ol">
-<li><a id="org31ff835"></a>Codice sorgente<br />
+<li><a id="org06e9c36"></a>Codice sorgente<br />
 <div class="outline-text-5" id="text-1-4-2-1">
 <div class="org-src-container">
 <pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">function</span> [L<span style="color: #4f97d7;">,</span>U<span style="color: #4f97d7;">,</span>P] <span style="color: #4f97d7;">=</span> <span style="color: #bc6ec5; font-weight: bold;">my_lu_dec</span>(A)
@@ -582,7 +588,7 @@ U<span style="color: #4f97d7;">=</span>triu(A)<span style="color: #4f97d7;">;</s
 </div>
 </div>
 </li>
-<li><a id="orgf035f6d"></a>Commenti<br />
+<li><a id="orgc804cc3"></a>Commenti<br />
 <div class="outline-text-5" id="text-1-4-2-2">
 <ol class="org-ol">
 <li>Creo una matrice di permutazione \(P\) elementare per partire<br /></li>
@@ -599,13 +605,57 @@ infatti bisogna riferirsi all'intera matrice, non alla sottomatrice in cui viene
 </ol>
 </div>
 </div>
+<div id="outline-container-org48afae8" class="outline-3">
+<h3 id="org48afae8"><span class="section-number-3">1.5</span> Fattorizzazione LDL<sup>t</sup></h3>
+<div class="outline-text-3" id="text-1-5">
+<p>
+Metodo di fattorizzazione sulle matrici simmetriche.
+La versione qui riportata è la versione base, senza l'uso della matrice di appoggio P.
+Sono stati usati dei semplici cicli for, al posto dei costrutti di matlab per le operazioni
+tra matrici.
+</p>
+<ul class="org-ul">
+<li>PS: per creare una matrice simmetrica si può usare il seguente codice:</li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-octave">A <span style="color: #4f97d7;">=</span> randi(4<span style="color: #4f97d7;">,</span>4)<span style="color: #4f97d7;">;</span>
+A_symmetric <span style="color: #4f97d7;">=</span> tril(A) <span style="color: #4f97d7;">+</span> triu(A<span style="color: #4f97d7;">',</span>1)
+</pre>
 </div>
-<div id="outline-container-org8221140" class="outline-2">
-<h2 id="org8221140"><span class="section-number-2">2</span> Array</h2>
+<div class="org-src-container">
+<pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">function</span>[L<span style="color: #4f97d7;">,</span>D] <span style="color: #4f97d7;">=</span> <span style="color: #bc6ec5; font-weight: bold;">my_ldl</span>(A)
+    <span style="color: #4f97d7; font-weight: bold;">if</span>(<span style="color: #4f97d7;">~</span>issymmetric(A))      
+        error(<span style="color: #2d9574;">"Metodo non applicabile"</span>)<span style="color: #4f97d7;">;</span>
+    <span style="color: #4f97d7; font-weight: bold;">end</span>
+    n <span style="color: #4f97d7;">=</span> length(A)<span style="color: #4f97d7;">;</span>
+    D <span style="color: #4f97d7;">=</span> zeros(n)<span style="color: #4f97d7;">;</span>
+    L <span style="color: #4f97d7;">=</span> eye(n)<span style="color: #4f97d7;">;</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> j<span style="color: #4f97d7;">=</span>1<span style="color: #4f97d7;">:</span>n
+        d <span style="color: #4f97d7;">=</span> 0<span style="color: #4f97d7;">;</span>
+        l <span style="color: #4f97d7;">=</span> 0<span style="color: #4f97d7;">;</span>
+        <span style="color: #4f97d7; font-weight: bold;">for</span> k<span style="color: #4f97d7;">=</span>1<span style="color: #4f97d7;">:</span>j<span style="color: #4f97d7;">-</span>1
+            d<span style="color: #4f97d7;">=</span>d<span style="color: #4f97d7;">+</span>L(j<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">*</span>L(j<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">*</span>D(k<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">;</span>
+        <span style="color: #4f97d7; font-weight: bold;">end</span>
+        D(j<span style="color: #4f97d7;">,</span>j) <span style="color: #4f97d7;">=</span> A(j<span style="color: #4f97d7;">,</span>j)<span style="color: #4f97d7;">-</span>d<span style="color: #4f97d7;">;</span>
+        <span style="color: #4f97d7; font-weight: bold;">for</span> i<span style="color: #4f97d7;">=</span>j<span style="color: #4f97d7;">+</span>1<span style="color: #4f97d7;">:</span>n
+           <span style="color: #4f97d7; font-weight: bold;">for</span> k<span style="color: #4f97d7;">=</span>1<span style="color: #4f97d7;">:</span>j<span style="color: #4f97d7;">-</span>1
+               l <span style="color: #4f97d7;">=</span>l<span style="color: #4f97d7;">+</span>L(j<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">*</span>D(k<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">*</span>L(i<span style="color: #4f97d7;">,</span>k)<span style="color: #4f97d7;">;</span>
+           <span style="color: #4f97d7; font-weight: bold;">end</span>       
+           L(i<span style="color: #4f97d7;">,</span>j) <span style="color: #4f97d7;">=</span> (A(i<span style="color: #4f97d7;">,</span>j) <span style="color: #4f97d7;">-</span> l) <span style="color: #4f97d7;">/</span> D(j<span style="color: #4f97d7;">,</span>j)<span style="color: #4f97d7;">;</span>
+        <span style="color: #4f97d7; font-weight: bold;">end</span>
+    <span style="color: #4f97d7; font-weight: bold;">end</span> 
+<span style="color: #4f97d7; font-weight: bold;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org365cff6" class="outline-2">
+<h2 id="org365cff6"><span class="section-number-2">2</span> Array</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org68fa0c4" class="outline-3">
-<h3 id="org68fa0c4"><span class="section-number-3">2.1</span> Creazione di array</h3>
+<div id="outline-container-org32cef3f" class="outline-3">
+<h3 id="org32cef3f"><span class="section-number-3">2.1</span> Creazione di array</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Creare un array di lunghezza (3*n-2) e riempirlo con elementi
@@ -617,12 +667,12 @@ v = [1:3:3*(3*n-2)];
 </div>
 </div>
 </div>
-<div id="outline-container-org6222539" class="outline-2">
-<h2 id="org6222539"><span class="section-number-2">3</span> Matrici</h2>
+<div id="outline-container-org64c3893" class="outline-2">
+<h2 id="org64c3893"><span class="section-number-2">3</span> Matrici</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-orgc188370" class="outline-3">
-<h3 id="orgc188370"><span class="section-number-3">3.1</span> Norma</h3>
+<div id="outline-container-org962bf73" class="outline-3">
+<h3 id="org962bf73"><span class="section-number-3">3.1</span> Norma</h3>
 <div class="outline-text-3" id="text-3-1">
 <p>
 Per calcolare la norma <b>euclidea</b>:
@@ -633,30 +683,41 @@ Per calcolare la norma <b>euclidea</b>:
 </div>
 <p>
 Per calcolare la generica norma <b>p</b>:
+#+BEGIN<sub>SRC</sub> matlab
+n = norm(v,p)
+#+
 </p>
-<div class="org-src-container">
-<pre class="src src-matlab">n = norm(v,p)
-</pre>
 </div>
 </div>
 </div>
-</div>
-<div id="outline-container-orgf449699" class="outline-2">
-<h2 id="orgf449699"><span class="section-number-2">4</span> Quick Latex(owner only)</h2>
+<div id="outline-container-org1953ed2" class="outline-2">
+<h2 id="org1953ed2"><span class="section-number-2">4</span> Quick Latex(owner only)</h2>
 <div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgddcb284" class="outline-3">
+<h3 id="orgddcb284"><span class="section-number-3">4.1</span> Sistema</h3>
+<div class="outline-text-3" id="text-4-1">
 \begin{cases}
      x1 + 2x2     = 3\\
 .499 x1 + 1.001x2 = 1.5
 \end{cases}
-<p>
-A=randi(100,3)
-</p>
+</div>
+</div>
+<div id="outline-container-orgae9cf2b" class="outline-3">
+<h3 id="orgae9cf2b"><span class="section-number-3">4.2</span> Matrice</h3>
+<div class="outline-text-3" id="text-4-2">
+\begin{matrix}
+u_{11} & u_{12} & u_{13} \\
+l_{21} & u_{22} & u_{23} \\
+l_{31} & l_{32} & u_{33}
+\end{matrix}
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Eros</p>
-<p class="date">Created: 2022-03-29 Tue 14:24</p>
+<p class="date">Created: 2022-03-31 Thu 16:06</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
