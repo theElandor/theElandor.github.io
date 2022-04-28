@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-04-21 Thu 09:08 -->
+<!-- 2022-04-28 Thu 11:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Laboratori, C.D.L Informatica</title>
@@ -267,72 +267,78 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgd3aef7a">1. Matlab</a>
+<li><a href="#orged407fa">1. Matlab</a>
 <ul>
-<li><a href="#orgb8883b7">Funzioni, quick reference</a></li>
-<li><a href="#orge624191">Sfocatura di un immagine (17/03/22)</a></li>
-<li><a href="#orgb0929ae">Qualche iterazione del metodo di gauss (24/03/22)</a></li>
-<li><a href="#org646cc42">Esercitazoine fattorizzazione LU 29/03/22</a>
+<li><a href="#orgb3c09a7">Funzioni, quick reference</a></li>
+<li><a href="#orge4aecab">Sfocatura di un immagine (17/03/22)</a></li>
+<li><a href="#org4a690cc">Qualche iterazione del metodo di gauss (24/03/22)</a></li>
+<li><a href="#org5512f8f">Esercitazoine fattorizzazione LU 29/03/22</a>
 <ul>
-<li><a href="#orgbed43c1">Metodo senza pivoting</a></li>
-<li><a href="#org1babbc8">Metodo LU con pivoting</a></li>
+<li><a href="#orgcf884b7">Metodo senza pivoting</a></li>
+<li><a href="#org2efc3fe">Metodo LU con pivoting</a></li>
 </ul>
 </li>
-<li><a href="#org1212d19">Fattorizzazione LDL<sup>t</sup></a>
+<li><a href="#org19b9ff6">Fattorizzazione LDL<sup>t</sup></a>
 <ul>
-<li><a href="#org3e28a10">Risolvere un sistema lineare</a></li>
+<li><a href="#org9a2a08b">Risolvere un sistema lineare</a></li>
 </ul>
 </li>
-<li><a href="#org964799d">Fattorizzazione di Cholensky</a>
+<li><a href="#org42169ad">Fattorizzazione di Cholensky</a>
 <ul>
-<li><a href="#org322c1a7">Preparazione</a></li>
-<li><a href="#org3836b0c">Codice</a></li>
-<li><a href="#orgd99bae6">Codice con spazio ottimizzato</a></li>
-<li><a href="#orgb64a1ee">Calcolare l'errore</a></li>
-<li><a href="#org89e25e1">Risolvere un sistema lineare</a></li>
+<li><a href="#org39a55a3">Preparazione</a></li>
+<li><a href="#org946af57">Codice</a></li>
+<li><a href="#orgc967d6e">Codice con spazio ottimizzato</a></li>
+<li><a href="#orgf730ea9">Calcolare l'errore</a></li>
+<li><a href="#orgb268721">Risolvere un sistema lineare</a></li>
 </ul>
 </li>
-<li><a href="#org62b4ce6">Fattorizzazione QR</a>
+<li><a href="#orga3ed472">Fattorizzazione QR</a>
 <ul>
-<li><a href="#org391b097">Codice base</a></li>
-<li><a href="#org7730566">Codice ottimizzato</a></li>
+<li><a href="#org479c439">Codice base</a></li>
+<li><a href="#org81e6d42">Codice ottimizzato</a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#orge0885ac">2. SQL</a>
+<li><a href="#org9257e7d">Metodo di Jacobi</a>
 <ul>
-<li><a href="#org6dfd003">Query binarie e annidate</a>
-<ul>
-<li><a href="#org6193585">SQLzoo</a></li>
-<li><a href="#org3eb254b">Database esami</a></li>
-<li><a href="#org9cfb290">Esercizio random</a></li>
-<li><a href="#org130a7d3">Esercizio algebra relazionale</a></li>
+<li><a href="#org094975c">Generazione dei dati</a></li>
+<li><a href="#org5702b1c">Codice</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc34480f">3. Quick Latex(owner only)</a>
+<li><a href="#org3af87ca">2. SQL</a>
 <ul>
-<li><a href="#org022a830">Sistema</a></li>
-<li><a href="#org0cc0a09">Matrice</a></li>
-<li><a href="#org0838940">Latex<sub>orgmode</sub><sub>options</sub></a></li>
+<li><a href="#orga7d579d">Query binarie e annidate</a>
+<ul>
+<li><a href="#orgffb11d2">SQLzoo</a></li>
+<li><a href="#org3f34993">Database esami</a></li>
+<li><a href="#org075f561">Esercizio random</a></li>
+<li><a href="#org5d8eb3d">Esercizio algebra relazionale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgada5bf1">3. Quick Latex(owner only)</a>
+<ul>
+<li><a href="#orgf79c35e">Sistema</a></li>
+<li><a href="#orga754ab3">Matrice</a></li>
+<li><a href="#org8ba679d">Latex<sub>orgmode</sub><sub>options</sub></a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
-<div id="outline-container-orgd3aef7a" class="outline-2">
-<h2 id="orgd3aef7a"><span class="section-number-2">1</span> Matlab</h2>
+<div id="outline-container-orged407fa" class="outline-2">
+<h2 id="orged407fa"><span class="section-number-2">1</span> Matlab</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <b>consiglio</b>: cliccando su <b>collapse all</b> in alto a destra si possono vedere i paragrafi 
 separatamente.
 </p>
 </div>
-<div id="outline-container-orgb8883b7" class="outline-3">
-<h3 id="orgb8883b7">Funzioni, quick reference</h3>
-<div class="outline-text-3" id="text-orgb8883b7">
+<div id="outline-container-orgb3c09a7" class="outline-3">
+<h3 id="orgb3c09a7">Funzioni, quick reference</h3>
+<div class="outline-text-3" id="text-orgb3c09a7">
 <ul class="org-ul">
 <li>Funzione che risolve il sistema: \(Ax=b\)</li>
 </ul>
@@ -359,9 +365,9 @@ una matrice b.<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orge624191" class="outline-3">
-<h3 id="orge624191">Sfocatura di un immagine (17/03/22)</h3>
-<div class="outline-text-3" id="text-orge624191">
+<div id="outline-container-orge4aecab" class="outline-3">
+<h3 id="orge4aecab">Sfocatura di un immagine (17/03/22)</h3>
+<div class="outline-text-3" id="text-orge4aecab">
 <p>
 Vengono di seguito riportati i passi fondamentali:
 </p>
@@ -404,9 +410,9 @@ imshow(sol2_immagine, []); immagine con rumore --&gt; immagine originale
 </div>
 </div>
 </div>
-<div id="outline-container-orgb0929ae" class="outline-3">
-<h3 id="orgb0929ae">Qualche iterazione del metodo di gauss (24/03/22)</h3>
-<div class="outline-text-3" id="text-orgb0929ae">
+<div id="outline-container-org4a690cc" class="outline-3">
+<h3 id="org4a690cc">Qualche iterazione del metodo di gauss (24/03/22)</h3>
+<div class="outline-text-3" id="text-org4a690cc">
 <p>
 <b>big fat warning</b>: i moltiplicatori e le matrici L sono
 state calcolate a mano, poi sono state riportate su matlab.<br />
@@ -472,20 +478,20 @@ alle operazioni floating point.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org646cc42" class="outline-3">
-<h3 id="org646cc42">Esercitazoine fattorizzazione LU 29/03/22</h3>
-<div class="outline-text-3" id="text-org646cc42">
+<div id="outline-container-org5512f8f" class="outline-3">
+<h3 id="org5512f8f">Esercitazoine fattorizzazione LU 29/03/22</h3>
+<div class="outline-text-3" id="text-org5512f8f">
 <p>
 <b>big fat warning</b>: il nome del file deve essere uguale al nome della funzione.<br />
 </p>
 </div>
-<div id="outline-container-orgbed43c1" class="outline-4">
-<h4 id="orgbed43c1">Metodo senza pivoting</h4>
-<div class="outline-text-4" id="text-orgbed43c1">
+<div id="outline-container-orgcf884b7" class="outline-4">
+<h4 id="orgcf884b7">Metodo senza pivoting</h4>
+<div class="outline-text-4" id="text-orgcf884b7">
 </div>
 <ul class="org-ul">
-<li><a id="orgde5157a"></a>Codice sorgente<br />
-<div class="outline-text-5" id="text-orgde5157a">
+<li><a id="org7c34fb5"></a>Codice sorgente<br />
+<div class="outline-text-5" id="text-org7c34fb5">
 <div class="org-src-container">
 <pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">function</span> [L<span style="color: #4f97d7;">,</span>U] <span style="color: #4f97d7;">=</span> <span style="color: #bc6ec5; font-weight: bold;">my_lu_dec</span>(A)
 n <span style="color: #4f97d7;">=</span> length(A)<span style="color: #4f97d7;">;</span>
@@ -503,8 +509,8 @@ U <span style="color: #4f97d7;">=</span> triu(A)<span style="color: #4f97d7;">;<
 </div>
 </div>
 </li>
-<li><a id="org7dfc07f"></a>Commenti<br />
-<div class="outline-text-5" id="text-org7dfc07f">
+<li><a id="orge2260d1"></a>Commenti<br />
+<div class="outline-text-5" id="text-orge2260d1">
 <ul class="org-ul">
 <li>Restituisce il triangolo inferiore della matrice A.</li>
 </ul>
@@ -563,9 +569,9 @@ U <span style="color: #4f97d7;">=</span> triu(A)<span style="color: #4f97d7;">;<
 </li>
 </ul>
 </div>
-<div id="outline-container-org1babbc8" class="outline-4">
-<h4 id="org1babbc8">Metodo LU con pivoting</h4>
-<div class="outline-text-4" id="text-org1babbc8">
+<div id="outline-container-org2efc3fe" class="outline-4">
+<h4 id="org2efc3fe">Metodo LU con pivoting</h4>
+<div class="outline-text-4" id="text-org2efc3fe">
 <p>
 \(LU = PA\)
 </p>
@@ -580,8 +586,8 @@ Di seguito viene riportata la soluzione (nostra, a quanto pare funzionante).<br 
 </p>
 </div>
 <ul class="org-ul">
-<li><a id="org1cc8f61"></a>Codice sorgente<br />
-<div class="outline-text-5" id="text-org1cc8f61">
+<li><a id="org572a4d6"></a>Codice sorgente<br />
+<div class="outline-text-5" id="text-org572a4d6">
 <div class="org-src-container">
 <pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">function</span> [L<span style="color: #4f97d7;">,</span>U<span style="color: #4f97d7;">,</span>P] <span style="color: #4f97d7;">=</span> <span style="color: #bc6ec5; font-weight: bold;">my_lu_dec</span>(A)
 n<span style="color: #4f97d7;">=</span>length(A)<span style="color: #4f97d7;">;</span>
@@ -610,8 +616,8 @@ U<span style="color: #4f97d7;">=</span>triu(A)<span style="color: #4f97d7;">;</s
 </div>
 </div>
 </li>
-<li><a id="org0edbabd"></a>Commenti<br />
-<div class="outline-text-5" id="text-org0edbabd">
+<li><a id="orga02ef94"></a>Commenti<br />
+<div class="outline-text-5" id="text-orga02ef94">
 <ol class="org-ol">
 <li>Creo una matrice di permutazione \(P\) elementare per partire<br /></li>
 <li>Ogni volta cerco il massimo della colonna in cui sono: controllo che non
@@ -627,9 +633,9 @@ infatti bisogna riferirsi all'intera matrice, non alla sottomatrice in cui viene
 </ul>
 </div>
 </div>
-<div id="outline-container-org1212d19" class="outline-3">
-<h3 id="org1212d19">Fattorizzazione LDL<sup>t</sup></h3>
-<div class="outline-text-3" id="text-org1212d19">
+<div id="outline-container-org19b9ff6" class="outline-3">
+<h3 id="org19b9ff6">Fattorizzazione LDL<sup>t</sup></h3>
+<div class="outline-text-3" id="text-org19b9ff6">
 <p>
 Metodo di fattorizzazione sulle matrici simmetriche.
 La versione qui riportata è la versione base, senza l'uso della matrice di appoggio P.
@@ -670,9 +676,9 @@ A_symmetric <span style="color: #4f97d7;">=</span> tril(A) <span style="color: #
 </pre>
 </div>
 </div>
-<div id="outline-container-org3e28a10" class="outline-4">
-<h4 id="org3e28a10">Risolvere un sistema lineare</h4>
-<div class="outline-text-4" id="text-org3e28a10">
+<div id="outline-container-org9a2a08b" class="outline-4">
+<h4 id="org9a2a08b">Risolvere un sistema lineare</h4>
+<div class="outline-text-4" id="text-org9a2a08b">
 \begin{cases}
 Ax=b\\
 LDL^tx=b\\
@@ -690,13 +696,13 @@ L^tx=y \text{(x triangolare superiore)}\\
 </div>
 </div>
 </div>
-<div id="outline-container-org964799d" class="outline-3">
-<h3 id="org964799d">Fattorizzazione di Cholensky</h3>
-<div class="outline-text-3" id="text-org964799d">
+<div id="outline-container-org42169ad" class="outline-3">
+<h3 id="org42169ad">Fattorizzazione di Cholensky</h3>
+<div class="outline-text-3" id="text-org42169ad">
 </div>
-<div id="outline-container-org322c1a7" class="outline-4">
-<h4 id="org322c1a7">Preparazione</h4>
-<div class="outline-text-4" id="text-org322c1a7">
+<div id="outline-container-org39a55a3" class="outline-4">
+<h4 id="org39a55a3">Preparazione</h4>
+<div class="outline-text-4" id="text-org39a55a3">
 <p>
 Per generare una matrice definita positiva:
 </p>
@@ -708,9 +714,9 @@ A<span style="color: #4f97d7;">=</span>A<span style="color: #4f97d7;">*</span>A<
 </div>
 </div>
 </div>
-<div id="outline-container-org3836b0c" class="outline-4">
-<h4 id="org3836b0c">Codice</h4>
-<div class="outline-text-4" id="text-org3836b0c">
+<div id="outline-container-org946af57" class="outline-4">
+<h4 id="org946af57">Codice</h4>
+<div class="outline-text-4" id="text-org946af57">
 <p>
 Codice che implementa la fattorizzazione \(LL^t\).<br />
 </p>
@@ -737,9 +743,9 @@ Codice che implementa la fattorizzazione \(LL^t\).<br />
 </div>
 </div>
 </div>
-<div id="outline-container-orgd99bae6" class="outline-4">
-<h4 id="orgd99bae6">Codice con spazio ottimizzato</h4>
-<div class="outline-text-4" id="text-orgd99bae6">
+<div id="outline-container-orgc967d6e" class="outline-4">
+<h4 id="orgc967d6e">Codice con spazio ottimizzato</h4>
+<div class="outline-text-4" id="text-orgc967d6e">
 <p>
 Invece di usare la matrice \(L\) di appoggio, memorizzo tutto nella parte inferiore della
 matrice \(A\), poi estraggo la parte che mi interessa alla fine della funzione.
@@ -767,18 +773,18 @@ matrice \(A\), poi estraggo la parte che mi interessa alla fine della funzione.
 </div>
 </div>
 </div>
-<div id="outline-container-orgb64a1ee" class="outline-4">
-<h4 id="orgb64a1ee">Calcolare l'errore</h4>
-<div class="outline-text-4" id="text-orgb64a1ee">
+<div id="outline-container-orgf730ea9" class="outline-4">
+<h4 id="orgf730ea9">Calcolare l'errore</h4>
+<div class="outline-text-4" id="text-orgf730ea9">
 <div class="org-src-container">
 <pre class="src src-octave">max(max(abs(L<span style="color: #4f97d7;">*</span>L<span style="color: #4f97d7;">'-</span>A)))
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-org89e25e1" class="outline-4">
-<h4 id="org89e25e1">Risolvere un sistema lineare</h4>
-<div class="outline-text-4" id="text-org89e25e1">
+<div id="outline-container-orgb268721" class="outline-4">
+<h4 id="orgb268721">Risolvere un sistema lineare</h4>
+<div class="outline-text-4" id="text-orgb268721">
 <p>
 Uso la funzione appena creata per risolvere un sistema lineare.<br />
 \(y\) viene trovato tramite <b>sostituzione in avanti</b>, mentre x tramite <b>sostituzione all'indietro</b>.<br />
@@ -801,13 +807,13 @@ x_vera <span style="color: #4f97d7;">=</span> A<span style="color: #4f97d7;">\</
 </div>
 </div>
 </div>
-<div id="outline-container-org62b4ce6" class="outline-3">
-<h3 id="org62b4ce6">Fattorizzazione QR</h3>
-<div class="outline-text-3" id="text-org62b4ce6">
+<div id="outline-container-orga3ed472" class="outline-3">
+<h3 id="orga3ed472">Fattorizzazione QR</h3>
+<div class="outline-text-3" id="text-orga3ed472">
 </div>
-<div id="outline-container-org391b097" class="outline-4">
-<h4 id="org391b097">Codice base</h4>
-<div class="outline-text-4" id="text-org391b097">
+<div id="outline-container-org479c439" class="outline-4">
+<h4 id="org479c439">Codice base</h4>
+<div class="outline-text-4" id="text-org479c439">
 <p>
 Codice per l'implementazione della fattorizzazione QR.
 Manca il controllo all'inizio per verificare se la matrice è <b>nonsingolare</b>.
@@ -839,9 +845,9 @@ end
 </pre>
 </div>
 </div>
-<div id="outline-container-org7730566" class="outline-4">
-<h4 id="org7730566">Codice ottimizzato</h4>
-<div class="outline-text-4" id="text-org7730566">
+<div id="outline-container-org81e6d42" class="outline-4">
+<h4 id="org81e6d42">Codice ottimizzato</h4>
+<div class="outline-text-4" id="text-org81e6d42">
 <p>
 Codice ottimizzato per velocizzare l'operazione \(A=U*A\) e \(Q=U*Q\).
 Scrivendo esplicitamente le operazioni, si riduce il costo computazionale, 
@@ -887,29 +893,79 @@ end
 </div>
 </div>
 </div>
+
+<div id="outline-container-org9257e7d" class="outline-3">
+<h3 id="org9257e7d">Metodo di Jacobi</h3>
+<div class="outline-text-3" id="text-org9257e7d">
 </div>
-<div id="outline-container-orge0885ac" class="outline-2">
-<h2 id="orge0885ac"><span class="section-number-2">2</span> SQL</h2>
+<div id="outline-container-org094975c" class="outline-4">
+<h4 id="org094975c">Generazione dei dati</h4>
+<div class="outline-text-4" id="text-org094975c">
+<ol class="org-ol">
+<li>Genero una matrice \(A\) che sia a diagonale dominante. Dal teorema so che per questo tipo di 
+matrici il metodo delle approssimazioni successive converge;</li>
+<li>Genero \(b\) randomicamente;</li>
+<li>Genero \(x_{0}\) randomicamente;</li>
+<li>Setto la tolleranza tau = \(10^{-6}\);</li>
+<li>Setto \(k_{max}\) per sicurezza, in modo da avere un "bound" di operazioni;</li>
+</ol>
+<div class="org-src-container">
+<pre class="src src-octave">A <span style="color: #4f97d7;">=</span> rand(4) <span style="color: #4f97d7;">+</span> eye(4)<span style="color: #4f97d7;">*</span>4
+b <span style="color: #4f97d7;">=</span> rand(4<span style="color: #4f97d7;">,</span>1)
+x0 <span style="color: #4f97d7;">=</span> rand(4<span style="color: #4f97d7;">,</span>1)
+tau <span style="color: #4f97d7;">=</span> 10<span style="color: #4f97d7;">^-</span>6
+kmax <span style="color: #4f97d7;">=</span> 1000
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org5702b1c" class="outline-4">
+<h4 id="org5702b1c">Codice</h4>
+<div class="outline-text-4" id="text-org5702b1c">
+<div class="org-src-container">
+<pre class="src src-octave"><span style="color: #4f97d7; font-weight: bold;">function</span> [xcurr<span style="color: #4f97d7;">,</span>k] <span style="color: #4f97d7;">=</span> <span style="color: #bc6ec5; font-weight: bold;">my_jacobi</span>(x0<span style="color: #4f97d7;">,</span>A<span style="color: #4f97d7;">,</span>b<span style="color: #4f97d7;">,</span>tau<span style="color: #4f97d7;">,</span>kmax)
+    M <span style="color: #4f97d7;">=</span> diag(diag(A))<span style="color: #4f97d7;">;</span>
+    N <span style="color: #4f97d7;">=</span> M<span style="color: #4f97d7;">-</span>A<span style="color: #4f97d7;">;</span>
+    xcurr <span style="color: #4f97d7;">=</span> x0<span style="color: #4f97d7;">;</span>
+    <span style="color: #4f97d7; font-weight: bold;">for</span> k<span style="color: #4f97d7;">=</span>1<span style="color: #4f97d7;">:</span>kmax
+        xnew <span style="color: #4f97d7;">=</span> M <span style="color: #4f97d7;">\</span>((N<span style="color: #4f97d7;">*</span>xcurr)<span style="color: #4f97d7;">+</span>b)<span style="color: #4f97d7;">;</span>
+        errore <span style="color: #4f97d7;">=</span> norm(xcurr<span style="color: #4f97d7;">-</span>xnew)<span style="color: #4f97d7;">/</span>norm(xnew)<span style="color: #4f97d7;">;</span>
+        residuo <span style="color: #4f97d7;">=</span> A<span style="color: #4f97d7;">*</span>xnew <span style="color: #4f97d7;">-</span>b<span style="color: #4f97d7;">;</span>
+        xcurr <span style="color: #4f97d7;">=</span> xnew<span style="color: #4f97d7;">;</span>
+        <span style="color: #4f97d7; font-weight: bold;">if</span>(errore <span style="color: #4f97d7;">&lt;</span> tau <span style="color: #4f97d7;">&amp;</span> residuo <span style="color: #4f97d7;">&lt;</span> tau)
+            fprintf(<span style="color: #2d9574;">"Tolleranza raggiunta"</span>)
+            <span style="color: #4f97d7; font-weight: bold;">break</span><span style="color: #4f97d7;">;</span>
+        <span style="color: #4f97d7; font-weight: bold;">end</span>
+    <span style="color: #4f97d7; font-weight: bold;">end</span>      
+<span style="color: #4f97d7; font-weight: bold;">end</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org3af87ca" class="outline-2">
+<h2 id="org3af87ca"><span class="section-number-2">2</span> SQL</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org6dfd003" class="outline-3">
-<h3 id="org6dfd003">Query binarie e annidate</h3>
-<div class="outline-text-3" id="text-org6dfd003">
+<div id="outline-container-orga7d579d" class="outline-3">
+<h3 id="orga7d579d">Query binarie e annidate</h3>
+<div class="outline-text-3" id="text-orga7d579d">
 </div>
-<div id="outline-container-org6193585" class="outline-4">
-<h4 id="org6193585">SQLzoo</h4>
-<div class="outline-text-4" id="text-org6193585">
+<div id="outline-container-orgffb11d2" class="outline-4">
+<h4 id="orgffb11d2">SQLzoo</h4>
+<div class="outline-text-4" id="text-orgffb11d2">
 </div>
 <ul class="org-ul">
-<li><a id="orgdbde5ae"></a>Link<br />
-<div class="outline-text-5" id="text-orgdbde5ae">
+<li><a id="org3006a0d"></a>Link<br />
+<div class="outline-text-5" id="text-org3006a0d">
 <p>
 <a href="https://sqlzoo.net/wiki/The_nobel_table_can_be_used_to_practice_more_SUM_and_COUNT_functions">https://sqlzoo.net/wiki/The_nobel_table_can_be_used_to_practice_more_SUM_and_COUNT_functions</a>.
 </p>
 </div>
 </li>
-<li><a id="org60da28a"></a>Es 9<br />
-<div class="outline-text-5" id="text-org60da28a">
+<li><a id="org815e03a"></a>Es 9<br />
+<div class="outline-text-5" id="text-org815e03a">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #4f97d7; font-weight: bold;">select</span> yr
 <span style="color: #4f97d7; font-weight: bold;">from</span> nobel
@@ -920,8 +976,8 @@ end
 </div>
 </div>
 </li>
-<li><a id="org8bcab6b"></a>Es 10<br />
-<div class="outline-text-5" id="text-org8bcab6b">
+<li><a id="orgec41396"></a>Es 10<br />
+<div class="outline-text-5" id="text-orgec41396">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #4f97d7; font-weight: bold;">select</span> winner
 <span style="color: #4f97d7; font-weight: bold;">from</span> nobel
@@ -931,8 +987,8 @@ end
 </div>
 </div>
 </li>
-<li><a id="org8e1dc37"></a>Es 11<br />
-<div class="outline-text-5" id="text-org8e1dc37">
+<li><a id="orgc8b1a47"></a>Es 11<br />
+<div class="outline-text-5" id="text-orgc8b1a47">
 <div class="org-src-container">
 <pre class="src src-sql"><span style="color: #4f97d7; font-weight: bold;">select</span> winner
 <span style="color: #4f97d7; font-weight: bold;">from</span> nobel
@@ -945,13 +1001,13 @@ end
 </ul>
 </div>
 
-<div id="outline-container-org3eb254b" class="outline-4">
-<h4 id="org3eb254b">Database esami</h4>
-<div class="outline-text-4" id="text-org3eb254b">
+<div id="outline-container-org3f34993" class="outline-4">
+<h4 id="org3f34993">Database esami</h4>
+<div class="outline-text-4" id="text-org3f34993">
 </div>
 <ul class="org-ul">
-<li><a id="org5fdea5f"></a>2a<br />
-<div class="outline-text-5" id="text-org5fdea5f">
+<li><a id="org3993add"></a>2a<br />
+<div class="outline-text-5" id="text-org3993add">
 <p>
 Città di studenti ma non di docenti, in due varianti.
 </p>
@@ -979,8 +1035,8 @@ valore <b>null</b>!
 </p>
 </div>
 </li>
-<li><a id="org2c39498"></a>2b<br />
-<div class="outline-text-5" id="text-org2c39498">
+<li><a id="org5a5696e"></a>2b<br />
+<div class="outline-text-5" id="text-org5a5696e">
 <p>
 Nome degli studenti che hanno sostenuto l'esame del corso C1(in due varianti)
 </p>
@@ -1005,8 +1061,8 @@ Oppure, usando soltanto le join:
 </div>
 </div>
 </li>
-<li><a id="orgb7470b4"></a>2c<br />
-<div class="outline-text-5" id="text-orgb7470b4">
+<li><a id="orge05182a"></a>2c<br />
+<div class="outline-text-5" id="text-orge05182a">
 <p>
 Studenti con anno di corso più basso:
 </p>
@@ -1041,8 +1097,8 @@ Dato che uso il costrutto <b>min</b> son sicuro che mi viene restituito un valor
 </div>
 </div>
 </li>
-<li><a id="orgb07145c"></a>2d<br />
-<div class="outline-text-5" id="text-orgb07145c">
+<li><a id="org8c1a5c8"></a>2d<br />
+<div class="outline-text-5" id="text-org8c1a5c8">
 <p>
 Nome degli studenti che non hanno sostenuto l'esame del corso C1.
 Prima variante, con l'operatore <b>not in</b>:
@@ -1085,9 +1141,9 @@ Terza variante: usando l'operatore <b>not exists</b>.<br />
 </li>
 </ul>
 </div>
-<div id="outline-container-org9cfb290" class="outline-4">
-<h4 id="org9cfb290">Esercizio random</h4>
-<div class="outline-text-4" id="text-org9cfb290">
+<div id="outline-container-org075f561" class="outline-4">
+<h4 id="org075f561">Esercizio random</h4>
+<div class="outline-text-4" id="text-org075f561">
 <p>
 Codice dei prodotti non ordinati
 </p>
@@ -1111,9 +1167,9 @@ Altrimenti:
 </div>
 </div>
 </div>
-<div id="outline-container-org130a7d3" class="outline-4">
-<h4 id="org130a7d3">Esercizio algebra relazionale</h4>
-<div class="outline-text-4" id="text-org130a7d3">
+<div id="outline-container-org5d8eb3d" class="outline-4">
+<h4 id="org5d8eb3d">Esercizio algebra relazionale</h4>
+<div class="outline-text-4" id="text-org5d8eb3d">
 <p>
 Studenti che hanno sostenuto tutti gli esami relativi ai corso del docente D1:
 (dove / indica la divisione in algebra relazionale.)
@@ -1133,22 +1189,22 @@ Tramite una serie di operazioni più complesse si può esprimere la stessa inter
 </div>
 </div>
 </div>
-<div id="outline-container-orgc34480f" class="outline-2">
-<h2 id="orgc34480f"><span class="section-number-2">3</span> Quick Latex(owner only)</h2>
+<div id="outline-container-orgada5bf1" class="outline-2">
+<h2 id="orgada5bf1"><span class="section-number-2">3</span> Quick Latex(owner only)</h2>
 <div class="outline-text-2" id="text-3">
 </div>
-<div id="outline-container-org022a830" class="outline-3">
-<h3 id="org022a830">Sistema</h3>
-<div class="outline-text-3" id="text-org022a830">
+<div id="outline-container-orgf79c35e" class="outline-3">
+<h3 id="orgf79c35e">Sistema</h3>
+<div class="outline-text-3" id="text-orgf79c35e">
 \begin{cases}
      x1 + 2x2     = 3\\
 .499 x1 + 1.001x2 = 1.5
 \end{cases}
 </div>
 </div>
-<div id="outline-container-org0cc0a09" class="outline-3">
-<h3 id="org0cc0a09">Matrice</h3>
-<div class="outline-text-3" id="text-org0cc0a09">
+<div id="outline-container-orga754ab3" class="outline-3">
+<h3 id="orga754ab3">Matrice</h3>
+<div class="outline-text-3" id="text-orga754ab3">
 \begin{matrix}
 u_{11} & u_{12} & u_{13} \\
 l_{21} & u_{22} & u_{23} \\
@@ -1157,9 +1213,9 @@ l_{31} & l_{32} & u_{33}
 </div>
 </div>
 
-<div id="outline-container-org0838940" class="outline-3">
-<h3 id="org0838940">Latex<sub>orgmode</sub><sub>options</sub></h3>
-<div class="outline-text-3" id="text-org0838940">
+<div id="outline-container-org8ba679d" class="outline-3">
+<h3 id="org8ba679d">Latex<sub>orgmode</sub><sub>options</sub></h3>
+<div class="outline-text-3" id="text-org8ba679d">
 <ul class="org-ul">
 <li>Per produrre un output su due colonne</li>
 </ul>
@@ -1186,7 +1242,7 @@ l_{31} & l_{32} & u_{33}
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Eros</p>
-<p class="date">Created: 2022-04-21 Thu 09:08</p>
+<p class="date">Created: 2022-04-28 Thu 11:08</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
