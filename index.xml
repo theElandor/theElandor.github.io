@@ -6,33 +6,15 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Sep 2022 14:23:13 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 19:32:28 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Hack the Box</title>
-      <link>/htb/</link>
-      <pubDate>Wed, 28 Sep 2022 14:23:13 +0200</pubDate>
-      
-      <guid>/htb/</guid>
-      <description>INDEX Links to HTB tutorials!
-  HTB-Three HTB-Archetype  </description>
-      <content>&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
-&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Protocolli e architetture di rete (2022/2023)</title>
+      <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Wed, 28 Sep 2022 14:22:07 +0200</pubDate>
+      <pubDate>Wed, 28 Sep 2022 19:32:28 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>  Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere sono:
- username: PAR2223 password: Kaw8Meir   TABLE OF CONTENTS  Metodi di comunicazione   Metodi di comunicazione </description>
+ username: PAR2223 password: Kaw8Meir   TABLE OF CONTENTS  Metodi di comunicazione   Metodi di comunicazione   </description>
       <content>
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
@@ -60,6 +42,38 @@ Le credenziali per accedere sono:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;Metodi di comunicazione&lt;/h2&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/osi_layers.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+</content>
+    </item>
+    
+    <item>
+      <title>Hack the Box</title>
+      <link>/htb/</link>
+      <pubDate>Wed, 28 Sep 2022 14:23:13 +0200</pubDate>
+      
+      <guid>/htb/</guid>
+      <description>INDEX Links to HTB tutorials!
+  HTB-Three HTB-Archetype  </description>
+      <content>&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
+&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     </item>
     
