@@ -6,15 +6,18 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Sep 2022 12:39:56 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 14:23:13 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Hack the Box</title>
       <link>/htb/</link>
-      <pubDate>Wed, 28 Sep 2022 12:39:56 +0200</pubDate>
+      <pubDate>Wed, 28 Sep 2022 14:23:13 +0200</pubDate>
       
       <guid>/htb/</guid>
-      <description>TABLE OF CONTENTS  HTB-Three HTB-Archetype  </description>
-      <content>&lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
+      <description>INDEX Links to HTB tutorials!
+  HTB-Three HTB-Archetype  </description>
+      <content>&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
+&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
+&lt;hr&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
@@ -25,7 +28,7 @@
     <item>
       <title>Protocolli e architetture di rete (2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Wed, 28 Sep 2022 12:22:23 +0200</pubDate>
+      <pubDate>Wed, 28 Sep 2022 14:22:07 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>  Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere sono:
@@ -43,12 +46,12 @@
 di Unimore.
 Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
 fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al materiale didattico:
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
 &lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
 Le credenziali per accedere sono:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;username: PAR2223&lt;/li&gt;
-&lt;li&gt;password: Kaw8Meir&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Kaw8Meir&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
