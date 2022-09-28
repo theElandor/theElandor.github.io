@@ -6,7 +6,59 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Sep 2022 19:32:28 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 28 Sep 2022 20:19:35 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cyber Phisical Security ITA-(2022/2023)</title>
+      <link>/security/</link>
+      <pubDate>Wed, 28 Sep 2022 20:19:35 +0200</pubDate>
+      
+      <guid>/security/</guid>
+      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno riassunte le parti più importanti/meno intuitive e semplici del materiale didattico, insieme a commenti e considerazioni. Il materiale qui fornito non è sostitutivo alle slide del corso. → Link per accedere al materiale didattico:
+https://moodle.unimore.it/course/view.php?id=8096
+ TABLE OF CONTENTS  Esecuzione Privilegi Elevati (Lezione 3)   Esecuzione Privilegi Elevati (Lezione 3) A partire da UNIX system V esistono 3 tipologie di User / Group ID:</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/security.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;intro-e-disclaimer&#34;&gt;&lt;em&gt;Intro e disclaimer&lt;/em&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica
+di Unimore.
+Verranno riassunte le parti più importanti/meno intuitive e semplici del materiale didattico,
+insieme a commenti e considerazioni.
+Il materiale qui fornito non è sostitutivo alle slide del corso.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=8096&#34;&gt;https://moodle.unimore.it/course/view.php?id=8096&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/h2&gt;
+&lt;p&gt;A partire da UNIX system V esistono 3 tipologie di User / Group ID:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;u/g ID reale;&lt;/li&gt;
+&lt;li&gt;u/g ID effettivo;&lt;/li&gt;
+&lt;li&gt;u/g ID salvato;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Come recuperare gli ID reali ed effettivi? &amp;ndash;&amp;gt; con le seguenti chiamate di sistema:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getuid&lt;/code&gt; &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;reale&lt;/strong&gt; del processo invocante;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;geteuid&lt;/code&gt; &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;effettivo&lt;/strong&gt; del processo invocante;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una pratica utile è l&amp;rsquo;&lt;strong&gt;abbassamento dei privilegi&lt;/strong&gt; (anche detto privilege-drop), utile
+per evitare l&amp;rsquo;esecuzione di applicazioni interamente con privilegi di root.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;modalità &lt;strong&gt;permanente&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;setuid(getuid())&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;modalità &lt;strong&gt;temporanea&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;seteuid(getuid())&lt;/code&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
