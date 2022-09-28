@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/htb/</loc>
+    <lastmod>2022-09-28T12:39:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2022-09-28T12:39:56+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reti/</loc>
+    <lastmod>2022-09-28T12:22:23+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/archetype/</loc>
+    <lastmod>2022-09-28T11:38:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2022-09-28T11:38:57+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/about/</loc>
+    <lastmod>2022-09-27T17:21:39+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/three/</loc>
+    <lastmod>2022-09-15T14:57:26+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+  </url>
+  
+</urlset>

