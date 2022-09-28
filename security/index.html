@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-09-28 20:19:35 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-09-28 23:03:04 &#43;0200 CEST" />
 
 
 
@@ -179,10 +179,10 @@
 
 <h2 id="intro-e-disclaimer"><em>Intro e disclaimer</em><a href="#intro-e-disclaimer" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <pre><code class="language-example" data-lang="example">Questa pagina (in italiano) contiene i miei appunti del corso di
-&quot;Protocolli e architetture di rete&quot; del corso triennale di informatica
-di Unimore.
-Verranno riassunte le parti più importanti/meno intuitive e semplici del materiale didattico,
-insieme a commenti e considerazioni.
+&quot;Cyber Phisical security&quot; del corso triennale di ingegneria informatica
+di Unimore (sede di Mantova).
+Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico,
+insieme a commenti e considerazioni (a volte eventuali approfondimenti).
 Il materiale qui fornito non è sostitutivo alle slide del corso.
 </code></pre><p>→ Link per accedere al <code>materiale didattico</code>:</p>
 <p><a href="https://moodle.unimore.it/course/view.php?id=8096">https://moodle.unimore.it/course/view.php?id=8096</a></p>
@@ -199,6 +199,10 @@ Il materiale qui fornito non è sostitutivo alle slide del corso.
 <li>u/g ID effettivo;</li>
 <li>u/g ID salvato;</li>
 </ol>
+<p>Quando parte un processo, le credenziali &ldquo;salvate&rdquo; assumono il valore delle
+credenziali effettive. In questo modo possono tornare utili al momento
+del privilege drop, quando da credenziali &ldquo;superiori&rdquo; temporanee si deve tornare
+alle credenziali effettive.</p>
 <p>Come recuperare gli ID reali ed effettivi? &ndash;&gt; con le seguenti chiamate di sistema:</p>
 <ul>
 <li><code>getuid</code> &ndash;&gt; ritorna l&rsquo;ID <strong>reale</strong> del processo invocante;</li>
@@ -210,6 +214,73 @@ per evitare l&rsquo;esecuzione di applicazioni interamente con privilegi di root
 <li>modalità <strong>permanente</strong> &ndash;&gt; <code>setuid(getuid())</code>;</li>
 <li>modalità <strong>temporanea</strong> &ndash;&gt; <code>seteuid(getuid())</code>;</li>
 </ul>
+<p>Nell&rsquo;esempio seguente vengono usati i concetti appena descritti.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]){
+
+      uid_t uid, euid;
+      uid_t priv_uid;
+
+      uid <span style="color:#f92672">=</span> getuid(); <span style="color:#75715e">// id reale del processo
+</span><span style="color:#75715e"></span>      euid <span style="color:#f92672">=</span> geteuid(); <span style="color:#75715e">// id effettivo del processo
+</span><span style="color:#75715e"></span>      priv_uid <span style="color:#f92672">=</span> euid; <span style="color:#75715e">// id saved
+</span><span style="color:#75715e"></span>
+      <span style="color:#75715e">// stampo id reale ed effettivo PRIMA del privilege drop (temporaneo)
+</span><span style="color:#75715e"></span>      printf(<span style="color:#e6db74">&#34;Prima di seteuid(uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
+      printf(<span style="color:#e6db74">&#34;Prima di seteuid(uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
+
+      <span style="color:#66d9ef">if</span>(seteuid(uid) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+	      printf(<span style="color:#e6db74">&#34;Non sono riuscito ad abbassare i privilegi.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	      exit(<span style="color:#ae81ff">1</span>);
+      }
+
+      <span style="color:#75715e">// stampo id reale ed effettivo DOPO il privilege drop (temporaneo)
+</span><span style="color:#75715e"></span>      uid <span style="color:#f92672">=</span> getuid();
+      euid <span style="color:#f92672">=</span> geteuid();
+
+      printf(<span style="color:#e6db74">&#34;Dopo seteuid(uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
+      printf(<span style="color:#e6db74">&#34;Dopo seteuid(uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
+
+      <span style="color:#66d9ef">if</span>(seteuid(priv_uid) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+	      printf(<span style="color:#e6db74">&#34;Non sono riuscito a ripristinare i privilegi.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+	      exit(<span style="color:#ae81ff">1</span>);
+      }
+
+      uid <span style="color:#f92672">=</span> getuid();
+      euid <span style="color:#f92672">=</span> geteuid();
+
+      <span style="color:#75715e">// stampo id reale ed effettivo dopo il privilege restore
+</span><span style="color:#75715e"></span>      printf(<span style="color:#e6db74">&#34;Dopo seteuid(priv_uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
+      printf(<span style="color:#e6db74">&#34;Dopo seteuid(priv_uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
+}
+</code></pre></div><p>Altre due chiamate di sistema per lavorare con gli UID:</p>
+<ul>
+<li><code>getresuid</code> &ndash;&gt; recupera tutti gli UID (saved compreso) del processo invocante;</li>
+<li><code>setresuid</code> &ndash;&gt; per impostare tutti gli UID del processo;</li>
+</ul>
+<p>Privilege drop <strong>permanente</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>uid, uid, uid<span style="color:#f92672">)</span>;
+</code></pre></div><p>In questo modo vengono abbassati permanentemente i privilegi del processo invocante.
+Essenzialmente &ldquo;blocco&rdquo; tutti gli UID a quelli specificati.</p>
+<p>Privilege drop <strong>temporaneo</strong>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>-1, getuid<span style="color:#f92672">()</span>, -1<span style="color:#f92672">)</span>;
+setresuid<span style="color:#f92672">(</span>-1, uid, -1<span style="color:#f92672">)</span> ≡ seteuid<span style="color:#f92672">(</span>uid<span style="color:#f92672">)</span>;
+</code></pre></div><p>Ripristino temporaneo dei privilegi:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>-1, privileged_ID, -1<span style="color:#f92672">)</span>;
+</code></pre></div><p>In generale non viene mai acceso il SETUID su una shell, altrimenti le conseguenze potrebbero
+essere gravi.
+Ricorda che quando un file (con SETUID acceso) viene copiato, il SETUID/SETGID viene automaticamente
+rimosso.</p>
+<p>Una considerazione è da fare su il <strong>tracciamento</strong> dei processi: si potrebbero sfruttare &ldquo;tracciatori&rdquo;
+come <em>strace</em> o <em>gdb</em> per analizzare le chiamate di sistema di un processo con alti privilegi, per
+poi provare a fare una privilege escalation. Per evitare questo problema, si possono inibire i SETUID/
+SETGID, in modo da impedire l&rsquo;aggancio del programma tracciante al programma tracciato.</p>
+<p>Un metodo ancora più sicuro di strutturare i privilegi è quello delle <strong>capabilities</strong>
+&ndash;&gt; <code>man 7 capabilities</code>.</p>
 
       </div></div>
 
