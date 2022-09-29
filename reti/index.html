@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-09-28 19:32:28 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-09-29 10:38:03 &#43;0200 CEST" />
 
 
 
@@ -155,7 +155,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-09-28
+        2022-09-29
         
       </span>
     
@@ -193,10 +193,11 @@ Le credenziali per accedere sono:</p>
 <hr>
 <h2 id="table-of-contents">TABLE OF CONTENTS<a href="#table-of-contents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
-<li><a href="#metodi-di-comunicazione">Metodi di comunicazione</a></li>
+<li><a href="#metodi-di-comunicazione">METODI DI COMUNICAZIONE</a></li>
+<li><a href="#protocollo-tcp-ip">PROTOCOLLO TCP/IP</a></li>
 </ul>
 <hr>
-<h2 id="metodi-di-comunicazione">Metodi di comunicazione<a href="#metodi-di-comunicazione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="metodi-di-comunicazione">METODI DI COMUNICAZIONE<a href="#metodi-di-comunicazione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 
   <figure class="left" >
     <img src="/ox-hugo/protocolli_intro_sintesi.png"   />
@@ -204,13 +205,54 @@ Le credenziali per accedere sono:</p>
   </figure>
 
 
+<p>I protocolli hanno senso se condivisi, bisogna definire degli <strong>standard</strong>
+comuni.</p>
+<ul>
+<li><code>ISO/OSI</code> &ndash;&gt; standard <strong>de iure</strong>, prima progettato su carta.</li>
+</ul>
+<p>Sviluppato su 7 livelli come in Figura 1. Il pacchetto viene &ldquo;inviato&rdquo;
+dallo strato fisico di un host all&rsquo;altro, poi viene &ldquo;depacchettizzato&rdquo;.</p>
+<ol>
+<li><strong>Livello fisico</strong> : interessante dal punto di vista elettronico.</li>
+<li><strong>Livello di collegamento</strong>: stabilisce come vengono strutturati i pacchetti</li>
+</ol>
+<p>appena prima che vengano trasmessi fisicamente.Il pacchetto a questo
+stadio viene anche chiamato <strong>frame</strong> (es. contiene dei bit per sincronizzare le schede di rete prima
+della configurazione effettiva).</p>
+<ol>
+<li><strong>Livello di rete</strong> Livello centrale, si occupa dell&rsquo;instradamento dei pacchetti.</li>
+<li><strong>Livello di trasporto</strong>: trasporto dei pacchetti nella rete (nodi).</li>
+<li><strong>Livello di sessione</strong>: vuole ricreare un&rsquo;astrazione di alto livello, ri-orgranizzando
+i pacchetti.</li>
+<li><strong>Livello di presentazione</strong>: si occupa di come viene <em>rappresentata</em> l&rsquo;informazione.</li>
+<li><strong>Livello di applicazione</strong>: fornisce un&rsquo;interfaccia per le applicazioni
+che si interfacciano con la rete.</li>
+</ol>
 
   <figure class="left" >
     <img src="/ox-hugo/osi_layers.png"   />
     
+      <figcaption class="center" ><span class="figure-number">Figure 1: </span>ISO/OSI stack</figcaption>
+    
   </figure>
 
 
+<ul>
+<li><code>TCP/IP</code> &ndash;&gt; ha prevalso nello sviluppo di internet.</li>
+</ul>
+<p>Diversi layer comportano un costo &ndash;&gt; si cerca di snellire lo stack,
+diminuendo il numero di livelli. Nonostante ciò, si vuole mantanere
+la numerazione precedente (Livello trasporto &ndash;&gt; 4, Livello Rete &ndash;&gt; 3).</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/tcpip.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 2: </span>tcp/ip stack</figcaption>
+    
+  </figure>
+
+
+<h2 id="protocollo-tcp-ip">PROTOCOLLO TCP/IP<a href="#protocollo-tcp-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 
       </div></div>
 

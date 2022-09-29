@@ -6,7 +6,101 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 28 Sep 2022 23:03:04 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 10:38:03 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
+      <link>/reti/</link>
+      <pubDate>Thu, 29 Sep 2022 10:38:03 +0200</pubDate>
+      
+      <guid>/reti/</guid>
+      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere sono:
+ username: PAR2223 password: Kaw8Meir   TABLE OF CONTENTS  METODI DI COMUNICAZIONE PROTOCOLLO TCP/IP   METODI DI COMUNICAZIONE  I protocolli hanno senso se condivisi, bisogna definire degli standard comuni.</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;intro-e-disclaimer&#34;&gt;&lt;em&gt;Intro e disclaimer&lt;/em&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica
+di Unimore.
+Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
+fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
+&lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
+Le credenziali per accedere sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Kaw8Meir&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;I protocolli hanno senso se condivisi, bisogna definire degli &lt;strong&gt;standard&lt;/strong&gt;
+comuni.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ISO/OSI&lt;/code&gt; &amp;ndash;&amp;gt; standard &lt;strong&gt;de iure&lt;/strong&gt;, prima progettato su carta.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sviluppato su 7 livelli come in Figura 1. Il pacchetto viene &amp;ldquo;inviato&amp;rdquo;
+dallo strato fisico di un host all&amp;rsquo;altro, poi viene &amp;ldquo;depacchettizzato&amp;rdquo;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Livello fisico&lt;/strong&gt; : interessante dal punto di vista elettronico.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di collegamento&lt;/strong&gt;: stabilisce come vengono strutturati i pacchetti&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;appena prima che vengano trasmessi fisicamente.Il pacchetto a questo
+stadio viene anche chiamato &lt;strong&gt;frame&lt;/strong&gt; (es. contiene dei bit per sincronizzare le schede di rete prima
+della configurazione effettiva).&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Livello di rete&lt;/strong&gt; Livello centrale, si occupa dell&amp;rsquo;instradamento dei pacchetti.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di trasporto&lt;/strong&gt;: trasporto dei pacchetti nella rete (nodi).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di sessione&lt;/strong&gt;: vuole ricreare un&amp;rsquo;astrazione di alto livello, ri-orgranizzando
+i pacchetti.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di presentazione&lt;/strong&gt;: si occupa di come viene &lt;em&gt;rappresentata&lt;/em&gt; l&amp;rsquo;informazione.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di applicazione&lt;/strong&gt;: fornisce un&amp;rsquo;interfaccia per le applicazioni
+che si interfacciano con la rete.&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/osi_layers.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;ISO/OSI stack&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;TCP/IP&lt;/code&gt; &amp;ndash;&amp;gt; ha prevalso nello sviluppo di internet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Diversi layer comportano un costo &amp;ndash;&amp;gt; si cerca di snellire lo stack,
+diminuendo il numero di livelli. Nonostante ciò, si vuole mantanere
+la numerazione precedente (Livello trasporto &amp;ndash;&amp;gt; 4, Livello Rete &amp;ndash;&amp;gt; 3).&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/tcpip.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;tcp/ip stack&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/h2&gt;
+</content>
+    </item>
+    
     <item>
       <title>Cyber Phisical Security ITA-(2022/2023)</title>
       <link>/security/</link>
@@ -127,58 +221,6 @@ poi provare a fare una privilege escalation. Per evitare questo problema, si pos
 SETGID, in modo da impedire l&amp;rsquo;aggancio del programma tracciante al programma tracciato.&lt;/p&gt;
 &lt;p&gt;Un metodo ancora più sicuro di strutturare i privilegi è quello delle &lt;strong&gt;capabilities&lt;/strong&gt;
 &amp;ndash;&amp;gt; &lt;code&gt;man 7 capabilities&lt;/code&gt;.&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
-      <link>/reti/</link>
-      <pubDate>Wed, 28 Sep 2022 19:32:28 +0200</pubDate>
-      
-      <guid>/reti/</guid>
-      <description>  Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere sono:
- username: PAR2223 password: Kaw8Meir   TABLE OF CONTENTS  Metodi di comunicazione   Metodi di comunicazione   </description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;h2 id=&#34;intro-e-disclaimer&#34;&gt;&lt;em&gt;Intro e disclaimer&lt;/em&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica
-di Unimore.
-Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
-fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
-&lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
-Le credenziali per accedere sono:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Kaw8Meir&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#metodi-di-comunicazione&#34;&gt;Metodi di comunicazione&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;Metodi di comunicazione&lt;/h2&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/osi_layers.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
 </content>
     </item>
     
