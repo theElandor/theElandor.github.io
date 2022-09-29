@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 12:55:47 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 18:05:24 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Thu, 29 Sep 2022 12:55:47 +0200</pubDate>
+      <pubDate>Thu, 29 Sep 2022 18:05:24 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -66,12 +66,10 @@ comuni.&lt;/p&gt;
 dallo strato fisico di un host all&amp;rsquo;altro, poi viene &amp;ldquo;depacchettizzato&amp;rdquo;.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;Livello fisico&lt;/strong&gt; : interessante dal punto di vista elettronico.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Livello di collegamento&lt;/strong&gt;: stabilisce come vengono strutturati i pacchetti&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;appena prima che vengano trasmessi fisicamente.Il pacchetto a questo
+&lt;li&gt;&lt;strong&gt;Livello di collegamento&lt;/strong&gt;: stabilisce come vengono strutturati i pacchetti
+appena prima che vengano trasmessi fisicamente.Il pacchetto a questo
 stadio viene anche chiamato &lt;strong&gt;frame&lt;/strong&gt; (es. contiene dei bit per sincronizzare le schede di rete prima
-della configurazione effettiva).&lt;/p&gt;
-&lt;ol&gt;
+della configurazione effettiva).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Livello di rete&lt;/strong&gt; Livello centrale, si occupa dell&amp;rsquo;instradamento dei pacchetti.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Livello di trasporto&lt;/strong&gt;: trasporto dei pacchetti nella rete (nodi).&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Livello di sessione&lt;/strong&gt;: vuole ricreare un&amp;rsquo;astrazione di alto livello, ri-orgranizzando
@@ -90,7 +88,7 @@ che si interfacciano con la rete.&lt;/li&gt;
 
 
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;TCP/IP&lt;/code&gt; &amp;ndash;&amp;gt; ha prevalso nello sviluppo di internet.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;TCP/IP&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; ha prevalso nello sviluppo di internet.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Diversi layer comportano un costo &amp;ndash;&amp;gt; si cerca di snellire lo stack,
 diminuendo il numero di livelli. Nonostante ciò, si vuole mantanere
