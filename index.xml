@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 12:49:43 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 12:55:47 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Thu, 29 Sep 2022 12:49:43 +0200</pubDate>
+      <pubDate>Thu, 29 Sep 2022 12:55:47 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -226,7 +226,12 @@ qualsiasi punto, la rete si rompe e non funziona più.&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;ANELLO&lt;/code&gt; &amp;ndash;&amp;gt; Un host che riceve un pacchetto si chiede se il pacchetto
 è destinato a lui. Se non è per lui, quell&amp;rsquo;host &lt;strong&gt;inoltra&lt;/strong&gt; il pacchetto!
 L&amp;rsquo;host destinatario assorbe il pacchetto quando gli arriva.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;STELLA&lt;/code&gt; &amp;ndash;&amp;gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;STELLA&lt;/code&gt; &amp;ndash;&amp;gt; Gli host sono connessi ad un dispositivo centrale dedicato.
+Si riescono a raggiungere distanze maggiori (due host possono essere
+distanti &amp;ldquo;2 cavi&amp;rdquo;). La rottura di un collegamento provoca solo
+l&amp;rsquo;interruzione della connessione con un host. Il problema è che
+se si rompe il dispositivo centrale (o si congestiona) la rete
+si rompe o si rallenta.&lt;/li&gt;
 &lt;/ol&gt;
 </content>
     </item>
