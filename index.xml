@@ -6,15 +6,15 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 10:38:03 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 11:31:13 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Thu, 29 Sep 2022 10:38:03 +0200</pubDate>
+      <pubDate>Thu, 29 Sep 2022 11:31:13 +0200</pubDate>
       
       <guid>/reti/</guid>
-      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere sono:
- username: PAR2223 password: Kaw8Meir   TABLE OF CONTENTS  METODI DI COMUNICAZIONE PROTOCOLLO TCP/IP   METODI DI COMUNICAZIONE  I protocolli hanno senso se condivisi, bisogna definire degli standard comuni.</description>
+      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
+ username: PAR2223 password: Kaw8Meir  Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:</description>
       <content>
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
@@ -30,10 +30,15 @@ Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
 fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
 &lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
-Le credenziali per accedere sono:&lt;/p&gt;
+Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Kaw8Meir&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2021&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: wuaMoop2&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
@@ -97,7 +102,64 @@ la numerazione precedente (Livello trasporto &amp;ndash;&amp;gt; 4, Livello Rete
   &lt;/figure&gt;
 
 
+&lt;hr&gt;
 &lt;h2 id=&#34;protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/h2&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/htn.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;2- &lt;strong&gt;Host to Network&lt;/strong&gt; Modifiche del protocollo HTN non dovrebbero impattare il resto della rete:
+(es. posso creare una rete universitaria, basta avere l&amp;rsquo;hardware necessario).&lt;/p&gt;
+&lt;p&gt;3- &lt;strong&gt;Network&lt;/strong&gt;: Protocollo per la consegna dei pacchetti da un host mittente
+ad un destinatario. Ci si occupa semplicemente dell&amp;rsquo;invio dei pacchetti,
+non ci si preoccupa di sessioni, pacchetti mancanti, congestione, o simili.&lt;/p&gt;
+&lt;p&gt;4- &lt;strong&gt;Transport&lt;/strong&gt;: servizio di consegna con impegno tra due &lt;em&gt;processi applicativi&lt;/em&gt;
+che stanno eseguendo su due host terminali. (es TCP, UDP);&lt;/p&gt;
+&lt;p&gt;5- &lt;strong&gt;Application&lt;/strong&gt;: lo vedremo in seguito.&lt;/p&gt;
+&lt;p&gt;i layer 3 e 4 sono sempre essenzialmente quelli, possono cambiare spesso i livelli
+2 e 5 nelle telecomunicazioni!&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/clessidra.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 3: &lt;/span&gt;Modello a clessidra&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;(es. Alcune applicazioni potrebbero avere la necessità di sfruttare il protocollo
+TCP perchè &lt;strong&gt;vuole garantire la consegna di tutti i pacchetti&lt;/strong&gt; ).&lt;/p&gt;
+&lt;p&gt;(es. A livello host to network, una rete wireless potrebbe preoccuparsi della
+garanzia di consegna dei pacchetti. In questo modo risolvo &lt;strong&gt;localmente&lt;/strong&gt; un possibile
+problema di non consegna dei pacchetti. Se non me ne preoccupo localmente, un&amp;rsquo;altro
+host dall&amp;rsquo;altra parte del mondo potrebbe ricevere dei dati non completi.)&lt;/p&gt;
+&lt;p&gt;(solitamente ci si occupa dell&amp;rsquo;affidabilità a livello &lt;strong&gt;end to end&lt;/strong&gt;, a me interessa
+che le applicazioni comunichino correttamente!)&lt;/p&gt;
+&lt;p&gt;&amp;ndash;&amp;gt; &lt;strong&gt;morale&lt;/strong&gt;: posso decidere di risolvere i problemi in diversi layer dello stack,
+quindi a seconda del contesto si possono spostare alcune funzioni in altri livelli
+dello stack.&lt;/p&gt;
+&lt;p&gt;Non tutti i dispositivi(nodi) implementano tutto lo stack, si possono basare
+soltanto su alcuni layer. Switch e bridge sono dispositivi di livelo 2,
+che basano il loro funzionamento &lt;strong&gt;soltanto&lt;/strong&gt; sul livello 2 (non sanno nulla
+del protocolli IP ad esempio)! Il concetto è estendibile: un &lt;strong&gt;router&lt;/strong&gt;
+legge fino al livello 3, quindi fino all&amp;rsquo;indirizzo IP!&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/switch.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 4: &lt;/span&gt;Dispositivi Livello 2&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Tuttavia esistono delle eccezioni, come gli switch di livello 3, quindi
+anche qua c&#39;è flessibilità.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deep packet inspection:&lt;/strong&gt; &amp;ndash;&amp;gt; quando si parla di dispositivi che sono in
+grado di analizzare più in profondità i pacchetti: riesce a leggere informazioni
+anche a livelli più alti dello stack.&lt;/p&gt;
 </content>
     </item>
     

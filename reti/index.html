@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-09-29 10:38:03 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-09-29 11:31:13 &#43;0200 CEST" />
 
 
 
@@ -185,10 +185,15 @@ Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
 fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
 </code></pre><p>→ Link per accedere al <code>materiale didattico</code>:
 <a href="https://weblab.ing.unimore.it/protocolli/2223">https://weblab.ing.unimore.it/protocolli/2223</a>
-Le credenziali per accedere sono:</p>
+Le credenziali per accedere al materiale di quest&rsquo;anno sono:</p>
 <ul>
 <li><strong>username</strong>: PAR2223</li>
 <li><strong>password</strong>: Kaw8Meir</li>
+</ul>
+<p>Le credenziali per accedere al materiale dell&rsquo;anno scorso sono:</p>
+<ul>
+<li><strong>username</strong>: PAR2021</li>
+<li><strong>password</strong>: wuaMoop2</li>
 </ul>
 <hr>
 <h2 id="table-of-contents">TABLE OF CONTENTS<a href="#table-of-contents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -252,7 +257,64 @@ la numerazione precedente (Livello trasporto &ndash;&gt; 4, Livello Rete &ndash;
   </figure>
 
 
+<hr>
 <h2 id="protocollo-tcp-ip">PROTOCOLLO TCP/IP<a href="#protocollo-tcp-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+
+  <figure class="left" >
+    <img src="/ox-hugo/htn.png"   />
+    
+  </figure>
+
+
+<p>2- <strong>Host to Network</strong> Modifiche del protocollo HTN non dovrebbero impattare il resto della rete:
+(es. posso creare una rete universitaria, basta avere l&rsquo;hardware necessario).</p>
+<p>3- <strong>Network</strong>: Protocollo per la consegna dei pacchetti da un host mittente
+ad un destinatario. Ci si occupa semplicemente dell&rsquo;invio dei pacchetti,
+non ci si preoccupa di sessioni, pacchetti mancanti, congestione, o simili.</p>
+<p>4- <strong>Transport</strong>: servizio di consegna con impegno tra due <em>processi applicativi</em>
+che stanno eseguendo su due host terminali. (es TCP, UDP);</p>
+<p>5- <strong>Application</strong>: lo vedremo in seguito.</p>
+<p>i layer 3 e 4 sono sempre essenzialmente quelli, possono cambiare spesso i livelli
+2 e 5 nelle telecomunicazioni!</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/clessidra.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 3: </span>Modello a clessidra</figcaption>
+    
+  </figure>
+
+
+<p>(es. Alcune applicazioni potrebbero avere la necessità di sfruttare il protocollo
+TCP perchè <strong>vuole garantire la consegna di tutti i pacchetti</strong> ).</p>
+<p>(es. A livello host to network, una rete wireless potrebbe preoccuparsi della
+garanzia di consegna dei pacchetti. In questo modo risolvo <strong>localmente</strong> un possibile
+problema di non consegna dei pacchetti. Se non me ne preoccupo localmente, un&rsquo;altro
+host dall&rsquo;altra parte del mondo potrebbe ricevere dei dati non completi.)</p>
+<p>(solitamente ci si occupa dell&rsquo;affidabilità a livello <strong>end to end</strong>, a me interessa
+che le applicazioni comunichino correttamente!)</p>
+<p>&ndash;&gt; <strong>morale</strong>: posso decidere di risolvere i problemi in diversi layer dello stack,
+quindi a seconda del contesto si possono spostare alcune funzioni in altri livelli
+dello stack.</p>
+<p>Non tutti i dispositivi(nodi) implementano tutto lo stack, si possono basare
+soltanto su alcuni layer. Switch e bridge sono dispositivi di livelo 2,
+che basano il loro funzionamento <strong>soltanto</strong> sul livello 2 (non sanno nulla
+del protocolli IP ad esempio)! Il concetto è estendibile: un <strong>router</strong>
+legge fino al livello 3, quindi fino all&rsquo;indirizzo IP!</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/switch.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 4: </span>Dispositivi Livello 2</figcaption>
+    
+  </figure>
+
+
+<p>Tuttavia esistono delle eccezioni, come gli switch di livello 3, quindi
+anche qua c'è flessibilità.</p>
+<p><strong>Deep packet inspection:</strong> &ndash;&gt; quando si parla di dispositivi che sono in
+grado di analizzare più in profondità i pacchetti: riesce a leggere informazioni
+anche a livelli più alti dello stack.</p>
 
       </div></div>
 
