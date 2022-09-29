@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 29 Sep 2022 11:31:13 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Sep 2022 12:49:43 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Thu, 29 Sep 2022 11:31:13 +0200</pubDate>
+      <pubDate>Thu, 29 Sep 2022 12:49:43 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -45,6 +45,8 @@ Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
@@ -160,6 +162,72 @@ anche qua c&#39;è flessibilità.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Deep packet inspection:&lt;/strong&gt; &amp;ndash;&amp;gt; quando si parla di dispositivi che sono in
 grado di analizzare più in profondità i pacchetti: riesce a leggere informazioni
 anche a livelli più alti dello stack.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/h2&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/h2n1.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Alcuni esempi:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wired: Ethernet;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wireless: 802.11x;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PAN&lt;/strong&gt;: (Bluetooth);&lt;/li&gt;
+&lt;li&gt;Mediante &lt;strong&gt;modem&lt;/strong&gt;: da rivedere;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;L&amp;rsquo;unità informativa è chiamata &lt;code&gt;frame&lt;/code&gt; (host-
+router/switch, router/switch-router/switch, host-host).&lt;/p&gt;
+&lt;h3 id=&#34;modalità-di-trasmissione&#34;&gt;Modalità di trasmissione&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Unicast&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; un mittente e un destinatario;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multicast&lt;/strong&gt; &amp;ndash;&amp;gt; comunicazione tra un mittente e un gruppo di destinatari;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anycast&lt;/strong&gt; &amp;ndash;&amp;gt; mittente che vuole comunicare con &lt;strong&gt;un&lt;/strong&gt; mittente in un gruppo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Broadcast&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; mittente che vuole comunicare un&amp;rsquo;informazione a tutti;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;tipi-fisici-di-collegamento&#34;&gt;Tipi fisici di collegamento&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Mezzo broadcast&lt;/code&gt; Un mezzo broadcast è un mezzo attraverso il quale un host invia informazioni
+a tutti gli host collegati. Si può sfruttare un dispositivo broadcast per
+riservare delle informazioni (ad es.) ad alcune interfacce di rete.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Mezzo punto a punto&lt;/code&gt; collegamento pensato per fornire comuncazione tra 2
+punti soltanto.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Half-Duplex: collegamento unidirezionale (un ricevente e un destinatario);&lt;/li&gt;
+&lt;li&gt;Full-Duplex: collegamento bidirezionale;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;E&amp;rsquo; importante capire bene la differenza tra &lt;strong&gt;modalità di trasmissione&lt;/strong&gt; e
+&lt;strong&gt;tipi fisici di collegamento&lt;/strong&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/h2&gt;
+&lt;p&gt;Rete che consente la comunicazione tra dispositivi a livello locale.
+Una rete locale può anche essere estesa a livello cittadino, o regionale.
+Essa ha un &lt;em&gt;numero limitato di nodi&lt;/em&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Backbone LAN&lt;/code&gt; &amp;ndash;&amp;gt; Lan dedicate a collegare tante altre reti.&lt;/p&gt;
+&lt;h3 id=&#34;scheda-di-rete&#34;&gt;Scheda di rete&lt;/h3&gt;
+&lt;p&gt;Un host connesso a internet ha un dispositivo fatto apposta per il protocollo H2N,
+prende il nome di &amp;ldquo;scheda di rete&amp;rdquo;. La scheda di rete si occupa del frame (in certi casi
+anche di una minima parte della logica), mentre
+solitamente il sistema operativo si occupa solo delle &lt;strong&gt;informazioni logiche&lt;/strong&gt;.
+Quindi in realtà quando si parla di H2N non bisogna immaginarsi il dispositivo (pc, tablet) ma
+la vera e propria scheda di rete.&lt;/p&gt;
+&lt;h3 id=&#34;topologie&#34;&gt;Topologie&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;BUS&lt;/code&gt; &amp;ndash;&amp;gt; Consiste in un cavo che collega tutti gli host, i messaggi
+vengono inviati a tutti gli host come segnali elettrici, ma accettati
+solo dal reale destinatario. Il problema è che se il cavo si rompe in
+qualsiasi punto, la rete si rompe e non funziona più.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ANELLO&lt;/code&gt; &amp;ndash;&amp;gt; Un host che riceve un pacchetto si chiede se il pacchetto
+è destinato a lui. Se non è per lui, quell&amp;rsquo;host &lt;strong&gt;inoltra&lt;/strong&gt; il pacchetto!
+L&amp;rsquo;host destinatario assorbe il pacchetto quando gli arriva.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;STELLA&lt;/code&gt; &amp;ndash;&amp;gt;&lt;/li&gt;
+&lt;/ol&gt;
 </content>
     </item>
     

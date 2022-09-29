@@ -8,3 +8,8 @@ img
     margin-right: auto;
     margin-left: auto;
 }
+h2
+{
+    color: #23b0ff;
+    text-decoration: underline;
+}
