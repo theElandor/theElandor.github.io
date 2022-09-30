@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Sep 2022 14:17:18 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 30 Sep 2022 21:29:32 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyber Phisical Security ITA-(2022/2023)</title>
       <link>/security/</link>
-      <pubDate>Fri, 30 Sep 2022 14:17:18 +0200</pubDate>
+      <pubDate>Fri, 30 Sep 2022 21:29:32 +0200</pubDate>
       
       <guid>/security/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Cyber Phisical security&amp;quot; del corso triennale di ingegneria informatica di Unimore (sede di Mantova). Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico, insieme a commenti e considerazioni (a volte eventuali approfondimenti). Il materiale qui fornito non è sostitutivo alle slide del corso. → Link per accedere al materiale didattico:
@@ -136,7 +136,11 @@ getflag
 
 pidof /bin/.../flag00 &lt;span style=&#34;color:#75715e&#34;&gt;# in questo modo ottieni il pid del processo&lt;/span&gt;
 ps -p &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;pidof /bin/.../flag00&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; -o ruid,rgid,euid,egid
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;materiale-utile&#34;&gt;Materiale utile&lt;/h3&gt;
+&lt;p&gt;Per una visione più completa sulle chiamate di sistema, consultare
+il materiale al seguente link:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwiAjbn0n736AhWQYPEDHUYGBXMQFnoECAUQAQ&amp;amp;url=https%3A%2F%2Fweblab.ing.unimore.it%2Fpeople%2Fandreoli%2Fdidattica%2Fsistemi-operativi%2F2014-15%2F7-chiamate-sistema%2F7-chiamate-sistema.pdf&amp;amp;usg=AOvVaw1UkLh5mnZwXHESHHGBfB1e
+&lt;/code&gt;&lt;/pre&gt;</content>
     </item>
     
     <item>
