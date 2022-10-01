@@ -6,16 +6,16 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 30 Sep 2022 21:29:32 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 01 Oct 2022 11:35:46 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Cyber Phisical Security ITA-(2022/2023)</title>
       <link>/security/</link>
-      <pubDate>Fri, 30 Sep 2022 21:29:32 +0200</pubDate>
+      <pubDate>Sat, 01 Oct 2022 11:35:46 +0200</pubDate>
       
       <guid>/security/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Cyber Phisical security&amp;quot; del corso triennale di ingegneria informatica di Unimore (sede di Mantova). Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico, insieme a commenti e considerazioni (a volte eventuali approfondimenti). Il materiale qui fornito non è sostitutivo alle slide del corso. → Link per accedere al materiale didattico:
 https://moodle.unimore.it/course/view.php?id=8096
- TABLE OF CONTENTS  Esecuzione Privilegi Elevati (Lezione 3)   Esecuzione Privilegi Elevati (Lezione 3) A partire da UNIX system V esistono 3 tipologie di User / Group ID:</description>
+ (SC) TABLE OF CONTENTS  Esecuzione Privilegi Elevati (Lezione 3)   Esecuzione Privilegi Elevati (Lezione 3) Introduzione A partire da UNIX system V esistono 3 tipologie di User / Group ID:</description>
       <content>
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/security.jpeg&#34;   /&gt;
@@ -33,12 +33,13 @@ Il materiale qui fornito non è sostitutivo alle slide del corso.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=8096&#34;&gt;https://moodle.unimore.it/course/view.php?id=8096&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
+&lt;h2 id=&#34;sc--table-of-contents&#34;&gt;(SC) TABLE OF CONTENTS&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&#34;#esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/h2&gt;
+&lt;h3 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h3&gt;
 &lt;p&gt;A partire da UNIX system V esistono 3 tipologie di User / Group ID:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;u/g ID reale;&lt;/li&gt;
@@ -49,6 +50,7 @@ Il materiale qui fornito non è sostitutivo alle slide del corso.
 credenziali effettive. In questo modo possono tornare utili al momento
 del privilege drop, quando da credenziali &amp;ldquo;superiori&amp;rdquo; temporanee si deve tornare
 alle credenziali effettive.&lt;/p&gt;
+&lt;h3 id=&#34;hands-on&#34;&gt;Hands On&lt;/h3&gt;
 &lt;p&gt;Come recuperare gli ID reali ed effettivi? &amp;ndash;&amp;gt; con le seguenti chiamate di sistema:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;getuid&lt;/code&gt; &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;reale&lt;/strong&gt; del processo invocante;&lt;/li&gt;
@@ -146,7 +148,7 @@ il materiale al seguente link:&lt;/p&gt;
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Thu, 29 Sep 2022 18:05:24 +0200</pubDate>
+      <pubDate>Sat, 01 Oct 2022 11:19:45 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -186,6 +188,7 @@ Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34;   /&gt;
@@ -240,6 +243,7 @@ la numerazione precedente (Livello trasporto &amp;ndash;&amp;gt; 4, Livello Rete
 
 &lt;hr&gt;
 &lt;h2 id=&#34;protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/htn.png&#34;   /&gt;
@@ -298,6 +302,7 @@ grado di analizzare più in profondità i pacchetti: riesce a leggere informazio
 anche a livelli più alti dello stack.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/h2n1.png&#34;   /&gt;
@@ -340,7 +345,8 @@ punti soltanto.&lt;/p&gt;
 &lt;p&gt;E&amp;rsquo; importante capire bene la differenza tra &lt;strong&gt;modalità di trasmissione&lt;/strong&gt; e
 &lt;strong&gt;tipi fisici di collegamento&lt;/strong&gt;.&lt;/p&gt;
 &lt;h2 id=&#34;htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/h2&gt;
-&lt;p&gt;Rete che consente la comunicazione tra dispositivi a livello locale.
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;
+Rete che consente la comunicazione tra dispositivi a livello locale.
 Una rete locale può anche essere estesa a livello cittadino, o regionale.
 Essa ha un &lt;em&gt;numero limitato di nodi&lt;/em&gt;!&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Backbone LAN&lt;/code&gt; &amp;ndash;&amp;gt; Lan dedicate a collegare tante altre reti.&lt;/p&gt;
