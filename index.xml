@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Oct 2022 15:33:32 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2022 16:48:45 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 04 Oct 2022 15:33:32 +0200</pubDate>
+      <pubDate>Tue, 04 Oct 2022 16:48:45 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -335,7 +335,97 @@ trasmissione è avvenuta correttamente.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Il payload (dati) si trova tra la 4  e la 5 sequenza.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo ARP&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;MTU&lt;/code&gt;&lt;/strong&gt;: (&lt;em&gt;Maximum Transfer Unit&lt;/em&gt;) Dimensione massima trasferibile sulla rete, a livello
+di pacchetto. (solitamente 1500 byte)
+Il livello H2N usa lo &lt;strong&gt;stuffing&lt;/strong&gt; per &amp;ldquo;completare&amp;rdquo; i pacchetti
+che hanno dimensione minore di 46 byte.
+Tutte le schede di rete di una rete ethernet devono essere
+configurate con la stessa MTU! (essendo un campo comunque variabile,
+un amministratore di rete potrebbe decidere di cambiarne il valore)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo ARP&lt;/code&gt;&lt;/strong&gt;:
+(&lt;em&gt;Adress resolution protocol&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Di base quando si vuole inviare un pacchetto ad un host, non
+si conosce l&amp;rsquo;indirizzo MAC del destinatario.
+Il protocollo ARP prende come in input l&amp;rsquo;indirizzo IP del
+destinatario, e come output ha l&amp;rsquo;indirizzo MAC del destinatario.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Richiesta ARP&lt;/strong&gt;: messaggio broadcast che ha come payload
+l&amp;rsquo;indirizzo IP che l&amp;rsquo;host sta cercando. Questo messaggio
+viene ricevuto da tutti gli host connessi alla rete, ma
+l&amp;rsquo;unico che risponde è chi ha l&amp;rsquo;indirizzo IP ricercato.
+La risposta contiene l&amp;rsquo;indirizzo MAC associato a l&amp;rsquo;indirizzo
+IP iniziale.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La risposta è unicast&lt;/strong&gt;, il destinatario manda il MAC adress
+solo a chi l&amp;rsquo;ha richiesto.&lt;/p&gt;
+&lt;p&gt;Questo modo di richiedere un indirizzo MAC è effettuabile
+soltanto su una rete &lt;strong&gt;contenuta&lt;/strong&gt;: è difficile mandare un
+messaggio broadcast saturando una rete che connette troppi host.
+I pacchetti usati per richieste / risposte ARP sono pacchetti
+&amp;ldquo;assestanti&amp;rdquo; soltanto a livello h2n, non hanno un livello 3.
+Per questo è un &amp;ldquo;sottoprotocollo&amp;rdquo; dell&amp;rsquo;Ethernet.&lt;/p&gt;
+&lt;p&gt;Il fatto che non sia riuscito ad ottenere l&amp;rsquo;indirizzo MAC
+del destinatario (nel caso in cui effettivamente non ci sia),
+è un&amp;rsquo;informazione implicita che si ottiene un &amp;ldquo;&lt;strong&gt;timeout&lt;/strong&gt;&amp;quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ARP Table&lt;/strong&gt;: cache che conserva il mapping IP-MAC per
+un certo periodo di tempo, per migliorare la performance.
+La ARP cache è gestita totalmente a livello di sistema operativo.
+Un amministratore potrebbe voler configurare staticamente
+delle associazioni IP-ARP, nel caso in cui la rete
+sia fissa e non avvezza a cambiamenti di varia natura.&lt;/p&gt;
+&lt;p&gt;Esempio di una entry:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Indirizzo Ip&lt;/th&gt;
+&lt;th&gt;Indirizzo MAC&lt;/th&gt;
+&lt;th&gt;TTL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;222.222.222.221&lt;/td&gt;
+&lt;td&gt;88-B2-2F-54-1A-0F&lt;/td&gt;
+&lt;td&gt;13:45:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo CSMA/CD&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Protocollo di accesso al mezzo che serve per rilevare le collisioni tra pacchetti nelle reti
+ethernet. Nelle reti wifi si vuole evitare la collisione, il suo protocollo prende
+infatti il nome di CSMA/CA &amp;ndash;&amp;gt; (&lt;em&gt;Collision Avoidance&lt;/em&gt;), più
+complesso e costoso!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Carrier sense&lt;/strong&gt;: L&amp;rsquo;interfaccia di rete prima di iniziare a inviare pacchetti
+si mette in ascolto, cerca di capire se qualcuno sta già trasmettendo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Listen while talking&lt;/strong&gt;: le interfacce di rete cercano di rilevare
+segnali in ingresso anche durante la trasmissione. In tal caso
+si assume che avvenga una collisione, quindi l&amp;rsquo;interfaccia si ferma
+di inviare dati. &amp;ndash;&amp;gt; L&amp;rsquo;interfaccia invia un segnale &lt;strong&gt;JAMMING&lt;/strong&gt;, anche
+tutte le altre interfacce si mettono in pausa!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ritardo pseudo-casuale&lt;/strong&gt; &amp;ndash;&amp;gt; si ri-inizia a inviare i pacchetti
+applicando un ritardo casuale che si spera sia diverso per i vari
+segnali.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Binary Exponential Back-off (BEB)&lt;/strong&gt; &amp;ndash;&amp;gt; algoritmo che decide
+il delay della trasmissione. Il delay è compreso tra [0, 2^n-1],
+quindi aumenta esponenzialmente ad ogni &amp;ldquo;stop&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/BEB.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Il calcolo viene effettuato in base alla velocità della rete, non
+si lavora mai con tempi assoluti.&lt;/p&gt;
 </content>
     </item>
     

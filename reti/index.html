@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-04 15:33:32 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-04 16:48:45 &#43;0200 CEST" />
 
 
 
@@ -490,7 +490,97 @@ trasmissione è avvenuta correttamente.</p>
 </li>
 </ol>
 <p>Il payload (dati) si trova tra la 4  e la 5 sequenza.</p>
-<p><strong><code>Protocollo ARP</code></strong>:</p>
+<p><strong><code>MTU</code></strong>: (<em>Maximum Transfer Unit</em>) Dimensione massima trasferibile sulla rete, a livello
+di pacchetto. (solitamente 1500 byte)
+Il livello H2N usa lo <strong>stuffing</strong> per &ldquo;completare&rdquo; i pacchetti
+che hanno dimensione minore di 46 byte.
+Tutte le schede di rete di una rete ethernet devono essere
+configurate con la stessa MTU! (essendo un campo comunque variabile,
+un amministratore di rete potrebbe decidere di cambiarne il valore)</p>
+<p><strong><code>Protocollo ARP</code></strong>:
+(<em>Adress resolution protocol</em>)</p>
+<p>Di base quando si vuole inviare un pacchetto ad un host, non
+si conosce l&rsquo;indirizzo MAC del destinatario.
+Il protocollo ARP prende come in input l&rsquo;indirizzo IP del
+destinatario, e come output ha l&rsquo;indirizzo MAC del destinatario.</p>
+<ul>
+<li>
+<p><strong>Richiesta ARP</strong>: messaggio broadcast che ha come payload
+l&rsquo;indirizzo IP che l&rsquo;host sta cercando. Questo messaggio
+viene ricevuto da tutti gli host connessi alla rete, ma
+l&rsquo;unico che risponde è chi ha l&rsquo;indirizzo IP ricercato.
+La risposta contiene l&rsquo;indirizzo MAC associato a l&rsquo;indirizzo
+IP iniziale.</p>
+<p><strong>La risposta è unicast</strong>, il destinatario manda il MAC adress
+solo a chi l&rsquo;ha richiesto.</p>
+<p>Questo modo di richiedere un indirizzo MAC è effettuabile
+soltanto su una rete <strong>contenuta</strong>: è difficile mandare un
+messaggio broadcast saturando una rete che connette troppi host.
+I pacchetti usati per richieste / risposte ARP sono pacchetti
+&ldquo;assestanti&rdquo; soltanto a livello h2n, non hanno un livello 3.
+Per questo è un &ldquo;sottoprotocollo&rdquo; dell&rsquo;Ethernet.</p>
+<p>Il fatto che non sia riuscito ad ottenere l&rsquo;indirizzo MAC
+del destinatario (nel caso in cui effettivamente non ci sia),
+è un&rsquo;informazione implicita che si ottiene un &ldquo;<strong>timeout</strong>&quot;.</p>
+</li>
+</ul>
+<!-- raw HTML omitted -->
+<ul>
+<li>
+<p><strong>ARP Table</strong>: cache che conserva il mapping IP-MAC per
+un certo periodo di tempo, per migliorare la performance.
+La ARP cache è gestita totalmente a livello di sistema operativo.
+Un amministratore potrebbe voler configurare staticamente
+delle associazioni IP-ARP, nel caso in cui la rete
+sia fissa e non avvezza a cambiamenti di varia natura.</p>
+<p>Esempio di una entry:</p>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Indirizzo Ip</th>
+<th>Indirizzo MAC</th>
+<th>TTL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>222.222.222.221</td>
+<td>88-B2-2F-54-1A-0F</td>
+<td>13:45:00</td>
+</tr>
+</tbody>
+</table>
+<p><strong><code>Protocollo CSMA/CD</code></strong>:</p>
+<p>Protocollo di accesso al mezzo che serve per rilevare le collisioni tra pacchetti nelle reti
+ethernet. Nelle reti wifi si vuole evitare la collisione, il suo protocollo prende
+infatti il nome di CSMA/CA &ndash;&gt; (<em>Collision Avoidance</em>), più
+complesso e costoso!</p>
+<ul>
+<li><strong>Carrier sense</strong>: L&rsquo;interfaccia di rete prima di iniziare a inviare pacchetti
+si mette in ascolto, cerca di capire se qualcuno sta già trasmettendo;</li>
+<li><strong>Listen while talking</strong>: le interfacce di rete cercano di rilevare
+segnali in ingresso anche durante la trasmissione. In tal caso
+si assume che avvenga una collisione, quindi l&rsquo;interfaccia si ferma
+di inviare dati. &ndash;&gt; L&rsquo;interfaccia invia un segnale <strong>JAMMING</strong>, anche
+tutte le altre interfacce si mettono in pausa!</li>
+<li><strong>Ritardo pseudo-casuale</strong> &ndash;&gt; si ri-inizia a inviare i pacchetti
+applicando un ritardo casuale che si spera sia diverso per i vari
+segnali.</li>
+<li><strong>Binary Exponential Back-off (BEB)</strong> &ndash;&gt; algoritmo che decide
+il delay della trasmissione. Il delay è compreso tra [0, 2^n-1],
+quindi aumenta esponenzialmente ad ogni &ldquo;stop&rdquo;.</li>
+</ul>
+
+  <figure class="left" >
+    <img src="/ox-hugo/BEB.png"   />
+    
+  </figure>
+
+
+<p>Il calcolo viene effettuato in base alla velocità della rete, non
+si lavora mai con tempi assoluti.</p>
 
       </div></div>
 
