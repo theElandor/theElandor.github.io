@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Oct 2022 15:18:54 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Oct 2022 15:33:32 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 04 Oct 2022 15:18:54 +0200</pubDate>
+      <pubDate>Tue, 04 Oct 2022 15:33:32 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -292,9 +292,9 @@ lo riceve soltanto il destinatario. Di default, l&amp;rsquo;interfaccia di rete
 confronta il suo indirizzo MAC con quello inserito all&amp;rsquo;interno del frame.
 Ci sono alcune eccezioni:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Un host imposta l&amp;rsquo;indirizzo di broadcast nella sua interfaccia di rete&lt;/li&gt;
+&lt;li&gt;Il frame contiene l&amp;rsquo;indirizzo destinatario broadcast;&lt;/li&gt;
 &lt;li&gt;Sull&amp;rsquo;host sta eseguendo un software di sniffing. In questo caso
-l&amp;rsquo;interfaccia di rete si dice in modalità &lt;strong&gt;promisqua&lt;/strong&gt;.&lt;/li&gt;
+l&amp;rsquo;interfaccia di rete si dice in modalità &lt;strong&gt;promiscua&lt;/strong&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;Frame Ethernet&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 &lt;ol&gt;
@@ -307,13 +307,20 @@ Del preambolo si preoccupa solo l&amp;rsquo;interfaccia di rete, poi quella
 sequenza viene &amp;ldquo;scartata&amp;rdquo;, il S.O. non se ne preoccupa.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Indirizzo destinatario&lt;/strong&gt; (6 byte);&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Indirizzo destinatario&lt;/strong&gt; (6 byte):
+se in questo indirizzo tutti i byte sono settati a 1 allora
+il frame ethernet è detto frame &lt;strong&gt;broadcast&lt;/strong&gt;.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;Indirizzo sorgente&lt;/strong&gt; (6 byte);&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Camp tipo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Camp tipo&lt;/strong&gt; (2 byte): serve a implementare il &lt;strong&gt;multiplexing&lt;/strong&gt;.
+Serve al sistema operativo (destinatario) per capire cosa fare
+del pacchetto ricevuto. (Devo essere in grado di collegare i vari livelli,
+devo &amp;ldquo;codificare&amp;rdquo; che payload sto trasportando). In altre parole,
+serve all’adattatore per sapere a quale dei protocolli dello strato di rete debba
+essere passato il campo dati di ciascun frame ricevuto.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;CRC&lt;/strong&gt;: Informazione di controllo che si trova dopo
@@ -328,6 +335,7 @@ trasmissione è avvenuta correttamente.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Il payload (dati) si trova tra la 4  e la 5 sequenza.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo ARP&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
 </content>
     </item>
     
