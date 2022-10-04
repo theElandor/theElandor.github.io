@@ -6,67 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 01 Oct 2022 11:44:43 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Sat, 01 Oct 2022 11:44:43 +0200</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Hello stranger, and welcome to my personal blog.
-I am currently an undergraduate student in computer science at university of Modena, so here you will find mainly I.T. related articles.
-During my free time i am also a &amp;ldquo;DM&amp;rdquo; (Dungeon Master), and i am particularly interested in the OSR movement. That&amp;rsquo;s why sometimes you will probably see RPG reviews or some journaling related to my DM experience.
-Figure 1: This is me.</description>
-      <content>&lt;p&gt;Hello stranger, and welcome to my personal blog.&lt;/p&gt;
-&lt;p&gt;I am currently an undergraduate student in computer science at university of Modena, so here you will find mainly I.T. related articles.&lt;/p&gt;
-&lt;p&gt;During my free time i am also a &amp;ldquo;DM&amp;rdquo; (Dungeon Master), and i am particularly interested in the &lt;strong&gt;OSR&lt;/strong&gt; movement.
-That&amp;rsquo;s why sometimes you will probably see RPG reviews or some journaling related
-to my DM experience.&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/profile.jpg&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;This is me.&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;Here are some more personal information:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Age&lt;/strong&gt;: 21&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Birthday&lt;/strong&gt;: 1/8/2001&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Other interests&lt;/strong&gt;: Productivity, Reading, vintage tecnology,
-Magic the Gathering, boardgames.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Favourite books&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Deep Work (Cal Newport);&lt;/li&gt;
-&lt;li&gt;How to win friends and influence people (Dale Carnegie);&lt;/li&gt;
-&lt;li&gt;The Old Man and the Sea (Ernest_Hemingway);&lt;/li&gt;
-&lt;li&gt;Walden; or, Life in the Woods (Henry_David_Thoreau);&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Favourite quote&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[&amp;hellip;] &lt;em&gt;but man is not made for defeat.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Ernest_Hemingway&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </item>
-    
+    <lastBuildDate>Tue, 04 Oct 2022 15:18:54 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Sat, 01 Oct 2022 11:38:47 +0200</pubDate>
+      <pubDate>Tue, 04 Oct 2022 15:18:54 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -221,22 +165,32 @@ anche a livelli più alti dello stack.&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/h2n1.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
+&lt;p&gt;Gli scopi del livello Host to Network sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;interconnessione&lt;/code&gt;&lt;/strong&gt; tra due o più host;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;trasmisionne di dati&lt;/code&gt;&lt;/strong&gt; tra host interconnessi;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;connessione&lt;/code&gt;&lt;/strong&gt; di un host a internet;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nello stack TCP/IP questi 3 aspetti sono fortemente interconnessi
+tra di loro.&lt;/p&gt;
 &lt;p&gt;Alcuni esempi:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wired: Ethernet;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wireless: 802.11x;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;PAN&lt;/strong&gt;: (Bluetooth);&lt;/li&gt;
-&lt;li&gt;Mediante &lt;strong&gt;modem&lt;/strong&gt;: da rivedere;&lt;/li&gt;
+&lt;li&gt;Mediante &lt;strong&gt;modem&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WAN&lt;/strong&gt; wireless;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;L&amp;rsquo;unità informativa è chiamata &lt;code&gt;frame&lt;/code&gt; (host-
 router/switch, router/switch-router/switch, host-host).&lt;/p&gt;
+&lt;p&gt;Come anticipato, il livello H2N comprende 2 sottolivelli:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Livello &amp;ldquo;&lt;strong&gt;fisico&lt;/strong&gt;&amp;quot;:
+ci si riferisce alla vera e propria connessione &amp;ldquo;fisica&amp;rdquo; tra gli host
+(cavo coassiale, fibra ottica, trasmissione radio, modem);&lt;/li&gt;
+&lt;li&gt;Livello &amp;ldquo;&lt;strong&gt;data link&lt;/strong&gt;&amp;quot;: che si occupa dell&amp;rsquo;incapsulamento e invio
+dei dati tra gli host.&lt;/li&gt;
+&lt;/ol&gt;
 &lt;h3 id=&#34;modalità-di-trasmissione&#34;&gt;Modalità di trasmissione&lt;/h3&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;Unicast&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; un mittente e un destinatario;&lt;/li&gt;
@@ -255,19 +209,27 @@ riservare delle informazioni (ad es.) ad alcune interfacce di rete.&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Mezzo punto a punto&lt;/code&gt; collegamento pensato per fornire comuncazione tra 2
 punti soltanto.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Half-Duplex: collegamento unidirezionale (un ricevente e un destinatario);&lt;/li&gt;
-&lt;li&gt;Full-Duplex: collegamento bidirezionale;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Half-Duplex&lt;/strong&gt;: collegamento che permette ad un solo host di inviare dati sul mezzo fisico
+in un determinato instante.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Full-Duplex&lt;/strong&gt;: collegamento bidirezionale, collegamenti interni dedicati
+per entrambe le direzioni (nel caso di un punto a punto).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;E&amp;rsquo; importante capire bene la differenza tra &lt;strong&gt;modalità di trasmissione&lt;/strong&gt; e
-&lt;strong&gt;tipi fisici di collegamento&lt;/strong&gt;.&lt;/p&gt;
+&lt;strong&gt;tipi fisici di collegamento&lt;/strong&gt;. Infatti, a prescindere dal mezzo, un
+protocollo può prevedere molteplici modalità di trasmissione.&lt;/p&gt;
 &lt;h2 id=&#34;htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Rete che consente la comunicazione tra dispositivi a livello locale.
 Una rete locale può anche essere estesa a livello cittadino, o regionale.
 Essa ha un &lt;em&gt;numero limitato di nodi&lt;/em&gt;!&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Backbone LAN&lt;/code&gt; &amp;ndash;&amp;gt; Lan dedicate a collegare tante altre reti.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Backbone LAN&lt;/code&gt; &amp;ndash;&amp;gt; Lan dedicate a collegare tante altre reti. Sono dorsali informatiche
+che permettono la comunicazione ad alta velocità (solitamente tramite fibra ottica) tra
+due punti anche molto distanti tra di loro. Sono di proprietà delle grandi aziende
+di telecomunicazioni. In Italia, uno dei principali backbone network è la rete universitaria
+GARR che collega attraverso reti sottomarine in fibra ottical&amp;rsquo;università Federico II di Napoli
+alla città di New York.&lt;/p&gt;
 &lt;h3 id=&#34;scheda-di-rete&#34;&gt;Scheda di rete&lt;/h3&gt;
 &lt;p&gt;Un host connesso a internet ha un dispositivo fatto apposta per il protocollo H2N,
 prende il nome di &amp;ldquo;scheda di rete&amp;rdquo;. La scheda di rete si occupa del frame (in certi casi
@@ -291,13 +253,88 @@ l&amp;rsquo;interruzione della connessione con un host. Il problema è che
 se si rompe il dispositivo centrale (o si congestiona) la rete
 si rompe o si rallenta.&lt;/li&gt;
 &lt;/ol&gt;
+&lt;h3 id=&#34;protocollo-ethernet&#34;&gt;Protocollo Ethernet&lt;/h3&gt;
+&lt;p&gt;Protocollo per realizzare &lt;strong&gt;reti locali&lt;/strong&gt;. (Nello stack TCP/IP siamo
+sempre nel livello h2n.) Questo protocollo era inizialmente progettato per funzionare
+su reti cablate con &lt;strong&gt;topologia a BUS&lt;/strong&gt; (velocità nell&amp;rsquo;ordine dei Mbit, quando venne ideata). Ora le schede di
+rete reggono velocità anche a livello di Gbit. Teoricamente
+il protocollo Ethernet può essere implementato anche con cavi ottici.
+In realtà al giorno d&amp;rsquo;oggi questo protocollo è usato con topologia a stella,
+molto più sicura e diffusa.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Il cavo bus deve avere due &amp;ldquo;terminatori&amp;rdquo; che assorbono la corrente.
+(slide: motivi del successo di ethernet)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vediamo ora alcuni aspetti fondamentali del protocollo ethernet:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Indirizzo MAC&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Identificatori usati nel protocollo ethernet.
+Esempio: 81:F4:A3:AA:9C:49 &amp;ndash;&amp;gt; 6 byte (8 bit ogni coppia). Questo
+tipo di indirizzo è detto &lt;strong&gt;flat&lt;/strong&gt;: le cifre non hanno un valore
+&amp;ldquo;posizionale&amp;rdquo;. Tuttavia i primi 3 byte servono per identificare
+il produttore della scheda di rete: con questo stratagemma si evita
+di generare indirizzi hardware uguali tra produttori diversi.&lt;/p&gt;
+&lt;p&gt;Questi indirizzi valgono &lt;strong&gt;per la stessa rete locale&lt;/strong&gt;. Ovviamente
+la rete funziona correttamente se questi indirizzi sono &lt;strong&gt;univoci&lt;/strong&gt;!
+Ogni indirizzo MAC è associato ad un&amp;rsquo;interfaccia di rete (a livello Hardware).
+Essenzialmente viene scritto all&amp;rsquo;interno della scheda di rete dal
+produttore stesso.&lt;/p&gt;
+&lt;p&gt;Non ci sono misure forti che permettono a chi controlla l&amp;rsquo;host
+di &amp;ldquo;camuffare&amp;rdquo; l&amp;rsquo;indirizzo MAC che il sistema operativo usa per
+inviare i pacchetti.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;FF-FF-FF-FF-FF-FF: &lt;strong&gt;indirizzo di broadcast&lt;/strong&gt;, serve per identificare
+comunicazioni broadcast in reti ethernet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All&amp;rsquo;interno del &lt;strong&gt;frame&lt;/strong&gt; del pacchetto inviato viene inserito
+l&amp;rsquo;indirizzo MAC del destinatario. In una topologia BUS, a livello
+elettrico tutti ricevono fisicamente il pacchetto, a livello logico
+lo riceve soltanto il destinatario. Di default, l&amp;rsquo;interfaccia di rete
+confronta il suo indirizzo MAC con quello inserito all&amp;rsquo;interno del frame.
+Ci sono alcune eccezioni:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Un host imposta l&amp;rsquo;indirizzo di broadcast nella sua interfaccia di rete&lt;/li&gt;
+&lt;li&gt;Sull&amp;rsquo;host sta eseguendo un software di sniffing. In questo caso
+l&amp;rsquo;interfaccia di rete si dice in modalità &lt;strong&gt;promisqua&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Frame Ethernet&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Preambolo&lt;/strong&gt;: sequenza di 8 byte che serve alle interfacce di rete
+per comunicare correttamente a livello fisico. (&amp;ldquo;Framing&amp;rdquo;)
+L&amp;rsquo;ultimo byte è una sequenza che indica la fine del preambolo,
+l&amp;rsquo;ultimo bit di questa ultima sequenza è sempre 1.
+Del preambolo si preoccupa solo l&amp;rsquo;interfaccia di rete, poi quella
+sequenza viene &amp;ldquo;scartata&amp;rdquo;, il S.O. non se ne preoccupa.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Indirizzo destinatario&lt;/strong&gt; (6 byte);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Indirizzo sorgente&lt;/strong&gt; (6 byte);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Camp tipo&lt;/strong&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CRC&lt;/strong&gt;: Informazione di controllo che si trova dopo
+il pacchetto dati. Per questo si parla di &amp;ldquo;frame&amp;rdquo;,
+perchè il payload viene &amp;ldquo;circondato&amp;rdquo;. Il CRC serve per controllare
+l&amp;rsquo;integrità del paccheto: viene calcolato dall&amp;rsquo;interfaccia di rete del mittente
+durante l&amp;rsquo;invio del pacchetto con un algoritmo (detto a sua volta CRC). Il
+destinatario calcola a sua volta il CRC (in base ai dati che gli arrivano) e lo confronta
+con il CRC ricevuto. Se i due valori coincidono, allora la
+trasmissione è avvenuta correttamente.&lt;/p&gt;
+&lt;p&gt;Il CRC(Controllo di Ridondanza Ciclico) viene generato sulla base del contenuto di 2,3,4 e dei dati (payload).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Il payload (dati) si trova tra la 4  e la 5 sequenza.&lt;/p&gt;
 </content>
     </item>
     
     <item>
       <title>Cyber Phisical Security ITA-(2022/2023)</title>
       <link>/security/</link>
-      <pubDate>Sat, 01 Oct 2022 11:35:46 +0200</pubDate>
+      <pubDate>Sat, 01 Oct 2022 12:29:26 +0200</pubDate>
       
       <guid>/security/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Cyber Phisical security&amp;quot; del corso triennale di ingegneria informatica di Unimore (sede di Mantova). Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico, insieme a commenti e considerazioni (a volte eventuali approfondimenti). Il materiale qui fornito non è sostitutivo alle slide del corso. → Link per accedere al materiale didattico:
@@ -338,9 +375,9 @@ credenziali effettive. In questo modo possono tornare utili al momento
 del privilege drop, quando da credenziali &amp;ldquo;superiori&amp;rdquo; temporanee si deve tornare
 alle credenziali effettive.&lt;/p&gt;
 &lt;h3 id=&#34;hands-on&#34;&gt;Hands On&lt;/h3&gt;
-&lt;p&gt;Come recuperare gli ID reali ed effettivi? &amp;ndash;&amp;gt; con le seguenti chiamate di sistema:&lt;/p&gt;
+&lt;p&gt;Come recuperare gli ID reali ed effettivi? &amp;ndash;&amp;gt; con le seguenti chiamate di sistema:
+= &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;reale&lt;/strong&gt; del processo invocante;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;code&gt;getuid&lt;/code&gt; &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;reale&lt;/strong&gt; del processo invocante;&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;geteuid&lt;/code&gt; &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;effettivo&lt;/strong&gt; del processo invocante;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Una pratica utile è l&amp;rsquo;&lt;strong&gt;abbassamento dei privilegi&lt;/strong&gt; (anche detto privilege-drop), utile
@@ -419,6 +456,7 @@ SETGID, in modo da impedire l&amp;rsquo;aggancio del programma tracciante al pro
 &lt;h3 id=&#34;esercizio-nebula--level00&#34;&gt;Esercizio Nebula (level00)&lt;/h3&gt;
 &lt;p&gt;Per cambiare il layout della tastiera, loggare come nebula (password nebula),
 usare il comando &lt;strong&gt;loadkeys it&lt;/strong&gt; poi loggare come flag00.&lt;/p&gt;
+&lt;p&gt;Per verificare l&amp;rsquo;id di un utente, usare il comando &lt;strong&gt;id &amp;lt;nomeutente&amp;gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;find / -perm -4000 -exec ls -l &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; 2&amp;gt;/dev/null | grep level00
 /bin/.../flag00
 getflag
@@ -430,6 +468,62 @@ ps -p &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;pidof /bin/.../fl
 il materiale al seguente link:&lt;/p&gt;
 &lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwiAjbn0n736AhWQYPEDHUYGBXMQFnoECAUQAQ&amp;amp;url=https%3A%2F%2Fweblab.ing.unimore.it%2Fpeople%2Fandreoli%2Fdidattica%2Fsistemi-operativi%2F2014-15%2F7-chiamate-sistema%2F7-chiamate-sistema.pdf&amp;amp;usg=AOvVaw1UkLh5mnZwXHESHHGBfB1e
 &lt;/code&gt;&lt;/pre&gt;</content>
+    </item>
+    
+    <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Sat, 01 Oct 2022 11:44:43 +0200</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hello stranger, and welcome to my personal blog.
+I am currently an undergraduate student in computer science at university of Modena, so here you will find mainly I.T. related articles.
+During my free time i am also a &amp;ldquo;DM&amp;rdquo; (Dungeon Master), and i am particularly interested in the OSR movement. That&amp;rsquo;s why sometimes you will probably see RPG reviews or some journaling related to my DM experience.
+Figure 1: This is me.</description>
+      <content>&lt;p&gt;Hello stranger, and welcome to my personal blog.&lt;/p&gt;
+&lt;p&gt;I am currently an undergraduate student in computer science at university of Modena, so here you will find mainly I.T. related articles.&lt;/p&gt;
+&lt;p&gt;During my free time i am also a &amp;ldquo;DM&amp;rdquo; (Dungeon Master), and i am particularly interested in the &lt;strong&gt;OSR&lt;/strong&gt; movement.
+That&amp;rsquo;s why sometimes you will probably see RPG reviews or some journaling related
+to my DM experience.&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/profile.jpg&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;This is me.&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Here are some more personal information:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Age&lt;/strong&gt;: 21&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Birthday&lt;/strong&gt;: 1/8/2001&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Other interests&lt;/strong&gt;: Productivity, Reading, vintage tecnology,
+Magic the Gathering, boardgames.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Favourite books&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deep Work (Cal Newport);&lt;/li&gt;
+&lt;li&gt;How to win friends and influence people (Dale Carnegie);&lt;/li&gt;
+&lt;li&gt;The Old Man and the Sea (Ernest_Hemingway);&lt;/li&gt;
+&lt;li&gt;Walden; or, Life in the Woods (Henry_David_Thoreau);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Favourite quote&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[&amp;hellip;] &lt;em&gt;but man is not made for defeat.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ernest_Hemingway&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     </item>
     
     <item>

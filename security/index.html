@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-01 11:35:46 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-01 12:29:26 &#43;0200 CEST" />
 
 
 
@@ -205,9 +205,9 @@ credenziali effettive. In questo modo possono tornare utili al momento
 del privilege drop, quando da credenziali &ldquo;superiori&rdquo; temporanee si deve tornare
 alle credenziali effettive.</p>
 <h3 id="hands-on">Hands On<a href="#hands-on" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>Come recuperare gli ID reali ed effettivi? &ndash;&gt; con le seguenti chiamate di sistema:</p>
+<p>Come recuperare gli ID reali ed effettivi? &ndash;&gt; con le seguenti chiamate di sistema:
+= &ndash;&gt; ritorna l&rsquo;ID <strong>reale</strong> del processo invocante;</p>
 <ul>
-<li><code>getuid</code> &ndash;&gt; ritorna l&rsquo;ID <strong>reale</strong> del processo invocante;</li>
 <li><code>geteuid</code> &ndash;&gt; ritorna l&rsquo;ID <strong>effettivo</strong> del processo invocante;</li>
 </ul>
 <p>Una pratica utile è l&rsquo;<strong>abbassamento dei privilegi</strong> (anche detto privilege-drop), utile
@@ -286,6 +286,7 @@ SETGID, in modo da impedire l&rsquo;aggancio del programma tracciante al program
 <h3 id="esercizio-nebula--level00">Esercizio Nebula (level00)<a href="#esercizio-nebula--level00" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Per cambiare il layout della tastiera, loggare come nebula (password nebula),
 usare il comando <strong>loadkeys it</strong> poi loggare come flag00.</p>
+<p>Per verificare l&rsquo;id di un utente, usare il comando <strong>id &lt;nomeutente&gt;</strong></p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find / -perm -4000 -exec ls -l <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> 2&gt;/dev/null | grep level00
 /bin/.../flag00
 getflag

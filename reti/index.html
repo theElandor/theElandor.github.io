@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-01 11:38:47 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-04 15:18:54 &#43;0200 CEST" />
 
 
 
@@ -155,7 +155,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-01
+        2022-10-04
         
       </span>
     
@@ -320,22 +320,32 @@ anche a livelli più alti dello stack.</p>
 <hr>
 <h2 id="htn--introduzione">(HTN) INTRODUZIONE<a href="#htn--introduzione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
-
-  <figure class="left" >
-    <img src="/ox-hugo/h2n1.png"   />
-    
-  </figure>
-
-
+<p>Gli scopi del livello Host to Network sono:</p>
+<ul>
+<li><strong><code>interconnessione</code></strong> tra due o più host;</li>
+<li><strong><code>trasmisionne di dati</code></strong> tra host interconnessi;</li>
+<li><strong><code>connessione</code></strong> di un host a internet;</li>
+</ul>
+<p>Nello stack TCP/IP questi 3 aspetti sono fortemente interconnessi
+tra di loro.</p>
 <p>Alcuni esempi:</p>
 <ul>
 <li><strong>LAN</strong> wired: Ethernet;</li>
 <li><strong>LAN</strong> wireless: 802.11x;</li>
 <li><strong>PAN</strong>: (Bluetooth);</li>
-<li>Mediante <strong>modem</strong>: da rivedere;</li>
+<li>Mediante <strong>modem</strong>;</li>
+<li><strong>WAN</strong> wireless;</li>
 </ul>
 <p>L&rsquo;unità informativa è chiamata <code>frame</code> (host-
 router/switch, router/switch-router/switch, host-host).</p>
+<p>Come anticipato, il livello H2N comprende 2 sottolivelli:</p>
+<ol>
+<li>Livello &ldquo;<strong>fisico</strong>&quot;:
+ci si riferisce alla vera e propria connessione &ldquo;fisica&rdquo; tra gli host
+(cavo coassiale, fibra ottica, trasmissione radio, modem);</li>
+<li>Livello &ldquo;<strong>data link</strong>&quot;: che si occupa dell&rsquo;incapsulamento e invio
+dei dati tra gli host.</li>
+</ol>
 <h3 id="modalità-di-trasmissione">Modalità di trasmissione<a href="#modalità-di-trasmissione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <ol>
 <li><strong><code>Unicast</code></strong> &ndash;&gt; un mittente e un destinatario;</li>
@@ -354,19 +364,27 @@ riservare delle informazioni (ad es.) ad alcune interfacce di rete.</p>
 <p><code>Mezzo punto a punto</code> collegamento pensato per fornire comuncazione tra 2
 punti soltanto.</p>
 <ul>
-<li>Half-Duplex: collegamento unidirezionale (un ricevente e un destinatario);</li>
-<li>Full-Duplex: collegamento bidirezionale;</li>
+<li><strong>Half-Duplex</strong>: collegamento che permette ad un solo host di inviare dati sul mezzo fisico
+in un determinato instante.</li>
+<li><strong>Full-Duplex</strong>: collegamento bidirezionale, collegamenti interni dedicati
+per entrambe le direzioni (nel caso di un punto a punto).</li>
 </ul>
 </li>
 </ol>
 <p>E&rsquo; importante capire bene la differenza tra <strong>modalità di trasmissione</strong> e
-<strong>tipi fisici di collegamento</strong>.</p>
+<strong>tipi fisici di collegamento</strong>. Infatti, a prescindere dal mezzo, un
+protocollo può prevedere molteplici modalità di trasmissione.</p>
 <h2 id="htn--lan-e-ethernet">(HTN) LAN e ETHERNET<a href="#htn--lan-e-ethernet" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
 <p>Rete che consente la comunicazione tra dispositivi a livello locale.
 Una rete locale può anche essere estesa a livello cittadino, o regionale.
 Essa ha un <em>numero limitato di nodi</em>!</p>
-<p><code>Backbone LAN</code> &ndash;&gt; Lan dedicate a collegare tante altre reti.</p>
+<p><code>Backbone LAN</code> &ndash;&gt; Lan dedicate a collegare tante altre reti. Sono dorsali informatiche
+che permettono la comunicazione ad alta velocità (solitamente tramite fibra ottica) tra
+due punti anche molto distanti tra di loro. Sono di proprietà delle grandi aziende
+di telecomunicazioni. In Italia, uno dei principali backbone network è la rete universitaria
+GARR che collega attraverso reti sottomarine in fibra ottical&rsquo;università Federico II di Napoli
+alla città di New York.</p>
 <h3 id="scheda-di-rete">Scheda di rete<a href="#scheda-di-rete" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Un host connesso a internet ha un dispositivo fatto apposta per il protocollo H2N,
 prende il nome di &ldquo;scheda di rete&rdquo;. La scheda di rete si occupa del frame (in certi casi
@@ -390,6 +408,81 @@ l&rsquo;interruzione della connessione con un host. Il problema è che
 se si rompe il dispositivo centrale (o si congestiona) la rete
 si rompe o si rallenta.</li>
 </ol>
+<h3 id="protocollo-ethernet">Protocollo Ethernet<a href="#protocollo-ethernet" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Protocollo per realizzare <strong>reti locali</strong>. (Nello stack TCP/IP siamo
+sempre nel livello h2n.) Questo protocollo era inizialmente progettato per funzionare
+su reti cablate con <strong>topologia a BUS</strong> (velocità nell&rsquo;ordine dei Mbit, quando venne ideata). Ora le schede di
+rete reggono velocità anche a livello di Gbit. Teoricamente
+il protocollo Ethernet può essere implementato anche con cavi ottici.
+In realtà al giorno d&rsquo;oggi questo protocollo è usato con topologia a stella,
+molto più sicura e diffusa.</p>
+<ul>
+<li>Il cavo bus deve avere due &ldquo;terminatori&rdquo; che assorbono la corrente.
+(slide: motivi del successo di ethernet)</li>
+</ul>
+<p>Vediamo ora alcuni aspetti fondamentali del protocollo ethernet:</p>
+<p><strong><code>Indirizzo MAC</code></strong>:</p>
+<p>Identificatori usati nel protocollo ethernet.
+Esempio: 81:F4:A3:AA:9C:49 &ndash;&gt; 6 byte (8 bit ogni coppia). Questo
+tipo di indirizzo è detto <strong>flat</strong>: le cifre non hanno un valore
+&ldquo;posizionale&rdquo;. Tuttavia i primi 3 byte servono per identificare
+il produttore della scheda di rete: con questo stratagemma si evita
+di generare indirizzi hardware uguali tra produttori diversi.</p>
+<p>Questi indirizzi valgono <strong>per la stessa rete locale</strong>. Ovviamente
+la rete funziona correttamente se questi indirizzi sono <strong>univoci</strong>!
+Ogni indirizzo MAC è associato ad un&rsquo;interfaccia di rete (a livello Hardware).
+Essenzialmente viene scritto all&rsquo;interno della scheda di rete dal
+produttore stesso.</p>
+<p>Non ci sono misure forti che permettono a chi controlla l&rsquo;host
+di &ldquo;camuffare&rdquo; l&rsquo;indirizzo MAC che il sistema operativo usa per
+inviare i pacchetti.</p>
+<ul>
+<li>FF-FF-FF-FF-FF-FF: <strong>indirizzo di broadcast</strong>, serve per identificare
+comunicazioni broadcast in reti ethernet.</li>
+</ul>
+<p>All&rsquo;interno del <strong>frame</strong> del pacchetto inviato viene inserito
+l&rsquo;indirizzo MAC del destinatario. In una topologia BUS, a livello
+elettrico tutti ricevono fisicamente il pacchetto, a livello logico
+lo riceve soltanto il destinatario. Di default, l&rsquo;interfaccia di rete
+confronta il suo indirizzo MAC con quello inserito all&rsquo;interno del frame.
+Ci sono alcune eccezioni:</p>
+<ul>
+<li>Un host imposta l&rsquo;indirizzo di broadcast nella sua interfaccia di rete</li>
+<li>Sull&rsquo;host sta eseguendo un software di sniffing. In questo caso
+l&rsquo;interfaccia di rete si dice in modalità <strong>promisqua</strong>.</li>
+</ul>
+<p><strong><code>Frame Ethernet</code></strong>:</p>
+<ol>
+<li>
+<p><strong>Preambolo</strong>: sequenza di 8 byte che serve alle interfacce di rete
+per comunicare correttamente a livello fisico. (&ldquo;Framing&rdquo;)
+L&rsquo;ultimo byte è una sequenza che indica la fine del preambolo,
+l&rsquo;ultimo bit di questa ultima sequenza è sempre 1.
+Del preambolo si preoccupa solo l&rsquo;interfaccia di rete, poi quella
+sequenza viene &ldquo;scartata&rdquo;, il S.O. non se ne preoccupa.</p>
+</li>
+<li>
+<p><strong>Indirizzo destinatario</strong> (6 byte);</p>
+</li>
+<li>
+<p><strong>Indirizzo sorgente</strong> (6 byte);</p>
+</li>
+<li>
+<p><strong>Camp tipo</strong></p>
+</li>
+<li>
+<p><strong>CRC</strong>: Informazione di controllo che si trova dopo
+il pacchetto dati. Per questo si parla di &ldquo;frame&rdquo;,
+perchè il payload viene &ldquo;circondato&rdquo;. Il CRC serve per controllare
+l&rsquo;integrità del paccheto: viene calcolato dall&rsquo;interfaccia di rete del mittente
+durante l&rsquo;invio del pacchetto con un algoritmo (detto a sua volta CRC). Il
+destinatario calcola a sua volta il CRC (in base ai dati che gli arrivano) e lo confronta
+con il CRC ricevuto. Se i due valori coincidono, allora la
+trasmissione è avvenuta correttamente.</p>
+<p>Il CRC(Controllo di Ridondanza Ciclico) viene generato sulla base del contenuto di 2,3,4 e dei dati (payload).</p>
+</li>
+</ol>
+<p>Il payload (dati) si trova tra la 4  e la 5 sequenza.</p>
 
       </div></div>
 
