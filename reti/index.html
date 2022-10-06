@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-04 16:48:45 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-06 12:57:55 &#43;0200 CEST" />
 
 
 
@@ -155,7 +155,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-04
+        2022-10-06
         
       </span>
     
@@ -202,6 +202,7 @@ Le credenziali per accedere al materiale di quest&rsquo;anno sono:</p>
 <li><a href="#protocollo-tcp-ip">PROTOCOLLO TCP/IP</a></li>
 <li><a href="#htn--introduzione">(HTN) INTRODUZIONE</a></li>
 <li><a href="#htn--lan-e-ethernet">(HTN) LAN e ETHERNET</a></li>
+<li><a href="#lab-6-10">Lab 6-10</a></li>
 </ul>
 <hr>
 <h2 id="metodi-di-comunicazione">METODI DI COMUNICAZIONE<a href="#metodi-di-comunicazione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -417,15 +418,21 @@ il protocollo Ethernet può essere implementato anche con cavi ottici.
 In realtà al giorno d&rsquo;oggi questo protocollo è usato con topologia a stella,
 molto più sicura e diffusa.</p>
 <ul>
-<li>Il cavo bus deve avere due &ldquo;terminatori&rdquo; che assorbono la corrente.
-(slide: motivi del successo di ethernet)</li>
+<li>Il cavo bus deve avere due &ldquo;terminatori&rdquo; che assorbono la corrente.</li>
+<li><strong>Motivi del successo di ethernet:</strong>
+<ol>
+<li>Poco costosa;</li>
+<li>Flessibile e si presta a diverse tecnologie/topologie;</li>
+<li>Rapida diffusione iniziale che ha preso il controllo del mercato;</li>
+</ol>
+</li>
 </ul>
 <p>Vediamo ora alcuni aspetti fondamentali del protocollo ethernet:</p>
 <p><strong><code>Indirizzo MAC</code></strong>:</p>
-<p>Identificatori usati nel protocollo ethernet.
-Esempio: 81:F4:A3:AA:9C:49 &ndash;&gt; 6 byte (8 bit ogni coppia). Questo
+<p>Gli indirizzi MAC sono gli identificatori usati nel protocollo ethernet.</p>
+<p>Esempio: 81:F4:A3:AA:9C:49 &ndash;&gt; 6 byte (8 bit ogni coppia). Questo
 tipo di indirizzo è detto <strong>flat</strong>: le cifre non hanno un valore
-&ldquo;posizionale&rdquo;. Tuttavia i primi 3 byte servono per identificare
+&ldquo;posizionale&rdquo;. Soltanto i primi 3 byte servono per identificare
 il produttore della scheda di rete: con questo stratagemma si evita
 di generare indirizzi hardware uguali tra produttori diversi.</p>
 <p>Questi indirizzi valgono <strong>per la stessa rete locale</strong>. Ovviamente
@@ -581,7 +588,179 @@ quindi aumenta esponenzialmente ad ogni &ldquo;stop&rdquo;.</li>
 
 <p>Il calcolo viene effettuato in base alla velocità della rete, non
 si lavora mai con tempi assoluti.</p>
+<hr>
+<h2 id="lab-6-10">Lab 6-10<a href="#lab-6-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
+<ul>
+<li><strong><code>Collegamenti dritti</code></strong>: si usano quando si vogliono collegare
+dispositivi che lavorano a livelli diversi dello stack TCP/IP,
+come un host e uno switch.</li>
+<li><strong><code>Collegamenti incrociati</code></strong>: quando si collegano dispositivi
+che lavorano allo stesso livello dello stack TCP/IP, come
+due host o due switch.</li>
+</ul>
+<h3 id="ifconfig">ifconfig<a href="#ifconfig" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eros@eros-ThinkPad-T430:~/website$ ifconfig
+docker0: flags<span style="color:#f92672">=</span>4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
+	inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+	ether 02:42:f5:40:4e:45  txqueuelen <span style="color:#ae81ff">0</span>  <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>
+	RX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
+	TX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
 
+enp0s25: flags<span style="color:#f92672">=</span>4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
+	ether 28:d2:44:0e:4e:f4  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>
+	RX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
+	TX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
+	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
+	device interrupt <span style="color:#ae81ff">20</span>  memory 0xf2500000-f2520000
+
+lo: flags<span style="color:#f92672">=</span>73&lt;UP,LOOPBACK,RUNNING&gt;  mtu <span style="color:#ae81ff">65536</span>
+	inet 127.0.0.1  netmask 255.0.0.0
+	inet6 ::1  prefixlen <span style="color:#ae81ff">128</span>  scopeid 0x10&lt;host&gt;
+	loop  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Local Loopback<span style="color:#f92672">)</span>
+	RX packets <span style="color:#ae81ff">8476</span>  bytes <span style="color:#ae81ff">4245267</span> <span style="color:#f92672">(</span>4.2 MB<span style="color:#f92672">)</span>
+	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
+	TX packets <span style="color:#ae81ff">8476</span>  bytes <span style="color:#ae81ff">4245267</span> <span style="color:#f92672">(</span>4.2 MB<span style="color:#f92672">)</span>
+	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
+
+wlp3s0: flags<span style="color:#f92672">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
+	inet 155.185.121.4  netmask 255.255.255.0  broadcast 155.185.121.255
+	inet6 fe80::fc6e:82:c6a8:e092  prefixlen <span style="color:#ae81ff">64</span>  scopeid 0x20&lt;link&gt;
+	ether 6c:88:14:86:08:08  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>
+	RX packets <span style="color:#ae81ff">2195025</span>  bytes <span style="color:#ae81ff">3036690551</span> <span style="color:#f92672">(</span>3.0 GB<span style="color:#f92672">)</span>
+	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
+	TX packets <span style="color:#ae81ff">1028353</span>  bytes <span style="color:#ae81ff">88788152</span> <span style="color:#f92672">(</span>88.7 MB<span style="color:#f92672">)</span>
+	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
+</code></pre></div><p>Si usa il comando <strong>ifconfig</strong> per mostrare le interfacce attualmente
+<em>attive</em> nell&rsquo;host.
+Alcune flag/opzioni utili:</p>
+<ul>
+<li>
+<p><strong>-a</strong>: mostra tutte le interfacce, anche le non attive. (i) <strong>lo</strong> è
+un&rsquo;interfaccia virtuale locale che il SO usa per le comunicazioni
+tra processi locali.</p>
+</li>
+<li>
+<p><strong>&lt;nome_interfaccia&gt;</strong>: mostra le informazioni sull&rsquo;interfaccia specificata;
+(i) HWaddr è il MAC adress dell&rsquo;interfaccia;
+(ii) MTU è la maximum transfer unit;</p>
+</li>
+</ul>
+<h3 id="ip">ip<a href="#ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Si usa il comando <strong>ip</strong> per interagire con lo stack TCP/IP. Per lavorare
+a livello 2 si usa il comando <strong>ip link</strong>. Esso elenca tutte le interfacce
+di rete disponibili nel sistema, simile al comando <code>ifconfig -a</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eros@eros-ThinkPad-T430:~/website$ ip link
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp0s25: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc fq_codel state DOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 28:d2:44:0e:4e:f4 brd ff:ff:ff:ff:ff:ff
+3: wlp3s0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc mq state UP mode DORMANT group default qlen <span style="color:#ae81ff">1000</span>
+    link/ether 6c:88:14:86:08:08 brd ff:ff:ff:ff:ff:ff
+4: docker0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc noqueue state DOWN mode DEFAULT group default
+    link/ether 02:42:f5:40:4e:45 brd ff:ff:ff:ff:ff:ff
+</code></pre></div><ul>
+<li><strong>ip link show eth0</strong> per ottenere informazioni su quell&rsquo;interfaccia di rete;</li>
+<li><strong>ip link set eth0 up</strong> per accendere l&rsquo;interfaccia;</li>
+<li><strong>ip link set eth0 down</strong> per spegnere l&rsquo;interfaccia;</li>
+</ul>
+<h3 id="come-configurare-una-rete">Come configurare una rete<a href="#come-configurare-una-rete" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<ol>
+<li>
+<p>Per prima cosa bisogna assegnare l&rsquo;indirizzo IP all&rsquo;interfaccia.
+Eseguire questo comando corrisponde anche all&rsquo;accensione dell&rsquo;interfaccia.
+Dopo l&rsquo;esecuzione del comando, sull&rsquo;output di ifconfig compare la
+linea corrispondente alle informazioni degli indirizzi ip.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 192.168.1.1
+</code></pre></div><p>Per spegnere l&rsquo;interfaccia e rimuovere l&rsquo;indirizzo ip:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 <span style="color:#ae81ff">0</span> down
+</code></pre></div><p>Per vedere gli indirizzi assegnati ad un interfaccia:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr show dev eth0
+ifconfig eth0
+</code></pre></div><p>Per aggiungere un indirizzo ip  ad un interfaccia.
+In questo caso devo sia assegnare l&rsquo;indirizzo che attivare l&rsquo;interfaccia.
+ifconfig invece lo fa in automatico, per questo a volte risulta più comodo.
+Il comando ip è pensato per gestire più indirizzi IP in una stessa
+interfaccia, quindi risulta più articolato.
+Usando il comando <code>ifconfig eth0 0 down</code> viene spenta l&rsquo;interfaccia
+e rimosso soltanto <em>il primo</em> indirizzo ip.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr add dev eth0 192.168.1.1/24
+</code></pre></div></li>
+<li>
+<p>Dopo aver acceso le interfacce e aver assegnato l&rsquo;indirizzo IP,
+si può testare la connessione usando <code>ping</code>. Se questa operazione
+ha successo, si può consultare l&rsquo;<em>arp table</em> usando uno di questi
+due comandi:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.1.4              ether   02:04:06:1b:57:4b   C                     eth0
+192.168.1.3                      <span style="color:#f92672">(</span>incomplete<span style="color:#f92672">)</span>                              eth0
+
+root@m1:~# ip neigh
+192.168.1.4 dev eth0 lladdr 02:04:06:1b:57:4b STALE
+192.168.1.3 dev eth0  FAILED
+</code></pre></div><p>Può tornare utile il comando <code>ip neigh flush all</code>, che pulisce
+l&rsquo;arp table.</p>
+</li>
+<li>
+<p><strong>ifupdown</strong> &ndash;&gt; tool che serve per configurare in modo permanente
+la configurazione di una macchina. Prima di agire, conviene resettare
+le configurazioni temporanee.</p>
+<p>La configurazione è contenuta nel file /etc/network/interfaces.
+In questo modo le informazioni date configurano la rete come
+se fosse stato usato ifconfig. Ecco un semplice esempio di
+configurazione</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# cat /etc/network/interfaces
+<span style="color:#75715e"># interfaces(5) file used by ifup(8) and ifdown(8)</span>
+<span style="color:#75715e"># Include files from /etc/network/interfaces.d:</span>
+source-directory /etc/network/interfaces.d
+
+auto eth0
+
+iface eth0 inet static
+address 192.168.1.1
+</code></pre></div><ul>
+<li>auto &ndash;&gt; la configurazione si attiva al boot;</li>
+<li>per attivare immediatamente la configurazione dell&rsquo;interfaccia
+di eth0 si può usare il comando <code>ifup eth0</code> ;</li>
+<li>per disattivare la configurazione permanente dell&rsquo;interfaccia
+di eth0 si usa <code>ifdown eth0</code>;</li>
+</ul>
+</li>
+</ol>
+<h3 id="tmux">TMUX<a href="#tmux" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Alcuni comandi utili per la gestione delle finestre:</p>
+<pre><code class="language-example" data-lang="example">- logout --&gt; ctrl-d
+- modalità comandi --&gt; ctrl-b
+- detach --&gt; CMD + d
+- split verticale --&gt; CMD + %
+- split orizzontale --&gt; CMD + &quot;
+- spostamento --&gt; CMD + freccina
+- scroll --&gt; CMD + pageup/pagedown
+- nuova finestra --&gt; CMD + c
+- scelta finestra --&gt; CMD + numero
+</code></pre><h3 id="tcpdump-e-ping">tcpdump e ping<a href="#tcpdump-e-ping" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Tool usato per sniffare il traffico di rete di una determinata scheda.
+(i) -e sta per ethernet, in modo da limitarsi alle informazioni del livello 2.
+(ii) -i serve per specificare l&rsquo;interfaccia.
+Esempio di output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# tcpdump -nei eth0
+tcpdump: verbose output suppressed, use -v or -vv <span style="color:#66d9ef">for</span> full protocol decode
+listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
+10:53:49.007880 02:04:06:9c:eb:4a &gt; ff:ff:ff:ff:ff:ff, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length <span style="color:#ae81ff">28</span>
+10:53:49.007905 02:04:06:1b:57:4b &gt; 02:04:06:9c:eb:4a, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length <span style="color:#ae81ff">2</span>
+</code></pre></div><p>Può essere utile anche il comando <code>arping</code>: il test di connessione
+viene effettuato mandando tante richieste ARP, consecutivamente.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arping -i eth0 192.168.1.2
+root@m2:~# tcpdump -nei eth0
+tcpdump: verbose output suppressed, use -v or -vv <span style="color:#66d9ef">for</span> full protocol decode
+listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
+10:56:56.242261 02:04:06:9c:eb:4a &gt; ff:ff:ff:ff:ff:ff, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length <span style="color:#ae81ff">28</span>
+10:56:56.242283 02:04:06:1b:57:4b &gt; 02:04:06:9c:eb:4a, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length <span style="color:#ae81ff">28</span>
+</code></pre></div>
       </div></div>
 
   

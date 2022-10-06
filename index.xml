@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 04 Oct 2022 16:48:45 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 06 Oct 2022 12:57:55 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 04 Oct 2022 16:48:45 +0200</pubDate>
+      <pubDate>Thu, 06 Oct 2022 12:57:55 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -47,6 +47,7 @@ Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
@@ -262,15 +263,21 @@ il protocollo Ethernet può essere implementato anche con cavi ottici.
 In realtà al giorno d&amp;rsquo;oggi questo protocollo è usato con topologia a stella,
 molto più sicura e diffusa.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Il cavo bus deve avere due &amp;ldquo;terminatori&amp;rdquo; che assorbono la corrente.
-(slide: motivi del successo di ethernet)&lt;/li&gt;
+&lt;li&gt;Il cavo bus deve avere due &amp;ldquo;terminatori&amp;rdquo; che assorbono la corrente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Motivi del successo di ethernet:&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Poco costosa;&lt;/li&gt;
+&lt;li&gt;Flessibile e si presta a diverse tecnologie/topologie;&lt;/li&gt;
+&lt;li&gt;Rapida diffusione iniziale che ha preso il controllo del mercato;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Vediamo ora alcuni aspetti fondamentali del protocollo ethernet:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;Indirizzo MAC&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;Identificatori usati nel protocollo ethernet.
-Esempio: 81:F4:A3:AA:9C:49 &amp;ndash;&amp;gt; 6 byte (8 bit ogni coppia). Questo
+&lt;p&gt;Gli indirizzi MAC sono gli identificatori usati nel protocollo ethernet.&lt;/p&gt;
+&lt;p&gt;Esempio: 81:F4:A3:AA:9C:49 &amp;ndash;&amp;gt; 6 byte (8 bit ogni coppia). Questo
 tipo di indirizzo è detto &lt;strong&gt;flat&lt;/strong&gt;: le cifre non hanno un valore
-&amp;ldquo;posizionale&amp;rdquo;. Tuttavia i primi 3 byte servono per identificare
+&amp;ldquo;posizionale&amp;rdquo;. Soltanto i primi 3 byte servono per identificare
 il produttore della scheda di rete: con questo stratagemma si evita
 di generare indirizzi hardware uguali tra produttori diversi.&lt;/p&gt;
 &lt;p&gt;Questi indirizzi valgono &lt;strong&gt;per la stessa rete locale&lt;/strong&gt;. Ovviamente
@@ -426,6 +433,196 @@ quindi aumenta esponenzialmente ad ogni &amp;ldquo;stop&amp;rdquo;.&lt;/li&gt;
 
 &lt;p&gt;Il calcolo viene effettuato in base alla velocità della rete, non
 si lavora mai con tempi assoluti.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Collegamenti dritti&lt;/code&gt;&lt;/strong&gt;: si usano quando si vogliono collegare
+dispositivi che lavorano a livelli diversi dello stack TCP/IP,
+come un host e uno switch.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Collegamenti incrociati&lt;/code&gt;&lt;/strong&gt;: quando si collegano dispositivi
+che lavorano allo stesso livello dello stack TCP/IP, come
+due host o due switch.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ifconfig&#34;&gt;ifconfig&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ifconfig
+docker0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
+	inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+	ether 02:42:f5:40:4e:45  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+
+enp0s25: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
+	ether 28:d2:44:0e:4e:f4  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	device interrupt &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;  memory 0xf2500000-f2520000
+
+lo: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt;
+	inet 127.0.0.1  netmask 255.0.0.0
+	inet6 ::1  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;  scopeid 0x10&amp;lt;host&amp;gt;
+	loop  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Local Loopback&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+
+wlp3s0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
+	inet 155.185.121.4  netmask 255.255.255.0  broadcast 155.185.121.255
+	inet6 fe80::fc6e:82:c6a8:e092  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt;  scopeid 0x20&amp;lt;link&amp;gt;
+	ether 6c:88:14:86:08:08  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;2195025&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;3036690551&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;3.0 GB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;1028353&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;88788152&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;88.7 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si usa il comando &lt;strong&gt;ifconfig&lt;/strong&gt; per mostrare le interfacce attualmente
+&lt;em&gt;attive&lt;/em&gt; nell&amp;rsquo;host.
+Alcune flag/opzioni utili:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;-a&lt;/strong&gt;: mostra tutte le interfacce, anche le non attive. (i) &lt;strong&gt;lo&lt;/strong&gt; è
+un&amp;rsquo;interfaccia virtuale locale che il SO usa per le comunicazioni
+tra processi locali.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&amp;lt;nome_interfaccia&amp;gt;&lt;/strong&gt;: mostra le informazioni sull&amp;rsquo;interfaccia specificata;
+(i) HWaddr è il MAC adress dell&amp;rsquo;interfaccia;
+(ii) MTU è la maximum transfer unit;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ip&#34;&gt;ip&lt;/h3&gt;
+&lt;p&gt;Si usa il comando &lt;strong&gt;ip&lt;/strong&gt; per interagire con lo stack TCP/IP. Per lavorare
+a livello 2 si usa il comando &lt;strong&gt;ip link&lt;/strong&gt;. Esso elenca tutte le interfacce
+di rete disponibili nel sistema, simile al comando &lt;code&gt;ifconfig -a&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ip link
+1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp0s25: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state DOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
+    link/ether 28:d2:44:0e:4e:f4 brd ff:ff:ff:ff:ff:ff
+3: wlp3s0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc mq state UP mode DORMANT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
+    link/ether 6c:88:14:86:08:08 brd ff:ff:ff:ff:ff:ff
+4: docker0: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc noqueue state DOWN mode DEFAULT group default
+    link/ether 02:42:f5:40:4e:45 brd ff:ff:ff:ff:ff:ff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ip link show eth0&lt;/strong&gt; per ottenere informazioni su quell&amp;rsquo;interfaccia di rete;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ip link set eth0 up&lt;/strong&gt; per accendere l&amp;rsquo;interfaccia;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ip link set eth0 down&lt;/strong&gt; per spegnere l&amp;rsquo;interfaccia;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;come-configurare-una-rete&#34;&gt;Come configurare una rete&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Per prima cosa bisogna assegnare l&amp;rsquo;indirizzo IP all&amp;rsquo;interfaccia.
+Eseguire questo comando corrisponde anche all&amp;rsquo;accensione dell&amp;rsquo;interfaccia.
+Dopo l&amp;rsquo;esecuzione del comando, sull&amp;rsquo;output di ifconfig compare la
+linea corrispondente alle informazioni degli indirizzi ip.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ifconfig eth0 192.168.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per spegnere l&amp;rsquo;interfaccia e rimuovere l&amp;rsquo;indirizzo ip:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ifconfig eth0 &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; down
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per vedere gli indirizzi assegnati ad un interfaccia:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip addr show dev eth0
+ifconfig eth0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per aggiungere un indirizzo ip  ad un interfaccia.
+In questo caso devo sia assegnare l&amp;rsquo;indirizzo che attivare l&amp;rsquo;interfaccia.
+ifconfig invece lo fa in automatico, per questo a volte risulta più comodo.
+Il comando ip è pensato per gestire più indirizzi IP in una stessa
+interfaccia, quindi risulta più articolato.
+Usando il comando &lt;code&gt;ifconfig eth0 0 down&lt;/code&gt; viene spenta l&amp;rsquo;interfaccia
+e rimosso soltanto &lt;em&gt;il primo&lt;/em&gt; indirizzo ip.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip addr add dev eth0 192.168.1.1/24
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dopo aver acceso le interfacce e aver assegnato l&amp;rsquo;indirizzo IP,
+si può testare la connessione usando &lt;code&gt;ping&lt;/code&gt;. Se questa operazione
+ha successo, si può consultare l&amp;rsquo;&lt;em&gt;arp table&lt;/em&gt; usando uno di questi
+due comandi:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m1:~# arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.1.4              ether   02:04:06:1b:57:4b   C                     eth0
+192.168.1.3                      &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;incomplete&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;                              eth0
+
+root@m1:~# ip neigh
+192.168.1.4 dev eth0 lladdr 02:04:06:1b:57:4b STALE
+192.168.1.3 dev eth0  FAILED
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Può tornare utile il comando &lt;code&gt;ip neigh flush all&lt;/code&gt;, che pulisce
+l&amp;rsquo;arp table.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ifupdown&lt;/strong&gt; &amp;ndash;&amp;gt; tool che serve per configurare in modo permanente
+la configurazione di una macchina. Prima di agire, conviene resettare
+le configurazioni temporanee.&lt;/p&gt;
+&lt;p&gt;La configurazione è contenuta nel file /etc/network/interfaces.
+In questo modo le informazioni date configurano la rete come
+se fosse stato usato ifconfig. Ecco un semplice esempio di
+configurazione&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m2:~# cat /etc/network/interfaces
+&lt;span style=&#34;color:#75715e&#34;&gt;# interfaces(5) file used by ifup(8) and ifdown(8)&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Include files from /etc/network/interfaces.d:&lt;/span&gt;
+source-directory /etc/network/interfaces.d
+
+auto eth0
+
+iface eth0 inet static
+address 192.168.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;auto &amp;ndash;&amp;gt; la configurazione si attiva al boot;&lt;/li&gt;
+&lt;li&gt;per attivare immediatamente la configurazione dell&amp;rsquo;interfaccia
+di eth0 si può usare il comando &lt;code&gt;ifup eth0&lt;/code&gt; ;&lt;/li&gt;
+&lt;li&gt;per disattivare la configurazione permanente dell&amp;rsquo;interfaccia
+di eth0 si usa &lt;code&gt;ifdown eth0&lt;/code&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;tmux&#34;&gt;TMUX&lt;/h3&gt;
+&lt;p&gt;Alcuni comandi utili per la gestione delle finestre:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;- logout --&amp;gt; ctrl-d
+- modalità comandi --&amp;gt; ctrl-b
+- detach --&amp;gt; CMD + d
+- split verticale --&amp;gt; CMD + %
+- split orizzontale --&amp;gt; CMD + &amp;quot;
+- spostamento --&amp;gt; CMD + freccina
+- scroll --&amp;gt; CMD + pageup/pagedown
+- nuova finestra --&amp;gt; CMD + c
+- scelta finestra --&amp;gt; CMD + numero
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tcpdump-e-ping&#34;&gt;tcpdump e ping&lt;/h3&gt;
+&lt;p&gt;Tool usato per sniffare il traffico di rete di una determinata scheda.
+(i) -e sta per ethernet, in modo da limitarsi alle informazioni del livello 2.
+(ii) -i serve per specificare l&amp;rsquo;interfaccia.
+Esempio di output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m2:~# tcpdump -nei eth0
+tcpdump: verbose output suppressed, use -v or -vv &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; full protocol decode
+listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, capture size &lt;span style=&#34;color:#ae81ff&#34;&gt;262144&lt;/span&gt; bytes
+10:53:49.007880 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
+10:53:49.007905 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Può essere utile anche il comando &lt;code&gt;arping&lt;/code&gt;: il test di connessione
+viene effettuato mandando tante richieste ARP, consecutivamente.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m1:~# arping -i eth0 192.168.1.2
+root@m2:~# tcpdump -nei eth0
+tcpdump: verbose output suppressed, use -v or -vv &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; full protocol decode
+listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, capture size &lt;span style=&#34;color:#ae81ff&#34;&gt;262144&lt;/span&gt; bytes
+10:56:56.242261 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
+10:56:56.242283 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
+      <title>Hack the Box</title>
+      <link>/htb/</link>
+      <pubDate>Thu, 06 Oct 2022 12:13:12 +0200</pubDate>
+      
+      <guid>/htb/</guid>
+      <description>INDEX Links to HTB tutorials!
+  HTB-Three HTB-Archetype  </description>
+      <content>&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
+&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 </content>
     </item>
     
@@ -620,24 +817,6 @@ Magic the Gathering, boardgames.&lt;/p&gt;
 &lt;p&gt;Ernest_Hemingway&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Hack the Box</title>
-      <link>/htb/</link>
-      <pubDate>Wed, 28 Sep 2022 14:23:13 +0200</pubDate>
-      
-      <guid>/htb/</guid>
-      <description>INDEX Links to HTB tutorials!
-  HTB-Three HTB-Archetype  </description>
-      <content>&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
-&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
