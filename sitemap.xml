@@ -3,12 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/gestione/</loc>
-    <lastmod>2022-10-07T16:11:23+02:00</lastmod>
+    <loc>/compilatori/</loc>
+    <lastmod>2022-10-07T19:02:10+02:00</lastmod>
   </url>
   
   <url>
     <loc>/</loc>
+    <lastmod>2022-10-07T19:02:10+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/gestione/</loc>
     <lastmod>2022-10-07T16:11:23+02:00</lastmod>
   </url>
   
