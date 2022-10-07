@@ -6,7 +6,309 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 06 Oct 2022 12:57:55 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 07 Oct 2022 16:11:23 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
+      <link>/gestione/</link>
+      <pubDate>Fri, 07 Oct 2022 16:11:23 +0200</pubDate>
+      
+      <guid>/gestione/</guid>
+      <description>Disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://moodle.unimore.it/course/view.php?id=7287
+ Text Operations Document Processing   Analisi lessicale: si converte una sequenza di caratteri in una sequenza di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.</description>
+      <content>&lt;h2 id=&#34;disclaimer&#34;&gt;&lt;em&gt;Disclaimer&lt;/em&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica
+di Unimore.
+Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
+fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
+&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=7287&#34;&gt;https://moodle.unimore.it/course/view.php?id=7287&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;text-operations&#34;&gt;Text Operations&lt;/h2&gt;
+&lt;h3 id=&#34;document-processing&#34;&gt;Document Processing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Analisi lessicale&lt;/code&gt;&lt;/strong&gt;: si converte una sequenza di caratteri in una sequenza
+di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Eliminazione delle stopwords&lt;/code&gt;&lt;/strong&gt;: vengono eliminate quelle parole &amp;ldquo;inutili&amp;rdquo;
+che non danno informazioni per la ricerca.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Stemming e Lemmatization&lt;/code&gt;&lt;/strong&gt;: esempio di uno &lt;strong&gt;stem&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;connect&amp;rsquo; è lo stem
+di parole come &amp;lsquo;connected&amp;rsquo;, &amp;lsquo;connection&amp;rsquo;, &amp;lsquo;connecting&amp;rsquo;. Lo &lt;strong&gt;stemmer&lt;/strong&gt; è
+il tool che si occupa della stemmization.&lt;/p&gt;
+&lt;p&gt;esempio di un &lt;strong&gt;lemma&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;see&amp;rsquo; è il lemma per &amp;lsquo;seen&amp;rsquo; &amp;lsquo;saw&amp;rsquo;; Il &lt;strong&gt;lemmatizer&lt;/strong&gt;
+si occupa della generazione dei lemma.&lt;/p&gt;
+&lt;p&gt;Esistono alcuni parametri per giudicare uno stemmer: (i) &lt;strong&gt;correttezza&lt;/strong&gt;, (ii) &lt;strong&gt;efficacia&lt;/strong&gt;,
+(iii) miglioramento della &lt;strong&gt;performance&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Selezione degli Index&lt;/code&gt;&lt;/strong&gt; in pratica vengono scelti i token più
+significativi. Può essere fatta manualmente (da esperti) oppure automaticamente.
+Esempio: &amp;ldquo;Say&amp;rdquo; &amp;ldquo;Chair&amp;rdquo; &amp;ldquo;Be&amp;rdquo; &amp;ldquo;Enough&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;Chair&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Parsing&lt;/code&gt;&lt;/strong&gt;: processo di analizzare uno stream di dati input e verificare la sua
+correttezza sintattica. Questi strumenti (detti parser) lavorano sulla base
+di &amp;ldquo;banche dati&amp;rdquo; usando un approccio statistico.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Tagging&lt;/code&gt;&lt;/strong&gt;: processo che assegna alle parole il loro ruolo all&amp;rsquo;interno della frase.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Verbo, Nome, Aggettivo, ecc&amp;hellip;)&lt;/p&gt;
+&lt;h3 id=&#34;thesauri&#34;&gt;Thesauri&lt;/h3&gt;
+&lt;p&gt;Un &lt;strong&gt;Thesaurus&lt;/strong&gt; è una lista di parole (sinonimi e contrari) importanti in un dato domain di conoscenza.
+Ad esempio, in ambito medico, alla parola &amp;ldquo;hand&amp;rdquo; potrebbero essere collegati concetti
+come &amp;ldquo;sanityzers&amp;rdquo;, &amp;ldquo;transplantation&amp;rdquo;, ecc..
+A livello strutturale sono quindi dei &lt;em&gt;dizionari&lt;/em&gt; che contengono associazioni.&lt;/p&gt;
+&lt;h3 id=&#34;python-nltk-the-basics&#34;&gt;Python NLTK, the basics&lt;/h3&gt;
+&lt;p&gt;In questo script vengono trattati i seguenti argomenti:
+(i) Generazione dei token, (ii) Rimozione delle stopwords, (iii) Lemmatizzazione,
+(iv) Stemming, (v) Tagging.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.lancaster &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; LancasterStemmer
+
+text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This is a tests&amp;#34;&lt;/span&gt;
+tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(text)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens)
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Stopwords removal and Lemmatization&lt;/span&gt;
+wnl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;WordNetLemmatizer()
+&lt;span style=&#34;color:#75715e&#34;&gt;# per stampare tutte le parole che non sono stopwords.&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;):
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;tests&amp;#39;]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#     This&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#     test&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Stemming, using Porter and Lancaster, two popular stemmers&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# They give the same output for easy input&lt;/span&gt;
+porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
+
+lancaster &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; LancasterStemmer()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([lancaster&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# POS tagging a list of lemmatizen tokens!&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])])
+&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [[(&amp;#39;This&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;is&amp;#39;, &amp;#39;VBZ&amp;#39;), (&amp;#39;a&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;test&amp;#39;, &amp;#39;NN&amp;#39;)]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Esercizio 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;eseguire le seguenti operazioni: (i)Tokenization, (ii)Elimination of stopwords, (iii)Stemming, (iv) Selection of nouns
+su un file .txt contenente un libro di testo.
+In questo caso ho scaricato una copia locale del file, per semplicità.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
+
+path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./book.txt&amp;#34;&lt;/span&gt;
+file &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; open(path)
+raw &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(raw))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step1: tokenization&lt;/span&gt;
+tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(raw)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step2: eliminate stopwords&lt;/span&gt;
+no_stop_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;)]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(no_stop_tokens))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step3: stemming&lt;/span&gt;
+porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
+stemmed_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; no_stop_tokens])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step4: get nouns thanks to tagging&lt;/span&gt;
+tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stemmed_tokens]))
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tagged_tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+nouns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; t[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;NN&amp;#39;&lt;/span&gt;]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(nouns[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
+      <title>Cyber Phisical Security ITA-(2022/2023)</title>
+      <link>/security/</link>
+      <pubDate>Thu, 06 Oct 2022 14:51:58 +0200</pubDate>
+      
+      <guid>/security/</guid>
+      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Cyber Phisical security&amp;quot; del corso triennale di ingegneria informatica di Unimore (sede di Mantova). Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico, insieme a commenti e considerazioni (a volte eventuali approfondimenti). Il materiale qui fornito non è sostitutivo alle slide del corso. → Link per accedere al materiale didattico:
+https://moodle.unimore.it/course/view.php?id=8096
+ (SC) TABLE OF CONTENTS  Esecuzione Privilegi Elevati (Lezione 3)   Esecuzione Privilegi Elevati (Lezione 3) Introduzione A partire da UNIX system V esistono 3 tipologie di User / Group ID:</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/security.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;intro-e-disclaimer&#34;&gt;&lt;em&gt;Intro e disclaimer&lt;/em&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Cyber Phisical security&amp;quot; del corso triennale di ingegneria informatica
+di Unimore (sede di Mantova).
+Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico,
+insieme a commenti e considerazioni (a volte eventuali approfondimenti).
+Il materiale qui fornito non è sostitutivo alle slide del corso.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=8096&#34;&gt;https://moodle.unimore.it/course/view.php?id=8096&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;sc--table-of-contents&#34;&gt;(SC) TABLE OF CONTENTS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/h2&gt;
+&lt;h3 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h3&gt;
+&lt;p&gt;A partire da UNIX system V esistono 3 tipologie di User / Group ID:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;u/g ID reale;&lt;/li&gt;
+&lt;li&gt;u/g ID effettivo;&lt;/li&gt;
+&lt;li&gt;u/g ID salvato;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Quando parte un processo, le credenziali &amp;ldquo;salvate&amp;rdquo; assumono il valore delle
+credenziali effettive. In questo modo possono tornare utili al momento
+del privilege drop, quando da credenziali &amp;ldquo;superiori&amp;rdquo; temporanee si deve tornare
+alle credenziali effettive.&lt;/p&gt;
+&lt;h3 id=&#34;hands-on&#34;&gt;Hands On&lt;/h3&gt;
+&lt;p&gt;Come recuperare gli ID reali ed effettivi? &amp;ndash;&amp;gt; con le seguenti chiamate di sistema:
+= &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;reale&lt;/strong&gt; del processo invocante;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;geteuid&lt;/code&gt; &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;effettivo&lt;/strong&gt; del processo invocante;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Una pratica utile è l&amp;rsquo;&lt;strong&gt;abbassamento dei privilegi&lt;/strong&gt; (anche detto privilege-drop), utile
+per evitare l&amp;rsquo;esecuzione di applicazioni interamente con privilegi di root.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;modalità &lt;strong&gt;permanente&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;setuid(getuid())&lt;/code&gt;;&lt;/li&gt;
+&lt;li&gt;modalità &lt;strong&gt;temporanea&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;seteuid(getuid())&lt;/code&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nell&amp;rsquo;esempio seguente vengono usati i concetti appena descritti.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;sys/types.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;argv[]){
+
+      uid_t uid, euid;
+      uid_t priv_uid;
+
+      uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getuid(); &lt;span style=&#34;color:#75715e&#34;&gt;// id reale del processo
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      euid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; geteuid(); &lt;span style=&#34;color:#75715e&#34;&gt;// id effettivo del processo
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      priv_uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; euid; &lt;span style=&#34;color:#75715e&#34;&gt;// id saved
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
+      &lt;span style=&#34;color:#75715e&#34;&gt;// stampo id reale ed effettivo PRIMA del privilege drop (temporaneo)
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Prima di seteuid(uid): UID reale del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, uid);
+      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Prima di seteuid(uid): UID effettivo del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, euid);
+
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(seteuid(uid) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+	      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Non sono riuscito ad abbassare i privilegi.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;);
+	      exit(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
+      }
+
+      &lt;span style=&#34;color:#75715e&#34;&gt;// stampo id reale ed effettivo DOPO il privilege drop (temporaneo)
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getuid();
+      euid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; geteuid();
+
+      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(uid): UID reale del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, uid);
+      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(uid): UID effettivo del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, euid);
+
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(seteuid(priv_uid) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+	      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Non sono riuscito a ripristinare i privilegi.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;);
+	      exit(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
+      }
+
+      uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getuid();
+      euid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; geteuid();
+
+      &lt;span style=&#34;color:#75715e&#34;&gt;// stampo id reale ed effettivo dopo il privilege restore
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(priv_uid): UID reale del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, uid);
+      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(priv_uid): UID effettivo del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, euid);
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Altre due chiamate di sistema per lavorare con gli UID:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;getresuid&lt;/code&gt; &amp;ndash;&amp;gt; recupera tutti gli UID (saved compreso) del processo invocante;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;setresuid&lt;/code&gt; &amp;ndash;&amp;gt; per impostare tutti gli UID del processo;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Privilege drop &lt;strong&gt;permanente&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;uid, uid, uid&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In questo modo vengono abbassati permanentemente i privilegi del processo invocante.
+Essenzialmente &amp;ldquo;blocco&amp;rdquo; tutti gli UID a quelli specificati.&lt;/p&gt;
+&lt;p&gt;Privilege drop &lt;strong&gt;temporaneo&lt;/strong&gt;:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;-1, getuid&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;, -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;-1, uid, -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; ≡ seteuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;uid&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ripristino temporaneo dei privilegi:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;-1, privileged_ID, -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In generale non viene mai acceso il SETUID su una shell, altrimenti le conseguenze potrebbero
+essere gravi.
+Ricorda che quando un file (con SETUID acceso) viene copiato, il SETUID/SETGID viene automaticamente
+rimosso.&lt;/p&gt;
+&lt;p&gt;Una considerazione è da fare su il &lt;strong&gt;tracciamento&lt;/strong&gt; dei processi: si potrebbero sfruttare &amp;ldquo;tracciatori&amp;rdquo;
+come &lt;em&gt;strace&lt;/em&gt; o &lt;em&gt;gdb&lt;/em&gt; per analizzare le chiamate di sistema di un processo con alti privilegi, per
+poi provare a fare una privilege escalation. Per evitare questo problema, si possono inibire i SETUID/
+SETGID, in modo da impedire l&amp;rsquo;aggancio del programma tracciante al programma tracciato.&lt;/p&gt;
+&lt;p&gt;Un metodo ancora più sicuro di strutturare i privilegi è quello delle &lt;strong&gt;capabilities&lt;/strong&gt;
+&amp;ndash;&amp;gt; &lt;code&gt;man 7 capabilities&lt;/code&gt;.&lt;/p&gt;
+&lt;h3 id=&#34;esercizio-nebula--level00&#34;&gt;Esercizio Nebula (level00)&lt;/h3&gt;
+&lt;p&gt;Per cambiare il layout della tastiera, loggare come nebula (password nebula),
+usare il comando &lt;strong&gt;loadkeys it&lt;/strong&gt; poi loggare come flag00.&lt;/p&gt;
+&lt;p&gt;Per verificare l&amp;rsquo;id di un utente, usare il comando &lt;strong&gt;id &amp;lt;nomeutente&amp;gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;find / -perm -4000 -exec ls -l &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; 2&amp;gt;/dev/null | grep level00
+/bin/.../flag00
+getflag
+
+pidof /bin/.../flag00 &lt;span style=&#34;color:#75715e&#34;&gt;# in questo modo ottieni il pid del processo&lt;/span&gt;
+ps -p &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;pidof /bin/.../flag00&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; -o ruid,rgid,euid,egid
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;materiale-utile&#34;&gt;Materiale utile&lt;/h3&gt;
+&lt;p&gt;Per una visione più completa sulle chiamate di sistema, consultare
+il materiale al seguente link:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwiAjbn0n736AhWQYPEDHUYGBXMQFnoECAUQAQ&amp;amp;url=https%3A%2F%2Fweblab.ing.unimore.it%2Fpeople%2Fandreoli%2Fdidattica%2Fsistemi-operativi%2F2014-15%2F7-chiamate-sistema%2F7-chiamate-sistema.pdf&amp;amp;usg=AOvVaw1UkLh5mnZwXHESHHGBfB1e
+&lt;/code&gt;&lt;/pre&gt;&lt;hr&gt;
+&lt;h2 id=&#34;vulnerabilità-applicazioni-local-injection--lezione-4&#34;&gt;Vulnerabilità Applicazioni - Local Injection (Lezione 4)&lt;/h2&gt;
+&lt;h3 id=&#34;introduzione-e-alcune-definizioni&#34;&gt;Introduzione e alcune definizioni&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Zero day attack:&lt;/strong&gt; attacco che sfrutta una vulnerabilità scoperta
+a pochi giorni dal rilascio del software.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/zeroday.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;Timeline di una vulnerabilità software&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Tendenzialmente la maggior parte delle vulnerabilità sono dovute alla
+mancanza / incompletezza della &lt;strong&gt;validazione dell&amp;rsquo;input&lt;/strong&gt;. Studieremo
+in seguito le vulnerabilità più frequenti.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Mediazione incompleta&lt;/strong&gt;: quando dati sensibili (sulla base dei quali
+vengono fatte operazioni critiche) sono esposti o non protetti correttamente.
+Nelle applicazioni tradizionali, questo tipo di vulnerabilità si presenta
+spesso nel momento in cui un&amp;rsquo;utente ha il permesso di modificare file
+intermendi (per esempio memorizzati in /tmp).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;TOC/TOU&lt;/strong&gt; (&lt;em&gt;Time Of Check to Time Of Use&lt;/em&gt;): esempio web-app:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Un utente vuole modificare una pagina wikipedia;&lt;/li&gt;
+&lt;li&gt;L&amp;rsquo;autorizzazione viene concessa;&lt;/li&gt;
+&lt;li&gt;Un amministratore blocca la pagina senza revocare le autorizzazioni,
+prima che la pagina venga modificata;&lt;/li&gt;
+&lt;li&gt;L&amp;rsquo;utente modifica la pagina dopo il blocco;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Spesso per risolvere questo tipo di problemi bisogna riprogettare logicamente
+l&amp;rsquo;applicazione. Questa risulta essere una pratica costosa/molto impegnativa nella
+maggior parte dei casi.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Code injection:&lt;/strong&gt;, vulnerabilità quasi sempre dovuta ad una mancata validazione dell&amp;rsquo;input.&lt;/p&gt;
+&lt;h3 id=&#34;local-injection&#34;&gt;Local Injection&lt;/h3&gt;
+</content>
+    </item>
+    
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
@@ -624,145 +926,6 @@ listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&
 &lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-    </item>
-    
-    <item>
-      <title>Cyber Phisical Security ITA-(2022/2023)</title>
-      <link>/security/</link>
-      <pubDate>Sat, 01 Oct 2022 12:29:26 +0200</pubDate>
-      
-      <guid>/security/</guid>
-      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Cyber Phisical security&amp;quot; del corso triennale di ingegneria informatica di Unimore (sede di Mantova). Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico, insieme a commenti e considerazioni (a volte eventuali approfondimenti). Il materiale qui fornito non è sostitutivo alle slide del corso. → Link per accedere al materiale didattico:
-https://moodle.unimore.it/course/view.php?id=8096
- (SC) TABLE OF CONTENTS  Esecuzione Privilegi Elevati (Lezione 3)   Esecuzione Privilegi Elevati (Lezione 3) Introduzione A partire da UNIX system V esistono 3 tipologie di User / Group ID:</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/security.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;h2 id=&#34;intro-e-disclaimer&#34;&gt;&lt;em&gt;Intro e disclaimer&lt;/em&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Cyber Phisical security&amp;quot; del corso triennale di ingegneria informatica
-di Unimore (sede di Mantova).
-Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico,
-insieme a commenti e considerazioni (a volte eventuali approfondimenti).
-Il materiale qui fornito non è sostitutivo alle slide del corso.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=8096&#34;&gt;https://moodle.unimore.it/course/view.php?id=8096&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;sc--table-of-contents&#34;&gt;(SC) TABLE OF CONTENTS&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;esecuzione-privilegi-elevati--lezione-3&#34;&gt;Esecuzione Privilegi Elevati (Lezione 3)&lt;/h2&gt;
-&lt;h3 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h3&gt;
-&lt;p&gt;A partire da UNIX system V esistono 3 tipologie di User / Group ID:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;u/g ID reale;&lt;/li&gt;
-&lt;li&gt;u/g ID effettivo;&lt;/li&gt;
-&lt;li&gt;u/g ID salvato;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Quando parte un processo, le credenziali &amp;ldquo;salvate&amp;rdquo; assumono il valore delle
-credenziali effettive. In questo modo possono tornare utili al momento
-del privilege drop, quando da credenziali &amp;ldquo;superiori&amp;rdquo; temporanee si deve tornare
-alle credenziali effettive.&lt;/p&gt;
-&lt;h3 id=&#34;hands-on&#34;&gt;Hands On&lt;/h3&gt;
-&lt;p&gt;Come recuperare gli ID reali ed effettivi? &amp;ndash;&amp;gt; con le seguenti chiamate di sistema:
-= &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;reale&lt;/strong&gt; del processo invocante;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;geteuid&lt;/code&gt; &amp;ndash;&amp;gt; ritorna l&amp;rsquo;ID &lt;strong&gt;effettivo&lt;/strong&gt; del processo invocante;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Una pratica utile è l&amp;rsquo;&lt;strong&gt;abbassamento dei privilegi&lt;/strong&gt; (anche detto privilege-drop), utile
-per evitare l&amp;rsquo;esecuzione di applicazioni interamente con privilegi di root.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;modalità &lt;strong&gt;permanente&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;setuid(getuid())&lt;/code&gt;;&lt;/li&gt;
-&lt;li&gt;modalità &lt;strong&gt;temporanea&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;seteuid(getuid())&lt;/code&gt;;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Nell&amp;rsquo;esempio seguente vengono usati i concetti appena descritti.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c&#34; data-lang=&#34;c&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;unistd.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;sys/types.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;argv[]){
-
-      uid_t uid, euid;
-      uid_t priv_uid;
-
-      uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getuid(); &lt;span style=&#34;color:#75715e&#34;&gt;// id reale del processo
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      euid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; geteuid(); &lt;span style=&#34;color:#75715e&#34;&gt;// id effettivo del processo
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      priv_uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; euid; &lt;span style=&#34;color:#75715e&#34;&gt;// id saved
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;
-      &lt;span style=&#34;color:#75715e&#34;&gt;// stampo id reale ed effettivo PRIMA del privilege drop (temporaneo)
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Prima di seteuid(uid): UID reale del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, uid);
-      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Prima di seteuid(uid): UID effettivo del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, euid);
-
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(seteuid(uid) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
-	      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Non sono riuscito ad abbassare i privilegi.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;);
-	      exit(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
-      }
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;// stampo id reale ed effettivo DOPO il privilege drop (temporaneo)
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getuid();
-      euid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; geteuid();
-
-      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(uid): UID reale del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, uid);
-      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(uid): UID effettivo del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, euid);
-
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(seteuid(priv_uid) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
-	      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Non sono riuscito a ripristinare i privilegi.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;);
-	      exit(&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
-      }
-
-      uid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; getuid();
-      euid &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; geteuid();
-
-      &lt;span style=&#34;color:#75715e&#34;&gt;// stampo id reale ed effettivo dopo il privilege restore
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(priv_uid): UID reale del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, uid);
-      printf(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Dopo seteuid(priv_uid): UID effettivo del processo = %d&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;, euid);
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Altre due chiamate di sistema per lavorare con gli UID:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;getresuid&lt;/code&gt; &amp;ndash;&amp;gt; recupera tutti gli UID (saved compreso) del processo invocante;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;setresuid&lt;/code&gt; &amp;ndash;&amp;gt; per impostare tutti gli UID del processo;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Privilege drop &lt;strong&gt;permanente&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;uid, uid, uid&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In questo modo vengono abbassati permanentemente i privilegi del processo invocante.
-Essenzialmente &amp;ldquo;blocco&amp;rdquo; tutti gli UID a quelli specificati.&lt;/p&gt;
-&lt;p&gt;Privilege drop &lt;strong&gt;temporaneo&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;-1, getuid&lt;span style=&#34;color:#f92672&#34;&gt;()&lt;/span&gt;, -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;-1, uid, -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; ≡ seteuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;uid&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Ripristino temporaneo dei privilegi:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;setresuid&lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;-1, privileged_ID, -1&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In generale non viene mai acceso il SETUID su una shell, altrimenti le conseguenze potrebbero
-essere gravi.
-Ricorda che quando un file (con SETUID acceso) viene copiato, il SETUID/SETGID viene automaticamente
-rimosso.&lt;/p&gt;
-&lt;p&gt;Una considerazione è da fare su il &lt;strong&gt;tracciamento&lt;/strong&gt; dei processi: si potrebbero sfruttare &amp;ldquo;tracciatori&amp;rdquo;
-come &lt;em&gt;strace&lt;/em&gt; o &lt;em&gt;gdb&lt;/em&gt; per analizzare le chiamate di sistema di un processo con alti privilegi, per
-poi provare a fare una privilege escalation. Per evitare questo problema, si possono inibire i SETUID/
-SETGID, in modo da impedire l&amp;rsquo;aggancio del programma tracciante al programma tracciato.&lt;/p&gt;
-&lt;p&gt;Un metodo ancora più sicuro di strutturare i privilegi è quello delle &lt;strong&gt;capabilities&lt;/strong&gt;
-&amp;ndash;&amp;gt; &lt;code&gt;man 7 capabilities&lt;/code&gt;.&lt;/p&gt;
-&lt;h3 id=&#34;esercizio-nebula--level00&#34;&gt;Esercizio Nebula (level00)&lt;/h3&gt;
-&lt;p&gt;Per cambiare il layout della tastiera, loggare come nebula (password nebula),
-usare il comando &lt;strong&gt;loadkeys it&lt;/strong&gt; poi loggare come flag00.&lt;/p&gt;
-&lt;p&gt;Per verificare l&amp;rsquo;id di un utente, usare il comando &lt;strong&gt;id &amp;lt;nomeutente&amp;gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;find / -perm -4000 -exec ls -l &lt;span style=&#34;color:#f92672&#34;&gt;{}&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;\;&lt;/span&gt; 2&amp;gt;/dev/null | grep level00
-/bin/.../flag00
-getflag
-
-pidof /bin/.../flag00 &lt;span style=&#34;color:#75715e&#34;&gt;# in questo modo ottieni il pid del processo&lt;/span&gt;
-ps -p &lt;span style=&#34;color:#66d9ef&#34;&gt;$(&lt;/span&gt;pidof /bin/.../flag00&lt;span style=&#34;color:#66d9ef&#34;&gt;)&lt;/span&gt; -o ruid,rgid,euid,egid
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;materiale-utile&#34;&gt;Materiale utile&lt;/h3&gt;
-&lt;p&gt;Per una visione più completa sulle chiamate di sistema, consultare
-il materiale al seguente link:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;https://www.google.com/url?sa=t&amp;amp;rct=j&amp;amp;q=&amp;amp;esrc=s&amp;amp;source=web&amp;amp;cd=&amp;amp;cad=rja&amp;amp;uact=8&amp;amp;ved=2ahUKEwiAjbn0n736AhWQYPEDHUYGBXMQFnoECAUQAQ&amp;amp;url=https%3A%2F%2Fweblab.ing.unimore.it%2Fpeople%2Fandreoli%2Fdidattica%2Fsistemi-operativi%2F2014-15%2F7-chiamate-sistema%2F7-chiamate-sistema.pdf&amp;amp;usg=AOvVaw1UkLh5mnZwXHESHHGBfB1e
-&lt;/code&gt;&lt;/pre&gt;</content>
     </item>
     
     <item>
