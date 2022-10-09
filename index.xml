@@ -6,7 +6,64 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Oct 2022 21:23:49 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 21:49:34 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linguaggi e compilatori</title>
+      <link>/compilatori/</link>
+      <pubDate>Sun, 09 Oct 2022 21:49:34 +0200</pubDate>
+      
+      <guid>/compilatori/</guid>
+      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. → Link per accedere al materiale didattico: https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
+Link al materiale:
+ https://theelandor.github.io/ox-hugo/note.pdf
+ Esercizio riconoscitori Scrivere un riconoscitore per stringhe palindrome in C++.</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
+Il pdf contiene i miei appunti presi durante le lezioni.
+Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
+&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link al materiale:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/note.pdf&#34;&gt;https://theelandor.github.io/ox-hugo/note.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;esercizio-riconoscitori&#34;&gt;Esercizio riconoscitori&lt;/h2&gt;
+&lt;p&gt;Scrivere un riconoscitore per stringhe palindrome in C++.
+Per avere un codice più conciso, si può sfruttare la natura ricorsiva
+delle stringhe palindrome:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;is_palindrome&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; str, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; start, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; end)
+{
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; end) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(str[start] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; str[end] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; is_palindrome(str, start&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, end&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; false;
+}
+&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;argv){
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(argc &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; str &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; argv[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(is_palindrome(str, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, strlen(str)&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
+      cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Is Palindrome&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+      cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Not palindrome&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+  }
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+    cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Missing string input&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
     <item>
       <title>About</title>
       <link>/about/</link>
@@ -853,36 +910,6 @@ listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&
 10:56:56.242261 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
 10:56:56.242283 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-    </item>
-    
-    <item>
-      <title>Linguaggi e compilatori</title>
-      <link>/compilatori/</link>
-      <pubDate>Fri, 07 Oct 2022 19:02:10 +0200</pubDate>
-      
-      <guid>/compilatori/</guid>
-      <description>  Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. → Link per accedere al materiale didattico: https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
-Link al materiale:
- https://theelandor.github.io/ox-hugo/note.pdf
- </description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
-Il pdf contiene i miei appunti presi durante le lezioni.
-Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
-&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Link al materiale:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/note.pdf&#34;&gt;https://theelandor.github.io/ox-hugo/note.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
     </item>
     
     <item>
