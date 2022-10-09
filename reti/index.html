@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-06 12:57:55 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-09 19:41:10 &#43;0200 CEST" />
 
 
 
@@ -171,7 +171,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-06
+        2022-10-09
         
       </span>
     
@@ -474,6 +474,14 @@ Ci sono alcune eccezioni:</p>
 <li>Sull&rsquo;host sta eseguendo un software di sniffing. In questo caso
 l&rsquo;interfaccia di rete si dice in modalità <strong>promiscua</strong>.</li>
 </ul>
+<p>L&rsquo;indirizzo IP non basta da solo principalmente per 2 motivi:</p>
+<ol>
+<li>Se l&rsquo;indirizzo IP fosse salvato nella NIC al posto dell&rsquo;indirizzo MAC,
+quando il dispositivo si connette ad una diversa rete locale,
+quell&rsquo;indirizzo all&rsquo;interno della scheda dovrebbe essere riconfigurato
+ogni singola volta!</li>
+<li>Le NIC non sarebbero in grado di sopportare protocolli diversi da IP.</li>
+</ol>
 <p><strong><code>Frame Ethernet</code></strong>:</p>
 <ol>
 <li>
@@ -544,11 +552,8 @@ I pacchetti usati per richieste / risposte ARP sono pacchetti
 Per questo è un &ldquo;sottoprotocollo&rdquo; dell&rsquo;Ethernet.</p>
 <p>Il fatto che non sia riuscito ad ottenere l&rsquo;indirizzo MAC
 del destinatario (nel caso in cui effettivamente non ci sia),
-è un&rsquo;informazione implicita che si ottiene un &ldquo;<strong>timeout</strong>&quot;.</p>
+è un&rsquo;informazione implicita che si ottiene grazie ad un &ldquo;<strong>timeout</strong>&quot;.</p>
 </li>
-</ul>
-<!-- raw HTML omitted -->
-<ul>
 <li>
 <p><strong>ARP Table</strong>: cache che conserva il mapping IP-MAC per
 un certo periodo di tempo, per migliorare la performance.
@@ -588,6 +593,13 @@ segnali in ingresso anche durante la trasmissione. In tal caso
 si assume che avvenga una collisione, quindi l&rsquo;interfaccia si ferma
 di inviare dati. &ndash;&gt; L&rsquo;interfaccia invia un segnale <strong>JAMMING</strong>, anche
 tutte le altre interfacce si mettono in pausa!</li>
+<li><strong>Inter Frame Gap (IFG)</strong>: lunghezza del pacchetto dati più piccolo.
+I frame emessi da un host sono distanziati da un Inter Frame Gap,
+in modo da permettere agli altri host di capire la fine di un
+frame e l&rsquo;inizio di un altro.
+Un host prima di iniziare a trasmettere su un canale, sta in
+ascolto per la durata di un IFG in modo da capire se il canale
+sia libero o meno.</li>
 <li><strong>Ritardo pseudo-casuale</strong> &ndash;&gt; si ri-inizia a inviare i pacchetti
 applicando un ritardo casuale che si spera sia diverso per i vari
 segnali.</li>
@@ -603,7 +615,11 @@ quindi aumenta esponenzialmente ad ogni &ldquo;stop&rdquo;.</li>
 
 
 <p>Il calcolo viene effettuato in base alla velocità della rete, non
-si lavora mai con tempi assoluti.</p>
+si lavora mai con tempi assoluti. Aumentando esponenzialmente la
+grandezza dell&rsquo;insieme di valori da cui si sceglie il ritardo di
+trasmissione, l&rsquo;host riesce a riadattare la trasmissione al traffico
+che attualmente è presente nella rete. In presenza di sovraccarico,
+ovviamente il ritardo di trasmissione è molto alto!</p>
 <hr>
 <h2 id="lab-6-10">Lab 6-10<a href="#lab-6-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>

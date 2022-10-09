@@ -3,38 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/about/</loc>
+    <lastmod>2022-10-09T21:23:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2022-10-09T21:23:49+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/htb/</loc>
+    <lastmod>2022-10-09T21:20:26+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/gestione/</loc>
+    <lastmod>2022-10-09T19:50:45+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/reti/</loc>
+    <lastmod>2022-10-09T19:41:10+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/compilatori/</loc>
     <lastmod>2022-10-07T19:02:10+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2022-10-07T19:02:10+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/gestione/</loc>
-    <lastmod>2022-10-07T16:11:23+02:00</lastmod>
-  </url>
-  
-  <url>
     <loc>/security/</loc>
     <lastmod>2022-10-06T14:51:58+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reti/</loc>
-    <lastmod>2022-10-06T12:57:55+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/htb/</loc>
-    <lastmod>2022-10-06T12:13:12+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/about/</loc>
-    <lastmod>2022-10-01T11:44:43+02:00</lastmod>
   </url>
   
   <url>
