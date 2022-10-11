@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Oct 2022 15:49:34 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2022 16:45:08 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 11 Oct 2022 15:49:34 +0200</pubDate>
+      <pubDate>Tue, 11 Oct 2022 16:45:08 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -48,6 +48,7 @@ Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#htn--interconnessioni-di-rete-e-accesso-a-internet&#34;&gt;(HTN) INTERCONNESSIONI DI RETE E ACCESSO A INTERNET&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
@@ -533,7 +534,29 @@ Anche le singole porte degli switch possono reggere diverse velocità.&lt;/p&gt;
   &lt;/figure&gt;
 
 
+&lt;p&gt;In una rete del genere, un guasto potrebbe impattare il funzionamento
+di una grossa parte della rete. Per questo a volte si potrebbero
+creare delle reti con percorsi ridondanti, in modo da dare percorsi
+alternativi ai pacchetti.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Problema: in presenza di reti &lt;strong&gt;cicliche&lt;/strong&gt;, i messaggi broadcast circolano
+all&amp;rsquo;infinito!&lt;/li&gt;
+&lt;li&gt;Soluzione: &lt;code&gt;spanning tree protocol&lt;/code&gt; &amp;ndash;&amp;gt; in una rete con dei collegamenti
+ridondanti vengono disabilitati un certo numero di link sufficiente
+a rimuovere i cicli! Quindi serve una &amp;ldquo;logica&amp;rdquo; che possa aiutare
+a individuare questi cicli, usando dei messaggi sonda.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Il problema del protocollo ARP rimane: i messaggi broadcast impallano
+la rete!&lt;/p&gt;
 &lt;hr&gt;
+&lt;h2 id=&#34;htn--interconnessioni-di-rete-e-accesso-a-internet&#34;&gt;(HTN) INTERCONNESSIONI DI RETE E ACCESSO A INTERNET&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Ci avviamo verso il livello 3, ma senza abbandonare il livello 2&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Cerchiamo di capire come gestire reti &lt;strong&gt;indipendenti&lt;/strong&gt; e &lt;strong&gt;eterogenee&lt;/strong&gt;;&lt;/p&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Inizio degli appunti sulle esperienze in laboratorio&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
