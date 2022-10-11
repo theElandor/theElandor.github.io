@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-09 19:41:10 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-11 15:49:34 &#43;0200 CEST" />
 
 
 
@@ -171,7 +171,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-09
+        2022-10-11
         
       </span>
     
@@ -393,6 +393,7 @@ per entrambe le direzioni (nel caso di un punto a punto).</li>
 protocollo può prevedere molteplici modalità di trasmissione.</p>
 <h2 id="htn--lan-e-ethernet">(HTN) LAN e ETHERNET<a href="#htn--lan-e-ethernet" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
+<h3 id="introduzione">Introduzione<a href="#introduzione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Rete che consente la comunicazione tra dispositivi a livello locale.
 Una rete locale può anche essere estesa a livello cittadino, o regionale.
 Essa ha un <em>numero limitato di nodi</em>!</p>
@@ -620,6 +621,89 @@ grandezza dell&rsquo;insieme di valori da cui si sceglie il ritardo di
 trasmissione, l&rsquo;host riesce a riadattare la trasmissione al traffico
 che attualmente è presente nella rete. In presenza di sovraccarico,
 ovviamente il ritardo di trasmissione è molto alto!</p>
+<h3 id="tipi-di-dispositivi">Tipi di dispositivi<a href="#tipi-di-dispositivi" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p><strong><code>Hub</code></strong> (l1): ripetitore di segnale, sono deprecati.
+Funge da centro stella, ogni volta che gli arrivano segnali elettrici
+lui li replica e lo manda su tutte le porte. Replica anche le collisioni!</p>
+<p><strong><code>Switch</code></strong> (l2): consentono un <strong>inoltro selettivo</strong> dei frame:
+più host possono comunicare contemporaneamente nella stessa rete.
+Gli unici dati che lo swtich legge del frame ethernet sono gli
+indirizzi MAC.</p>
+<ul>
+<li><strong>store and forward</strong>: gli switch solitamente prima di inoltrare
+il pacchetto lo memorizza per analizzarlo. Se uno switch finisce
+la memoria (in caso di congestione) alcuni pacchetti potrebbero
+essere persi/eliminati. Questo meccanismo permette allo switch
+di gestire le collisioni fisiche!</li>
+</ul>
+<!-- raw HTML omitted -->
+<ol>
+<li><strong>filtraggio</strong>: tabella di filtraggio che conserva la corrispondenza
+tra indirizzo MAC dell&rsquo;host, la porta a cui è collegata e il tempo
+di vita di questa informazione.
+Inizialmente uno switch un hub che cerca di ottenere informazioni
+sugli host collegati alle sue porte.
+Da non configurato inoltra a tutti e inizia ad auto-apprendere in
+base ai pacchetti che gli arrivano.</li>
+</ol>
+<!-- raw HTML omitted -->
+<ol>
+<li><strong>inoltro</strong> dei frame al MAC adress corretto.</li>
+</ol>
+<p>Se ad uno switch arrivano delle richieste provenenti da due host
+(uno malevolo che ha copiato il MAC adress di un altro) con lo
+stesso indirizzo MAC, lo switch si auto-configura ogni volta!
+Ovviamente alcuni swtich più costosi hanno dei meccanismi di
+difesa più complessi.</p>
+<p>Se uno switch riceve pacchetti da troppi mac adress differenti,
+finisce la memoria e non riesce più ad aggiornare la
+tabella di filtraggio. In tal caso, lo switch torna a lavorare
+come un hub, inoltrando i pacchetti a tutte le porte!</p>
+<ul>
+<li><strong>paradigma cut-through</strong>: Il frame viene inoltrato all&rsquo;address
+destinatario senza aspettare che il frame arrivi completamente.
+Questo aumenta le prestazioni, ma permette meno funzionalità
+(come l&rsquo;implementazione del controllo di integrità CRC, che
+a volte è invece implementato in alcuni switch.);</li>
+</ul>
+<p><strong><code>Bridge</code></strong> (l2): implementa tutta la logica degli switch, ma con
+alcune funzionalità aggiuntive.</p>
+<ol>
+<li>
+<p><strong>Bridging trasparente</strong>: se si mettono in collegamento a livello
+2 dei protocolli H2N differenti. Permette ad esempio l&rsquo;inoltro
+di pacchetti tra protocollo ethernet e protocollo wi-fi.
+Quindi il sistema di indirizzamento è lo stesso.</p>
+</li>
+<li>
+<p><strong>Bridging non trasparente</strong>: in grado di lavorare con logiche
+di &ldquo;conversione&rdquo; di protocolli di comuncazione. Sono molto
+meno popolari.</p>
+</li>
+<li>
+<p><strong>Bridging virtuale</strong>: switch che funzionano su interfacce
+virtuali. Nonostante sia essenzialmente uno switch, viene
+chiamato gergalmente &ldquo;bridge&rdquo;.</p>
+</li>
+</ol>
+<p>Esistono anche dispositivi come gli <strong>splitter</strong>, molto economici e utili
+per far partire due cavi da uno solo di ingresso.</p>
+<h3 id="interconnesioni-di-lan">Interconnesioni di LAN<a href="#interconnesioni-di-lan" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Una soluzione tipica per creare reti estese è quello di
+creare delle reti LAN multi livello. Gli switch usati nei diversi
+livelli possono anche essere di diversa natura, alcuni possono
+essere più veloci di altri in base alle esigenze. Nel caso qui
+presentato, lo switch centrale deve essere più potente degli altri.
+Anche le singole porte degli switch possono reggere diverse velocità.</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/interconnessione.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 5: </span>Rete Lan multilivello</figcaption>
+    
+  </figure>
+
+
 <hr>
 <h2 id="lab-6-10">Lab 6-10<a href="#lab-6-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>

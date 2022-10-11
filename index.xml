@@ -6,7 +6,708 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Oct 2022 21:49:34 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 11 Oct 2022 15:49:34 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
+      <link>/reti/</link>
+      <pubDate>Tue, 11 Oct 2022 15:49:34 +0200</pubDate>
+      
+      <guid>/reti/</guid>
+      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
+ username: PAR2223 password: Kaw8Meir  Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;intro-e-disclaimer&#34;&gt;&lt;em&gt;Intro e disclaimer&lt;/em&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica
+di Unimore.
+Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
+fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
+&lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
+Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Kaw8Meir&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2021&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: wuaMoop2&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;I protocolli hanno senso se condivisi, bisogna definire degli &lt;strong&gt;standard&lt;/strong&gt;
+comuni.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ISO/OSI&lt;/code&gt; &amp;ndash;&amp;gt; standard &lt;strong&gt;de iure&lt;/strong&gt;, prima progettato su carta.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Sviluppato su 7 livelli come in Figura 1. Il pacchetto viene &amp;ldquo;inviato&amp;rdquo;
+dallo strato fisico di un host all&amp;rsquo;altro, poi viene &amp;ldquo;depacchettizzato&amp;rdquo;.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Livello fisico&lt;/strong&gt; : interessante dal punto di vista elettronico.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di collegamento&lt;/strong&gt;: stabilisce come vengono strutturati i pacchetti
+appena prima che vengano trasmessi fisicamente.Il pacchetto a questo
+stadio viene anche chiamato &lt;strong&gt;frame&lt;/strong&gt; (es. contiene dei bit per sincronizzare le schede di rete prima
+della configurazione effettiva).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di rete&lt;/strong&gt; Livello centrale, si occupa dell&amp;rsquo;instradamento dei pacchetti.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di trasporto&lt;/strong&gt;: trasporto dei pacchetti nella rete (nodi).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di sessione&lt;/strong&gt;: vuole ricreare un&amp;rsquo;astrazione di alto livello, ri-orgranizzando
+i pacchetti.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di presentazione&lt;/strong&gt;: si occupa di come viene &lt;em&gt;rappresentata&lt;/em&gt; l&amp;rsquo;informazione.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Livello di applicazione&lt;/strong&gt;: fornisce un&amp;rsquo;interfaccia per le applicazioni
+che si interfacciano con la rete.&lt;/li&gt;
+&lt;/ol&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/osi_layers.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;ISO/OSI stack&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;TCP/IP&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; ha prevalso nello sviluppo di internet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Diversi layer comportano un costo &amp;ndash;&amp;gt; si cerca di snellire lo stack,
+diminuendo il numero di livelli. Nonostante ciò, si vuole mantanere
+la numerazione precedente (Livello trasporto &amp;ndash;&amp;gt; 4, Livello Rete &amp;ndash;&amp;gt; 3).&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/tcpip.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;tcp/ip stack&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;hr&gt;
+&lt;h2 id=&#34;protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/htn.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;2- &lt;strong&gt;Host to Network&lt;/strong&gt; Modifiche del protocollo HTN non dovrebbero impattare il resto della rete:
+(es. posso creare una rete universitaria, basta avere l&amp;rsquo;hardware necessario).&lt;/p&gt;
+&lt;p&gt;3- &lt;strong&gt;Network&lt;/strong&gt;: Protocollo per la consegna dei pacchetti da un host mittente
+ad un destinatario. Ci si occupa semplicemente dell&amp;rsquo;invio dei pacchetti,
+non ci si preoccupa di sessioni, pacchetti mancanti, congestione, o simili.&lt;/p&gt;
+&lt;p&gt;4- &lt;strong&gt;Transport&lt;/strong&gt;: servizio di consegna con impegno tra due &lt;em&gt;processi applicativi&lt;/em&gt;
+che stanno eseguendo su due host terminali. (es TCP, UDP);&lt;/p&gt;
+&lt;p&gt;5- &lt;strong&gt;Application&lt;/strong&gt;: lo vedremo in seguito.&lt;/p&gt;
+&lt;p&gt;i layer 3 e 4 sono sempre essenzialmente quelli, possono cambiare spesso i livelli
+2 e 5 nelle telecomunicazioni!&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/clessidra.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 3: &lt;/span&gt;Modello a clessidra&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;(es. Alcune applicazioni potrebbero avere la necessità di sfruttare il protocollo
+TCP perchè &lt;strong&gt;vuole garantire la consegna di tutti i pacchetti&lt;/strong&gt; ).&lt;/p&gt;
+&lt;p&gt;(es. A livello host to network, una rete wireless potrebbe preoccuparsi della
+garanzia di consegna dei pacchetti. In questo modo risolvo &lt;strong&gt;localmente&lt;/strong&gt; un possibile
+problema di non consegna dei pacchetti. Se non me ne preoccupo localmente, un&amp;rsquo;altro
+host dall&amp;rsquo;altra parte del mondo potrebbe ricevere dei dati non completi.)&lt;/p&gt;
+&lt;p&gt;(solitamente ci si occupa dell&amp;rsquo;affidabilità a livello &lt;strong&gt;end to end&lt;/strong&gt;, a me interessa
+che le applicazioni comunichino correttamente!)&lt;/p&gt;
+&lt;p&gt;&amp;ndash;&amp;gt; &lt;strong&gt;morale&lt;/strong&gt;: posso decidere di risolvere i problemi in diversi layer dello stack,
+quindi a seconda del contesto si possono spostare alcune funzioni in altri livelli
+dello stack.&lt;/p&gt;
+&lt;p&gt;Non tutti i dispositivi(nodi) implementano tutto lo stack, si possono basare
+soltanto su alcuni layer. Switch e bridge sono dispositivi di livelo 2,
+che basano il loro funzionamento &lt;strong&gt;soltanto&lt;/strong&gt; sul livello 2 (non sanno nulla
+del protocolli IP ad esempio)! Il concetto è estendibile: un &lt;strong&gt;router&lt;/strong&gt;
+legge fino al livello 3, quindi fino all&amp;rsquo;indirizzo IP!&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/switch.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 4: &lt;/span&gt;Dispositivi Livello 2&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Tuttavia esistono delle eccezioni, come gli switch di livello 3, quindi
+anche qua c&#39;è flessibilità.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Deep packet inspection:&lt;/strong&gt; &amp;ndash;&amp;gt; quando si parla di dispositivi che sono in
+grado di analizzare più in profondità i pacchetti: riesce a leggere informazioni
+anche a livelli più alti dello stack.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Gli scopi del livello Host to Network sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;interconnessione&lt;/code&gt;&lt;/strong&gt; tra due o più host;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;trasmisionne di dati&lt;/code&gt;&lt;/strong&gt; tra host interconnessi;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;connessione&lt;/code&gt;&lt;/strong&gt; di un host a internet;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Nello stack TCP/IP questi 3 aspetti sono fortemente interconnessi
+tra di loro.&lt;/p&gt;
+&lt;p&gt;Alcuni esempi:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wired: Ethernet;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wireless: 802.11x;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PAN&lt;/strong&gt;: (Bluetooth);&lt;/li&gt;
+&lt;li&gt;Mediante &lt;strong&gt;modem&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;WAN&lt;/strong&gt; wireless;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;L&amp;rsquo;unità informativa è chiamata &lt;code&gt;frame&lt;/code&gt; (host-
+router/switch, router/switch-router/switch, host-host).&lt;/p&gt;
+&lt;p&gt;Come anticipato, il livello H2N comprende 2 sottolivelli:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Livello &amp;ldquo;&lt;strong&gt;fisico&lt;/strong&gt;&amp;quot;:
+ci si riferisce alla vera e propria connessione &amp;ldquo;fisica&amp;rdquo; tra gli host
+(cavo coassiale, fibra ottica, trasmissione radio, modem);&lt;/li&gt;
+&lt;li&gt;Livello &amp;ldquo;&lt;strong&gt;data link&lt;/strong&gt;&amp;quot;: che si occupa dell&amp;rsquo;incapsulamento e invio
+dei dati tra gli host.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;modalità-di-trasmissione&#34;&gt;Modalità di trasmissione&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Unicast&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; un mittente e un destinatario;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multicast&lt;/strong&gt; &amp;ndash;&amp;gt; comunicazione tra un mittente e un gruppo di destinatari;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Anycast&lt;/strong&gt; &amp;ndash;&amp;gt; mittente che vuole comunicare con &lt;strong&gt;un&lt;/strong&gt; mittente in un gruppo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Broadcast&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; mittente che vuole comunicare un&amp;rsquo;informazione a tutti;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;tipi-fisici-di-collegamento&#34;&gt;Tipi fisici di collegamento&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Mezzo broadcast&lt;/code&gt; Un mezzo broadcast è un mezzo attraverso il quale un host invia informazioni
+a tutti gli host collegati. Si può sfruttare un dispositivo broadcast per
+riservare delle informazioni (ad es.) ad alcune interfacce di rete.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;Mezzo punto a punto&lt;/code&gt; collegamento pensato per fornire comuncazione tra 2
+punti soltanto.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Half-Duplex&lt;/strong&gt;: collegamento che permette ad un solo host di inviare dati sul mezzo fisico
+in un determinato instante.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Full-Duplex&lt;/strong&gt;: collegamento bidirezionale, collegamenti interni dedicati
+per entrambe le direzioni (nel caso di un punto a punto).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;E&amp;rsquo; importante capire bene la differenza tra &lt;strong&gt;modalità di trasmissione&lt;/strong&gt; e
+&lt;strong&gt;tipi fisici di collegamento&lt;/strong&gt;. Infatti, a prescindere dal mezzo, un
+protocollo può prevedere molteplici modalità di trasmissione.&lt;/p&gt;
+&lt;h2 id=&#34;htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h3&gt;
+&lt;p&gt;Rete che consente la comunicazione tra dispositivi a livello locale.
+Una rete locale può anche essere estesa a livello cittadino, o regionale.
+Essa ha un &lt;em&gt;numero limitato di nodi&lt;/em&gt;!&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Backbone LAN&lt;/code&gt; &amp;ndash;&amp;gt; Lan dedicate a collegare tante altre reti. Sono dorsali informatiche
+che permettono la comunicazione ad alta velocità (solitamente tramite fibra ottica) tra
+due punti anche molto distanti tra di loro. Sono di proprietà delle grandi aziende
+di telecomunicazioni. In Italia, uno dei principali backbone network è la rete universitaria
+GARR che collega attraverso reti sottomarine in fibra ottical&amp;rsquo;università Federico II di Napoli
+alla città di New York.&lt;/p&gt;
+&lt;h3 id=&#34;scheda-di-rete&#34;&gt;Scheda di rete&lt;/h3&gt;
+&lt;p&gt;Un host connesso a internet ha un dispositivo fatto apposta per il protocollo H2N,
+prende il nome di &amp;ldquo;scheda di rete&amp;rdquo;. La scheda di rete si occupa del frame (in certi casi
+anche di una minima parte della logica), mentre
+solitamente il sistema operativo si occupa solo delle &lt;strong&gt;informazioni logiche&lt;/strong&gt;.
+Quindi in realtà quando si parla di H2N non bisogna immaginarsi il dispositivo (pc, tablet) ma
+la vera e propria scheda di rete.&lt;/p&gt;
+&lt;h3 id=&#34;topologie&#34;&gt;Topologie&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;BUS&lt;/code&gt; &amp;ndash;&amp;gt; Consiste in un cavo che collega tutti gli host, i messaggi
+vengono inviati a tutti gli host come segnali elettrici, ma accettati
+solo dal reale destinatario. Il problema è che se il cavo si rompe in
+qualsiasi punto, la rete si rompe e non funziona più.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ANELLO&lt;/code&gt; &amp;ndash;&amp;gt; Un host che riceve un pacchetto si chiede se il pacchetto
+è destinato a lui. Se non è per lui, quell&amp;rsquo;host &lt;strong&gt;inoltra&lt;/strong&gt; il pacchetto!
+L&amp;rsquo;host destinatario assorbe il pacchetto quando gli arriva.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;STELLA&lt;/code&gt; &amp;ndash;&amp;gt; Gli host sono connessi ad un dispositivo centrale dedicato.
+Si riescono a raggiungere distanze maggiori (due host possono essere
+distanti &amp;ldquo;2 cavi&amp;rdquo;). La rottura di un collegamento provoca solo
+l&amp;rsquo;interruzione della connessione con un host. Il problema è che
+se si rompe il dispositivo centrale (o si congestiona) la rete
+si rompe o si rallenta.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;protocollo-ethernet&#34;&gt;Protocollo Ethernet&lt;/h3&gt;
+&lt;p&gt;Protocollo per realizzare &lt;strong&gt;reti locali&lt;/strong&gt;. (Nello stack TCP/IP siamo
+sempre nel livello h2n.) Questo protocollo era inizialmente progettato per funzionare
+su reti cablate con &lt;strong&gt;topologia a BUS&lt;/strong&gt; (velocità nell&amp;rsquo;ordine dei Mbit, quando venne ideata). Ora le schede di
+rete reggono velocità anche a livello di Gbit. Teoricamente
+il protocollo Ethernet può essere implementato anche con cavi ottici.
+In realtà al giorno d&amp;rsquo;oggi questo protocollo è usato con topologia a stella,
+molto più sicura e diffusa.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Il cavo bus deve avere due &amp;ldquo;terminatori&amp;rdquo; che assorbono la corrente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Motivi del successo di ethernet:&lt;/strong&gt;
+&lt;ol&gt;
+&lt;li&gt;Poco costosa;&lt;/li&gt;
+&lt;li&gt;Flessibile e si presta a diverse tecnologie/topologie;&lt;/li&gt;
+&lt;li&gt;Rapida diffusione iniziale che ha preso il controllo del mercato;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Vediamo ora alcuni aspetti fondamentali del protocollo ethernet:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Indirizzo MAC&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Gli indirizzi MAC sono gli identificatori usati nel protocollo ethernet.&lt;/p&gt;
+&lt;p&gt;Esempio: 81:F4:A3:AA:9C:49 &amp;ndash;&amp;gt; 6 byte (8 bit ogni coppia). Questo
+tipo di indirizzo è detto &lt;strong&gt;flat&lt;/strong&gt;: le cifre non hanno un valore
+&amp;ldquo;posizionale&amp;rdquo;. Soltanto i primi 3 byte servono per identificare
+il produttore della scheda di rete: con questo stratagemma si evita
+di generare indirizzi hardware uguali tra produttori diversi.&lt;/p&gt;
+&lt;p&gt;Questi indirizzi valgono &lt;strong&gt;per la stessa rete locale&lt;/strong&gt;. Ovviamente
+la rete funziona correttamente se questi indirizzi sono &lt;strong&gt;univoci&lt;/strong&gt;!
+Ogni indirizzo MAC è associato ad un&amp;rsquo;interfaccia di rete (a livello Hardware).
+Essenzialmente viene scritto all&amp;rsquo;interno della scheda di rete dal
+produttore stesso.&lt;/p&gt;
+&lt;p&gt;Non ci sono misure forti che permettono a chi controlla l&amp;rsquo;host
+di &amp;ldquo;camuffare&amp;rdquo; l&amp;rsquo;indirizzo MAC che il sistema operativo usa per
+inviare i pacchetti.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;FF-FF-FF-FF-FF-FF: &lt;strong&gt;indirizzo di broadcast&lt;/strong&gt;, serve per identificare
+comunicazioni broadcast in reti ethernet.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All&amp;rsquo;interno del &lt;strong&gt;frame&lt;/strong&gt; del pacchetto inviato viene inserito
+l&amp;rsquo;indirizzo MAC del destinatario. In una topologia BUS, a livello
+elettrico tutti ricevono fisicamente il pacchetto, a livello logico
+lo riceve soltanto il destinatario. Di default, l&amp;rsquo;interfaccia di rete
+confronta il suo indirizzo MAC con quello inserito all&amp;rsquo;interno del frame.
+Ci sono alcune eccezioni:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Il frame contiene l&amp;rsquo;indirizzo destinatario broadcast;&lt;/li&gt;
+&lt;li&gt;Sull&amp;rsquo;host sta eseguendo un software di sniffing. In questo caso
+l&amp;rsquo;interfaccia di rete si dice in modalità &lt;strong&gt;promiscua&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;L&amp;rsquo;indirizzo IP non basta da solo principalmente per 2 motivi:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Se l&amp;rsquo;indirizzo IP fosse salvato nella NIC al posto dell&amp;rsquo;indirizzo MAC,
+quando il dispositivo si connette ad una diversa rete locale,
+quell&amp;rsquo;indirizzo all&amp;rsquo;interno della scheda dovrebbe essere riconfigurato
+ogni singola volta!&lt;/li&gt;
+&lt;li&gt;Le NIC non sarebbero in grado di sopportare protocolli diversi da IP.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Frame Ethernet&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Preambolo&lt;/strong&gt;: sequenza di 8 byte che serve alle interfacce di rete
+per comunicare correttamente a livello fisico. (&amp;ldquo;Framing&amp;rdquo;)
+L&amp;rsquo;ultimo byte è una sequenza che indica la fine del preambolo,
+l&amp;rsquo;ultimo bit di questa ultima sequenza è sempre 1.
+Del preambolo si preoccupa solo l&amp;rsquo;interfaccia di rete, poi quella
+sequenza viene &amp;ldquo;scartata&amp;rdquo;, il S.O. non se ne preoccupa.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Indirizzo destinatario&lt;/strong&gt; (6 byte):
+se in questo indirizzo tutti i byte sono settati a 1 allora
+il frame ethernet è detto frame &lt;strong&gt;broadcast&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Indirizzo sorgente&lt;/strong&gt; (6 byte);&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Camp tipo&lt;/strong&gt; (2 byte): serve a implementare il &lt;strong&gt;multiplexing&lt;/strong&gt;.
+Serve al sistema operativo (destinatario) per capire cosa fare
+del pacchetto ricevuto. (Devo essere in grado di collegare i vari livelli,
+devo &amp;ldquo;codificare&amp;rdquo; che payload sto trasportando). In altre parole,
+serve all’adattatore per sapere a quale dei protocolli dello strato di rete debba
+essere passato il campo dati di ciascun frame ricevuto.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;CRC&lt;/strong&gt;: Informazione di controllo che si trova dopo
+il pacchetto dati. Per questo si parla di &amp;ldquo;frame&amp;rdquo;,
+perchè il payload viene &amp;ldquo;circondato&amp;rdquo;. Il CRC serve per controllare
+l&amp;rsquo;integrità del paccheto: viene calcolato dall&amp;rsquo;interfaccia di rete del mittente
+durante l&amp;rsquo;invio del pacchetto con un algoritmo (detto a sua volta CRC). Il
+destinatario calcola a sua volta il CRC (in base ai dati che gli arrivano) e lo confronta
+con il CRC ricevuto. Se i due valori coincidono, allora la
+trasmissione è avvenuta correttamente.&lt;/p&gt;
+&lt;p&gt;Il CRC(Controllo di Ridondanza Ciclico) viene generato sulla base del contenuto di 2,3,4 e dei dati (payload).&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Il payload (dati) si trova tra la 4  e la 5 sequenza.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;MTU&lt;/code&gt;&lt;/strong&gt;: (&lt;em&gt;Maximum Transfer Unit&lt;/em&gt;) Dimensione massima trasferibile sulla rete, a livello
+di pacchetto. (solitamente 1500 byte)
+Il livello H2N usa lo &lt;strong&gt;stuffing&lt;/strong&gt; per &amp;ldquo;completare&amp;rdquo; i pacchetti
+che hanno dimensione minore di 46 byte.
+Tutte le schede di rete di una rete ethernet devono essere
+configurate con la stessa MTU! (essendo un campo comunque variabile,
+un amministratore di rete potrebbe decidere di cambiarne il valore)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo ARP&lt;/code&gt;&lt;/strong&gt;:
+(&lt;em&gt;Adress resolution protocol&lt;/em&gt;)&lt;/p&gt;
+&lt;p&gt;Di base quando si vuole inviare un pacchetto ad un host, non
+si conosce l&amp;rsquo;indirizzo MAC del destinatario.
+Il protocollo ARP prende come in input l&amp;rsquo;indirizzo IP del
+destinatario, e come output ha l&amp;rsquo;indirizzo MAC del destinatario.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Richiesta ARP&lt;/strong&gt;: messaggio broadcast che ha come payload
+l&amp;rsquo;indirizzo IP che l&amp;rsquo;host sta cercando. Questo messaggio
+viene ricevuto da tutti gli host connessi alla rete, ma
+l&amp;rsquo;unico che risponde è chi ha l&amp;rsquo;indirizzo IP ricercato.
+La risposta contiene l&amp;rsquo;indirizzo MAC associato a l&amp;rsquo;indirizzo
+IP iniziale.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;La risposta è unicast&lt;/strong&gt;, il destinatario manda il MAC adress
+solo a chi l&amp;rsquo;ha richiesto.&lt;/p&gt;
+&lt;p&gt;Questo modo di richiedere un indirizzo MAC è effettuabile
+soltanto su una rete &lt;strong&gt;contenuta&lt;/strong&gt;: è difficile mandare un
+messaggio broadcast saturando una rete che connette troppi host.
+I pacchetti usati per richieste / risposte ARP sono pacchetti
+&amp;ldquo;assestanti&amp;rdquo; soltanto a livello h2n, non hanno un livello 3.
+Per questo è un &amp;ldquo;sottoprotocollo&amp;rdquo; dell&amp;rsquo;Ethernet.&lt;/p&gt;
+&lt;p&gt;Il fatto che non sia riuscito ad ottenere l&amp;rsquo;indirizzo MAC
+del destinatario (nel caso in cui effettivamente non ci sia),
+è un&amp;rsquo;informazione implicita che si ottiene grazie ad un &amp;ldquo;&lt;strong&gt;timeout&lt;/strong&gt;&amp;quot;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ARP Table&lt;/strong&gt;: cache che conserva il mapping IP-MAC per
+un certo periodo di tempo, per migliorare la performance.
+La ARP cache è gestita totalmente a livello di sistema operativo.
+Un amministratore potrebbe voler configurare staticamente
+delle associazioni IP-ARP, nel caso in cui la rete
+sia fissa e non avvezza a cambiamenti di varia natura.&lt;/p&gt;
+&lt;p&gt;Esempio di una entry:&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Indirizzo Ip&lt;/th&gt;
+&lt;th&gt;Indirizzo MAC&lt;/th&gt;
+&lt;th&gt;TTL&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;222.222.222.221&lt;/td&gt;
+&lt;td&gt;88-B2-2F-54-1A-0F&lt;/td&gt;
+&lt;td&gt;13:45:00&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo CSMA/CD&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;Protocollo di accesso al mezzo che serve per rilevare le collisioni tra pacchetti nelle reti
+ethernet. Nelle reti wifi si vuole evitare la collisione, il suo protocollo prende
+infatti il nome di CSMA/CA &amp;ndash;&amp;gt; (&lt;em&gt;Collision Avoidance&lt;/em&gt;), più
+complesso e costoso!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Carrier sense&lt;/strong&gt;: L&amp;rsquo;interfaccia di rete prima di iniziare a inviare pacchetti
+si mette in ascolto, cerca di capire se qualcuno sta già trasmettendo;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Listen while talking&lt;/strong&gt;: le interfacce di rete cercano di rilevare
+segnali in ingresso anche durante la trasmissione. In tal caso
+si assume che avvenga una collisione, quindi l&amp;rsquo;interfaccia si ferma
+di inviare dati. &amp;ndash;&amp;gt; L&amp;rsquo;interfaccia invia un segnale &lt;strong&gt;JAMMING&lt;/strong&gt;, anche
+tutte le altre interfacce si mettono in pausa!&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Inter Frame Gap (IFG)&lt;/strong&gt;: lunghezza del pacchetto dati più piccolo.
+I frame emessi da un host sono distanziati da un Inter Frame Gap,
+in modo da permettere agli altri host di capire la fine di un
+frame e l&amp;rsquo;inizio di un altro.
+Un host prima di iniziare a trasmettere su un canale, sta in
+ascolto per la durata di un IFG in modo da capire se il canale
+sia libero o meno.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ritardo pseudo-casuale&lt;/strong&gt; &amp;ndash;&amp;gt; si ri-inizia a inviare i pacchetti
+applicando un ritardo casuale che si spera sia diverso per i vari
+segnali.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Binary Exponential Back-off (BEB)&lt;/strong&gt; &amp;ndash;&amp;gt; algoritmo che decide
+il delay della trasmissione. Il delay è compreso tra [0, 2^n-1],
+quindi aumenta esponenzialmente ad ogni &amp;ldquo;stop&amp;rdquo;.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/BEB.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Il calcolo viene effettuato in base alla velocità della rete, non
+si lavora mai con tempi assoluti. Aumentando esponenzialmente la
+grandezza dell&amp;rsquo;insieme di valori da cui si sceglie il ritardo di
+trasmissione, l&amp;rsquo;host riesce a riadattare la trasmissione al traffico
+che attualmente è presente nella rete. In presenza di sovraccarico,
+ovviamente il ritardo di trasmissione è molto alto!&lt;/p&gt;
+&lt;h3 id=&#34;tipi-di-dispositivi&#34;&gt;Tipi di dispositivi&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Hub&lt;/code&gt;&lt;/strong&gt; (l1): ripetitore di segnale, sono deprecati.
+Funge da centro stella, ogni volta che gli arrivano segnali elettrici
+lui li replica e lo manda su tutte le porte. Replica anche le collisioni!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Switch&lt;/code&gt;&lt;/strong&gt; (l2): consentono un &lt;strong&gt;inoltro selettivo&lt;/strong&gt; dei frame:
+più host possono comunicare contemporaneamente nella stessa rete.
+Gli unici dati che lo swtich legge del frame ethernet sono gli
+indirizzi MAC.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;store and forward&lt;/strong&gt;: gli switch solitamente prima di inoltrare
+il pacchetto lo memorizza per analizzarlo. Se uno switch finisce
+la memoria (in caso di congestione) alcuni pacchetti potrebbero
+essere persi/eliminati. Questo meccanismo permette allo switch
+di gestire le collisioni fisiche!&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;filtraggio&lt;/strong&gt;: tabella di filtraggio che conserva la corrispondenza
+tra indirizzo MAC dell&amp;rsquo;host, la porta a cui è collegata e il tempo
+di vita di questa informazione.
+Inizialmente uno switch un hub che cerca di ottenere informazioni
+sugli host collegati alle sue porte.
+Da non configurato inoltra a tutti e inizia ad auto-apprendere in
+base ai pacchetti che gli arrivano.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;inoltro&lt;/strong&gt; dei frame al MAC adress corretto.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Se ad uno switch arrivano delle richieste provenenti da due host
+(uno malevolo che ha copiato il MAC adress di un altro) con lo
+stesso indirizzo MAC, lo switch si auto-configura ogni volta!
+Ovviamente alcuni swtich più costosi hanno dei meccanismi di
+difesa più complessi.&lt;/p&gt;
+&lt;p&gt;Se uno switch riceve pacchetti da troppi mac adress differenti,
+finisce la memoria e non riesce più ad aggiornare la
+tabella di filtraggio. In tal caso, lo switch torna a lavorare
+come un hub, inoltrando i pacchetti a tutte le porte!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;paradigma cut-through&lt;/strong&gt;: Il frame viene inoltrato all&amp;rsquo;address
+destinatario senza aspettare che il frame arrivi completamente.
+Questo aumenta le prestazioni, ma permette meno funzionalità
+(come l&amp;rsquo;implementazione del controllo di integrità CRC, che
+a volte è invece implementato in alcuni switch.);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Bridge&lt;/code&gt;&lt;/strong&gt; (l2): implementa tutta la logica degli switch, ma con
+alcune funzionalità aggiuntive.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bridging trasparente&lt;/strong&gt;: se si mettono in collegamento a livello
+2 dei protocolli H2N differenti. Permette ad esempio l&amp;rsquo;inoltro
+di pacchetti tra protocollo ethernet e protocollo wi-fi.
+Quindi il sistema di indirizzamento è lo stesso.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bridging non trasparente&lt;/strong&gt;: in grado di lavorare con logiche
+di &amp;ldquo;conversione&amp;rdquo; di protocolli di comuncazione. Sono molto
+meno popolari.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Bridging virtuale&lt;/strong&gt;: switch che funzionano su interfacce
+virtuali. Nonostante sia essenzialmente uno switch, viene
+chiamato gergalmente &amp;ldquo;bridge&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Esistono anche dispositivi come gli &lt;strong&gt;splitter&lt;/strong&gt;, molto economici e utili
+per far partire due cavi da uno solo di ingresso.&lt;/p&gt;
+&lt;h3 id=&#34;interconnesioni-di-lan&#34;&gt;Interconnesioni di LAN&lt;/h3&gt;
+&lt;p&gt;Una soluzione tipica per creare reti estese è quello di
+creare delle reti LAN multi livello. Gli switch usati nei diversi
+livelli possono anche essere di diversa natura, alcuni possono
+essere più veloci di altri in base alle esigenze. Nel caso qui
+presentato, lo switch centrale deve essere più potente degli altri.
+Anche le singole porte degli switch possono reggere diverse velocità.&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/interconnessione.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 5: &lt;/span&gt;Rete Lan multilivello&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;hr&gt;
+&lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Collegamenti dritti&lt;/code&gt;&lt;/strong&gt;: si usano quando si vogliono collegare
+dispositivi che lavorano a livelli diversi dello stack TCP/IP,
+come un host e uno switch.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Collegamenti incrociati&lt;/code&gt;&lt;/strong&gt;: quando si collegano dispositivi
+che lavorano allo stesso livello dello stack TCP/IP, come
+due host o due switch.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ifconfig&#34;&gt;ifconfig&lt;/h3&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ifconfig
+docker0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
+	inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
+	ether 02:42:f5:40:4e:45  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+
+enp0s25: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
+	ether 28:d2:44:0e:4e:f4  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	device interrupt &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;  memory 0xf2500000-f2520000
+
+lo: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt;
+	inet 127.0.0.1  netmask 255.0.0.0
+	inet6 ::1  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;  scopeid 0x10&amp;lt;host&amp;gt;
+	loop  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Local Loopback&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+
+wlp3s0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
+	inet 155.185.121.4  netmask 255.255.255.0  broadcast 155.185.121.255
+	inet6 fe80::fc6e:82:c6a8:e092  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt;  scopeid 0x20&amp;lt;link&amp;gt;
+	ether 6c:88:14:86:08:08  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;2195025&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;3036690551&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;3.0 GB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;1028353&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;88788152&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;88.7 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si usa il comando &lt;strong&gt;ifconfig&lt;/strong&gt; per mostrare le interfacce attualmente
+&lt;em&gt;attive&lt;/em&gt; nell&amp;rsquo;host.
+Alcune flag/opzioni utili:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;-a&lt;/strong&gt;: mostra tutte le interfacce, anche le non attive. (i) &lt;strong&gt;lo&lt;/strong&gt; è
+un&amp;rsquo;interfaccia virtuale locale che il SO usa per le comunicazioni
+tra processi locali.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&amp;lt;nome_interfaccia&amp;gt;&lt;/strong&gt;: mostra le informazioni sull&amp;rsquo;interfaccia specificata;
+(i) HWaddr è il MAC adress dell&amp;rsquo;interfaccia;
+(ii) MTU è la maximum transfer unit;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;ip&#34;&gt;ip&lt;/h3&gt;
+&lt;p&gt;Si usa il comando &lt;strong&gt;ip&lt;/strong&gt; per interagire con lo stack TCP/IP. Per lavorare
+a livello 2 si usa il comando &lt;strong&gt;ip link&lt;/strong&gt;. Esso elenca tutte le interfacce
+di rete disponibili nel sistema, simile al comando &lt;code&gt;ifconfig -a&lt;/code&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ip link
+1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+2: enp0s25: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state DOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
+    link/ether 28:d2:44:0e:4e:f4 brd ff:ff:ff:ff:ff:ff
+3: wlp3s0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc mq state UP mode DORMANT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
+    link/ether 6c:88:14:86:08:08 brd ff:ff:ff:ff:ff:ff
+4: docker0: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc noqueue state DOWN mode DEFAULT group default
+    link/ether 02:42:f5:40:4e:45 brd ff:ff:ff:ff:ff:ff
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;ip link show eth0&lt;/strong&gt; per ottenere informazioni su quell&amp;rsquo;interfaccia di rete;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ip link set eth0 up&lt;/strong&gt; per accendere l&amp;rsquo;interfaccia;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ip link set eth0 down&lt;/strong&gt; per spegnere l&amp;rsquo;interfaccia;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;come-configurare-una-rete&#34;&gt;Come configurare una rete&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Per prima cosa bisogna assegnare l&amp;rsquo;indirizzo IP all&amp;rsquo;interfaccia.
+Eseguire questo comando corrisponde anche all&amp;rsquo;accensione dell&amp;rsquo;interfaccia.
+Dopo l&amp;rsquo;esecuzione del comando, sull&amp;rsquo;output di ifconfig compare la
+linea corrispondente alle informazioni degli indirizzi ip.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ifconfig eth0 192.168.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per spegnere l&amp;rsquo;interfaccia e rimuovere l&amp;rsquo;indirizzo ip:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ifconfig eth0 &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; down
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per vedere gli indirizzi assegnati ad un interfaccia:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip addr show dev eth0
+ifconfig eth0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per aggiungere un indirizzo ip  ad un interfaccia.
+In questo caso devo sia assegnare l&amp;rsquo;indirizzo che attivare l&amp;rsquo;interfaccia.
+ifconfig invece lo fa in automatico, per questo a volte risulta più comodo.
+Il comando ip è pensato per gestire più indirizzi IP in una stessa
+interfaccia, quindi risulta più articolato.
+Usando il comando &lt;code&gt;ifconfig eth0 0 down&lt;/code&gt; viene spenta l&amp;rsquo;interfaccia
+e rimosso soltanto &lt;em&gt;il primo&lt;/em&gt; indirizzo ip.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip addr add dev eth0 192.168.1.1/24
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dopo aver acceso le interfacce e aver assegnato l&amp;rsquo;indirizzo IP,
+si può testare la connessione usando &lt;code&gt;ping&lt;/code&gt;. Se questa operazione
+ha successo, si può consultare l&amp;rsquo;&lt;em&gt;arp table&lt;/em&gt; usando uno di questi
+due comandi:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m1:~# arp
+Address                  HWtype  HWaddress           Flags Mask            Iface
+192.168.1.4              ether   02:04:06:1b:57:4b   C                     eth0
+192.168.1.3                      &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;incomplete&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;                              eth0
+
+root@m1:~# ip neigh
+192.168.1.4 dev eth0 lladdr 02:04:06:1b:57:4b STALE
+192.168.1.3 dev eth0  FAILED
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Può tornare utile il comando &lt;code&gt;ip neigh flush all&lt;/code&gt;, che pulisce
+l&amp;rsquo;arp table.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;ifupdown&lt;/strong&gt; &amp;ndash;&amp;gt; tool che serve per configurare in modo permanente
+la configurazione di una macchina. Prima di agire, conviene resettare
+le configurazioni temporanee.&lt;/p&gt;
+&lt;p&gt;La configurazione è contenuta nel file /etc/network/interfaces.
+In questo modo le informazioni date configurano la rete come
+se fosse stato usato ifconfig. Ecco un semplice esempio di
+configurazione&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m2:~# cat /etc/network/interfaces
+&lt;span style=&#34;color:#75715e&#34;&gt;# interfaces(5) file used by ifup(8) and ifdown(8)&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# Include files from /etc/network/interfaces.d:&lt;/span&gt;
+source-directory /etc/network/interfaces.d
+
+auto eth0
+
+iface eth0 inet static
+address 192.168.1.1
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
+&lt;li&gt;auto &amp;ndash;&amp;gt; la configurazione si attiva al boot;&lt;/li&gt;
+&lt;li&gt;per attivare immediatamente la configurazione dell&amp;rsquo;interfaccia
+di eth0 si può usare il comando &lt;code&gt;ifup eth0&lt;/code&gt; ;&lt;/li&gt;
+&lt;li&gt;per disattivare la configurazione permanente dell&amp;rsquo;interfaccia
+di eth0 si usa &lt;code&gt;ifdown eth0&lt;/code&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;tmux&#34;&gt;TMUX&lt;/h3&gt;
+&lt;p&gt;Alcuni comandi utili per la gestione delle finestre:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;- logout --&amp;gt; ctrl-d
+- modalità comandi --&amp;gt; ctrl-b
+- detach --&amp;gt; CMD + d
+- split verticale --&amp;gt; CMD + %
+- split orizzontale --&amp;gt; CMD + &amp;quot;
+- spostamento --&amp;gt; CMD + freccina
+- scroll --&amp;gt; CMD + pageup/pagedown
+- nuova finestra --&amp;gt; CMD + c
+- scelta finestra --&amp;gt; CMD + numero
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tcpdump-e-ping&#34;&gt;tcpdump e ping&lt;/h3&gt;
+&lt;p&gt;Tool usato per sniffare il traffico di rete di una determinata scheda.
+(i) -e sta per ethernet, in modo da limitarsi alle informazioni del livello 2.
+(ii) -i serve per specificare l&amp;rsquo;interfaccia.
+Esempio di output:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m2:~# tcpdump -nei eth0
+tcpdump: verbose output suppressed, use -v or -vv &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; full protocol decode
+listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, capture size &lt;span style=&#34;color:#ae81ff&#34;&gt;262144&lt;/span&gt; bytes
+10:53:49.007880 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
+10:53:49.007905 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Può essere utile anche il comando &lt;code&gt;arping&lt;/code&gt;: il test di connessione
+viene effettuato mandando tante richieste ARP, consecutivamente.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m1:~# arping -i eth0 192.168.1.2
+root@m2:~# tcpdump -nei eth0
+tcpdump: verbose output suppressed, use -v or -vv &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; full protocol decode
+listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, capture size &lt;span style=&#34;color:#ae81ff&#34;&gt;262144&lt;/span&gt; bytes
+10:56:56.242261 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
+10:56:56.242283 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
     <item>
       <title>Linguaggi e compilatori</title>
       <link>/compilatori/</link>
@@ -292,623 +993,6 @@ tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tagged_tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
 nouns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; t[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;NN&amp;#39;&lt;/span&gt;]
 &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(nouns[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-    </item>
-    
-    <item>
-      <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
-      <link>/reti/</link>
-      <pubDate>Sun, 09 Oct 2022 19:41:10 +0200</pubDate>
-      
-      <guid>/reti/</guid>
-      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
- username: PAR2223 password: Kaw8Meir  Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;h2 id=&#34;intro-e-disclaimer&#34;&gt;&lt;em&gt;Intro e disclaimer&lt;/em&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica
-di Unimore.
-Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
-fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
-&lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
-Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Kaw8Meir&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2021&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: wuaMoop2&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;table-of-contents&#34;&gt;TABLE OF CONTENTS&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;I protocolli hanno senso se condivisi, bisogna definire degli &lt;strong&gt;standard&lt;/strong&gt;
-comuni.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;ISO/OSI&lt;/code&gt; &amp;ndash;&amp;gt; standard &lt;strong&gt;de iure&lt;/strong&gt;, prima progettato su carta.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Sviluppato su 7 livelli come in Figura 1. Il pacchetto viene &amp;ldquo;inviato&amp;rdquo;
-dallo strato fisico di un host all&amp;rsquo;altro, poi viene &amp;ldquo;depacchettizzato&amp;rdquo;.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Livello fisico&lt;/strong&gt; : interessante dal punto di vista elettronico.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Livello di collegamento&lt;/strong&gt;: stabilisce come vengono strutturati i pacchetti
-appena prima che vengano trasmessi fisicamente.Il pacchetto a questo
-stadio viene anche chiamato &lt;strong&gt;frame&lt;/strong&gt; (es. contiene dei bit per sincronizzare le schede di rete prima
-della configurazione effettiva).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Livello di rete&lt;/strong&gt; Livello centrale, si occupa dell&amp;rsquo;instradamento dei pacchetti.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Livello di trasporto&lt;/strong&gt;: trasporto dei pacchetti nella rete (nodi).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Livello di sessione&lt;/strong&gt;: vuole ricreare un&amp;rsquo;astrazione di alto livello, ri-orgranizzando
-i pacchetti.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Livello di presentazione&lt;/strong&gt;: si occupa di come viene &lt;em&gt;rappresentata&lt;/em&gt; l&amp;rsquo;informazione.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Livello di applicazione&lt;/strong&gt;: fornisce un&amp;rsquo;interfaccia per le applicazioni
-che si interfacciano con la rete.&lt;/li&gt;
-&lt;/ol&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/osi_layers.png&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;ISO/OSI stack&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;TCP/IP&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; ha prevalso nello sviluppo di internet.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Diversi layer comportano un costo &amp;ndash;&amp;gt; si cerca di snellire lo stack,
-diminuendo il numero di livelli. Nonostante ciò, si vuole mantanere
-la numerazione precedente (Livello trasporto &amp;ndash;&amp;gt; 4, Livello Rete &amp;ndash;&amp;gt; 3).&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/tcpip.png&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;tcp/ip stack&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;hr&gt;
-&lt;h2 id=&#34;protocollo-tcp-ip&#34;&gt;PROTOCOLLO TCP/IP&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/htn.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;2- &lt;strong&gt;Host to Network&lt;/strong&gt; Modifiche del protocollo HTN non dovrebbero impattare il resto della rete:
-(es. posso creare una rete universitaria, basta avere l&amp;rsquo;hardware necessario).&lt;/p&gt;
-&lt;p&gt;3- &lt;strong&gt;Network&lt;/strong&gt;: Protocollo per la consegna dei pacchetti da un host mittente
-ad un destinatario. Ci si occupa semplicemente dell&amp;rsquo;invio dei pacchetti,
-non ci si preoccupa di sessioni, pacchetti mancanti, congestione, o simili.&lt;/p&gt;
-&lt;p&gt;4- &lt;strong&gt;Transport&lt;/strong&gt;: servizio di consegna con impegno tra due &lt;em&gt;processi applicativi&lt;/em&gt;
-che stanno eseguendo su due host terminali. (es TCP, UDP);&lt;/p&gt;
-&lt;p&gt;5- &lt;strong&gt;Application&lt;/strong&gt;: lo vedremo in seguito.&lt;/p&gt;
-&lt;p&gt;i layer 3 e 4 sono sempre essenzialmente quelli, possono cambiare spesso i livelli
-2 e 5 nelle telecomunicazioni!&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/clessidra.png&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 3: &lt;/span&gt;Modello a clessidra&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;(es. Alcune applicazioni potrebbero avere la necessità di sfruttare il protocollo
-TCP perchè &lt;strong&gt;vuole garantire la consegna di tutti i pacchetti&lt;/strong&gt; ).&lt;/p&gt;
-&lt;p&gt;(es. A livello host to network, una rete wireless potrebbe preoccuparsi della
-garanzia di consegna dei pacchetti. In questo modo risolvo &lt;strong&gt;localmente&lt;/strong&gt; un possibile
-problema di non consegna dei pacchetti. Se non me ne preoccupo localmente, un&amp;rsquo;altro
-host dall&amp;rsquo;altra parte del mondo potrebbe ricevere dei dati non completi.)&lt;/p&gt;
-&lt;p&gt;(solitamente ci si occupa dell&amp;rsquo;affidabilità a livello &lt;strong&gt;end to end&lt;/strong&gt;, a me interessa
-che le applicazioni comunichino correttamente!)&lt;/p&gt;
-&lt;p&gt;&amp;ndash;&amp;gt; &lt;strong&gt;morale&lt;/strong&gt;: posso decidere di risolvere i problemi in diversi layer dello stack,
-quindi a seconda del contesto si possono spostare alcune funzioni in altri livelli
-dello stack.&lt;/p&gt;
-&lt;p&gt;Non tutti i dispositivi(nodi) implementano tutto lo stack, si possono basare
-soltanto su alcuni layer. Switch e bridge sono dispositivi di livelo 2,
-che basano il loro funzionamento &lt;strong&gt;soltanto&lt;/strong&gt; sul livello 2 (non sanno nulla
-del protocolli IP ad esempio)! Il concetto è estendibile: un &lt;strong&gt;router&lt;/strong&gt;
-legge fino al livello 3, quindi fino all&amp;rsquo;indirizzo IP!&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/switch.png&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 4: &lt;/span&gt;Dispositivi Livello 2&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;Tuttavia esistono delle eccezioni, come gli switch di livello 3, quindi
-anche qua c&#39;è flessibilità.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Deep packet inspection:&lt;/strong&gt; &amp;ndash;&amp;gt; quando si parla di dispositivi che sono in
-grado di analizzare più in profondità i pacchetti: riesce a leggere informazioni
-anche a livelli più alti dello stack.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Gli scopi del livello Host to Network sono:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;interconnessione&lt;/code&gt;&lt;/strong&gt; tra due o più host;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;trasmisionne di dati&lt;/code&gt;&lt;/strong&gt; tra host interconnessi;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;connessione&lt;/code&gt;&lt;/strong&gt; di un host a internet;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Nello stack TCP/IP questi 3 aspetti sono fortemente interconnessi
-tra di loro.&lt;/p&gt;
-&lt;p&gt;Alcuni esempi:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wired: Ethernet;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;LAN&lt;/strong&gt; wireless: 802.11x;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;PAN&lt;/strong&gt;: (Bluetooth);&lt;/li&gt;
-&lt;li&gt;Mediante &lt;strong&gt;modem&lt;/strong&gt;;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;WAN&lt;/strong&gt; wireless;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;L&amp;rsquo;unità informativa è chiamata &lt;code&gt;frame&lt;/code&gt; (host-
-router/switch, router/switch-router/switch, host-host).&lt;/p&gt;
-&lt;p&gt;Come anticipato, il livello H2N comprende 2 sottolivelli:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Livello &amp;ldquo;&lt;strong&gt;fisico&lt;/strong&gt;&amp;quot;:
-ci si riferisce alla vera e propria connessione &amp;ldquo;fisica&amp;rdquo; tra gli host
-(cavo coassiale, fibra ottica, trasmissione radio, modem);&lt;/li&gt;
-&lt;li&gt;Livello &amp;ldquo;&lt;strong&gt;data link&lt;/strong&gt;&amp;quot;: che si occupa dell&amp;rsquo;incapsulamento e invio
-dei dati tra gli host.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;modalità-di-trasmissione&#34;&gt;Modalità di trasmissione&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Unicast&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; un mittente e un destinatario;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Multicast&lt;/strong&gt; &amp;ndash;&amp;gt; comunicazione tra un mittente e un gruppo di destinatari;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Anycast&lt;/strong&gt; &amp;ndash;&amp;gt; mittente che vuole comunicare con &lt;strong&gt;un&lt;/strong&gt; mittente in un gruppo;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Broadcast&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; mittente che vuole comunicare un&amp;rsquo;informazione a tutti;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;tipi-fisici-di-collegamento&#34;&gt;Tipi fisici di collegamento&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Mezzo broadcast&lt;/code&gt; Un mezzo broadcast è un mezzo attraverso il quale un host invia informazioni
-a tutti gli host collegati. Si può sfruttare un dispositivo broadcast per
-riservare delle informazioni (ad es.) ad alcune interfacce di rete.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;code&gt;Mezzo punto a punto&lt;/code&gt; collegamento pensato per fornire comuncazione tra 2
-punti soltanto.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Half-Duplex&lt;/strong&gt;: collegamento che permette ad un solo host di inviare dati sul mezzo fisico
-in un determinato instante.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Full-Duplex&lt;/strong&gt;: collegamento bidirezionale, collegamenti interni dedicati
-per entrambe le direzioni (nel caso di un punto a punto).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;E&amp;rsquo; importante capire bene la differenza tra &lt;strong&gt;modalità di trasmissione&lt;/strong&gt; e
-&lt;strong&gt;tipi fisici di collegamento&lt;/strong&gt;. Infatti, a prescindere dal mezzo, un
-protocollo può prevedere molteplici modalità di trasmissione.&lt;/p&gt;
-&lt;h2 id=&#34;htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Rete che consente la comunicazione tra dispositivi a livello locale.
-Una rete locale può anche essere estesa a livello cittadino, o regionale.
-Essa ha un &lt;em&gt;numero limitato di nodi&lt;/em&gt;!&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Backbone LAN&lt;/code&gt; &amp;ndash;&amp;gt; Lan dedicate a collegare tante altre reti. Sono dorsali informatiche
-che permettono la comunicazione ad alta velocità (solitamente tramite fibra ottica) tra
-due punti anche molto distanti tra di loro. Sono di proprietà delle grandi aziende
-di telecomunicazioni. In Italia, uno dei principali backbone network è la rete universitaria
-GARR che collega attraverso reti sottomarine in fibra ottical&amp;rsquo;università Federico II di Napoli
-alla città di New York.&lt;/p&gt;
-&lt;h3 id=&#34;scheda-di-rete&#34;&gt;Scheda di rete&lt;/h3&gt;
-&lt;p&gt;Un host connesso a internet ha un dispositivo fatto apposta per il protocollo H2N,
-prende il nome di &amp;ldquo;scheda di rete&amp;rdquo;. La scheda di rete si occupa del frame (in certi casi
-anche di una minima parte della logica), mentre
-solitamente il sistema operativo si occupa solo delle &lt;strong&gt;informazioni logiche&lt;/strong&gt;.
-Quindi in realtà quando si parla di H2N non bisogna immaginarsi il dispositivo (pc, tablet) ma
-la vera e propria scheda di rete.&lt;/p&gt;
-&lt;h3 id=&#34;topologie&#34;&gt;Topologie&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;BUS&lt;/code&gt; &amp;ndash;&amp;gt; Consiste in un cavo che collega tutti gli host, i messaggi
-vengono inviati a tutti gli host come segnali elettrici, ma accettati
-solo dal reale destinatario. Il problema è che se il cavo si rompe in
-qualsiasi punto, la rete si rompe e non funziona più.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ANELLO&lt;/code&gt; &amp;ndash;&amp;gt; Un host che riceve un pacchetto si chiede se il pacchetto
-è destinato a lui. Se non è per lui, quell&amp;rsquo;host &lt;strong&gt;inoltra&lt;/strong&gt; il pacchetto!
-L&amp;rsquo;host destinatario assorbe il pacchetto quando gli arriva.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;STELLA&lt;/code&gt; &amp;ndash;&amp;gt; Gli host sono connessi ad un dispositivo centrale dedicato.
-Si riescono a raggiungere distanze maggiori (due host possono essere
-distanti &amp;ldquo;2 cavi&amp;rdquo;). La rottura di un collegamento provoca solo
-l&amp;rsquo;interruzione della connessione con un host. Il problema è che
-se si rompe il dispositivo centrale (o si congestiona) la rete
-si rompe o si rallenta.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;protocollo-ethernet&#34;&gt;Protocollo Ethernet&lt;/h3&gt;
-&lt;p&gt;Protocollo per realizzare &lt;strong&gt;reti locali&lt;/strong&gt;. (Nello stack TCP/IP siamo
-sempre nel livello h2n.) Questo protocollo era inizialmente progettato per funzionare
-su reti cablate con &lt;strong&gt;topologia a BUS&lt;/strong&gt; (velocità nell&amp;rsquo;ordine dei Mbit, quando venne ideata). Ora le schede di
-rete reggono velocità anche a livello di Gbit. Teoricamente
-il protocollo Ethernet può essere implementato anche con cavi ottici.
-In realtà al giorno d&amp;rsquo;oggi questo protocollo è usato con topologia a stella,
-molto più sicura e diffusa.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Il cavo bus deve avere due &amp;ldquo;terminatori&amp;rdquo; che assorbono la corrente.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Motivi del successo di ethernet:&lt;/strong&gt;
-&lt;ol&gt;
-&lt;li&gt;Poco costosa;&lt;/li&gt;
-&lt;li&gt;Flessibile e si presta a diverse tecnologie/topologie;&lt;/li&gt;
-&lt;li&gt;Rapida diffusione iniziale che ha preso il controllo del mercato;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Vediamo ora alcuni aspetti fondamentali del protocollo ethernet:&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Indirizzo MAC&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;Gli indirizzi MAC sono gli identificatori usati nel protocollo ethernet.&lt;/p&gt;
-&lt;p&gt;Esempio: 81:F4:A3:AA:9C:49 &amp;ndash;&amp;gt; 6 byte (8 bit ogni coppia). Questo
-tipo di indirizzo è detto &lt;strong&gt;flat&lt;/strong&gt;: le cifre non hanno un valore
-&amp;ldquo;posizionale&amp;rdquo;. Soltanto i primi 3 byte servono per identificare
-il produttore della scheda di rete: con questo stratagemma si evita
-di generare indirizzi hardware uguali tra produttori diversi.&lt;/p&gt;
-&lt;p&gt;Questi indirizzi valgono &lt;strong&gt;per la stessa rete locale&lt;/strong&gt;. Ovviamente
-la rete funziona correttamente se questi indirizzi sono &lt;strong&gt;univoci&lt;/strong&gt;!
-Ogni indirizzo MAC è associato ad un&amp;rsquo;interfaccia di rete (a livello Hardware).
-Essenzialmente viene scritto all&amp;rsquo;interno della scheda di rete dal
-produttore stesso.&lt;/p&gt;
-&lt;p&gt;Non ci sono misure forti che permettono a chi controlla l&amp;rsquo;host
-di &amp;ldquo;camuffare&amp;rdquo; l&amp;rsquo;indirizzo MAC che il sistema operativo usa per
-inviare i pacchetti.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;FF-FF-FF-FF-FF-FF: &lt;strong&gt;indirizzo di broadcast&lt;/strong&gt;, serve per identificare
-comunicazioni broadcast in reti ethernet.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;All&amp;rsquo;interno del &lt;strong&gt;frame&lt;/strong&gt; del pacchetto inviato viene inserito
-l&amp;rsquo;indirizzo MAC del destinatario. In una topologia BUS, a livello
-elettrico tutti ricevono fisicamente il pacchetto, a livello logico
-lo riceve soltanto il destinatario. Di default, l&amp;rsquo;interfaccia di rete
-confronta il suo indirizzo MAC con quello inserito all&amp;rsquo;interno del frame.
-Ci sono alcune eccezioni:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Il frame contiene l&amp;rsquo;indirizzo destinatario broadcast;&lt;/li&gt;
-&lt;li&gt;Sull&amp;rsquo;host sta eseguendo un software di sniffing. In questo caso
-l&amp;rsquo;interfaccia di rete si dice in modalità &lt;strong&gt;promiscua&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;L&amp;rsquo;indirizzo IP non basta da solo principalmente per 2 motivi:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Se l&amp;rsquo;indirizzo IP fosse salvato nella NIC al posto dell&amp;rsquo;indirizzo MAC,
-quando il dispositivo si connette ad una diversa rete locale,
-quell&amp;rsquo;indirizzo all&amp;rsquo;interno della scheda dovrebbe essere riconfigurato
-ogni singola volta!&lt;/li&gt;
-&lt;li&gt;Le NIC non sarebbero in grado di sopportare protocolli diversi da IP.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Frame Ethernet&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Preambolo&lt;/strong&gt;: sequenza di 8 byte che serve alle interfacce di rete
-per comunicare correttamente a livello fisico. (&amp;ldquo;Framing&amp;rdquo;)
-L&amp;rsquo;ultimo byte è una sequenza che indica la fine del preambolo,
-l&amp;rsquo;ultimo bit di questa ultima sequenza è sempre 1.
-Del preambolo si preoccupa solo l&amp;rsquo;interfaccia di rete, poi quella
-sequenza viene &amp;ldquo;scartata&amp;rdquo;, il S.O. non se ne preoccupa.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Indirizzo destinatario&lt;/strong&gt; (6 byte):
-se in questo indirizzo tutti i byte sono settati a 1 allora
-il frame ethernet è detto frame &lt;strong&gt;broadcast&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Indirizzo sorgente&lt;/strong&gt; (6 byte);&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Camp tipo&lt;/strong&gt; (2 byte): serve a implementare il &lt;strong&gt;multiplexing&lt;/strong&gt;.
-Serve al sistema operativo (destinatario) per capire cosa fare
-del pacchetto ricevuto. (Devo essere in grado di collegare i vari livelli,
-devo &amp;ldquo;codificare&amp;rdquo; che payload sto trasportando). In altre parole,
-serve all’adattatore per sapere a quale dei protocolli dello strato di rete debba
-essere passato il campo dati di ciascun frame ricevuto.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;CRC&lt;/strong&gt;: Informazione di controllo che si trova dopo
-il pacchetto dati. Per questo si parla di &amp;ldquo;frame&amp;rdquo;,
-perchè il payload viene &amp;ldquo;circondato&amp;rdquo;. Il CRC serve per controllare
-l&amp;rsquo;integrità del paccheto: viene calcolato dall&amp;rsquo;interfaccia di rete del mittente
-durante l&amp;rsquo;invio del pacchetto con un algoritmo (detto a sua volta CRC). Il
-destinatario calcola a sua volta il CRC (in base ai dati che gli arrivano) e lo confronta
-con il CRC ricevuto. Se i due valori coincidono, allora la
-trasmissione è avvenuta correttamente.&lt;/p&gt;
-&lt;p&gt;Il CRC(Controllo di Ridondanza Ciclico) viene generato sulla base del contenuto di 2,3,4 e dei dati (payload).&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Il payload (dati) si trova tra la 4  e la 5 sequenza.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;MTU&lt;/code&gt;&lt;/strong&gt;: (&lt;em&gt;Maximum Transfer Unit&lt;/em&gt;) Dimensione massima trasferibile sulla rete, a livello
-di pacchetto. (solitamente 1500 byte)
-Il livello H2N usa lo &lt;strong&gt;stuffing&lt;/strong&gt; per &amp;ldquo;completare&amp;rdquo; i pacchetti
-che hanno dimensione minore di 46 byte.
-Tutte le schede di rete di una rete ethernet devono essere
-configurate con la stessa MTU! (essendo un campo comunque variabile,
-un amministratore di rete potrebbe decidere di cambiarne il valore)&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo ARP&lt;/code&gt;&lt;/strong&gt;:
-(&lt;em&gt;Adress resolution protocol&lt;/em&gt;)&lt;/p&gt;
-&lt;p&gt;Di base quando si vuole inviare un pacchetto ad un host, non
-si conosce l&amp;rsquo;indirizzo MAC del destinatario.
-Il protocollo ARP prende come in input l&amp;rsquo;indirizzo IP del
-destinatario, e come output ha l&amp;rsquo;indirizzo MAC del destinatario.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Richiesta ARP&lt;/strong&gt;: messaggio broadcast che ha come payload
-l&amp;rsquo;indirizzo IP che l&amp;rsquo;host sta cercando. Questo messaggio
-viene ricevuto da tutti gli host connessi alla rete, ma
-l&amp;rsquo;unico che risponde è chi ha l&amp;rsquo;indirizzo IP ricercato.
-La risposta contiene l&amp;rsquo;indirizzo MAC associato a l&amp;rsquo;indirizzo
-IP iniziale.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;La risposta è unicast&lt;/strong&gt;, il destinatario manda il MAC adress
-solo a chi l&amp;rsquo;ha richiesto.&lt;/p&gt;
-&lt;p&gt;Questo modo di richiedere un indirizzo MAC è effettuabile
-soltanto su una rete &lt;strong&gt;contenuta&lt;/strong&gt;: è difficile mandare un
-messaggio broadcast saturando una rete che connette troppi host.
-I pacchetti usati per richieste / risposte ARP sono pacchetti
-&amp;ldquo;assestanti&amp;rdquo; soltanto a livello h2n, non hanno un livello 3.
-Per questo è un &amp;ldquo;sottoprotocollo&amp;rdquo; dell&amp;rsquo;Ethernet.&lt;/p&gt;
-&lt;p&gt;Il fatto che non sia riuscito ad ottenere l&amp;rsquo;indirizzo MAC
-del destinatario (nel caso in cui effettivamente non ci sia),
-è un&amp;rsquo;informazione implicita che si ottiene grazie ad un &amp;ldquo;&lt;strong&gt;timeout&lt;/strong&gt;&amp;quot;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ARP Table&lt;/strong&gt;: cache che conserva il mapping IP-MAC per
-un certo periodo di tempo, per migliorare la performance.
-La ARP cache è gestita totalmente a livello di sistema operativo.
-Un amministratore potrebbe voler configurare staticamente
-delle associazioni IP-ARP, nel caso in cui la rete
-sia fissa e non avvezza a cambiamenti di varia natura.&lt;/p&gt;
-&lt;p&gt;Esempio di una entry:&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Indirizzo Ip&lt;/th&gt;
-&lt;th&gt;Indirizzo MAC&lt;/th&gt;
-&lt;th&gt;TTL&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;222.222.222.221&lt;/td&gt;
-&lt;td&gt;88-B2-2F-54-1A-0F&lt;/td&gt;
-&lt;td&gt;13:45:00&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Protocollo CSMA/CD&lt;/code&gt;&lt;/strong&gt;:&lt;/p&gt;
-&lt;p&gt;Protocollo di accesso al mezzo che serve per rilevare le collisioni tra pacchetti nelle reti
-ethernet. Nelle reti wifi si vuole evitare la collisione, il suo protocollo prende
-infatti il nome di CSMA/CA &amp;ndash;&amp;gt; (&lt;em&gt;Collision Avoidance&lt;/em&gt;), più
-complesso e costoso!&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Carrier sense&lt;/strong&gt;: L&amp;rsquo;interfaccia di rete prima di iniziare a inviare pacchetti
-si mette in ascolto, cerca di capire se qualcuno sta già trasmettendo;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Listen while talking&lt;/strong&gt;: le interfacce di rete cercano di rilevare
-segnali in ingresso anche durante la trasmissione. In tal caso
-si assume che avvenga una collisione, quindi l&amp;rsquo;interfaccia si ferma
-di inviare dati. &amp;ndash;&amp;gt; L&amp;rsquo;interfaccia invia un segnale &lt;strong&gt;JAMMING&lt;/strong&gt;, anche
-tutte le altre interfacce si mettono in pausa!&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Inter Frame Gap (IFG)&lt;/strong&gt;: lunghezza del pacchetto dati più piccolo.
-I frame emessi da un host sono distanziati da un Inter Frame Gap,
-in modo da permettere agli altri host di capire la fine di un
-frame e l&amp;rsquo;inizio di un altro.
-Un host prima di iniziare a trasmettere su un canale, sta in
-ascolto per la durata di un IFG in modo da capire se il canale
-sia libero o meno.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Ritardo pseudo-casuale&lt;/strong&gt; &amp;ndash;&amp;gt; si ri-inizia a inviare i pacchetti
-applicando un ritardo casuale che si spera sia diverso per i vari
-segnali.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Binary Exponential Back-off (BEB)&lt;/strong&gt; &amp;ndash;&amp;gt; algoritmo che decide
-il delay della trasmissione. Il delay è compreso tra [0, 2^n-1],
-quindi aumenta esponenzialmente ad ogni &amp;ldquo;stop&amp;rdquo;.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/BEB.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;Il calcolo viene effettuato in base alla velocità della rete, non
-si lavora mai con tempi assoluti. Aumentando esponenzialmente la
-grandezza dell&amp;rsquo;insieme di valori da cui si sceglie il ritardo di
-trasmissione, l&amp;rsquo;host riesce a riadattare la trasmissione al traffico
-che attualmente è presente nella rete. In presenza di sovraccarico,
-ovviamente il ritardo di trasmissione è molto alto!&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Collegamenti dritti&lt;/code&gt;&lt;/strong&gt;: si usano quando si vogliono collegare
-dispositivi che lavorano a livelli diversi dello stack TCP/IP,
-come un host e uno switch.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Collegamenti incrociati&lt;/code&gt;&lt;/strong&gt;: quando si collegano dispositivi
-che lavorano allo stesso livello dello stack TCP/IP, come
-due host o due switch.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;ifconfig&#34;&gt;ifconfig&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ifconfig
-docker0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
-	inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
-	ether 02:42:f5:40:4e:45  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-
-enp0s25: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
-	ether 28:d2:44:0e:4e:f4  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	device interrupt &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;  memory 0xf2500000-f2520000
-
-lo: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt;
-	inet 127.0.0.1  netmask 255.0.0.0
-	inet6 ::1  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;  scopeid 0x10&amp;lt;host&amp;gt;
-	loop  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Local Loopback&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-
-wlp3s0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
-	inet 155.185.121.4  netmask 255.255.255.0  broadcast 155.185.121.255
-	inet6 fe80::fc6e:82:c6a8:e092  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt;  scopeid 0x20&amp;lt;link&amp;gt;
-	ether 6c:88:14:86:08:08  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;2195025&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;3036690551&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;3.0 GB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;1028353&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;88788152&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;88.7 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si usa il comando &lt;strong&gt;ifconfig&lt;/strong&gt; per mostrare le interfacce attualmente
-&lt;em&gt;attive&lt;/em&gt; nell&amp;rsquo;host.
-Alcune flag/opzioni utili:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;-a&lt;/strong&gt;: mostra tutte le interfacce, anche le non attive. (i) &lt;strong&gt;lo&lt;/strong&gt; è
-un&amp;rsquo;interfaccia virtuale locale che il SO usa per le comunicazioni
-tra processi locali.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&amp;lt;nome_interfaccia&amp;gt;&lt;/strong&gt;: mostra le informazioni sull&amp;rsquo;interfaccia specificata;
-(i) HWaddr è il MAC adress dell&amp;rsquo;interfaccia;
-(ii) MTU è la maximum transfer unit;&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;ip&#34;&gt;ip&lt;/h3&gt;
-&lt;p&gt;Si usa il comando &lt;strong&gt;ip&lt;/strong&gt; per interagire con lo stack TCP/IP. Per lavorare
-a livello 2 si usa il comando &lt;strong&gt;ip link&lt;/strong&gt;. Esso elenca tutte le interfacce
-di rete disponibili nel sistema, simile al comando &lt;code&gt;ifconfig -a&lt;/code&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ip link
-1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
-2: enp0s25: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state DOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
-    link/ether 28:d2:44:0e:4e:f4 brd ff:ff:ff:ff:ff:ff
-3: wlp3s0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc mq state UP mode DORMANT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
-    link/ether 6c:88:14:86:08:08 brd ff:ff:ff:ff:ff:ff
-4: docker0: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc noqueue state DOWN mode DEFAULT group default
-    link/ether 02:42:f5:40:4e:45 brd ff:ff:ff:ff:ff:ff
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;ip link show eth0&lt;/strong&gt; per ottenere informazioni su quell&amp;rsquo;interfaccia di rete;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ip link set eth0 up&lt;/strong&gt; per accendere l&amp;rsquo;interfaccia;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ip link set eth0 down&lt;/strong&gt; per spegnere l&amp;rsquo;interfaccia;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;come-configurare-una-rete&#34;&gt;Come configurare una rete&lt;/h3&gt;
-&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Per prima cosa bisogna assegnare l&amp;rsquo;indirizzo IP all&amp;rsquo;interfaccia.
-Eseguire questo comando corrisponde anche all&amp;rsquo;accensione dell&amp;rsquo;interfaccia.
-Dopo l&amp;rsquo;esecuzione del comando, sull&amp;rsquo;output di ifconfig compare la
-linea corrispondente alle informazioni degli indirizzi ip.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ifconfig eth0 192.168.1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per spegnere l&amp;rsquo;interfaccia e rimuovere l&amp;rsquo;indirizzo ip:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ifconfig eth0 &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; down
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per vedere gli indirizzi assegnati ad un interfaccia:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip addr show dev eth0
-ifconfig eth0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per aggiungere un indirizzo ip  ad un interfaccia.
-In questo caso devo sia assegnare l&amp;rsquo;indirizzo che attivare l&amp;rsquo;interfaccia.
-ifconfig invece lo fa in automatico, per questo a volte risulta più comodo.
-Il comando ip è pensato per gestire più indirizzi IP in una stessa
-interfaccia, quindi risulta più articolato.
-Usando il comando &lt;code&gt;ifconfig eth0 0 down&lt;/code&gt; viene spenta l&amp;rsquo;interfaccia
-e rimosso soltanto &lt;em&gt;il primo&lt;/em&gt; indirizzo ip.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ip addr add dev eth0 192.168.1.1/24
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Dopo aver acceso le interfacce e aver assegnato l&amp;rsquo;indirizzo IP,
-si può testare la connessione usando &lt;code&gt;ping&lt;/code&gt;. Se questa operazione
-ha successo, si può consultare l&amp;rsquo;&lt;em&gt;arp table&lt;/em&gt; usando uno di questi
-due comandi:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m1:~# arp
-Address                  HWtype  HWaddress           Flags Mask            Iface
-192.168.1.4              ether   02:04:06:1b:57:4b   C                     eth0
-192.168.1.3                      &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;incomplete&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;                              eth0
-
-root@m1:~# ip neigh
-192.168.1.4 dev eth0 lladdr 02:04:06:1b:57:4b STALE
-192.168.1.3 dev eth0  FAILED
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Può tornare utile il comando &lt;code&gt;ip neigh flush all&lt;/code&gt;, che pulisce
-l&amp;rsquo;arp table.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;ifupdown&lt;/strong&gt; &amp;ndash;&amp;gt; tool che serve per configurare in modo permanente
-la configurazione di una macchina. Prima di agire, conviene resettare
-le configurazioni temporanee.&lt;/p&gt;
-&lt;p&gt;La configurazione è contenuta nel file /etc/network/interfaces.
-In questo modo le informazioni date configurano la rete come
-se fosse stato usato ifconfig. Ecco un semplice esempio di
-configurazione&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m2:~# cat /etc/network/interfaces
-&lt;span style=&#34;color:#75715e&#34;&gt;# interfaces(5) file used by ifup(8) and ifdown(8)&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# Include files from /etc/network/interfaces.d:&lt;/span&gt;
-source-directory /etc/network/interfaces.d
-
-auto eth0
-
-iface eth0 inet static
-address 192.168.1.1
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
-&lt;li&gt;auto &amp;ndash;&amp;gt; la configurazione si attiva al boot;&lt;/li&gt;
-&lt;li&gt;per attivare immediatamente la configurazione dell&amp;rsquo;interfaccia
-di eth0 si può usare il comando &lt;code&gt;ifup eth0&lt;/code&gt; ;&lt;/li&gt;
-&lt;li&gt;per disattivare la configurazione permanente dell&amp;rsquo;interfaccia
-di eth0 si usa &lt;code&gt;ifdown eth0&lt;/code&gt;;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;tmux&#34;&gt;TMUX&lt;/h3&gt;
-&lt;p&gt;Alcuni comandi utili per la gestione delle finestre:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;- logout --&amp;gt; ctrl-d
-- modalità comandi --&amp;gt; ctrl-b
-- detach --&amp;gt; CMD + d
-- split verticale --&amp;gt; CMD + %
-- split orizzontale --&amp;gt; CMD + &amp;quot;
-- spostamento --&amp;gt; CMD + freccina
-- scroll --&amp;gt; CMD + pageup/pagedown
-- nuova finestra --&amp;gt; CMD + c
-- scelta finestra --&amp;gt; CMD + numero
-&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;tcpdump-e-ping&#34;&gt;tcpdump e ping&lt;/h3&gt;
-&lt;p&gt;Tool usato per sniffare il traffico di rete di una determinata scheda.
-(i) -e sta per ethernet, in modo da limitarsi alle informazioni del livello 2.
-(ii) -i serve per specificare l&amp;rsquo;interfaccia.
-Esempio di output:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m2:~# tcpdump -nei eth0
-tcpdump: verbose output suppressed, use -v or -vv &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; full protocol decode
-listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, capture size &lt;span style=&#34;color:#ae81ff&#34;&gt;262144&lt;/span&gt; bytes
-10:53:49.007880 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
-10:53:49.007905 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Può essere utile anche il comando &lt;code&gt;arping&lt;/code&gt;: il test di connessione
-viene effettuato mandando tante richieste ARP, consecutivamente.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;root@m1:~# arping -i eth0 192.168.1.2
-root@m2:~# tcpdump -nei eth0
-tcpdump: verbose output suppressed, use -v or -vv &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; full protocol decode
-listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, capture size &lt;span style=&#34;color:#ae81ff&#34;&gt;262144&lt;/span&gt; bytes
-10:56:56.242261 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
-10:56:56.242283 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
