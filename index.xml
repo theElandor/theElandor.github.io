@@ -6,7 +6,313 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Oct 2022 16:45:08 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 14 Oct 2022 22:50:46 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linguaggi e compilatori</title>
+      <link>/compilatori/</link>
+      <pubDate>Fri, 14 Oct 2022 22:50:46 +0200</pubDate>
+      
+      <guid>/compilatori/</guid>
+      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\) https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
+Link al materiale \(\downarrow\)
+ https://theelandor.github.io/ox-hugo/note.pdf
+ Link al tutorial di riferimento \(\downarrow\)</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
+Il pdf contiene i miei appunti presi durante le lezioni.
+Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)
+&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link al &lt;code&gt;materiale&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/note.pdf&#34;&gt;https://theelandor.github.io/ox-hugo/note.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
+      <link>/gestione/</link>
+      <pubDate>Fri, 14 Oct 2022 16:59:34 +0200</pubDate>
+      
+      <guid>/gestione/</guid>
+      <description>Disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://moodle.unimore.it/course/view.php?id=7287
+ (IR) TABLE OF CONTENTS  Text Operations   Text Operations Document Processing   Analisi lessicale: si converte una sequenza di caratteri in una sequenza di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.</description>
+      <content>&lt;h2 id=&#34;disclaimer&#34;&gt;&lt;em&gt;Disclaimer&lt;/em&gt;&lt;/h2&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica
+di Unimore.
+Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
+fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
+&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=7287&#34;&gt;https://moodle.unimore.it/course/view.php?id=7287&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ir--table-of-contents&#34;&gt;(IR) TABLE OF CONTENTS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#text-operations&#34;&gt;Text Operations&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;text-operations&#34;&gt;Text Operations&lt;/h2&gt;
+&lt;h3 id=&#34;document-processing&#34;&gt;Document Processing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Analisi lessicale&lt;/code&gt;&lt;/strong&gt;: si converte una sequenza di caratteri in una sequenza
+di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Eliminazione delle stopwords&lt;/code&gt;&lt;/strong&gt;: vengono eliminate quelle parole &amp;ldquo;inutili&amp;rdquo;
+che non danno informazioni per la ricerca.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Stemming e Lemmatization&lt;/code&gt;&lt;/strong&gt;: esempio di uno &lt;strong&gt;stem&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;connect&amp;rsquo; è lo stem
+di parole come &amp;lsquo;connected&amp;rsquo;, &amp;lsquo;connection&amp;rsquo;, &amp;lsquo;connecting&amp;rsquo;. Lo &lt;strong&gt;stemmer&lt;/strong&gt; è
+il tool che si occupa della stemmization.&lt;/p&gt;
+&lt;p&gt;esempio di un &lt;strong&gt;lemma&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;see&amp;rsquo; è il lemma per &amp;lsquo;seen&amp;rsquo; &amp;lsquo;saw&amp;rsquo;; Il &lt;strong&gt;lemmatizer&lt;/strong&gt;
+si occupa della generazione dei lemma.&lt;/p&gt;
+&lt;p&gt;Esistono alcuni parametri per giudicare uno stemmer: (i) &lt;strong&gt;correttezza&lt;/strong&gt;, (ii) &lt;strong&gt;efficacia&lt;/strong&gt;,
+(iii) miglioramento della &lt;strong&gt;performance&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Selezione degli Index&lt;/code&gt;&lt;/strong&gt; in pratica vengono scelti i token più
+significativi. Può essere fatta manualmente (da esperti) oppure automaticamente.
+Esempio: &amp;ldquo;Say&amp;rdquo; &amp;ldquo;Chair&amp;rdquo; &amp;ldquo;Be&amp;rdquo; &amp;ldquo;Enough&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;Chair&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Parsing&lt;/code&gt;&lt;/strong&gt;: processo di analizzare uno stream di dati input e verificare la sua
+correttezza sintattica. Questi strumenti (detti parser) lavorano sulla base
+di &amp;ldquo;banche dati&amp;rdquo; usando un approccio statistico.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Tagging&lt;/code&gt;&lt;/strong&gt;: processo che assegna alle parole il loro ruolo all&amp;rsquo;interno della frase.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Verbo, Nome, Aggettivo, ecc&amp;hellip;)&lt;/p&gt;
+&lt;h3 id=&#34;thesauri&#34;&gt;Thesauri&lt;/h3&gt;
+&lt;p&gt;Un &lt;strong&gt;Thesaurus&lt;/strong&gt; è una lista di parole (sinonimi e contrari) importanti in un dato domain di conoscenza.
+Ad esempio, in ambito medico, alla parola &amp;ldquo;hand&amp;rdquo; potrebbero essere collegati concetti
+come &amp;ldquo;sanityzers&amp;rdquo;, &amp;ldquo;transplantation&amp;rdquo;, ecc..
+A livello strutturale sono quindi dei &lt;em&gt;dizionari&lt;/em&gt; che contengono associazioni.&lt;/p&gt;
+&lt;h3 id=&#34;python-nltk-the-basics&#34;&gt;Python NLTK, the basics&lt;/h3&gt;
+&lt;p&gt;In questo script vengono trattati i seguenti argomenti:
+(i) Generazione dei token, (ii) Rimozione delle stopwords, (iii) Lemmatizzazione,
+(iv) Stemming, (v) Tagging.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.lancaster &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; LancasterStemmer
+
+text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This is a tests&amp;#34;&lt;/span&gt;
+tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(text)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens)
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Stopwords removal and Lemmatization&lt;/span&gt;
+wnl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;WordNetLemmatizer()
+&lt;span style=&#34;color:#75715e&#34;&gt;# per stampare tutte le parole che non sono stopwords.&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;):
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;tests&amp;#39;]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#     This&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#     test&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Stemming, using Porter and Lancaster, two popular stemmers&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# They give the same output for easy input&lt;/span&gt;
+porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
+
+lancaster &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; LancasterStemmer()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([lancaster&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# POS tagging a list of lemmatizen tokens!&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])])
+&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [[(&amp;#39;This&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;is&amp;#39;, &amp;#39;VBZ&amp;#39;), (&amp;#39;a&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;test&amp;#39;, &amp;#39;NN&amp;#39;)]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Esercizio 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;eseguire le seguenti operazioni: (i)Tokenization, (ii)Elimination of stopwords, (iii)Stemming, (iv) Selection of nouns
+su un file .txt contenente un libro di testo.
+In questo caso ho scaricato una copia locale del file, per semplicità.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
+
+path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./book.txt&amp;#34;&lt;/span&gt;
+file &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; open(path)
+raw &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(raw))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step1: tokenization&lt;/span&gt;
+tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(raw)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step2: eliminate stopwords&lt;/span&gt;
+no_stop_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;)]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(no_stop_tokens))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step3: stemming&lt;/span&gt;
+porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
+stemmed_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; no_stop_tokens])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step4: get nouns thanks to tagging&lt;/span&gt;
+tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stemmed_tokens]))
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tagged_tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+nouns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; t[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;NN&amp;#39;&lt;/span&gt;]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(nouns[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;wordnet--thesaurus&#34;&gt;Wordnet (Thesaurus)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Synset&lt;/code&gt; &amp;ndash;&amp;gt; concetto, può essere rappresentato da più parole.
+In un generico thesaurus sono chiamati &lt;em&gt;Thesaurus Index Term&lt;/em&gt;.&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/thes.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Wordnet mette a disposizione una serie di relazioni tra i synset,
+come i seguenti:&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/relazioni.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;La relazioni solitamente più usate sono &lt;strong&gt;Hypernymy&lt;/strong&gt; e &lt;strong&gt;Meronymy&lt;/strong&gt;.
+Usare un thesaurus non è sempre una scelta corretta. In
+un search engine generico come google non ha senso, dato che il
+grafo delle relazioni diventerebbe enorme senza portare grossi benefici.
+Al contrario è molto utile in casi specifici (e.g. search engine per
+paper in ambito medico).&lt;/p&gt;
+&lt;h3 id=&#34;word-similarities&#34;&gt;Word similarities&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;sinonimia&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; relazione binaria che lega due parole attraverso
+il significato.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;similarità o distanza&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; metrica più &amp;ldquo;loose&amp;rdquo; per dare un gradiente
+di similarità.&lt;/p&gt;
+&lt;p&gt;Queste relazioni non vanno confuse con le relazioni del thesaurus.
+Ad esempio benzina e macchina potrebbero essere collegate nel thesaurus
+ma potrebbero anche non essere sinonimi!&lt;/p&gt;
+&lt;p&gt;Come misurare la similarità tra concetti? (&lt;em&gt;i&lt;/em&gt;)path based (&lt;em&gt;ii&lt;/em&gt;)information content measures.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Path based&lt;/strong&gt;: sfrutto la gerarchia di ipernimia per stabilire il &amp;ldquo;livello&amp;rdquo; di
+somiglianza di due concetti. Esistono principalmente 2 formule per effettuare
+il calcolo (vedi figura 2).&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/pathdistance.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;Path based similarities&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/pathbased.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;Formule per il calcolo di similitudine (path based)&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Il problema della prima formula è che è molto discontinua
+e genera dei valori non ben distribuiti. Questo problema
+viene risolto da Wu-Palmer con la loro formula.
+Per chiarezza, LCS &amp;ndash;&amp;gt; Least Common Subsumer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Information content mesaures&lt;/strong&gt;: quanto spesso questi
+concetti vengono usati nello stesso contesto.
+Dato un concetto, definisco con P(c) la probabilità
+che scelta una parola a caso  in un corpus rappresenti
+il determinato concetto.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/pc.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Similarità di &lt;strong&gt;&lt;code&gt;Resnik&lt;/code&gt;&lt;/strong&gt;: calcolo l&amp;rsquo;information content del
+least common subsumer.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+sim_{resnik}(c_{1}, c_{2}) = -log(P(LCS(c1,c2)))
+\end{equation}&lt;/p&gt;
+&lt;h3 id=&#34;word-sense-disambiguation&#34;&gt;Word Sense disambiguation&lt;/h3&gt;
+&lt;p&gt;La WSD consiste essenzialmente nell&amp;rsquo;assegnare il senso corretto ad ogni
+istanza di una certa parola di interesse.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Determinare tutti i sensi che quella parola può assumere: abbastanza
+automatico usando un thesaurus;&lt;/li&gt;
+&lt;li&gt;Analizzare il contesto dove la parola compare.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bag of words&lt;/strong&gt;: il &lt;em&gt;contesto&lt;/em&gt; è rappresentato da un pool di parole
+&amp;ldquo;vicine&amp;rdquo; al termine di interesse che vengono estratte.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relational information:&lt;/strong&gt; approccio più complesso che estrae altri
+parametri come la distanza.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ecco un&amp;rsquo;approccio per implementare il tutto:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;for each noun N, for each sense Sn of N:
+  compute confidence Csn in choosing sn as sense of N
+select sense with higher confidence
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ora la domanda è: come calcolo la &lt;code&gt;confidence&lt;/code&gt; \(C_{s_{n}}\) ?&lt;/p&gt;
+&lt;p&gt;\(\rightarrow\) mi baso sulla similarità tra \(s_{n}\) e tutti gli altri sensi delle parole
+nel contesto! Poi per calcolare la similitudine posso usare tecniche come la &lt;em&gt;path-based&lt;/em&gt;,
+già discussa in precedenza.&lt;/p&gt;
+&lt;p&gt;Ricapitolando, ecco lo pseudocodice dell&amp;rsquo;algoritmo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;max_confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each Si synset di I:
+  confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each J term &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; context:
+    max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each Sj synset of J:
+      similarity &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; simil(Sj, Si)
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(similarity &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; max):
+	max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; similarity
+    confidence &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; max
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(confidence &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; max_confidence):
+    max_confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; confidence
+pick(synseth_with_confidence(max_confidence))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Codice effettivo di un semplice word sense disambiguator in python:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;disambiguateTerms&lt;/span&gt;(terms):
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_i is target term&lt;/span&gt;
+    selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; None
+    selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_ti &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_i, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
+      score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_j &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_j term in t_i&amp;#39;s context window&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (t_i&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;t_j):
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;
+      bestScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_tj &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_j, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
+	  tempScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;wup_similarity(s_tj)
+	  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (tempScore&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;bestScore):
+	    bestScore&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tempScore
+	score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; bestScore
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (score_i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;selScore):
+	selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i
+	selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (selSense &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; None):
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(t_i,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;,selSense,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;,selSense&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;definition())
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Score: &amp;#34;&lt;/span&gt;,selScore)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(t_i,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: --&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
@@ -732,63 +1038,6 @@ listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&
     </item>
     
     <item>
-      <title>Linguaggi e compilatori</title>
-      <link>/compilatori/</link>
-      <pubDate>Sun, 09 Oct 2022 21:49:34 +0200</pubDate>
-      
-      <guid>/compilatori/</guid>
-      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. → Link per accedere al materiale didattico: https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
-Link al materiale:
- https://theelandor.github.io/ox-hugo/note.pdf
- Esercizio riconoscitori Scrivere un riconoscitore per stringhe palindrome in C++.</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
-Il pdf contiene i miei appunti presi durante le lezioni.
-Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
-&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Link al materiale:&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/note.pdf&#34;&gt;https://theelandor.github.io/ox-hugo/note.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;esercizio-riconoscitori&#34;&gt;Esercizio riconoscitori&lt;/h2&gt;
-&lt;p&gt;Scrivere un riconoscitore per stringhe palindrome in C++.
-Per avere un codice più conciso, si può sfruttare la natura ricorsiva
-delle stringhe palindrome:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;iostream&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;#include&lt;/span&gt; &lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;cstring&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;
-&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;using&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;namespace&lt;/span&gt; std;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;bool&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;is_palindrome&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; str, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; start, &lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; end)
-{
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(start &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;=&lt;/span&gt; end) &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(str[start] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; str[end] &lt;span style=&#34;color:#f92672&#34;&gt;&amp;amp;&amp;amp;&lt;/span&gt; is_palindrome(str, start&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;, end&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; true;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; false;
-}
-&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;main&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; argc, &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;**&lt;/span&gt;argv){
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(argc &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;){
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;char&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt; str &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; argv[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;];
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(is_palindrome(str, &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;, strlen(str)&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))
-      cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Is Palindrome&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
-      cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Not palindrome&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
-  }
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
-    cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Missing string input&amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
-
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
-}
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-    </item>
-    
-    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Sun, 09 Oct 2022 21:23:49 +0200</pubDate>
@@ -886,137 +1135,6 @@ new concepts and things that you have never heard of before.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-    </item>
-    
-    <item>
-      <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
-      <link>/gestione/</link>
-      <pubDate>Sun, 09 Oct 2022 19:50:45 +0200</pubDate>
-      
-      <guid>/gestione/</guid>
-      <description>Disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://moodle.unimore.it/course/view.php?id=7287
- (IR) TABLE OF CONTENTS  Text Operations   Text Operations Document Processing   Analisi lessicale: si converte una sequenza di caratteri in una sequenza di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.</description>
-      <content>&lt;h2 id=&#34;disclaimer&#34;&gt;&lt;em&gt;Disclaimer&lt;/em&gt;&lt;/h2&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica
-di Unimore.
-Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
-fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
-&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=7287&#34;&gt;https://moodle.unimore.it/course/view.php?id=7287&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;ir--table-of-contents&#34;&gt;(IR) TABLE OF CONTENTS&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#text-operations&#34;&gt;Text Operations&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;text-operations&#34;&gt;Text Operations&lt;/h2&gt;
-&lt;h3 id=&#34;document-processing&#34;&gt;Document Processing&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Analisi lessicale&lt;/code&gt;&lt;/strong&gt;: si converte una sequenza di caratteri in una sequenza
-di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Eliminazione delle stopwords&lt;/code&gt;&lt;/strong&gt;: vengono eliminate quelle parole &amp;ldquo;inutili&amp;rdquo;
-che non danno informazioni per la ricerca.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Stemming e Lemmatization&lt;/code&gt;&lt;/strong&gt;: esempio di uno &lt;strong&gt;stem&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;connect&amp;rsquo; è lo stem
-di parole come &amp;lsquo;connected&amp;rsquo;, &amp;lsquo;connection&amp;rsquo;, &amp;lsquo;connecting&amp;rsquo;. Lo &lt;strong&gt;stemmer&lt;/strong&gt; è
-il tool che si occupa della stemmization.&lt;/p&gt;
-&lt;p&gt;esempio di un &lt;strong&gt;lemma&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;see&amp;rsquo; è il lemma per &amp;lsquo;seen&amp;rsquo; &amp;lsquo;saw&amp;rsquo;; Il &lt;strong&gt;lemmatizer&lt;/strong&gt;
-si occupa della generazione dei lemma.&lt;/p&gt;
-&lt;p&gt;Esistono alcuni parametri per giudicare uno stemmer: (i) &lt;strong&gt;correttezza&lt;/strong&gt;, (ii) &lt;strong&gt;efficacia&lt;/strong&gt;,
-(iii) miglioramento della &lt;strong&gt;performance&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Selezione degli Index&lt;/code&gt;&lt;/strong&gt; in pratica vengono scelti i token più
-significativi. Può essere fatta manualmente (da esperti) oppure automaticamente.
-Esempio: &amp;ldquo;Say&amp;rdquo; &amp;ldquo;Chair&amp;rdquo; &amp;ldquo;Be&amp;rdquo; &amp;ldquo;Enough&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;Chair&amp;rdquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Parsing&lt;/code&gt;&lt;/strong&gt;: processo di analizzare uno stream di dati input e verificare la sua
-correttezza sintattica. Questi strumenti (detti parser) lavorano sulla base
-di &amp;ldquo;banche dati&amp;rdquo; usando un approccio statistico.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Tagging&lt;/code&gt;&lt;/strong&gt;: processo che assegna alle parole il loro ruolo all&amp;rsquo;interno della frase.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(Verbo, Nome, Aggettivo, ecc&amp;hellip;)&lt;/p&gt;
-&lt;h3 id=&#34;thesauri&#34;&gt;Thesauri&lt;/h3&gt;
-&lt;p&gt;Un &lt;strong&gt;Thesaurus&lt;/strong&gt; è una lista di parole (sinonimi e contrari) importanti in un dato domain di conoscenza.
-Ad esempio, in ambito medico, alla parola &amp;ldquo;hand&amp;rdquo; potrebbero essere collegati concetti
-come &amp;ldquo;sanityzers&amp;rdquo;, &amp;ldquo;transplantation&amp;rdquo;, ecc..
-A livello strutturale sono quindi dei &lt;em&gt;dizionari&lt;/em&gt; che contengono associazioni.&lt;/p&gt;
-&lt;h3 id=&#34;python-nltk-the-basics&#34;&gt;Python NLTK, the basics&lt;/h3&gt;
-&lt;p&gt;In questo script vengono trattati i seguenti argomenti:
-(i) Generazione dei token, (ii) Rimozione delle stopwords, (iii) Lemmatizzazione,
-(iv) Stemming, (v) Tagging.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.lancaster &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; LancasterStemmer
-
-text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This is a tests&amp;#34;&lt;/span&gt;
-tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(text)
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens)
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Stopwords removal and Lemmatization&lt;/span&gt;
-wnl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;WordNetLemmatizer()
-&lt;span style=&#34;color:#75715e&#34;&gt;# per stampare tutte le parole che non sono stopwords.&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens:
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;):
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t))
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;tests&amp;#39;]&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#     This&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#     test&lt;/span&gt;
-
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Stemming, using Porter and Lancaster, two popular stemmers&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# They give the same output for easy input&lt;/span&gt;
-porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
-
-lancaster &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; LancasterStemmer()
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([lancaster&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# POS tagging a list of lemmatizen tokens!&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])])
-&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [[(&amp;#39;This&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;is&amp;#39;, &amp;#39;VBZ&amp;#39;), (&amp;#39;a&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;test&amp;#39;, &amp;#39;NN&amp;#39;)]]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Esercizio 1:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;eseguire le seguenti operazioni: (i)Tokenization, (ii)Elimination of stopwords, (iii)Stemming, (iv) Selection of nouns
-su un file .txt contenente un libro di testo.
-In questo caso ho scaricato una copia locale del file, per semplicità.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
-
-path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./book.txt&amp;#34;&lt;/span&gt;
-file &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; open(path)
-raw &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(raw))
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step1: tokenization&lt;/span&gt;
-tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(raw)
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step2: eliminate stopwords&lt;/span&gt;
-no_stop_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;)]
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(no_stop_tokens))
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step3: stemming&lt;/span&gt;
-porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
-stemmed_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; no_stop_tokens])
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step4: get nouns thanks to tagging&lt;/span&gt;
-tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stemmed_tokens]))
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tagged_tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
-nouns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; t[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;NN&amp;#39;&lt;/span&gt;]
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(nouns[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
     <item>
