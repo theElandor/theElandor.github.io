@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-14 16:59:34 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-16 17:47:04 &#43;0200 CEST" />
 
 
 
@@ -172,7 +172,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-14
+        2022-10-16
         
       </span>
     
@@ -344,7 +344,7 @@ ma potrebbero anche non essere sinonimi!</p>
 <ul>
 <li><strong>Path based</strong>: sfrutto la gerarchia di ipernimia per stabilire il &ldquo;livello&rdquo; di
 somiglianza di due concetti. Esistono principalmente 2 formule per effettuare
-il calcolo (vedi figura 2).</li>
+il calcolo: (<em>i</em>) path distance similarity, (<em>ii</em>) Wu-Palmer similarity.</li>
 </ul>
 
   <figure class="left" >
@@ -355,15 +355,14 @@ il calcolo (vedi figura 2).</li>
   </figure>
 
 
-
-  <figure class="left" >
-    <img src="/ox-hugo/pathbased.png"   />
-    
-      <figcaption class="center" ><span class="figure-number">Figure 2: </span>Formule per il calcolo di similitudine (path based)</figcaption>
-    
-  </figure>
-
-
+<p><strong><code>Path distance</code></strong> similarity:</p>
+<p>\begin{equation}
+sim_{path-distance}(c_{1}, c_{2})= \frac{1}{ShortestPath(c_{1}, c_{2})+1}
+\end{equation}</p>
+<p><strong><code>Wu-Palmer</code></strong> similarity:</p>
+<p>\begin{equation}
+sim_{Wu-Palmer}(c_{1}, c_{2})= \frac{2*depth(LCS(c_{1},c_{2}))}{depth(c_{1})+depth(c_{2})}
+\end{equation}</p>
 <p>Il problema della prima formula è che è molto discontinua
 e genera dei valori non ben distribuiti. Questo problema
 viene risolto da Wu-Palmer con la loro formula.
@@ -448,7 +447,13 @@ pick(synseth_with_confidence(max_confidence))
       <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Score: &#34;</span>,selScore)
     <span style="color:#66d9ef">else</span>:
       <span style="color:#66d9ef">print</span>(t_i,<span style="color:#e6db74">&#34;: --&#34;</span>)
-</code></pre></div>
+</code></pre></div><h3 id="query-expansion">Query Expansion<a href="#query-expansion" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Esercizio sull&rsquo;espansione di query.
+Proposta di algoritmo / soluzione:</p>
+<blockquote>
+<p><a href="https://theelandor.github.io/ox-hugo/expander.py">https://theelandor.github.io/ox-hugo/expander.py</a></p>
+</blockquote>
+
       </div></div>
 
   

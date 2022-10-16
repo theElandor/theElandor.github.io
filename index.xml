@@ -6,45 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Oct 2022 22:50:46 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linguaggi e compilatori</title>
-      <link>/compilatori/</link>
-      <pubDate>Fri, 14 Oct 2022 22:50:46 +0200</pubDate>
-      
-      <guid>/compilatori/</guid>
-      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\) https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
-Link al materiale \(\downarrow\)
- https://theelandor.github.io/ox-hugo/note.pdf
- Link al tutorial di riferimento \(\downarrow\)</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
-Il pdf contiene i miei appunti presi durante le lezioni.
-Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)
-&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Link al &lt;code&gt;materiale&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/note.pdf&#34;&gt;https://theelandor.github.io/ox-hugo/note.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-</content>
-    </item>
-    
+    <lastBuildDate>Sun, 16 Oct 2022 17:47:04 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
       <link>/gestione/</link>
-      <pubDate>Fri, 14 Oct 2022 16:59:34 +0200</pubDate>
+      <pubDate>Sun, 16 Oct 2022 17:47:04 +0200</pubDate>
       
       <guid>/gestione/</guid>
       <description>Disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://moodle.unimore.it/course/view.php?id=7287
@@ -206,7 +172,7 @@ ma potrebbero anche non essere sinonimi!&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Path based&lt;/strong&gt;: sfrutto la gerarchia di ipernimia per stabilire il &amp;ldquo;livello&amp;rdquo; di
 somiglianza di due concetti. Esistono principalmente 2 formule per effettuare
-il calcolo (vedi figura 2).&lt;/li&gt;
+il calcolo: (&lt;em&gt;i&lt;/em&gt;) path distance similarity, (&lt;em&gt;ii&lt;/em&gt;) Wu-Palmer similarity.&lt;/li&gt;
 &lt;/ul&gt;
 
   &lt;figure class=&#34;left&#34; &gt;
@@ -217,15 +183,14 @@ il calcolo (vedi figura 2).&lt;/li&gt;
   &lt;/figure&gt;
 
 
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/pathbased.png&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;Formule per il calcolo di similitudine (path based)&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Path distance&lt;/code&gt;&lt;/strong&gt; similarity:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+sim_{path-distance}(c_{1}, c_{2})= \frac{1}{ShortestPath(c_{1}, c_{2})+1}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Wu-Palmer&lt;/code&gt;&lt;/strong&gt; similarity:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+sim_{Wu-Palmer}(c_{1}, c_{2})= \frac{2*depth(LCS(c_{1},c_{2}))}{depth(c_{1})+depth(c_{2})}
+\end{equation}&lt;/p&gt;
 &lt;p&gt;Il problema della prima formula è che è molto discontinua
 e genera dei valori non ben distribuiti. Questo problema
 viene risolto da Wu-Palmer con la loro formula.
@@ -310,7 +275,47 @@ pick(synseth_with_confidence(max_confidence))
       &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Score: &amp;#34;&lt;/span&gt;,selScore)
     &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
       &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(t_i,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: --&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;query-expansion&#34;&gt;Query Expansion&lt;/h3&gt;
+&lt;p&gt;Esercizio sull&amp;rsquo;espansione di query.
+Proposta di algoritmo / soluzione:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/expander.py&#34;&gt;https://theelandor.github.io/ox-hugo/expander.py&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Linguaggi e compilatori</title>
+      <link>/compilatori/</link>
+      <pubDate>Fri, 14 Oct 2022 22:50:46 +0200</pubDate>
+      
+      <guid>/compilatori/</guid>
+      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\) https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
+Link al materiale \(\downarrow\)
+ https://theelandor.github.io/ox-hugo/note.pdf
+ Link al tutorial di riferimento \(\downarrow\)</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
+Il pdf contiene i miei appunti presi durante le lezioni.
+Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)
+&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link al &lt;code&gt;materiale&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/note.pdf&#34;&gt;https://theelandor.github.io/ox-hugo/note.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
     </item>
     
     <item>
