@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-06 14:51:58 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-17 15:42:21 &#43;0200 CEST" />
 
 
 
@@ -172,7 +172,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-06
+        2022-10-17
         
       </span>
     
@@ -203,10 +203,13 @@ insieme a commenti e considerazioni (a volte eventuali approfondimenti).
 Il materiale qui fornito non è sostitutivo alle slide del corso.
 </code></pre><p>→ Link per accedere al <code>materiale didattico</code>:</p>
 <p><a href="https://moodle.unimore.it/course/view.php?id=8096">https://moodle.unimore.it/course/view.php?id=8096</a></p>
+<p>→ Link per <code>nebula</code>:</p>
+<p><a href="https://exploit.education/nebula/">https://exploit.education/nebula/</a></p>
 <hr>
 <h2 id="sc--table-of-contents">(SC) TABLE OF CONTENTS<a href="#sc--table-of-contents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
 <li><a href="#esecuzione-privilegi-elevati--lezione-3">Esecuzione Privilegi Elevati (Lezione 3)</a></li>
+<li><a href="#vulnerabilit%C3%A0-applicazioni-local-injection--lezione-4">Vulnerabilità Applicazioni - Local Injection (Lezione 4)</a></li>
 </ul>
 <hr>
 <h2 id="esecuzione-privilegi-elevati--lezione-3">Esecuzione Privilegi Elevati (Lezione 3)<a href="#esecuzione-privilegi-elevati--lezione-3" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -350,7 +353,81 @@ prima che la pagina venga modificata;</li>
 l&rsquo;applicazione. Questa risulta essere una pratica costosa/molto impegnativa nella
 maggior parte dei casi.</p>
 <p><strong>Code injection:</strong>, vulnerabilità quasi sempre dovuta ad una mancata validazione dell&rsquo;input.</p>
-<h3 id="local-injection">Local Injection<a href="#local-injection" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<h3 id="local-injection--1-2--lv-dot-1-nebula">Local Injection (1/2), Lv.1 Nebula<a href="#local-injection--1-2--lv-dot-1-nebula" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Analizzando il codice fornito sul sito, ci si accorge che esegue un operazione
+sospetta (esegue system()) dopo aver aumentato i suoi privilegi.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>envp)
+{
+  gid_t gid;
+  uid_t uid;
+  gid <span style="color:#f92672">=</span> getegid();
+  uid <span style="color:#f92672">=</span> geteuid();
+
+  setresgid(gid, gid, gid);
+  setresuid(uid, uid, uid);
+
+  system(<span style="color:#e6db74">&#34;/usr/bin/env echo and now what?&#34;</span>);
+}
+</code></pre></div><ul>
+<li>Il comando /usr/bin/env permette di eseguire comandi usando variabili d&rsquo;ambiente
+modificate. In questo caso esegue il comando /usr/bin/echo (esterno, preferito rispetto
+al builtin.)</li>
+<li>L&rsquo;idea è quella di modificare la variabile d&rsquo;ambiente PATH in modo da fornire un path
+personalizzato (al posto di /bin, /usr/bin, ecc) per far eseguire un comando &ldquo;echo&rdquo;
+modificato o malevolo.</li>
+<li>Basta quindi copiare /bin/getflag in /tmp/echo, per poi modifcare la variabile d&rsquo;ambiente
+PATH in questo modo: <strong>PATH=/tmp</strong>;</li>
+</ul>
+<p>Ecco alcune possibili <strong>mitigazioni</strong> di questa vulnerabilità:</p>
+<ol>
+<li>Togliere il setuid usando <code>chmod u-s /home/flag01/flag01</code></li>
+<li>Eseguire un privilege drop con <code>setresuid(-1, uid, -1);</code></li>
+<li>Usare la funzione di libreria <code>putenv()</code> (man 3 putenv) per settare un Path sicuro
+prima dell&rsquo;esecuzione del comando critico.
+<code>putenv(&quot;PATH=/bin:/sbin:/usr/bin:/usr/sbin&quot;)</code></li>
+</ol>
+<h3 id="local-injection--2-2--lv-dot-2-nebula">Local Injection (2/2), Lv.2 Nebula<a href="#local-injection--2-2--lv-dot-2-nebula" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span><span style="color:#75715e"></span>
+<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>argv, <span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span>envp)
+{
+  <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>buffer;
+
+  gid_t gid;
+  uid_t uid;
+
+  gid <span style="color:#f92672">=</span> getegid();
+  uid <span style="color:#f92672">=</span> geteuid();
+
+  setresgid(gid, gid, gid);
+  setresuid(uid, uid, uid);
+
+  buffer <span style="color:#f92672">=</span> NULL;
+
+  asprintf(<span style="color:#f92672">&amp;</span>buffer, <span style="color:#e6db74">&#34;/bin/echo %s is cool&#34;</span>, getenv(<span style="color:#e6db74">&#34;USER&#34;</span>));
+  printf(<span style="color:#e6db74">&#34;about to call system(</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\&#34;</span><span style="color:#e6db74">)</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, buffer);
+
+  system(buffer);
+}
+</code></pre></div><p>La vulnerabilità di questo codice sta come al solito nella funzione <em>system()</em>,
+che esegue un comando che dipende dal contenuto della varabile &ldquo;buffer&rdquo;.
+Esso dipende a sua volta dalla variabile d&rsquo;ambiente USER, che può essere
+facilmente modificata nel modo seguente:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">USER<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hacked;/tmp/getflag;&#39;</span>
+</code></pre></div><p>Basta poi copiare /bin/getflag in /tmp/getflag per ottenere l&rsquo;esecuzione
+del programma con privilegi elevati. Questo problema può essere risolto
+analogamente al precedente.</p>
+<h2 id="vulnerabilità-applicazioni-remote-injection--lezione-5">Vulnerabilità Applicazioni - Remote Injection (Lezione 5)<a href="#vulnerabilità-applicazioni-remote-injection--lezione-5" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 
       </div></div>
 

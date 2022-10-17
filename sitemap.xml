@@ -3,23 +3,38 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/gestione/</loc>
-    <lastmod>2022-10-16T17:47:04+02:00</lastmod>
+    <loc>/</loc>
+    <lastmod>2022-10-17T19:05:28+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
-    <lastmod>2022-10-16T17:47:04+02:00</lastmod>
+    <loc>/reti/</loc>
+    <lastmod>2022-10-17T19:05:28+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/gestione/</loc>
+    <lastmod>2022-10-17T18:47:18+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/security/</loc>
+    <lastmod>2022-10-17T15:42:21+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/archetype/</loc>
+    <lastmod>2022-10-17T12:33:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/</loc>
+    <lastmod>2022-10-17T12:33:37+02:00</lastmod>
   </url>
   
   <url>
     <loc>/compilatori/</loc>
     <lastmod>2022-10-14T22:50:46+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/reti/</loc>
-    <lastmod>2022-10-11T16:45:08+02:00</lastmod>
   </url>
   
   <url>
@@ -30,21 +45,6 @@
   <url>
     <loc>/htb/</loc>
     <lastmod>2022-10-09T21:20:26+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/security/</loc>
-    <lastmod>2022-10-06T14:51:58+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/archetype/</loc>
-    <lastmod>2022-09-28T11:38:57+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2022-09-28T11:38:57+02:00</lastmod>
   </url>
   
   <url>
