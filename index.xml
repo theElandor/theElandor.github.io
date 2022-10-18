@@ -6,15 +6,14 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Oct 2022 10:45:25 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Oct 2022 12:32:18 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 18 Oct 2022 10:45:25 +0200</pubDate>
+      <pubDate>Tue, 18 Oct 2022 12:32:18 +0200</pubDate>
       
       <guid>/reti/</guid>
-      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
- username: PAR2223 password: Kaw8Meir  Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:</description>
+      <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: 2022/2023 &amp;ndash;&amp;gt; https://weblab.ing.unimore.it/protocolli/2223 2021/2022 &amp;ndash;&amp;gt; https://weblab.ing.unimore.it/protocolli/2122/ Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:</description>
       <content>
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
@@ -29,7 +28,8 @@ di Unimore.
 Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
 fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:
-&lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
+2022/2023 &amp;ndash;&amp;gt; &lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;
+2021/2022 &amp;ndash;&amp;gt; &lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2122/&#34;&gt;https://weblab.ing.unimore.it/protocolli/2122/&lt;/a&gt;
 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
@@ -711,9 +711,52 @@ relativa all&amp;rsquo;host ha tutti i byte con bit pari a 1.&lt;/li&gt;
 Permette di mandadre un messaggio broadcast sulla rete fisica locale.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;This Host on This Network&lt;/code&gt;&lt;/strong&gt;: 0.0.0.0 \(\rightarrow\) tutti i bit settati a 0. Identifica
 un host non ancora configurato correttamente.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Loopback Address&lt;/code&gt;&lt;/strong&gt; &lt;strong&gt;127.0.0.1&lt;/strong&gt; \(\rightarrow\) permette la comunicazione a livello internet
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Loopback Address&lt;/code&gt;&lt;/strong&gt;: &lt;strong&gt;127.0.0.1&lt;/strong&gt; \(\rightarrow\) permette la comunicazione a livello internet
 sulla stessa macchina, localmente. &lt;em&gt;Tutti gli indirizzi di loopback iniziano per 127&lt;/em&gt;!&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h3 id=&#34;gestione-indirizzi-e-domini&#34;&gt;Gestione indirizzi e domini&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Jon Postel&lt;/code&gt;&lt;/strong&gt; [1943-1998]: definito &lt;em&gt;lo zar dei numeri&lt;/em&gt;, direttore di &lt;strong&gt;IANA&lt;/strong&gt;, si occupava
+di garantire gli standard di internet.
+Uno dei compiti di IANA, era quello di garantire la corretta gestione degli indirizzi IP,
+la loro unicità e la loro corretta struttura gerarchica.
+Data la decentralizzazione di internet, la IANA cerca di delegare i compiti ai
+provider di internet internazionali. Per prima cosa, si creano delle sotto-associazioni
+che gestiscono dei &amp;ldquo;blocchi&amp;rdquo; di indirizzi IP, a livello geografico (quindi &amp;ldquo;asegnando&amp;rdquo;
+i &lt;em&gt;Network ID&lt;/em&gt;). A loro volta verrano istituiti dei provider nazionali, regionali,
+e così via.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Classi di Indirizzi IP&lt;/code&gt;&lt;/strong&gt;: differenziano il numero di byte assegnati al netid.
+Per classificarli e riconoscerli, hanno delle sequenze iniziali distintive. Ad
+esempio, gli indirizzi che iniziano con 10 sono di classe B, quindi hanno i primi
+2 byte dedicati al netid. Quelli di classe C i primi 3 byte, ecc&amp;hellip;
+Le 3 classi più interessanti, che tratteremo in questo corso, sono A,B,C.&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/classi.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 8: &lt;/span&gt;Classi di Indirizzi IP&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/classi2.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 9: &lt;/span&gt;Dimensioni delle classi di indirizzi&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Queste classi di indirizzi erano pensate per essere assegnate ai diversi internet service
+provider. Ovviamente, negli anni sono entrati in scena aspetti economico/politici:
+gli ISP comprano una determinata classe in base al bisogno di connettività che devono
+fornire ai loro utenti.&lt;/p&gt;
+&lt;p&gt;Tendenzialmente i gestori di classi A sono grossi paesi o grosse aziende (&lt;em&gt;o ricche&lt;/em&gt;, &lt;del&gt;che a volte
+nemmeno ne hanno bisogno&lt;/del&gt; ) come Apple, IBM, IANA, e altre.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Indirizzi Classless&lt;/code&gt;&lt;/strong&gt;: per motivi gestionali e di flessibilità, spesso si può indicare esplicitamente
+quale parte dell&amp;rsquo;indirizzo è dedicata al N.ID o H.ID.
+Per fare questo tipo di ripartizione, si usa la notazione &lt;strong&gt;&lt;code&gt;CIDR&lt;/code&gt;&lt;/strong&gt; \(\rightarrow\) &lt;strong&gt;a.b.c.d/n&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;formato-del-datagramma-ip&#34;&gt;Formato del datagramma IP&lt;/h3&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -725,41 +768,7 @@ che lavorano allo stesso livello dello stack TCP/IP, come
 due host o due switch.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;ifconfig&#34;&gt;ifconfig&lt;/h3&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ifconfig
-docker0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
-	inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
-	ether 02:42:f5:40:4e:45  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-
-enp0s25: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4099&amp;lt;UP,BROADCAST,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
-	ether 28:d2:44:0e:4e:f4  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.0 B&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	device interrupt &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;  memory 0xf2500000-f2520000
-
-lo: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;73&amp;lt;UP,LOOPBACK,RUNNING&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt;
-	inet 127.0.0.1  netmask 255.0.0.0
-	inet6 ::1  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;128&lt;/span&gt;  scopeid 0x10&amp;lt;host&amp;gt;
-	loop  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Local Loopback&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;8476&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;4245267&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;4.2 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-
-wlp3s0: flags&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;4163&amp;lt;UP,BROADCAST,RUNNING,MULTICAST&amp;gt;  mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt;
-	inet 155.185.121.4  netmask 255.255.255.0  broadcast 155.185.121.255
-	inet6 fe80::fc6e:82:c6a8:e092  prefixlen &lt;span style=&#34;color:#ae81ff&#34;&gt;64&lt;/span&gt;  scopeid 0x20&amp;lt;link&amp;gt;
-	ether 6c:88:14:86:08:08  txqueuelen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;  &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;Ethernet&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;2195025&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;3036690551&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;3.0 GB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	RX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  frame &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-	TX packets &lt;span style=&#34;color:#ae81ff&#34;&gt;1028353&lt;/span&gt;  bytes &lt;span style=&#34;color:#ae81ff&#34;&gt;88788152&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;88.7 MB&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
-	TX errors &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  dropped &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; overruns &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  carrier &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  collisions &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Si usa il comando &lt;strong&gt;ifconfig&lt;/strong&gt; per mostrare le interfacce attualmente
+&lt;p&gt;Si usa il comando &lt;strong&gt;ifconfig&lt;/strong&gt; per mostrare le interfacce attualmente
 &lt;em&gt;attive&lt;/em&gt; nell&amp;rsquo;host.
 Alcune flag/opzioni utili:&lt;/p&gt;
 &lt;ul&gt;
@@ -889,44 +898,9 @@ listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&
     </item>
     
     <item>
-      <title>Hack the Box</title>
-      <link>/htb/</link>
-      <pubDate>Tue, 18 Oct 2022 10:41:01 +0200</pubDate>
-      
-      <guid>/htb/</guid>
-      <description>What is hack the box?
- H.T.B. is a online platform where you can train your penetration testing skills by hacking vulnerable machines, also called boxes. It&amp;rsquo;s really fun and interesting if you are into cyber-security!
-&amp;ndash;&amp;gt; https://www.hackthebox.com/
- Is it hard?
- If you start with easy machines first, you can definitely get into hack the box with a reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that you will use the biggest part of your time doing google searches and reading documents, trying to understand new concepts and things that you have never heard of before.</description>
-      <content>&lt;blockquote&gt;
-&lt;p&gt;What is hack the box?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;H.T.B. is a online platform where you can train your penetration testing skills by
-hacking vulnerable machines, also called &lt;strong&gt;boxes&lt;/strong&gt;. It&amp;rsquo;s really fun
-and interesting if you are into cyber-security!&lt;/p&gt;
-&lt;p&gt;&amp;ndash;&amp;gt; &lt;a href=&#34;https://www.hackthebox.com/&#34;&gt;https://www.hackthebox.com/&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Is it hard?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;If you start with &lt;strong&gt;easy&lt;/strong&gt; machines first, you can definitely get into hack the box with a
-reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that
-you will use the biggest part of your time doing google searches and reading documents, trying to understand
-new concepts and things that you have never heard of before.&lt;/p&gt;
-&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
-&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </item>
-    
-    <item>
       <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
       <link>/gestione/</link>
-      <pubDate>Mon, 17 Oct 2022 18:47:18 +0200</pubDate>
+      <pubDate>Tue, 18 Oct 2022 10:52:29 +0200</pubDate>
       
       <guid>/gestione/</guid>
       <description>Disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Gestione dell&#39;informazione&amp;quot; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://moodle.unimore.it/course/view.php?id=7287
@@ -1244,6 +1218,41 @@ selected_syns, syns_def &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;
 expanded_query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; expand_query(selected_syns)
 &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(expanded_query)
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
+      <title>Hack the Box</title>
+      <link>/htb/</link>
+      <pubDate>Tue, 18 Oct 2022 10:41:01 +0200</pubDate>
+      
+      <guid>/htb/</guid>
+      <description>What is hack the box?
+ H.T.B. is a online platform where you can train your penetration testing skills by hacking vulnerable machines, also called boxes. It&amp;rsquo;s really fun and interesting if you are into cyber-security!
+&amp;ndash;&amp;gt; https://www.hackthebox.com/
+ Is it hard?
+ If you start with easy machines first, you can definitely get into hack the box with a reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that you will use the biggest part of your time doing google searches and reading documents, trying to understand new concepts and things that you have never heard of before.</description>
+      <content>&lt;blockquote&gt;
+&lt;p&gt;What is hack the box?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;H.T.B. is a online platform where you can train your penetration testing skills by
+hacking vulnerable machines, also called &lt;strong&gt;boxes&lt;/strong&gt;. It&amp;rsquo;s really fun
+and interesting if you are into cyber-security!&lt;/p&gt;
+&lt;p&gt;&amp;ndash;&amp;gt; &lt;a href=&#34;https://www.hackthebox.com/&#34;&gt;https://www.hackthebox.com/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is it hard?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you start with &lt;strong&gt;easy&lt;/strong&gt; machines first, you can definitely get into hack the box with a
+reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that
+you will use the biggest part of your time doing google searches and reading documents, trying to understand
+new concepts and things that you have never heard of before.&lt;/p&gt;
+&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
+&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     </item>
     
     <item>

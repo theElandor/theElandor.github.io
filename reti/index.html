@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-18 10:45:25 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-18 12:32:18 &#43;0200 CEST" />
 
 
 
@@ -201,7 +201,8 @@ di Unimore.
 Verranno quindi riportati gli approfondimenti / chiarimenti che vengono
 fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
 </code></pre><p>→ Link per accedere al <code>materiale didattico</code>:
-<a href="https://weblab.ing.unimore.it/protocolli/2223">https://weblab.ing.unimore.it/protocolli/2223</a>
+2022/2023 &ndash;&gt; <a href="https://weblab.ing.unimore.it/protocolli/2223">https://weblab.ing.unimore.it/protocolli/2223</a>
+2021/2022 &ndash;&gt; <a href="https://weblab.ing.unimore.it/protocolli/2122/">https://weblab.ing.unimore.it/protocolli/2122/</a>
 Le credenziali per accedere al materiale di quest&rsquo;anno sono:</p>
 <ul>
 <li><strong>username</strong>: PAR2223</li>
@@ -883,9 +884,52 @@ relativa all&rsquo;host ha tutti i byte con bit pari a 1.</li>
 Permette di mandadre un messaggio broadcast sulla rete fisica locale.</li>
 <li><strong><code>This Host on This Network</code></strong>: 0.0.0.0 \(\rightarrow\) tutti i bit settati a 0. Identifica
 un host non ancora configurato correttamente.</li>
-<li><strong><code>Loopback Address</code></strong> <strong>127.0.0.1</strong> \(\rightarrow\) permette la comunicazione a livello internet
+<li><strong><code>Loopback Address</code></strong>: <strong>127.0.0.1</strong> \(\rightarrow\) permette la comunicazione a livello internet
 sulla stessa macchina, localmente. <em>Tutti gli indirizzi di loopback iniziano per 127</em>!</li>
 </ul>
+<h3 id="gestione-indirizzi-e-domini">Gestione indirizzi e domini<a href="#gestione-indirizzi-e-domini" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p><strong><code>Jon Postel</code></strong> [1943-1998]: definito <em>lo zar dei numeri</em>, direttore di <strong>IANA</strong>, si occupava
+di garantire gli standard di internet.
+Uno dei compiti di IANA, era quello di garantire la corretta gestione degli indirizzi IP,
+la loro unicità e la loro corretta struttura gerarchica.
+Data la decentralizzazione di internet, la IANA cerca di delegare i compiti ai
+provider di internet internazionali. Per prima cosa, si creano delle sotto-associazioni
+che gestiscono dei &ldquo;blocchi&rdquo; di indirizzi IP, a livello geografico (quindi &ldquo;asegnando&rdquo;
+i <em>Network ID</em>). A loro volta verrano istituiti dei provider nazionali, regionali,
+e così via.</p>
+<p><strong><code>Classi di Indirizzi IP</code></strong>: differenziano il numero di byte assegnati al netid.
+Per classificarli e riconoscerli, hanno delle sequenze iniziali distintive. Ad
+esempio, gli indirizzi che iniziano con 10 sono di classe B, quindi hanno i primi
+2 byte dedicati al netid. Quelli di classe C i primi 3 byte, ecc&hellip;
+Le 3 classi più interessanti, che tratteremo in questo corso, sono A,B,C.</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/classi.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 8: </span>Classi di Indirizzi IP</figcaption>
+    
+  </figure>
+
+
+
+  <figure class="left" >
+    <img src="/ox-hugo/classi2.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 9: </span>Dimensioni delle classi di indirizzi</figcaption>
+    
+  </figure>
+
+
+<p>Queste classi di indirizzi erano pensate per essere assegnate ai diversi internet service
+provider. Ovviamente, negli anni sono entrati in scena aspetti economico/politici:
+gli ISP comprano una determinata classe in base al bisogno di connettività che devono
+fornire ai loro utenti.</p>
+<p>Tendenzialmente i gestori di classi A sono grossi paesi o grosse aziende (<em>o ricche</em>, <del>che a volte
+nemmeno ne hanno bisogno</del> ) come Apple, IBM, IANA, e altre.</p>
+<p><strong><code>Indirizzi Classless</code></strong>: per motivi gestionali e di flessibilità, spesso si può indicare esplicitamente
+quale parte dell&rsquo;indirizzo è dedicata al N.ID o H.ID.
+Per fare questo tipo di ripartizione, si usa la notazione <strong><code>CIDR</code></strong> \(\rightarrow\) <strong>a.b.c.d/n</strong></p>
+<h3 id="formato-del-datagramma-ip">Formato del datagramma IP<a href="#formato-del-datagramma-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <h2 id="lab-6-10">Lab 6-10<a href="#lab-6-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
 <ul>
@@ -897,41 +941,7 @@ che lavorano allo stesso livello dello stack TCP/IP, come
 due host o due switch.</li>
 </ul>
 <h3 id="ifconfig">ifconfig<a href="#ifconfig" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eros@eros-ThinkPad-T430:~/website$ ifconfig
-docker0: flags<span style="color:#f92672">=</span>4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
-	inet 172.17.0.1  netmask 255.255.0.0  broadcast 172.17.255.255
-	ether 02:42:f5:40:4e:45  txqueuelen <span style="color:#ae81ff">0</span>  <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>
-	RX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
-	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
-	TX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
-	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
-
-enp0s25: flags<span style="color:#f92672">=</span>4099&lt;UP,BROADCAST,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
-	ether 28:d2:44:0e:4e:f4  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>
-	RX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
-	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
-	TX packets <span style="color:#ae81ff">0</span>  bytes <span style="color:#ae81ff">0</span> <span style="color:#f92672">(</span>0.0 B<span style="color:#f92672">)</span>
-	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
-	device interrupt <span style="color:#ae81ff">20</span>  memory 0xf2500000-f2520000
-
-lo: flags<span style="color:#f92672">=</span>73&lt;UP,LOOPBACK,RUNNING&gt;  mtu <span style="color:#ae81ff">65536</span>
-	inet 127.0.0.1  netmask 255.0.0.0
-	inet6 ::1  prefixlen <span style="color:#ae81ff">128</span>  scopeid 0x10&lt;host&gt;
-	loop  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Local Loopback<span style="color:#f92672">)</span>
-	RX packets <span style="color:#ae81ff">8476</span>  bytes <span style="color:#ae81ff">4245267</span> <span style="color:#f92672">(</span>4.2 MB<span style="color:#f92672">)</span>
-	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
-	TX packets <span style="color:#ae81ff">8476</span>  bytes <span style="color:#ae81ff">4245267</span> <span style="color:#f92672">(</span>4.2 MB<span style="color:#f92672">)</span>
-	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
-
-wlp3s0: flags<span style="color:#f92672">=</span>4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu <span style="color:#ae81ff">1500</span>
-	inet 155.185.121.4  netmask 255.255.255.0  broadcast 155.185.121.255
-	inet6 fe80::fc6e:82:c6a8:e092  prefixlen <span style="color:#ae81ff">64</span>  scopeid 0x20&lt;link&gt;
-	ether 6c:88:14:86:08:08  txqueuelen <span style="color:#ae81ff">1000</span>  <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>
-	RX packets <span style="color:#ae81ff">2195025</span>  bytes <span style="color:#ae81ff">3036690551</span> <span style="color:#f92672">(</span>3.0 GB<span style="color:#f92672">)</span>
-	RX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span>  overruns <span style="color:#ae81ff">0</span>  frame <span style="color:#ae81ff">0</span>
-	TX packets <span style="color:#ae81ff">1028353</span>  bytes <span style="color:#ae81ff">88788152</span> <span style="color:#f92672">(</span>88.7 MB<span style="color:#f92672">)</span>
-	TX errors <span style="color:#ae81ff">0</span>  dropped <span style="color:#ae81ff">0</span> overruns <span style="color:#ae81ff">0</span>  carrier <span style="color:#ae81ff">0</span>  collisions <span style="color:#ae81ff">0</span>
-</code></pre></div><p>Si usa il comando <strong>ifconfig</strong> per mostrare le interfacce attualmente
+<p>Si usa il comando <strong>ifconfig</strong> per mostrare le interfacce attualmente
 <em>attive</em> nell&rsquo;host.
 Alcune flag/opzioni utili:</p>
 <ul>
