@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-18 10:52:29 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-18 19:33:12 &#43;0200 CEST" />
 
 
 
@@ -199,6 +199,7 @@ fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
 <h2 id="ir--table-of-contents">(IR) TABLE OF CONTENTS<a href="#ir--table-of-contents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
 <li><a href="#text-operations">Text Operations</a></li>
+<li><a href="#text-indexing">Text Indexing</a></li>
 </ul>
 <hr>
 <h2 id="text-operations">Text Operations<a href="#text-operations" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -499,7 +500,160 @@ pool <span style="color:#f92672">=</span> [wn<span style="color:#f92672">.</span
 selected_syns, syns_def <span style="color:#f92672">=</span> disambiguateTerms(pool)
 expanded_query <span style="color:#f92672">=</span> expand_query(selected_syns)
 <span style="color:#66d9ef">print</span>(expanded_query)
-</code></pre></div>
+</code></pre></div><hr>
+<h2 id="text-indexing">Text Indexing<a href="#text-indexing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h3 id="introduzione">Introduzione<a href="#introduzione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Solitamente un indice è appropriato quando:</p>
+<ol>
+<li>Ho molti dati da gestire;</li>
+<li>Quando ho un pool di dati semi-statico, quindi può essere aggiornato
+periodicamente ma non supporta frequenze troppo alte.</li>
+</ol>
+<p>Gli index più usati sono (<em>i</em>) inverted indeces, (<em>ii</em>) suffix array, (<em>iii</em>) signature
+files. Ovviamente si cercano sempre di capire i costi di accesso, di costruzione e
+di aggiornamento.</p>
+<ul>
+<li>\(n\) &ndash;&gt; dimensione in byte occupati dal testo;</li>
+<li>\(m\) &ndash;&gt; lunghezza del pattern che voglio cercare;</li>
+<li>\(M\) &ndash;&gt; byte disponibili in memoria principale;</li>
+</ul>
+<h3 id="trie--prefix-tree">Trie (prefix tree)<a href="#trie--prefix-tree" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Indice che memorizza stringhe, per velocizzare la ricerca e altre operazioni.</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/trie.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 2: </span>Trie, prefix tree</figcaption>
+    
+  </figure>
+
+
+<p>Costo di ricerca di una parola: \(O(m)\), quindi lineare rispetto al numero di
+caratteri della parola che sto cercando.</p>
+<h3 id="inverted-index">Inverted Index<a href="#inverted-index" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>L&rsquo;idea è quella di memorizzare, per ogni termine \(t\), una lista di tutti i
+documenti che contengono quella parola. Ecco le componenti pricipali di
+un inverted index:</p>
+<ol>
+<li><strong><code>Vocabolario</code></strong> &ndash;&gt; insieme di tutte le parole contenute nella collezione di documenti.
+Per ogni parola viene mantenuta come informazione il numero di documenti in cui
+quella parola è presente (<em>document frequency</em>).</li>
+<li><strong><code>Posting List</code></strong> &ndash;&gt; mantiene le informazioni riguardo alla precisa locazione
+delle singole parole. Esistono due tipi di posting list:
+<ul>
+<li><strong>Document based</strong>: esempio &ndash;&gt; car:11 (4) &ndash;&gt; viene indicato <em>in che documento</em>
+compare la parola e con quale frequenza.</li>
+<li><strong>Word based</strong>: ho la <em>locazione</em> della parola di interesse nel documento,
+a livello posizionale.</li>
+</ul>
+</li>
+</ol>
+<p>Qui sotto sono illustrati degli esempi di record che potrebbero essere presenti
+in un inverted index. Notare come la document frequency coincida con il numero
+di caselle presenti nella posting list. Questo è il caso in cui la posting
+list sia <em>Document based</em>. Se fosse <em>Word Based</em>, ovviamente i nodi della
+posting list sarebbero più ingombranti: invece della frequenza all&rsquo;interno
+del documento, sarebbero indicate le precise posizioni delle istanze.</p>
+<table>
+<thead>
+<tr>
+<th>Index term</th>
+<th>df</th>
+<th>posting-list-couple</th>
+<th>posting-list-couple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>computer</td>
+<td>2</td>
+<td>\(D_{7},4\)</td>
+<td>\(D_{8},2\)</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Index term</th>
+<th>df</th>
+<th>posting-list-couple</th>
+<th>posting-list-couple</th>
+<th>posting-list-couple</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>3</td>
+<td>\(D_{1},2\)</td>
+<td>\(D_{2},3\)</td>
+<td>\(D_{3},2\)</td>
+</tr>
+</tbody>
+</table>
+<p>Lo space requirment del vocabolario è abbastanza esiguo: esiste una legge che
+descrive il suo andamento chiamata <code>Heaps law</code>.
+Ovviamente la grandezza del vocabolario dipende da tutto il preprocessing che
+viene fatto, quindi da come vengono generati i token e come vengono filtrati.</p>
+<p>In generale, per gli inverted index <em>word-based</em> è circa \(O(n)\).
+Solitamente è attorno al 40% se vengono omesse delle stopwords, altrimenti
+se vengono mantenute si parla circa dell&rsquo;80%. Nel <em>document based</em> invece
+si parla del di valori tra il 20% e il 40%.</p>
+<h3 id="costruzione-di-un-inverted-index">Costruzione di un Inverted Index<a href="#costruzione-di-un-inverted-index" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Solitamente la costruzione si basa sulla memorizzazione del vocabolario
+in un <strong>trie</strong>. Dopo aver fatto il preprocessing si seguono i seguenti
+step:</p>
+<ol>
+<li>Leggere la parola del testo</li>
+<li>Cercare la parola nel trie</li>
+<li>Se non è presente, viene aggiunta, altrimenti viene
+aggiornata la lista delle occorrenze di quella parola.</li>
+</ol>
+<p>Costo: \(O(n)\), dove n è la somma dei token da indicizzare.
+Normalmente l&rsquo;inverted index viene diviso in due file, per dividere
+il dizionario dalle posting list. Questo perchè il dizionario viene
+caricato in memoria principale, mentre le posting list rimangono
+in memoria secondaria e vengono accedute mediante degli offset.
+Nel file del vocabolario vengono memorizzate le parole, e per ogni parola
+un puntatore alla propria lista all&rsquo;interno del posting file.
+Ecco un&rsquo;esempio di entry all&rsquo;interno di un vocabulary file:</p>
+<ul>
+<li>&ldquo;start&rdquo; indica l&rsquo;offset di inizio della lista;</li>
+<li>&ldquo;n&rdquo; indica la lunghezza della lista corrispondente;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Start</th>
+<th>n</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>science</td>
+<td>7</td>
+<td>3</td>
+</tr>
+</tbody>
+</table>
+<p>Quando devo usare il vocabolario, in che struttura dati conviene caricarlo per
+velocizzare la ricerca?
+Per chiarezza: il trie di cui parlavamo prima viene usato in fase di
+<strong>costruzione</strong>, per facilitarla. Una volta finita la fase di costruzione,
+il file con il vocabolario viene memorizzato e il trie non serve più.
+Rimane quindi da capire quale sia la struttura più efficiente in cui
+<strong>caricare</strong>, in seguito, il vocabolario.</p>
+<ol>
+<li><strong>Sorted Array</strong> &ndash;&gt; ricerca binaria \((log(n))\). L&rsquo;inserimento è costoso, dato
+che può comportare lo shifting degli elementi all&rsquo;interno della struttura.</li>
+<li><strong>B+ Tree</strong> &ndash;&gt; veloce e efficiente ma comporta spazio extra, richiede
+la gestione di una struttura dati aggiuntiva.</li>
+<li><strong>Trie</strong></li>
+<li><strong>Hash</strong></li>
+</ol>
+
       </div></div>
 
   
