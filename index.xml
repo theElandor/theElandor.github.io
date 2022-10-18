@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Oct 2022 10:11:16 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Oct 2022 10:21:05 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 18 Oct 2022 10:11:16 +0200</pubDate>
+      <pubDate>Tue, 18 Oct 2022 10:21:05 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -666,7 +666,7 @@ continua la ricezione.&lt;/p&gt;
 &lt;p&gt;32 bit &amp;ndash;&amp;gt; 4 byte, più piccolo di un&amp;rsquo;indirizzo MAC!
 Si usa una dotted notation, in cui ogni numero (in decimale) rappresenta
 un byte. Indicativamente quindi si possono generare circa 4 miliardi di
-indirizzi (\(2^{32}\)). In questo caso si parla di &lt;strong&gt;&lt;code&gt;IPv4&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
+indirizzi \((2^{32})\). In questo caso si parla di &lt;strong&gt;&lt;code&gt;IPv4&lt;/code&gt;&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Per quando riguarda questo corso, studiamo degli indirizzi di &lt;em&gt;lunghezza fissa&lt;/em&gt;,
 indipendentemente dal contesto o tipo di comunicazioni. La lunghezza variabile
 potrebbe permettere di avere più flessibilità, ma i costi a livello di comunicazione
@@ -682,7 +682,14 @@ inviare i dati in modo selettivo in contesti anche complessi.&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;Un classico esempio di un dispositivo che necessita di un indirizzo statico è un
 server, che deve fornire un servizio permanente e accessibile.
-Al contrario, noi utenti, spesso usiamo dei protocolli per ottenere l&amp;rsquo;indirizzo dinamicamente.&lt;/p&gt;
+Al contrario, noi utenti, spesso usiamo dei protocolli per ottenere l&amp;rsquo;indirizzo dinamicamente.
+Ovviamente, assegnamo l&amp;rsquo;indirizzo IP ad un&amp;rsquo;interfaccia di rete. Tuttavia, ogni interfaccia
+può avere diversi indirizzi IP.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Perchè c&#39;è bisogno anche di un indirizzo fisico oltre all&amp;rsquo;indirizzo logico? &amp;ndash;&amp;gt; per
+motivi di performance: in modo da poter &amp;ldquo;delegare&amp;rdquo; all&amp;rsquo;hardware alcune funzionalità
+specifiche!&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h3 id=&#34;componenti-dell-indirizzo-ip&#34;&gt;Componenti dell&amp;rsquo;Indirizzo IP&lt;/h3&gt;
 &lt;p&gt;In questo caso i byte hanno un valore posizionale per garantire la
 scalabilità e una struttura gerarchica:&lt;/p&gt;

@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-18 10:11:16 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-18 10:21:05 &#43;0200 CEST" />
 
 
 
@@ -838,7 +838,7 @@ continua la ricezione.</p>
 <p>32 bit &ndash;&gt; 4 byte, più piccolo di un&rsquo;indirizzo MAC!
 Si usa una dotted notation, in cui ogni numero (in decimale) rappresenta
 un byte. Indicativamente quindi si possono generare circa 4 miliardi di
-indirizzi (\(2^{32}\)). In questo caso si parla di <strong><code>IPv4</code></strong>.</p>
+indirizzi \((2^{32})\). In questo caso si parla di <strong><code>IPv4</code></strong>.</p>
 <p>Per quando riguarda questo corso, studiamo degli indirizzi di <em>lunghezza fissa</em>,
 indipendentemente dal contesto o tipo di comunicazioni. La lunghezza variabile
 potrebbe permettere di avere più flessibilità, ma i costi a livello di comunicazione
@@ -854,7 +854,14 @@ inviare i dati in modo selettivo in contesti anche complessi.</p>
 </ol>
 <p>Un classico esempio di un dispositivo che necessita di un indirizzo statico è un
 server, che deve fornire un servizio permanente e accessibile.
-Al contrario, noi utenti, spesso usiamo dei protocolli per ottenere l&rsquo;indirizzo dinamicamente.</p>
+Al contrario, noi utenti, spesso usiamo dei protocolli per ottenere l&rsquo;indirizzo dinamicamente.
+Ovviamente, assegnamo l&rsquo;indirizzo IP ad un&rsquo;interfaccia di rete. Tuttavia, ogni interfaccia
+può avere diversi indirizzi IP.</p>
+<ul>
+<li>Perchè c'è bisogno anche di un indirizzo fisico oltre all&rsquo;indirizzo logico? &ndash;&gt; per
+motivi di performance: in modo da poter &ldquo;delegare&rdquo; all&rsquo;hardware alcune funzionalità
+specifiche!</li>
+</ul>
 <h3 id="componenti-dell-indirizzo-ip">Componenti dell&rsquo;Indirizzo IP<a href="#componenti-dell-indirizzo-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>In questo caso i byte hanno un valore posizionale per garantire la
 scalabilità e una struttura gerarchica:</p>
