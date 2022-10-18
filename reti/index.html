@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-18 10:21:05 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-18 10:45:25 &#43;0200 CEST" />
 
 
 
@@ -728,7 +728,7 @@ la rete!</p>
 <p><em>Ci avviamo verso il livello 3, ma senza abbandonare il livello 2&hellip;</em></p>
 <p>Cerchiamo di capire come gestire reti <strong>indipendenti</strong> e <strong>eterogenee</strong>;
 Internet è una <strong>rete globale</strong>: permette la comunicazione tra (<em>i</em>) dispositivi
-e tra (<em>i</em>) reti!
+e tra (<em>ii</em>) reti!
 Lo scopo, alla fine, è quello di far comunicare in modo trasparente un <em>client</em>
 e un <em>server</em>, che sono nodi della rete.
 Internet può ad esempio essere visto come insieme di <strong>Autonomus Systems</strong>,
@@ -860,7 +860,9 @@ può avere diversi indirizzi IP.</p>
 <ul>
 <li>Perchè c'è bisogno anche di un indirizzo fisico oltre all&rsquo;indirizzo logico? &ndash;&gt; per
 motivi di performance: in modo da poter &ldquo;delegare&rdquo; all&rsquo;hardware alcune funzionalità
-specifiche!</li>
+specifiche (il filtraggio, ad esempio)! Queste stesse funzionalità potrebbero
+anche essere gestite a più alto livello, ma potrebbero risultare più lente essendo
+implementate a livello software.</li>
 </ul>
 <h3 id="componenti-dell-indirizzo-ip">Componenti dell&rsquo;Indirizzo IP<a href="#componenti-dell-indirizzo-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>In questo caso i byte hanno un valore posizionale per garantire la
@@ -871,6 +873,19 @@ scalabilità e una struttura gerarchica:</p>
 </ol>
 <p>Gli indirizzi IP sono gestiti per &ldquo;insiemi&rdquo;. Spesso indirizzi IP simili
 corrispondono ad host vicini geograficamente e logicamente tra loro.</p>
+<h3 id="indirizzi-ip-speciali">Indirizzi IP <em>speciali</em><a href="#indirizzi-ip-speciali" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<ul>
+<li><strong><code>Network Address</code></strong>: <strong>155.185.0.0</strong> \(\rightarrow\)
+la parte dell&rsquo;indirizzo relativa all&rsquo;host ha tutti i byte pari a 0.</li>
+<li><strong><code>Indirizzo di Broadcast</code></strong>: <strong>128.211.255.255</strong> \(\rightarrow\) la parte dell&rsquo;indirizzo
+relativa all&rsquo;host ha tutti i byte con bit pari a 1.</li>
+<li><strong><code>Limited Broadcast Adress</code></strong>: <strong>255.255.255.255</strong> \(\rightarrow\) tutti i bit settati a 1.
+Permette di mandadre un messaggio broadcast sulla rete fisica locale.</li>
+<li><strong><code>This Host on This Network</code></strong>: 0.0.0.0 \(\rightarrow\) tutti i bit settati a 0. Identifica
+un host non ancora configurato correttamente.</li>
+<li><strong><code>Loopback Address</code></strong> <strong>127.0.0.1</strong> \(\rightarrow\) permette la comunicazione a livello internet
+sulla stessa macchina, localmente. <em>Tutti gli indirizzi di loopback iniziano per 127</em>!</li>
+</ul>
 <h2 id="lab-6-10">Lab 6-10<a href="#lab-6-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
 <ul>

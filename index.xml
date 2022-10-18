@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Oct 2022 10:21:05 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 18 Oct 2022 10:45:25 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 18 Oct 2022 10:21:05 +0200</pubDate>
+      <pubDate>Tue, 18 Oct 2022 10:45:25 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Intro e disclaimer Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Protocolli e architetture di rete&amp;quot; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti / chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide. → Link per accedere al materiale didattico: https://weblab.ing.unimore.it/protocolli/2223 Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
@@ -556,7 +556,7 @@ la rete!&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Ci avviamo verso il livello 3, ma senza abbandonare il livello 2&amp;hellip;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Cerchiamo di capire come gestire reti &lt;strong&gt;indipendenti&lt;/strong&gt; e &lt;strong&gt;eterogenee&lt;/strong&gt;;
 Internet è una &lt;strong&gt;rete globale&lt;/strong&gt;: permette la comunicazione tra (&lt;em&gt;i&lt;/em&gt;) dispositivi
-e tra (&lt;em&gt;i&lt;/em&gt;) reti!
+e tra (&lt;em&gt;ii&lt;/em&gt;) reti!
 Lo scopo, alla fine, è quello di far comunicare in modo trasparente un &lt;em&gt;client&lt;/em&gt;
 e un &lt;em&gt;server&lt;/em&gt;, che sono nodi della rete.
 Internet può ad esempio essere visto come insieme di &lt;strong&gt;Autonomus Systems&lt;/strong&gt;,
@@ -688,7 +688,9 @@ può avere diversi indirizzi IP.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Perchè c&#39;è bisogno anche di un indirizzo fisico oltre all&amp;rsquo;indirizzo logico? &amp;ndash;&amp;gt; per
 motivi di performance: in modo da poter &amp;ldquo;delegare&amp;rdquo; all&amp;rsquo;hardware alcune funzionalità
-specifiche!&lt;/li&gt;
+specifiche (il filtraggio, ad esempio)! Queste stesse funzionalità potrebbero
+anche essere gestite a più alto livello, ma potrebbero risultare più lente essendo
+implementate a livello software.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;componenti-dell-indirizzo-ip&#34;&gt;Componenti dell&amp;rsquo;Indirizzo IP&lt;/h3&gt;
 &lt;p&gt;In questo caso i byte hanno un valore posizionale per garantire la
@@ -699,6 +701,19 @@ scalabilità e una struttura gerarchica:&lt;/p&gt;
 &lt;/ol&gt;
 &lt;p&gt;Gli indirizzi IP sono gestiti per &amp;ldquo;insiemi&amp;rdquo;. Spesso indirizzi IP simili
 corrispondono ad host vicini geograficamente e logicamente tra loro.&lt;/p&gt;
+&lt;h3 id=&#34;indirizzi-ip-speciali&#34;&gt;Indirizzi IP &lt;em&gt;speciali&lt;/em&gt;&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Network Address&lt;/code&gt;&lt;/strong&gt;: &lt;strong&gt;155.185.0.0&lt;/strong&gt; \(\rightarrow\)
+la parte dell&amp;rsquo;indirizzo relativa all&amp;rsquo;host ha tutti i byte pari a 0.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Indirizzo di Broadcast&lt;/code&gt;&lt;/strong&gt;: &lt;strong&gt;128.211.255.255&lt;/strong&gt; \(\rightarrow\) la parte dell&amp;rsquo;indirizzo
+relativa all&amp;rsquo;host ha tutti i byte con bit pari a 1.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Limited Broadcast Adress&lt;/code&gt;&lt;/strong&gt;: &lt;strong&gt;255.255.255.255&lt;/strong&gt; \(\rightarrow\) tutti i bit settati a 1.
+Permette di mandadre un messaggio broadcast sulla rete fisica locale.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;This Host on This Network&lt;/code&gt;&lt;/strong&gt;: 0.0.0.0 \(\rightarrow\) tutti i bit settati a 0. Identifica
+un host non ancora configurato correttamente.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Loopback Address&lt;/code&gt;&lt;/strong&gt; &lt;strong&gt;127.0.0.1&lt;/strong&gt; \(\rightarrow\) permette la comunicazione a livello internet
+sulla stessa macchina, localmente. &lt;em&gt;Tutti gli indirizzi di loopback iniziano per 127&lt;/em&gt;!&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -871,6 +886,41 @@ listening on eth0, link-type EN10MB &lt;span style=&#34;color:#f92672&#34;&gt;(&
 10:56:56.242261 02:04:06:9c:eb:4a &amp;gt; ff:ff:ff:ff:ff:ff, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
 10:56:56.242283 02:04:06:1b:57:4b &amp;gt; 02:04:06:9c:eb:4a, ethertype ARP &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0x0806&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length &lt;span style=&#34;color:#ae81ff&#34;&gt;28&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
+      <title>Hack the Box</title>
+      <link>/htb/</link>
+      <pubDate>Tue, 18 Oct 2022 10:41:01 +0200</pubDate>
+      
+      <guid>/htb/</guid>
+      <description>What is hack the box?
+ H.T.B. is a online platform where you can train your penetration testing skills by hacking vulnerable machines, also called boxes. It&amp;rsquo;s really fun and interesting if you are into cyber-security!
+&amp;ndash;&amp;gt; https://www.hackthebox.com/
+ Is it hard?
+ If you start with easy machines first, you can definitely get into hack the box with a reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that you will use the biggest part of your time doing google searches and reading documents, trying to understand new concepts and things that you have never heard of before.</description>
+      <content>&lt;blockquote&gt;
+&lt;p&gt;What is hack the box?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;H.T.B. is a online platform where you can train your penetration testing skills by
+hacking vulnerable machines, also called &lt;strong&gt;boxes&lt;/strong&gt;. It&amp;rsquo;s really fun
+and interesting if you are into cyber-security!&lt;/p&gt;
+&lt;p&gt;&amp;ndash;&amp;gt; &lt;a href=&#34;https://www.hackthebox.com/&#34;&gt;https://www.hackthebox.com/&lt;/a&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Is it hard?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;If you start with &lt;strong&gt;easy&lt;/strong&gt; machines first, you can definitely get into hack the box with a
+reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that
+you will use the biggest part of your time doing google searches and reading documents, trying to understand
+new concepts and things that you have never heard of before.&lt;/p&gt;
+&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
+&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
+&lt;hr&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
     </item>
     
     <item>
@@ -1848,41 +1898,6 @@ Dungeons and Dragons, Boardgames.&lt;/p&gt;
      | :__,___/
      |   |
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
-    </item>
-    
-    <item>
-      <title>Hack the Box</title>
-      <link>/htb/</link>
-      <pubDate>Sun, 09 Oct 2022 21:20:26 +0200</pubDate>
-      
-      <guid>/htb/</guid>
-      <description>What is hack the box?
- H.T.B. is a online platform where you can train your penetration testing skills by hacking vulnerable machines, also called boxes. It&amp;rsquo;s really fun and interesting if you are into cyber-security!
-&amp;ndash;&amp;gt; https://www.hackthebox.com/
- Is it hard?
- If you start with easy machines first, you can definitely get into hack the box with a reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that you will use the biggest part of your time doing google searches and reading documents, trying to understand new concepts and things that you have never heard of before.</description>
-      <content>&lt;blockquote&gt;
-&lt;p&gt;What is hack the box?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;H.T.B. is a online platform where you can train your penetration testing skills by
-hacking vulnerable machines, also called &lt;strong&gt;boxes&lt;/strong&gt;. It&amp;rsquo;s really fun
-and interesting if you are into cyber-security!&lt;/p&gt;
-&lt;p&gt;&amp;ndash;&amp;gt; &lt;a href=&#34;https://www.hackthebox.com/&#34;&gt;https://www.hackthebox.com/&lt;/a&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Is it hard?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;If you start with &lt;strong&gt;easy&lt;/strong&gt; machines first, you can definitely get into hack the box with a
-reasonable amount of effort. If you start from scratch, you&amp;rsquo;ll soon understand that
-you will use the biggest part of your time doing google searches and reading documents, trying to understand
-new concepts and things that you have never heard of before.&lt;/p&gt;
-&lt;h2 id=&#34;index&#34;&gt;INDEX&lt;/h2&gt;
-&lt;p&gt;Links to &lt;code&gt;HTB&lt;/code&gt; tutorials!&lt;/p&gt;
-&lt;hr&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/three/&#34;&gt;HTB-Three&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;/posts/archetype/&#34;&gt;HTB-Archetype&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
     </item>
     
     <item>
