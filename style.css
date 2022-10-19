@@ -10,9 +10,18 @@ img
 }
 h2
 {
+    text-decoration: underline;
     color: #23b0ff;
 }
-/* hr */
-/* { */
-/*     height: 5px; */
-/* } */
+
+body {
+   font-family: 'Fira Code', monospace;
+}
+hr
+{
+    background: white;
+}
+a:hover {
+    color: #23b0ff;
+    text-decoration: none;
+}

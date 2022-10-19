@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-18 12:32:18 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-19 20:42:00 &#43;0200 CEST" />
 
 
 
@@ -172,7 +172,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-18
+        2022-10-19
         
       </span>
     
@@ -930,6 +930,62 @@ nemmeno ne hanno bisogno</del> ) come Apple, IBM, IANA, e altre.</p>
 quale parte dell&rsquo;indirizzo è dedicata al N.ID o H.ID.
 Per fare questo tipo di ripartizione, si usa la notazione <strong><code>CIDR</code></strong> \(\rightarrow\) <strong>a.b.c.d/n</strong></p>
 <h3 id="formato-del-datagramma-ip">Formato del datagramma IP<a href="#formato-del-datagramma-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Ogni pacchetto IP può essere lungo fino a 64kbyte. Sicuramente
+nell&rsquo;header sono contenuti (<em>i</em>) indirizzo sorgente (<em>ii</em>) indirizzo
+destinazione.
+Se si pensa all&rsquo;interità dello stack, ci si ricorda che questo pacchetto
+verrà passato ai livelli sottostanti prima di essere trasmesso, quindi
+al livello ethernet. La grandezza massima del frame ethernet era determinata
+dall&rsquo;M.C.U: in ogni caso non poteva superare i 1500byte. Come faccio
+quindi a incapsulare un pacchetto grande fino a 64KByte?</p>
+<p>&ndash;&gt; Esistono 2 approcci per risolvere questo problema:</p>
+<ol>
+<li>Faccio in modo che questo pacchetto IP sia più piccolo e possa
+essere incapsulato;</li>
+<li>Si cerca di <strong>frammentare</strong> il datagramma IP, quindi bisogna fornire
+delle informazioni all&rsquo;interno del datagramma che possano servire
+all&rsquo;host che riceve il frammento per &ldquo;ricostruire&rdquo; l&rsquo;intero pacchetto.</li>
+</ol>
+
+  <figure class="left" >
+    <img src="/ox-hugo/ipdatagram.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 10: </span>Formato del datagram IP</figcaption>
+    
+  </figure>
+
+
+<ul>
+<li><strong>VERS</strong> &ndash;&gt; informazioni sulla versione;</li>
+<li><strong>HLEN</strong> &ndash;&gt; lunghezza dell&rsquo;header del datagram, si suppone una certa
+flessibilità del protocollo.</li>
+<li><strong>Service type</strong> &ndash;&gt; bitmap che comunica delle informazioni relativi
+al pacchetto. In Figura 11 si può vedere meglio la struttura di questa
+sequenza lunga 8 bit.</li>
+<li><strong>Identification</strong> &ndash;&gt; intero che identifica il datagram;</li>
+<li><strong>Flags</strong> &ndash;&gt; flag che segnalano la frammentazione;</li>
+<li><strong>Offset</strong> &ndash;&gt; identificano il frammento rispetto al pacchetto originale;</li>
+<li><strong>Time to Live</strong> &ndash;&gt; contatore che ci mostra quanti router questo pacchetto
+può percorrere prima di essere scartato.</li>
+<li><strong>Protocol</strong> &ndash;&gt; contiene informazioni verso il livello 4, indica quale
+protocollo può usare i dati contenuti nel datagram.</li>
+<li><strong>Checksum</strong> &ndash;&gt; controllo di integrità sull&rsquo;<em>header</em>, quindi non ci si
+preoccupa per ora del payload. (Come al solito, in IP ci si mantiene
+il più leggeri possibili).</li>
+<li><strong>Ip-options</strong> &ndash;&gt; campo opzionale di grandezza variabile, serve per fare
+debugging di rete.</li>
+<li><strong>Padding</strong> &ndash;&gt; serve per fare in modo che l&rsquo;intero header abbia lunghezza
+che sia un multiplo di 32 bit. Simile al &ldquo;byte stuffing&rdquo;.</li>
+</ul>
+
+  <figure class="left" >
+    <img src="/ox-hugo/typeofs.png"   />
+    
+      <figcaption class="center" ><span class="figure-number">Figure 11: </span>Service type sequence</figcaption>
+    
+  </figure>
+
+
 <h2 id="lab-6-10">Lab 6-10<a href="#lab-6-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
 <ul>
