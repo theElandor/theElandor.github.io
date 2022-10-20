@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-19 20:42:00 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-20 14:12:56 &#43;0200 CEST" />
 
 
 
@@ -172,7 +172,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-19
+        2022-10-20
         
       </span>
     
@@ -220,9 +220,10 @@ Le credenziali per accedere al materiale di quest&rsquo;anno sono:</p>
 <li><a href="#protocollo-tcp-ip">PROTOCOLLO TCP/IP</a></li>
 <li><a href="#htn--introduzione">(HTN) INTRODUZIONE</a></li>
 <li><a href="#htn--lan-e-ethernet">(HTN) LAN e ETHERNET</a></li>
-<li><a href="#lab-6-10">Lab 6-10</a></li>
 <li><a href="#htn--interconnessioni-di-rete-e-accesso-a-internet">(HTN) INTERCONNESSIONI DI RETE E ACCESSO A INTERNET</a></li>
 <li><a href="#ip--livello-internet">(IP) Livello Internet</a></li>
+<li><a href="#lab-6-10">Lab 6-10</a></li>
+<li><a href="#lab-20-10">Lab 20-10</a></li>
 </ul>
 <hr>
 <h2 id="metodi-di-comunicazione">METODI DI COMUNICAZIONE<a href="#metodi-di-comunicazione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -876,17 +877,40 @@ scalabilità e una struttura gerarchica:</p>
 corrispondono ad host vicini geograficamente e logicamente tra loro.</p>
 <h3 id="indirizzi-ip-speciali">Indirizzi IP <em>speciali</em><a href="#indirizzi-ip-speciali" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <ul>
-<li><strong><code>Network Address</code></strong>: <strong>155.185.0.0</strong> \(\rightarrow\)
-la parte dell&rsquo;indirizzo relativa all&rsquo;host ha tutti i byte pari a 0.</li>
-<li><strong><code>Indirizzo di Broadcast</code></strong>: <strong>128.211.255.255</strong> \(\rightarrow\) la parte dell&rsquo;indirizzo
-relativa all&rsquo;host ha tutti i byte con bit pari a 1.</li>
-<li><strong><code>Limited Broadcast Adress</code></strong>: <strong>255.255.255.255</strong> \(\rightarrow\) tutti i bit settati a 1.
-Permette di mandadre un messaggio broadcast sulla rete fisica locale.</li>
-<li><strong><code>This Host on This Network</code></strong>: 0.0.0.0 \(\rightarrow\) tutti i bit settati a 0. Identifica
-un host non ancora configurato correttamente.</li>
-<li><strong><code>Loopback Address</code></strong>: <strong>127.0.0.1</strong> \(\rightarrow\) permette la comunicazione a livello internet
-sulla stessa macchina, localmente. <em>Tutti gli indirizzi di loopback iniziano per 127</em>!</li>
+<li>
+<p><strong><code>Network Address</code></strong>: <strong>155.185.0.0</strong> \(\rightarrow\)
+la parte dell&rsquo;indirizzo relativa all&rsquo;host ha tutti i byte pari a 0.</p>
+</li>
+<li>
+<p><strong><code>Indirizzo di Broadcast</code></strong>: <strong>128.211.255.255</strong> \(\rightarrow\) la parte dell&rsquo;indirizzo
+relativa all&rsquo;host ha tutti i byte con bit pari a 1. Questo messaggio può
+essere destinato ad una qualsiasi rete.</p>
+</li>
+<li>
+<p><strong><code>Limited Broadcast Adress</code></strong>: <strong>255.255.255.255</strong> \(\rightarrow\) tutti i bit settati a 1.
+Permette di mandadre un messaggio broadcast sulla rete fisica locale.
+Un pacchetto con questo indirizzo IP <em>non viene</em> inoltrato dai router, perchè
+è destinato soltanto alla rete locale, è simile ad un arp request.</p>
+</li>
+<li>
+<p><strong><code>This Host on This Network</code></strong>: 0.0.0.0 \(\rightarrow\) tutti i bit settati a 0. Identifica
+un host non ancora configurato correttamente.</p>
+</li>
+<li>
+<p><strong><code>Loopback Address</code></strong>: <strong>127.0.0.1</strong> \(\rightarrow\) permette la comunicazione a livello internet
+sulla stessa macchina, localmente. <em>Tutti gli indirizzi di loopback iniziano per 127</em>!</p>
+</li>
+<li>
+<p><strong><code>Indirizzi privati</code></strong> ammissibili: indirizzi <em>non routable</em>, che possono
+essere usati localmente senza autorizzazione.
+(<em>i</em>) 10.0.0.0/8
+(<em>ii</em>) 172.16.0.0/12
+(<em>iii</em>) 192.168.0.0/16</p>
+</li>
 </ul>
+<p><strong><code>Natting</code></strong> &ndash;&gt; se ho una rete privata ma voglio comunicare con una rete
+esterna, che magari non accetta gli indirizzi IP locali. E&rsquo; una funzione
+offerta dal router locale.</p>
 <h3 id="gestione-indirizzi-e-domini">Gestione indirizzi e domini<a href="#gestione-indirizzi-e-domini" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p><strong><code>Jon Postel</code></strong> [1943-1998]: definito <em>lo zar dei numeri</em>, direttore di <strong>IANA</strong>, si occupava
 di garantire gli standard di internet.
@@ -929,6 +953,7 @@ nemmeno ne hanno bisogno</del> ) come Apple, IBM, IANA, e altre.</p>
 <p><strong><code>Indirizzi Classless</code></strong>: per motivi gestionali e di flessibilità, spesso si può indicare esplicitamente
 quale parte dell&rsquo;indirizzo è dedicata al N.ID o H.ID.
 Per fare questo tipo di ripartizione, si usa la notazione <strong><code>CIDR</code></strong> \(\rightarrow\) <strong>a.b.c.d/n</strong></p>
+<p>Esempio di indirizzo classless: 192.168.1.1/23</p>
 <h3 id="formato-del-datagramma-ip">Formato del datagramma IP<a href="#formato-del-datagramma-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Ogni pacchetto IP può essere lungo fino a 64kbyte. Sicuramente
 nell&rsquo;header sono contenuti (<em>i</em>) indirizzo sorgente (<em>ii</em>) indirizzo
@@ -1123,6 +1148,212 @@ tcpdump: verbose output suppressed, use -v or -vv <span style="color:#66d9ef">fo
 listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
 10:56:56.242261 02:04:06:9c:eb:4a &gt; ff:ff:ff:ff:ff:ff, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length <span style="color:#ae81ff">28</span>
 10:56:56.242283 02:04:06:1b:57:4b &gt; 02:04:06:9c:eb:4a, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length <span style="color:#ae81ff">28</span>
+</code></pre></div><hr>
+<h2 id="lab-20-10">Lab 20-10<a href="#lab-20-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
+<h3 id="introduzione">Introduzione<a href="#introduzione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Lo scopo è quello di configurare 2 reti locali separate, con un host
+centrale che fa da router.</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/router.png"   />
+    
+  </figure>
+
+
+<p><strong>LAN1: 192.168.1.0</strong>
+Quindi gli indirizzi ip vanno da 192.168.1.1 a 192.168.1.254, perchè
+192.168.1.255 è un&rsquo;indirizzo speciale non assegnabile (di broadcast);</p>
+<p><strong>LAN2: 192.168.2.0</strong></p>
+<h3 id="configurazione--temporanea">Configurazione (temporanea)<a href="#configurazione--temporanea" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<ul>
+<li><strong>H1</strong> &ndash;&gt; <code>ifconfig eth0 192.168.0.1/24</code>. Per essere sicuri, è meglio specificare la netmask;</li>
+</ul>
+<p>Il router H2 ha due interfacce di rete, vanno configurate entrambe:</p>
+<ul>
+<li><strong>H2</strong> &ndash;&gt; <code>ifconfig eth0 192.168.1.254/24</code>
+<code>ifconfig eth1 192.168.2.254/24</code></li>
+</ul>
+<p>Dato che H2 è il router, deve avere le due interfacce che appartengono alle
+due reti diverse. E&rsquo; prassi che il suo indirizzo IP parta dagli ultimi
+disponibili, in modo da essere riconoscibile ad occhio.</p>
+<h3 id="tabella-di-routing">Tabella di routing<a href="#tabella-di-routing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>La tabella di routing contiene le informazioni necessarie all&rsquo;host
+per poter comunicare in rete.
+Per visualizzare la tabella di routing, si usa il seguente comando
+<code>route -n</code> \(\downarrow\)</p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/h1routing.png"   />
+    
+  </figure>
+
+
+<p>In questo caso, l&rsquo;host H1 è solo in grado di comunicare localmente,
+riesce a inviare pacchetti a indirizzi IP &ldquo;locali&rdquo;. Infatti nella
+tabella è presente solo un record (quindi una regola di routing), applicabile agli indirizzi IP
+che iniziano con <strong>192.168.1.0</strong>.</p>
+<ul>
+<li>
+<p><strong>Destination</strong>: applico questa riga a tutti i pacchetti destinati all&rsquo;
+indirizzo di rete specificato.</p>
+</li>
+<li>
+<p><strong>Genmask</strong>: specifica la netmask degli indirizzi a cui è destinata
+questa reogla di routing. Dato che nella configurazione di questa
+interfaccia di rete abbiamo specificato &ldquo;/24&rdquo;, la netmask avrà
+i primi 3 byte tutti settati a 1.</p>
+</li>
+<li>
+<p><strong>Gateway</strong>: 0.0.0.0 significa che il pacchetto
+va inviato tramite host to network, quindi localmente!
+Nel caso di questa specifica interfaccia verrà quindi sfruttato il
+protocollo ethernet.</p>
+<p><em>Situazione</em>: da H1 uso il comando ping specificando un generico indirizzo IP.</p>
+<p>Cosa succede?</p>
+<p>La prima cosa che viene fatta dall&rsquo;host è il consulto della tabella di routing, per capire cosa
+fare dei pacchetti che devono essere inviati a quell&rsquo;indirizzo. Se il gateway ha un valore  (diverso da 0.0.0.0) allora il pacchetto
+va inoltrato tramite il router specificato! Altrimenti il pacchetto
+viene inviato tramite protocollo ethernet.</p>
+<p>Per vedere la tabella di routing i può anche usare <code>iproute</code>:</p>
+</li>
+</ul>
+
+  <figure class="left" >
+    <img src="/ox-hugo/iproute.png"   />
+    
+  </figure>
+
+
+<ul>
+<li><strong>Scope link</strong> significa che il pacchetto va inviato sfruttando il livello
+&ldquo;link&rdquo;, quindi il livello2. Per eth0 questo livello è ethernet.</li>
+</ul>
+<blockquote>
+<p>Seguno ora alcuni esempi di comunicazione.</p>
+</blockquote>
+<ul>
+<li>
+<p>da H1 uso questo comando: <code>ping 192.168.1.2</code></p>
+<p>&ndash;&gt; il sistema cerca di inviare richieste arp, perchè
+la tabella di routing dice che questo indirizzo dovrebbe essere raggiungibile
+a livello 2. Nessuno risponde all&rsquo;arp request, quindi il timeout scade
+e viene stampato &ldquo;host unreachable&rdquo;.</p>
+</li>
+<li>
+<p>da H1 uso il comando: <code>ping 192.168.2.2</code></p>
+<p>&ndash;&gt; ottengo l&rsquo;errore
+&ldquo;Network is unreachable&rdquo;. Infatti nella tabella di routing non
+esistono entry che specificano regole per questa destinazione.</p>
+</li>
+<li>
+<p>da H1 configuro in modo diverso l&rsquo;interfaccia, usando <code>ip addr dev eth0 192.168.1.1</code>.
+&ndash;&gt; In questo caso, se poi se uso <code>ping 192.168.1.254</code>, ottengo <em>host unreachable</em>, perchè
+ip non capisce da solo qual'è la netmask! Infatti essa deve essere necessariamente
+specificata alla fine dell&rsquo;indirizzo. In tal caso viene aggiornata correttamente la route table e riesco
+a pingare un host che si trova sulla rete locale.
+Con ifconfig invece, anche se la netmask non viene specificata, lui interpreta il comando
+e capisce che (ad esempio) 192 è l&rsquo;inizio di un&rsquo;indirizzo di classe C (per convenzione).
+Quindi usare <strong>ifconfig 192.168.0.1</strong> è equivalente a usare <strong>ip addr dev eth0 192.168.1.1/24</strong>.</p>
+</li>
+</ul>
+<p>Usando invece <code>ifconfig eth0 10.0.0.1</code>, l&rsquo;indirizzo viene di default interpretato come  indirizzo di classe A.
+Esiste un modo per configurare un&rsquo;interfaccia di rete senza far aggiornare
+la route table anche usando ifconfig: si usa il comando <code>ifconfig eth0 10.0.0.1/32</code>.
+Alla fine è come se usassi <code>ip add add dev eth0 10.0.0.1</code> senza specificare la netmask.</p>
+<h3 id="configurazione-del-router">Configurazione del router<a href="#configurazione-del-router" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Di base un host non si comporta come un router: infatti se riceve un&rsquo;indirizzo
+ip diverso dal proprio esso viene scartato! Bisogna quindi configurare l&rsquo;host
+centrale in modo da farlo comportare come un router (che inoltra i pacchetti).
+In linux si può usare modificando un&rsquo;opzione del kernel:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</code></pre></div><p>Dopo aver fatto ciò, è importante &ldquo;istruire&rdquo; gli host di livello 3 della
+rete, in modo da fargli capire come raggiungere gli indirizzi ip &ldquo;esterni&rdquo;,
+non raggiungibili a livello 2.
+Bisogna semplicemente aggiungere una regola di routing.</p>
+<p>Ci si posiziona su H1 e si lancia il seguente comando, con cui si specifica
+che per raggiungere la rete 2 si deve passare per il router con indirizzo
+<strong>192.168.1.254</strong>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -net 192.168.2.0/24 gw 192.168.1.254
+</code></pre></div>
+  <figure class="left" >
+    <img src="/ox-hugo/routerconfig.png"   />
+    
+  </figure>
+
+
+<blockquote>
+<p>Seguono ora alcuni esempi di comunicazione.</p>
+</blockquote>
+<ul>
+<li>
+<p>da H1 uso <code>ping 192.168.2.2</code></p>
+<p>&ndash;&gt; per prima cosa H1 cerca di capire qual'è l&rsquo;indirizzo del router, che
+risponde fornendo il suo indirizzo MAC. Dopo aver fatto ciò,
+invia un pacchetto con IP destinazione <strong>192.168.2.2</strong>, <em>al router</em>. Esso inoltra poi il pacchetto
+e cerca di inviare delle arp request, ovviamente non trovando l&rsquo;host
+con l&rsquo;ip richiesto. Il timeout scade, e viene ritornato un messaggio
+di errore.</p>
+</li>
+<li>
+<p>da H1 uso <code>ping 192.168.2.1</code>:
+&ndash;&gt; in questo caso la comunicazione non sembra
+funzionare. Questo perchè H3 non è ancora configurato per raggiungere
+H1 per inviare le risposte! In realtà quindi i pacchetti vengono <em>inviati</em>
+correttamente.</p>
+</li>
+<li>
+<p>da H3 uso &ndash;&gt; <code>route add -net 192.168.1.0/24 gw 192.168.2.254</code>
+a questo punto il comando ping precedente funziona nel suo complesso
+correttamente!</p>
+</li>
+<li>
+<p>da H1 uso <code>route add default gw 192.168.1.254</code>:
+&ndash;&gt; molto spesso usata
+nei contesti reali, quando in una rete locale ho soltanto un router
+che mi manda verso l&rsquo;esterno della rete (verso internet);
+L&rsquo;host specificato viene usato come <strong>gateway predefinito</strong>;</p>
+</li>
+</ul>
+
+  <figure class="left" >
+    <img src="/ox-hugo/defaultgateway.png"   />
+    
+  </figure>
+
+
+<p>In questo caso è ben visibile il record che corrisponde al router di
+default (Destination &ndash;&gt; 0.0.0.0)</p>
+<ul>
+<li>da H1 uso <code>ping 192.168.3.1</code>
+&ndash;&gt; <strong>&ldquo;Net unreachable&rdquo;</strong>: il router infatti controlla la
+sua tabella di routing e non trova una rete compatibile, quindi
+rimanda indietro l&rsquo;errore.</li>
+</ul>
+<p>Per eliminare una regola di routing si possono usare i seguenti comandi:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route del -net default
+route del -net 192.168.2.0/24
+</code></pre></div><p>Con il seguente comando si specifica una regola di routing per uno specifico
+host.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -host 192.168.1.254 dev eth0
+</code></pre></div><p>Sotto viene riportato il file di configurazione di H1.
+Dopo <strong>post-up</strong> viene specificato un comando che viene eseguito <em>dopo</em>
+l&rsquo;attivazione dell&rsquo;interfaccia di rete.
+Con la specifica <strong>&ldquo;gateway&rdquo;</strong> semplicemente si specifica il default gateway.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0
+iface eth0 inet static
+  address 192.168.1.1/24
+  gateway 192.168.1.254
+  post-up route add -net 192.168.2.0/24 gw 192.168.1.254
+#+END_SRC
+Per configurare h2
+</code></pre></div><p>Per configurare H2 invece:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0 eth1
+iface eth0 inet static
+  address 192.168.1.254/24
+
+iface eth1 inet static
+  address 192.168.2.254/24
 </code></pre></div>
       </div></div>
 
