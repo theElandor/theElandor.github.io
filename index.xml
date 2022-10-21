@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Oct 2022 17:19:26 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 21 Oct 2022 17:26:23 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linguaggi e compilatori</title>
       <link>/compilatori/</link>
-      <pubDate>Fri, 21 Oct 2022 17:19:26 +0200</pubDate>
+      <pubDate>Fri, 21 Oct 2022 17:26:23 +0200</pubDate>
       
       <guid>/compilatori/</guid>
       <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\)
@@ -39,7 +39,7 @@ Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigera
 &lt;blockquote&gt;
 &lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/ox-hugo/presentazione.html&#34;&gt;https://theelandor.github.io/ox-hugo/presentazione.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://theelandor.github.io/prova/presentazione.html&#34;&gt;https://theelandor.github.io/prova/presentazione.html&lt;/a&gt;&lt;/p&gt;
 </content>
     </item>
     

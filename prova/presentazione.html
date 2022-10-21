@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Swarm Intelligence</title>
+<meta name="author" content="(Matteo Lugli)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.css"/>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js/dist/theme/moon.css" id="theme"/>
+
+<link rel="stylesheet" href="moon_style.css"/>
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'https://cdn.jsdelivr.net/npm/reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Swarm Intelligence</h1><p class="subtitle">(Introduction to multi-agent systems)</p>
+<h2 class="author">Matteo Lugli</h2>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org71beb1d">Multi-agent systems</a></li>
+<li><a href="#/slide-orgabe2645">Swarm Intelligence</a></li>
+<li><a href="#/slide-org1bf5c95">Examples</a></li>
+<li><a href="#/slide-org20fd5b6">Netlogo</a></li>
+<li><a href="#/slide-org65b85ae">Conclusions</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org71beb1d">
+<h2 id="org71beb1d">Multi-agent systems</h2>
+<div class="outline-text-2" id="text-org71beb1d">
+</div>
+</section>
+<section id="slide-org1077a9f">
+<h3 id="org1077a9f">Introduction</h3>
+<p>
+What are multi-agent systems?
+</p>
+<hr />
+<p>
+They are artificial systems, sometimes related to nature-inspired computing, composed
+of multiple interacting <span class="underline"><b>intelligent agents</b></span> in a <span class="underline"><b>dynamic environment</b></span>.
+</p>
+</section>
+<section id="slide-org9b17032">
+<h3 id="org9b17032">Agents (1/2)</h3>
+<p>
+Some several important characteristics:
+</p>
+<hr />
+<ul>
+<li>Autonomy (decentralization)</li>
+<li>Reactivness</li>
+<li>Proactivity</li>
+<li>Comunication skills</li>
+
+</ul>
+</section>
+<section id="slide-orgc3c8f64">
+<h3 id="orgc3c8f64">Agents (2/2)</h3>
+<p>
+Two more categories of agents&#x2026;
+</p>
+<hr />
+<ul>
+<li>Passive</li>
+<li>Active</li>
+
+</ul>
+</section>
+<section id="slide-org45b710c">
+<h3 id="org45b710c">Environment</h3>
+<p>
+Sometimes plays an <b>active</b> role, by executing pressure on the agents.
+In that case, agents must be able to <b>resist</b> and sometimes <b>adapt</b>.<br />
+No agent has a <b>full global view</b> of the world!
+</p>
+</section>
+<section id="slide-orgc3c87e3">
+<h3 id="orgc3c87e3">Why multi agent systems?</h3>
+<p>
+In computer science, sometimes it is easier (or needed) to think of
+problems in a <b>distributed</b> way:
+</p>
+<ul>
+<li>Swarms of drones</li>
+<li>Smart cities</li>
+<li>Self-driving and transportation</li>
+<li>And much more&#x2026;</li>
+
+</ul>
+</section>
+</section>
+<section>
+<section id="slide-orgabe2645">
+<h2 id="orgabe2645">Swarm Intelligence</h2>
+<div class="outline-text-2" id="text-orgabe2645">
+</div>
+</section>
+<section id="slide-orgf69657d">
+<h3 id="orgf69657d">Introduction (1/3)</h3>
+<p>
+What is swarm intelligence?<br />
+Let's give a formal definition&#x2026;
+</p>
+<hr />
+<p>
+It is the collective behavior of <b>decentralized</b>, <b>self-organized</b>
+systems. 
+</p>
+</section>
+<section id="slide-orga054f59">
+<h3 id="orga054f59">Introduction(2/3)</h3>
+<p>
+In other words, it is a feature of some multi-agent systems that
+can <b>perform tasks</b> in a """smart""" way.
+</p>
+</section>
+<section id="slide-orgd96fd39">
+<h3 id="orgd96fd39">Introduction (3/3)</h3>
+<p>
+It is often related to <b>natural phenomena</b> (ant foraging, 
+bird flocking&#x2026;).
+Let's take a look at some different examples&#x2026;
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org1bf5c95">
+<h2 id="org1bf5c95">Examples</h2>
+<div class="outline-text-2" id="text-org1bf5c95">
+</div>
+</section>
+<section id="slide-orgd5eb2b8">
+<h3 id="orgd5eb2b8">Ants (1/4)</h3>
+<p>
+Nature alredy gives us many real examples to study.
+</p>
+<hr />
+
+<div id="org729f45b" class="figure">
+<p><img src="file:///home/eros/Desktop/report/Images/formicaio.png" alt="formicaio.png" height="50%;" width="50%;" />
+</p>
+</div>
+</section>
+<section id="slide-orgd0bf636">
+<h3 id="orgd0bf636">Ants (2/4)</h3>
+<p>
+How can they find shortest path to food sources?
+</p>
+<hr />
+
+<div class="figure">
+<p><img src="file:///home/eros/Desktop/report/Images/ant_foraging.png" alt="ant_foraging.png" height="450px;" />
+</p>
+</div>
+</section>
+<section id="slide-org7dc47a5">
+<h3 id="org7dc47a5">Ants (3/4)</h3>
+<p>
+We can imagine them as <b>agents</b> in a multi-agent system.
+Each ant actually follows a set of really simple rules,
+and by simulating them in a artificial system it's possible
+to study theyr beahvior!
+</p>
+</section>
+<section id="slide-orgff6d4cc">
+<h3 id="orgff6d4cc">Ants (4/4)</h3>
+<p>
+<b>Ant foraging</b> is a really important topic in computer science.
+It even solves in a reasonable amount of time (best so far) the <b>TSP</b> (travelling salesman problem).
+</p>
+</section>
+<section id="slide-orgc678f06">
+<h3 id="orgc678f06">Bird flocking (1/2)</h3>
+<p>
+How does that happen?
+</p>
+<hr />
+
+<div id="org33091f9" class="figure">
+<p><img src="file:///home/eros/Desktop/report/Images/flocking.png" alt="flocking.png" height="60%;" width="60%;" />
+</p>
+</div>
+</section>
+<section id="slide-orgeb31788">
+<h3 id="orgeb31788">Bird flocking (2/2)</h3>
+<p>
+As we said before, swarm intelligence is based
+on <b>decentralization.</b> There is not a bird that is
+"superior" to others, and that coordinates the collective
+movement.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org20fd5b6">
+<h2 id="org20fd5b6">Netlogo</h2>
+</section>
+<section id="slide-orgd684dc8">
+<h3 id="orgd684dc8">Netlogo (1/2)</h3>
+
+<div id="orgf928cf2" class="figure">
+<p><img src="file:///home/eros/Desktop/report/Images/netlogo.png" alt="netlogo.png" height="30%;" width="30%;" />
+</p>
+</div>
+
+<p>
+NetLogo is a programming language and integrated development environment (IDE) for agent-based modeling.<br />
+<a href="https://ccl.northwestern.edu/netlogo/">https://ccl.northwestern.edu/netlogo/</a>
+</p>
+</section>
+<section id="slide-org54e2fe6">
+<h3 id="org54e2fe6">Netlogo (2/2)</h3>
+<p>
+It offers an intuitive user interface and code syntax to
+create multi-agent systems models.
+</p>
+<div>
+
+<div class="column" style="float:left; width:50%";>
+<img style="width:450px; height:350px;" src="/home/eros/Desktop/report/Images/netlogo_code.png">
+<p style="margin-top:-20px; font-size:20px;"> Code </p>
+</div>
+
+<div class="column" style="float:right; width:50%">
+<img style="width:450px; height:350px;" src="/home/eros/Desktop/report/Images/netlogo_intro.png">
+<p style="margin-top:-20px; font-size:20px;"> Interface </p>
+</div>
+
+</div>
+</section>
+<section id="slide-orga8d808e">
+<h3 id="orga8d808e"></h3>
+<p>
+Let's analyze the code and see what actually happens&#x2026;
+</p>
+<hr />
+<ul>
+<li>What is the set of rules that ants (agents or "turtles") follow in this 
+model?</li>
+<li>Does the environment play an active role?</li>
+
+</ul>
+</section>
+<section id="slide-org991342e">
+<h3 id="org991342e">Agents</h3>
+<ol>
+<li>Initially generated at the center of the nest.</li>
+<li><b>Look for food</b>, trying to follow feromone gradient.</li>
+<li>Once food is found, turn around and <b>go back</b> following the smell of the nest.</li>
+<li>While going back, <b>release feromone</b>.</li>
+
+</ol>
+<p>
+<i>And remember: each ant moves and acts independently!</i>
+</p>
+</section>
+<section id="slide-org2fd2f0d">
+<h3 id="org2fd2f0d">Environment</h3>
+<p>
+The environment has an <b>active role</b>:
+</p>
+<ol>
+<li>The <b>nest</b> (positioned at the center) has a gradient of smell that ants can perceive;</li>
+<li>The feromone released by ants <b>spreads</b> and eventually <b>evaporates</b>;</li>
+
+</ol>
+</section>
+<section id="slide-orgcf1959c">
+<h3 id="orgcf1959c"></h3>
+<p>
+Ants gradually consume every food pile, following the shotest path for
+each one of them!
+</p>
+</section>
+<section id="slide-org561bb0e">
+<h3 id="org561bb0e"></h3>
+<hr />
+<p>
+The <b>feedback</b> mechanism is what coordinates the collective movement
+</p>
+<hr />
+</section>
+<section id="slide-org870ed63">
+<h3 id="org870ed63">Feedback (1/2)</h3>
+<ul>
+<li><b>Positive feedback</b>: the actions of an agent cause <i>more</i> of that action
+to occur in other agents;</li>
+<li><b>Negative feedback</b> the actions of an agent cause <i>less</i> of that action 
+to occur in other agents;</li>
+
+</ul>
+</section>
+<section id="slide-org2d80e37">
+<h3 id="org2d80e37">Feedback (2/2)</h3>
+<p>
+Every ant modifies the environment around it when returning to the nest, by releasing
+feromone.
+\[\Downarrow\]
+More and more ants will follow that same path.
+\[\Downarrow\]
+<b>Positive feedback</b>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org65b85ae">
+<h2 id="org65b85ae">Conclusions</h2>
+<div class="outline-text-2" id="text-org65b85ae">
+</div>
+</section>
+<section id="slide-orgeec379d">
+<h3 id="orgeec379d"></h3>
+<p>
+<i>Randomness is actually a good thing</i>
+</p>
+<hr />
+<p>
+Theese models are often based on <b>random decisions</b>.
+\[\Downarrow\]
+The system is always changing.
+\[\Downarrow\]
+<b>Adaptability</b>
+</p>
+</section>
+<section id="slide-org97e1d34">
+<h3 id="org97e1d34"></h3>
+<p>
+<i>A large number of agents is needed</i>
+</p>
+<hr />
+<p>
+A model needs many agents to reach <b>self-organization.</b>
+\[\Downarrow\]
+Theese systems are <b>noise-resistant</b>: even if an agent dies, 
+the model is not affected significantly.
+</p>
+</section>
+<section id="slide-orgb44857b">
+<h3 id="orgb44857b">Some applications</h3>
+<ul>
+<li>Ant sorting;</li>
+<li>Ant foraging;</li>
+<li>TSP</li>
+<li>Network routing;</li>
+<li>Topology problems;</li>
+<li>Crowd simulation;</li>
+
+</ul>
+<p>
+And much more&#x2026;
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js/dist/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+ { src: 'https://cdn.jsdelivr.net/npm/reveal.js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }]
+
+});
+
+</script>
+</body>
+</html>
