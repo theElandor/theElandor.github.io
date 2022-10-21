@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-19 20:15:06 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-21 12:31:43 &#43;0200 CEST" />
 
 
 
@@ -172,7 +172,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-19
+        2022-10-21
         
       </span>
     
@@ -199,7 +199,7 @@ fatti durante le lezioni. Il materiale non è sostitutivo alle slide.
 <h2 id="ir--table-of-contents">(IR) TABLE OF CONTENTS<a href="#ir--table-of-contents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
 <li><a href="#text-operations">Text Operations</a></li>
-<li><a href="#text-indexing">Text Indexing</a></li>
+<li><a href="#full-text-indexing">Full Text Indexing</a></li>
 </ul>
 <hr>
 <h2 id="text-operations">Text Operations<a href="#text-operations" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -501,7 +501,7 @@ selected_syns, syns_def <span style="color:#f92672">=</span> disambiguateTerms(p
 expanded_query <span style="color:#f92672">=</span> expand_query(selected_syns)
 <span style="color:#66d9ef">print</span>(expanded_query)
 </code></pre></div><hr>
-<h2 id="text-indexing">Text Indexing<a href="#text-indexing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="full-text-indexing">Full Text Indexing<a href="#full-text-indexing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="introduzione">Introduzione<a href="#introduzione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Solitamente un indice è appropriato quando:</p>
 <ol>
@@ -517,8 +517,9 @@ di aggiornamento.</p>
 <li>\(m\) &ndash;&gt; lunghezza del pattern che voglio cercare;</li>
 <li>\(M\) &ndash;&gt; byte disponibili in memoria principale;</li>
 </ul>
-<h3 id="trie--prefix-tree">Trie (prefix tree)<a href="#trie--prefix-tree" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p>Indice che memorizza stringhe, per velocizzare la ricerca e altre operazioni.</p>
+<h3 id="trie">TrIe<a href="#trie" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>(prefix tree)
+Indice che memorizza stringhe, per velocizzare la ricerca e altre operazioni.</p>
 
   <figure class="left" >
     <img src="/ox-hugo/trie.png"   />
@@ -653,7 +654,109 @@ la gestione di una struttura dati aggiuntiva.</li>
 <li><strong>Trie</strong></li>
 <li><strong>Hash</strong></li>
 </ol>
-
+<h3 id="ricerca">Ricerca<a href="#ricerca" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p><strong><code>Boolean Retrieval</code></strong></p>
+<p>Un&rsquo;operazione interessante per quanto riguarda la ricerca, è la
+risoluzione di semplici query binarie. Ad esempio, si supponga che
+si vogliano cercare tutti i documenti che contengono entrambe
+le parole &ldquo;computer&rdquo; e &ldquo;science&rdquo;.
+In tal caso, supponendo che le due posting list contengano gli ID
+dei documenti in maniera <strong>ordinata</strong>, basta un&rsquo;approccio a due
+puntatori per risolvere il problema in \(O(n)\).</p>
+<ul>
+<li>\(p1\) &ndash;&gt; puntatore al primo elemento della posting list di &ldquo;computer&rdquo;, che contiene
+la lista (ordinata) di documenti in cui compare la parola;</li>
+<li>\(p2\) &ndash;&gt; puntatore al primo elemento della posting list di &ldquo;science&rdquo;;</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">answer <span style="color:#f92672">=</span> []
+<span style="color:#66d9ef">while</span> p1 <span style="color:#f92672">!=</span> NULL <span style="color:#f92672">and</span> p2 <span style="color:#f92672">!=</span> NULL:
+  <span style="color:#66d9ef">if</span> (doc_ID(p1) <span style="color:#f92672">==</span> doc_ID(p2)):
+    answer<span style="color:#f92672">.</span>append(doc_ID(p1))
+  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">if</span> doc_ID(p1) <span style="color:#f92672">&lt;</span> doc_ID(p2):
+    p1 <span style="color:#f92672">=</span> p1<span style="color:#f92672">-&gt;</span>next;
+ <span style="color:#66d9ef">else</span>
+   p2 <span style="color:#f92672">=</span> p2<span style="color:#f92672">-&gt;</span>next;
+<span style="color:#66d9ef">return</span> answer;
+</code></pre></div><p><strong><code>Phrasal Retrieval</code></strong></p>
+<p>Spesso è interessante sapere, ad esempio, in quali documenti e in che
+posizione appare una determinata <strong>frase</strong>, quindi una sequenza di parole.
+Ad esempio, si può essere interessati a capire in che posizione e in quali
+documenti appare la stringa &ldquo;computer science&rdquo;. Come intuibile, non basta
+sapere se in un documento appaiano entrambe, serve anche controllare che esse
+siano contigue (in questo caso).
+Per eseguire in maniera efficiente questa operazione è opportuno avere
+un inverted index <strong>word based</strong>.
+Si seguono i seguenti passi:</p>
+<ol>
+<li>Si crea una lista di documenti che contengono enrambe le parole, come
+visto nel paragrafo precedente.</li>
+<li>Si selezionano, uno alla volta, tutti i documenti di questa lista;</li>
+<li>Per ogni documento, si creano \(n\) vettori, dove \(n\) indica il numero
+di parole della frase (nel caso dell&rsquo;esempio, \(n=2\));
+Ogni vettore contiene gli tutti gli <em>indici di apparizione</em> di quella
+parola in quel documento;</li>
+<li>Si cercano le tuple corrette all&rsquo;interno dei vettori. Nell&rsquo;esempio,
+si vogliono individuare tutti gli indici \(i\) tali che
+\(Computer_{i}+1 = Science_{j}\)</li>
+</ol>
+<p>Vettore delle apparizioni di &ldquo;Computer&rdquo; nel documento \(D_{1}\) \(\downarrow\)</p>
+<table>
+<thead>
+<tr>
+<th>i=0</th>
+<th>i=1</th>
+<th>i=2</th>
+<th>i=3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>4</td>
+<td>8</td>
+<td>12</td>
+<td>44</td>
+</tr>
+</tbody>
+</table>
+<p>Vettore delle apparizioni di &ldquo;Science&rdquo; sempre nel documento \(D_{1}\) \(\downarrow\)</p>
+<table>
+<thead>
+<tr>
+<th>i=0</th>
+<th>i=1</th>
+<th>i=2</th>
+<th>i=3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>9</td>
+<td>32</td>
+<td>45</td>
+</tr>
+</tbody>
+</table>
+<p>In questo caso, la frase &ldquo;computer science&rdquo; compare agli indici 1 e 3,
+perchè i valori corrispondenti sono contigui!
+Ecco lo pseudocodice, da applicare ad ogni documento \(d \in D\):</p>
+<ul>
+<li>\(P\) = insieme di tutti gli array del documento corrente;</li>
+<li>\(k_{i}\) = keyword i-esima;</li>
+<li>\(P_{i}\) = array delle apparizioni di \(k_{i}\);</li>
+<li>\(P_{s}\) = array delle apparizioni più corto;</li>
+<li>\(k_{s}\) = keyword che compare meno volte;</li>
+</ul>
+<p>In questo caso, si intende semplicemente ritornare la lista dei documenti
+che contengono la frase cercata.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> each position p <span style="color:#f92672">in</span> Ps:
+  <span style="color:#66d9ef">for</span> each keyword ki <span style="color:#f92672">!=</span> ks: <span style="color:#75715e"># per tutte le altre keyword della frase</span>
+    use BinarySearch to find a position (p<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>s) <span style="color:#f92672">in</span> Pi
+  <span style="color:#66d9ef">if</span> correct position <span style="color:#66d9ef">for</span> each keyword found, add d to answer <span style="color:#75715e"># d is current document</span>
+  <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">try</span> <span style="color:#66d9ef">with</span> next position, going on <span style="color:#66d9ef">with</span> loop
+<span style="color:#66d9ef">return</span> answer
+</code></pre></div>
       </div></div>
 
   
