@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
 <head>
-<title><b>Linguaggi e compilatori, 20/10/22</b></title>
-<!-- 2022-10-21 Fri 23:35 -->
+<title><b>Grammatiche formali, 20/10/22</b></title>
+<!-- 2022-10-22 Sat 00:15 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -218,7 +218,7 @@ MathJax.Hub.Config({
 </head>
 <body>
 <div id="content" class="container">
-<div class="row"><div class="col-md-12"><h1 class="title"><b>Linguaggi e compilatori, 20/10/22</b></h1>
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Grammatiche formali, 20/10/22</b></h1>
 <div id="outline-container-sec-" class="outline-2">
 <h2 id="sec-">Table of contents</h2>
 <div class="outline-text-2" id="text-">
@@ -235,12 +235,21 @@ MathJax.Hub.Config({
 <div class="outline-text-2" id="text-1">
 <p>
 Il ruolo centrale del front-end di un compilatore è probabilmente quello
-del <b>parser</b>, il cui compito è quello di verificare la correttezza 
+del <b>parser</b>, il cui compito è di verificare la correttezza 
 delle sequenze di token inviategli dal <i>lexer</i>, trattato come una sub-routine.
 Per fare ciò, il parser si basa su una serie di <b>regole grammaticali</b>.
-Una grammatica, quindi, <i>è un'insieme di formalismi o regole atte a descrivere un linguaggio.</i>
+</p>
+
+<p>
+\(\blacktriangleright\) Una grammatica, quindi, <i>è un'insieme di formalismi o regole atte a descrivere un linguaggio.</i>
+</p>
+
+<p>
 In particolare, il linguaggio descritto da una grammatica è composto da tutte le stringhe
 ottenibili attraverso le regole della grammatica stessa.
+</p>
+
+<p>
 Una grammatica è solitamente descritta da una quadrupla di elementi: <br >
 \(G=(N,T,P,S)\), dove:
 </p>
@@ -262,20 +271,24 @@ Esse sono "indipendenti dal contesto": ciò significa che le trasformazioni dei 
 non terminali <i>non dipendono</i> dalla posizione del simbolo stesso all'interno dell'input.
 Questo tipo di grammatica è la più utilizzata nei linguaggi di programmazione moderni, 
 essendo molto più semplice rispetto a grammatiche dipendenti dal contesto.
-<b>(1)</b>: esempio di produzione che si può trovare in una grammatica <i>context free</i>.
+</p>
+
+<p>
+<b>(1)</b>: esempio di produzione che si può trovare in una grammatica <i>context free</i>.<br >
 <b>(2)</b>: esempio di produzione che si può trovare in una grammatica <i>context dependent</i>,
 in cui i terminali possono apparire anche a sx.
 </p>
+
 \begin{equation}
-A \rightarrow \alpha
+(1) \ \ \ \ \ \ \ \ \ \ \ \ \ A \rightarrow \alpha
 \end{equation}
 
 \begin{equation}
-\beta A \gamma \rightarrow \beta \alpha \gamma
+(2) \ \ \ \  \beta A \gamma \rightarrow \beta \alpha \gamma
 \end{equation}
 
 <p>
-Quindi il principale motivo per cui non viene usato l'approccio "context dependent" nei
+Quindi il principale motivo per cui non viene usato l'approccio "context dependent" nella realizzazione e programmazione dei 
 parser sta principalmente nella complessità della sua realizzazione. 
 Tuttavia i linguaggi di programmazione sono <i>fortemente</i> dipendenti dal contesto: si pensi
 ad esempio alla definizione di una variabile all'interno di una funzione oppure nella funzione main!
@@ -289,8 +302,8 @@ momento in maniera procedurale [&#x2026;].
 <h2 id="sec-2"><span class="section-number-2">2</span> Derivazioni</h2>
 <div class="outline-text-2" id="text-2">
 <p>
-Il processo di derivazione consiste essenzialmente nell'applicare le produzioni
-della grammatica sull'assioma per ottenere una sequenza formata da soli terminali.
+Il processo di derivazione consiste essenzialmente nell'applicare le <code>produzioni</code>
+della grammatica sull'assioma (o simbolo iniziale) per ottenere una sequenza formata da soli <code>terminali</code>.
 Il concetto è più facilmente assorbibile tramite un'esempio. Si consideri la
 seguente grammatica (espressa in modo "compatto"):
 </p>
@@ -302,26 +315,32 @@ seguente grammatica (espressa in modo "compatto"):
 <li>\(B \rightarrow bB|b\)
 </li>
 </ul>
+
+<p>
+La seconda riga, ad esempio, si può leggere come: "La \(A\) può essere riscritta come \(a\),
+\(aA\), o \(B\)";
+</p>
+
+<p>
+E' interessante notare che i simboli <b>non terminali</b> sono <code>solo</code> quelli che compaiono
+sulla sinistra, nella definizione della grammatica. Infatti, se uno di essi comparisse a dx e non a sx, allora non ci sarebbero
+regole di trasformazione per riscriverlo, quindi per definizione sarebbe un <b>terminale</b>. 
+</p>
+
 <p>
 Nel linguaggio che questa grammatica genera, è compresa la stringa ab, perchè
-partendo dall'assioma \(S\) (il primo nella lista, nei termini di Sx) la si può
-ottenere applicando diverse derivazioni.
+partendo dall'assioma \(S\) (il primo nella lista nei termini di Sx) la si può
+ottenere applicando diverse derivazioni:
 </p>
 \begin{equation}
 S \Rightarrow A \Rightarrow aA \Rightarrow aB \Rightarrow  ab.
 \end{equation}
-<p>
-Si osservi la definizione della grammatica usata per la derivazione <b>(3)</b>.
-E' interessante notare che i simboli <b>non terminali</b> sono <code>solo</code> quelli che compaiono
-sulla sinistra. Infatti, se uno di essi comparisse a dx e non a sx, allora non ci sarebbero
-regole di trasformazione per riscriverlo, quindi per definizione sarebbe un <b>terminale</b>. 
-</p>
 </div>
 </div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-21 Fri 23:35</p>
+<p class="date">Created: 2022-10-22 Sat 00:15</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
