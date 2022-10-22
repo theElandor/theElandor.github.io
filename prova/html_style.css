@@ -6,6 +6,7 @@ body {
 .title{
     font-size: 40px;
     text-decoration: none;
+    font-weight: 500;    
 }
 p{
     font-weight: 100;
@@ -14,6 +15,11 @@ p{
 ol{
     color: #534b4f;
 }
+
+hr{
+    border: 1px solid   #a6a6a6;
+}
+
 
 
 
@@ -24,6 +30,7 @@ h2{
     text-decoration: underline;
     font-weight: 550;
     font-size: 30px;
+    /*color: #23b0ff;*/
 }
 h3{
     font-weight: 500;
