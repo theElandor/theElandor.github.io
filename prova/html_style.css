@@ -29,10 +29,12 @@ h3{
     font-weight: 500;
 }
 
-.container{
-    margin-left:auto; 
-    margin-right:auto;
+blockquote{
+    font-size: 20px;
+    background-color: #f0fff0;
 }
+
+
 .author{
     font-size: 20px;
     font-weight: 600;
