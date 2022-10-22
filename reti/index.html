@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-21 12:51:38 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-22 18:24:50 &#43;0200 CEST" />
 
 
 
@@ -172,7 +172,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-21
+        2022-10-22
         
       </span>
     
@@ -223,6 +223,7 @@ quantità di testo e immagini presenti in questa sezione.</p>
 <li><a href="#ip--livello-internet">(IP) Livello Internet</a></li>
 <li><a href="#lab-6-10">Lab 6-10</a></li>
 <li><a href="#lab-20-10">Lab 20-10</a></li>
+<li><a href="#esercizi">Esercizi</a></li>
 </ul>
 <hr>
 <h2 id="metodi-di-comunicazione">METODI DI COMUNICAZIONE<a href="#metodi-di-comunicazione" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -1166,7 +1167,7 @@ Quindi gli indirizzi ip vanno da 192.168.1.1 a 192.168.1.254, perchè
 <p><strong>LAN2: 192.168.2.0</strong></p>
 <h3 id="configurazione--temporanea">Configurazione (temporanea)<a href="#configurazione--temporanea" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <ul>
-<li><strong>H1</strong> &ndash;&gt; <code>ifconfig eth0 192.168.0.1/24</code>. Per essere sicuri, è meglio specificare la netmask;</li>
+<li><strong>H1</strong> &ndash;&gt; <code>ifconfig eth0 192.168.1.1/24</code>. Per essere sicuri, è meglio specificare la netmask;</li>
 </ul>
 <p>Il router H2 ha due interfacce di rete, vanno configurate entrambe:</p>
 <ul>
@@ -1335,7 +1336,8 @@ route del -net 192.168.2.0/24
 </code></pre></div><p>Con il seguente comando si specifica una regola di routing per uno specifico
 host.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -host 192.168.1.254 dev eth0
-</code></pre></div><p>Sotto viene riportato il file di configurazione di H1.
+</code></pre></div><h3 id="configurazione-permanente">Configurazione permanente<a href="#configurazione-permanente" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
+<p>Sotto viene riportato il file di configurazione di H1.
 Dopo <strong>post-up</strong> viene specificato un comando che viene eseguito <em>dopo</em>
 l&rsquo;attivazione dell&rsquo;interfaccia di rete.
 Con la specifica <strong>&ldquo;gateway&rdquo;</strong> semplicemente si specifica il default gateway.</p>
@@ -1344,8 +1346,6 @@ iface eth0 inet static
   address 192.168.1.1/24
   gateway 192.168.1.254
   post-up route add -net 192.168.2.0/24 gw 192.168.1.254
-#+END_SRC
-Per configurare h2
 </code></pre></div><p>Per configurare H2 invece:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0 eth1
 iface eth0 inet static
@@ -1353,7 +1353,9 @@ iface eth0 inet static
 
 iface eth1 inet static
   address 192.168.2.254/24
-</code></pre></div>
+</code></pre></div><h2 id="esercizi">Esercizi<a href="#esercizi" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>📃 <a href="https://theelandor.github.io/prova/es1reti.html">Esercizio routing 20/10/22</a></p>
+
       </div></div>
 
   

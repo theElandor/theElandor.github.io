@@ -1,16 +1,20 @@
 body {
-    font-size: 22px;
+    font-size: 20px;
     font-family: 'Fira Code', monospace;
     color: #333;
 }
 .title{
-    font-size: 42px;
+    font-size: 40px;
     text-decoration: none;
 }
 p{
     font-weight: 100;
     color: #534b4f;
 }
+ol{
+    color: #534b4f;
+}
+
 
 
 h1{
@@ -19,6 +23,7 @@ h1{
 h2{
     text-decoration: underline;
     font-weight: 550;
+    font-size: 30px;
 }
 h3{
     font-weight: 500;

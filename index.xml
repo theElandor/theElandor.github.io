@@ -6,47 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 21 Oct 2022 23:43:26 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Linguaggi e compilatori</title>
-      <link>/compilatori/</link>
-      <pubDate>Fri, 21 Oct 2022 23:43:26 +0200</pubDate>
-      
-      <guid>/compilatori/</guid>
-      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\)
-https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
-Link agli appunti \(\downarrow\)
- https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing
- Link al tutorial di riferimento \(\downarrow\)</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
-Il pdf contiene i miei appunti presi durante le lezioni.
-Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Link agli &lt;code&gt;appunti&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&#34;&gt;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/201022.html&#34;&gt;Lezione 20/10/22&lt;/a&gt;&lt;/p&gt;
-</content>
-    </item>
-    
+    <lastBuildDate>Sat, 22 Oct 2022 18:24:50 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Fri, 21 Oct 2022 12:51:38 +0200</pubDate>
+      <pubDate>Sat, 22 Oct 2022 18:24:50 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -90,6 +54,7 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#ip--livello-internet&#34;&gt;(IP) Livello Internet&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-20-10&#34;&gt;Lab 20-10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#esercizi&#34;&gt;Esercizi&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
@@ -1033,7 +998,7 @@ Quindi gli indirizzi ip vanno da 192.168.1.1 a 192.168.1.254, perchè
 &lt;p&gt;&lt;strong&gt;LAN2: 192.168.2.0&lt;/strong&gt;&lt;/p&gt;
 &lt;h3 id=&#34;configurazione--temporanea&#34;&gt;Configurazione (temporanea)&lt;/h3&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;H1&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;ifconfig eth0 192.168.0.1/24&lt;/code&gt;. Per essere sicuri, è meglio specificare la netmask;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;H1&lt;/strong&gt; &amp;ndash;&amp;gt; &lt;code&gt;ifconfig eth0 192.168.1.1/24&lt;/code&gt;. Per essere sicuri, è meglio specificare la netmask;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Il router H2 ha due interfacce di rete, vanno configurate entrambe:&lt;/p&gt;
 &lt;ul&gt;
@@ -1202,7 +1167,8 @@ route del -net 192.168.2.0/24
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Con il seguente comando si specifica una regola di routing per uno specifico
 host.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;route add -host 192.168.1.254 dev eth0
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Sotto viene riportato il file di configurazione di H1.
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;configurazione-permanente&#34;&gt;Configurazione permanente&lt;/h3&gt;
+&lt;p&gt;Sotto viene riportato il file di configurazione di H1.
 Dopo &lt;strong&gt;post-up&lt;/strong&gt; viene specificato un comando che viene eseguito &lt;em&gt;dopo&lt;/em&gt;
 l&amp;rsquo;attivazione dell&amp;rsquo;interfaccia di rete.
 Con la specifica &lt;strong&gt;&amp;ldquo;gateway&amp;rdquo;&lt;/strong&gt; semplicemente si specifica il default gateway.&lt;/p&gt;
@@ -1211,8 +1177,6 @@ iface eth0 inet static
   address 192.168.1.1/24
   gateway 192.168.1.254
   post-up route add -net 192.168.2.0/24 gw 192.168.1.254
-#+END_SRC
-Per configurare h2
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Per configurare H2 invece:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;auto eth0 eth1
 iface eth0 inet static
@@ -1220,7 +1184,45 @@ iface eth0 inet static
 
 iface eth1 inet static
   address 192.168.2.254/24
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;esercizi&#34;&gt;Esercizi&lt;/h2&gt;
+&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/es1reti.html&#34;&gt;Esercizio routing 20/10/22&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Linguaggi e compilatori</title>
+      <link>/compilatori/</link>
+      <pubDate>Fri, 21 Oct 2022 23:43:26 +0200</pubDate>
+      
+      <guid>/compilatori/</guid>
+      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\)
+https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
+Link agli appunti \(\downarrow\)
+ https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing
+ Link al tutorial di riferimento \(\downarrow\)</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
+Il pdf contiene i miei appunti presi durante le lezioni.
+Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link agli &lt;code&gt;appunti&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&#34;&gt;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/201022.html&#34;&gt;Lezione 20/10/22&lt;/a&gt;&lt;/p&gt;
+</content>
     </item>
     
     <item>
