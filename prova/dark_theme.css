@@ -1,7 +1,13 @@
+body select.container
+{
+  padding-right: 80px;
+  padding-left: 80px;
+}
 body {
     font-size: 20px;
     font-family: 'Fira Code', monospace;
-    color: #333;
+    color: white;
+    background-color: #1d212c;
 }
 .title{
     font-size: 40px;
@@ -10,28 +16,30 @@ body {
 }
 p{
     font-weight: 100;
-    color: #534b4f;
+    color: white;
 }
 ol{
-    color: #534b4f;
+    color: white;
 }
-
-ul{
-    color: #534b4f;
+code{
+    color: #23b0ff;
+    background-color: #1d212c;
+    font-size: 20px;
 }
-
 
 hr{
-    border: 1px solid   #a6a6a6;
+    border: 1px solid #a6a6a6;
 }
 
 h1{
+    color: #23b0ff;
     text-decoration: underline;
 }
 h2{
+    color: #23b0ff;
     text-decoration: underline;
     font-weight: 550;
-    font-size: 30px;
+    font-size: 34px;
     /*color: #23b0ff;*/
 }
 h3{
@@ -41,6 +49,10 @@ h3{
 blockquote{
     font-size: 20px;
     background-color: #f0fff0;
+}
+
+.table:hover{
+    color:#1d212c;
 }
 
 
@@ -59,3 +71,15 @@ img {
     margin-right:auto;    
 }
 
+footer{
+    background-color: #1d212c;
+    color:white;
+}
+
+.src{
+    background-color: black;
+}
+
+a{
+    color: #45b1e8;
+}

@@ -6,18 +6,18 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 22 Oct 2022 18:24:50 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Oct 2022 19:37:05 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Sat, 22 Oct 2022 18:24:50 +0200</pubDate>
+      <pubDate>Mon, 24 Oct 2022 19:37:05 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
 → Link per accedere al materiale didattico:
 2022/2023 &amp;ndash;&amp;gt; https://weblab.ing.unimore.it/protocolli/2223
-Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:
- username: PAR2223 password: Kaw8Meir  Troubleshooting Se la pagina non carica correttamente i contenuti in latec, basta ricaricare la pagina una o al massimo un paio di volte.</description>
+2021/2022 &amp;ndash;&amp;gt; https://weblab.ing.unimore.it/protocolli/2122/
+Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:</description>
       <content>
   &lt;figure class=&#34;left&#34; &gt;
     &lt;img src=&#34;/ox-hugo/internet.jpeg&#34;   /&gt;
@@ -34,10 +34,16 @@ fatti durante le lezioni. Il materiale include i write-up delle esperienze
 fatte in laboratorio.&lt;/p&gt;
 &lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:&lt;/p&gt;
 &lt;p&gt;2022/2023 &amp;ndash;&amp;gt; &lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2223&#34;&gt;https://weblab.ing.unimore.it/protocolli/2223&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2021/2022 &amp;ndash;&amp;gt; &lt;a href=&#34;https://weblab.ing.unimore.it/protocolli/2122/&#34;&gt;https://weblab.ing.unimore.it/protocolli/2122/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Le credenziali per accedere al materiale di quest&amp;rsquo;anno sono:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2223&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Kaw8Meir&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Le credenziali per accedere al materiale dell&amp;rsquo;anno scorso sono:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;username&lt;/strong&gt;: PAR2122&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;password&lt;/strong&gt;: Enae3pie&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;troubleshooting&#34;&gt;&lt;em&gt;Troubleshooting&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;Se la pagina non carica correttamente i contenuti in latec, basta &lt;code&gt;ricaricare&lt;/code&gt; la pagina
@@ -51,7 +57,8 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#htn--introduzione&#34;&gt;(HTN) INTRODUZIONE&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#htn--lan-e-ethernet&#34;&gt;(HTN) LAN e ETHERNET&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#htn--interconnessioni-di-rete-e-accesso-a-internet&#34;&gt;(HTN) INTERCONNESSIONI DI RETE E ACCESSO A INTERNET&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#ip--livello-internet&#34;&gt;(IP) Livello Internet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ip--livello-ip&#34;&gt;(IP) Livello IP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ip--ip-routing&#34;&gt;(IP) Ip routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-20-10&#34;&gt;Lab 20-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#esercizi&#34;&gt;Esercizi&lt;/a&gt;&lt;/li&gt;
@@ -566,6 +573,8 @@ Lo scopo, alla fine, è quello di far comunicare in modo trasparente un &lt;em&g
 e un &lt;em&gt;server&lt;/em&gt;, che sono nodi della rete.
 Internet può ad esempio essere visto come insieme di &lt;strong&gt;Autonomus Systems&lt;/strong&gt;,
 oppure un&amp;rsquo;insieme di &lt;strong&gt;nomi&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Approfondimento sugli &lt;strong&gt;Autonomus System&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/aut_system.html&#34;&gt;Autonomus Systems (telegram)&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Alcuni principi che bisogna seguire:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Survivability&lt;/strong&gt; (&lt;em&gt;resilienza&lt;/em&gt;): se tra due host esiste un percorso, la comunicazione tra
@@ -665,7 +674,7 @@ E&amp;rsquo; una sorta di operazione di &amp;ldquo;escaping&amp;rdquo;: il desti
 (&amp;lt;01111110&amp;gt;) di fila, scarta il primo, il secondo lo considera &amp;ldquo;dato&amp;rdquo; e
 continua la ricezione.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h2 id=&#34;ip--livello-internet&#34;&gt;(IP) Livello Internet&lt;/h2&gt;
+&lt;h2 id=&#34;ip--livello-ip&#34;&gt;(IP) Livello IP&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;indirizzo-ip&#34;&gt;Indirizzo IP&lt;/h3&gt;
 &lt;p&gt;32 bit &amp;ndash;&amp;gt; 4 byte, più piccolo di un&amp;rsquo;indirizzo MAC!
@@ -741,7 +750,8 @@ essere usati localmente senza autorizzazione.
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;Natting&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; se ho una rete privata ma voglio comunicare con una rete
 esterna, che magari non accetta gli indirizzi IP locali. E&amp;rsquo; una funzione
-offerta dal router locale.&lt;/p&gt;
+offerta dal router locale.
+📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/ip_header_nat.html&#34;&gt;Approfondimento Natting&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;gestione-indirizzi-e-domini&#34;&gt;Gestione indirizzi e domini&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;&lt;code&gt;Jon Postel&lt;/code&gt;&lt;/strong&gt; [1943-1998]: definito &lt;em&gt;lo zar dei numeri&lt;/em&gt;, direttore di &lt;strong&gt;IANA&lt;/strong&gt;, si occupava
 di garantire gli standard di internet.
@@ -842,6 +852,9 @@ che sia un multiplo di 32 bit. Simile al &amp;ldquo;byte stuffing&amp;rdquo;.&lt
   &lt;/figure&gt;
 
 
+&lt;h2 id=&#34;ip--ip-routing&#34;&gt;(IP) Ip routing&lt;/h2&gt;
+&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/ip_routing.html&#34;&gt;IP routing&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;

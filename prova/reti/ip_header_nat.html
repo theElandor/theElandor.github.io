@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Ip header NAT, 24/10/22 (t)</b></title>
+<!-- 2022-10-24 Mon 14:56 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="./dark_theme.css"/>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Ip header NAT, 24/10/22 (t)</b></h1>
+<hr >
+
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Info</h2>
+<div class="outline-text-2" id="text-">
+<p>
+Appunti lezione 2020-10-26 dall'archivio telegram.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of Contents</h2>
+<div class="outline-text-2" id="text-">
+<ul class="org-ul">
+<li><a href="#sec-1">Formato del Datagram IP</a>
+</li>
+<li><a href="#sec-2">Natting</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Formato del Datagram IP</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li><b>Vers</b>: indiica la versione del protocollo usato. IPv4/IPv6;
+</li>
+<li><b>Hlen</b>: indica la lunghezza dell'header.
+</li>
+<li><b>Service type</b>: specifica delle particolari politiche di 
+inoltro per un determinato pacchetto.
+<ul class="org-ul">
+<li>Precedence \(\rightarrow\) speicifica l'importanza del datagram;
+</li>
+<li>D(delay) \(\rightarrow\) basso ritardo;
+</li>
+<li>T(throughput) \(\rightarrow\) alto throughput;
+</li>
+<li>R(reliability) \(\rightarrow\) alta affidabilità;
+</li>
+</ul>
+<p>
+Spesso i router (comuni) ignorano questi pacchetti.
+</p>
+</li>
+</ul>
+<p>
+Solitamente i datagram IP sono di grandi dimensioni, e non riescono
+a entrare completamente all'interno del frame ethernet (la cui
+dimensione dipende a sua volta dall'M.T.U);
+Quando si pensa all'invio di un pacchetto, si deve pensare
+ad una rete con molti router e molti host: non tutti i 
+collegamenti lavoreranno con lo stesso M.T.U, quindi
+sarà quasi sempre necessario frammentare i pacchetti!
+</p>
+<ul class="org-ul">
+<li><b>Identification</b>: è comune a tutti i frammenti dello stesso
+pacchetto IP iniziale;
+</li>
+<li><b>Flag</b>: specifica se questo datagramma è un frame oppure no;
+</li>
+<li><b>Offset</b>: specifica qual'è la posizione del frammento rispetto
+al pacchetto iniziale;
+</li>
+<li><b>Time to Live</b>: durata massima di un pacchetto nella rete. E'
+utile per eliminare pacchetti che stanno occupando la rete
+inutilmente per errori di inoltro. <i>Non è un valore in secondi:</i>,
+è un <b>valore numerico</b> intero, solitamente 64 o 128. Ogni volta
+che un router inoltra il pacchetto, il time to live viene decrementato
+di 1.
+</li>
+<li><b>Protocol</b>: indica quale protocollo applicativo può
+usare i dati contenuti nel datagram.
+</li>
+<li><b>Checksum</b>: serve per l'individuazione di anomalie durante
+la <b><code>trasmissione</code></b>.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Natting</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Gli indirizzi IP in internet sono in numero limitato, e non bastano 
+a coprire tutte le reti locali nel mondo. Per risolvere questo
+problema esistono diversi approcci:
+</p>
+
+<ol class="org-ol">
+<li><b>Indirizzamenti dinamici</b>: ossia una <code>condivisione</code> di indirzzi
+IP pubblici. Un'indirizzo IP pubblico di un host potrebbe
+essere usato da un'altro host nel momento in cui il primo
+è spento oppure scollegato.
+</li>
+<li><b>NAT</b> (<b><code>Network Address translation</code></b>)
+</li>
+</ol>
+
+<figure>
+<p><img src="./natting.png" class="img-responsive" alt="natting.png">
+</p>
+</figure>
+
+<ul class="org-ul">
+<li><b>Router di bordo</b>: router di una rete locale connesso con internet,
+tramite un ISP(internet service provider). E' definito "<i>di bordo</i>"
+perchè delimita il confine della rete locale.
+</li>
+</ul>
+
+<p>
+In una rete locale, non tutti gli host devono avere necessariamente
+un'indirizzo pubblico, basta che lo abbia il router di bordo.
+Gli altri host possono semplicemente usare degli indirzzi IP 
+<code>privati</code>, o <code>non routable</code>, presi da questa lista \(\downarrow\)
+</p>
+
+
+<figure>
+<p><img src="./nonrutable.png" class="img-responsive" alt="nonrutable.png">
+</p>
+</figure>
+
+<p>
+Il natting è quindi il processo di  <code>traduzione</code> degli indirizzi privati in indirizzi pubblici
+associati al router connesso a internet. In questo modo, ad esempio,
+tutti gli host connessi in una rete locale possono navigare in internet
+sfruttando l'unico indirizzo pubblico del router.
+</p>
+
+
+<figure>
+<p><img src="./traduzione.png" class="img-responsive" alt="traduzione.png">
+</p>
+</figure>
+
+<p>
+Normalmente è compito del <b><code>server dhcp</code></b> assegnare gli indirizzi
+locali agli host connessi alla rete, ma può essere fatto anche
+manualmente (come abbiamo visto con marrionet).
+Esistono principalmente due approcci di traduzione degli indirizzi
+\(\downarrow\)
+</p>
+<ul class="org-ul">
+<li><b>Binding dinamico</b>: il router gestisce automaticamente
+la traduzione degl indirizzi, si usa quando all'interno
+della rete locale ho dei <code>client</code> che non devono
+erogare servizi.
+</li>
+<li><b>Binding statico</b>: si usa quando nella rete locale 
+è presente un <code>server</code> che deve erogare servizi: in questo
+caso si dice al router di <i>cambiare l'indirizzo IP destinazione dei pacchetti in arrivo con l'indirizzo IP locale del server</i>!
+Questa operazione è anche detta <b>port forwarding</b>;
+</li>
+</ul>
+
+<p>
+Il natting può essere applicato più volte durante l'intero percorso
+di un pacchetto, quindi questa strategia risulta particolarmente
+efficace e <b>flessibile</b>!
+Grazie al natting si possono collegare ""infiniti"" host ad una rete,
+perchè non si hanno problemi di <b>disponibilità</b> di indirizzi IP.
+Inoltre, la topologia e la configurazione della rete locale sono 
+completamente <b>oscurate</b> all'esterno. Questa è un'ottima cosa 
+per la sicurezza, ma rompe la semantica della comunicazione <i>end to end</i>.
+</p>
+
+<hr >
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-10-24 Mon 14:56</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>

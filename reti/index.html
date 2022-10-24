@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2022-10-22 18:24:50 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2022-10-24 19:37:05 &#43;0200 CEST" />
 
 
 
@@ -172,7 +172,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2022-10-22
+        2022-10-24
         
       </span>
     
@@ -203,10 +203,16 @@ fatti durante le lezioni. Il materiale include i write-up delle esperienze
 fatte in laboratorio.</p>
 <p>→ Link per accedere al <code>materiale didattico</code>:</p>
 <p>2022/2023 &ndash;&gt; <a href="https://weblab.ing.unimore.it/protocolli/2223">https://weblab.ing.unimore.it/protocolli/2223</a></p>
+<p>2021/2022 &ndash;&gt; <a href="https://weblab.ing.unimore.it/protocolli/2122/">https://weblab.ing.unimore.it/protocolli/2122/</a></p>
 <p>Le credenziali per accedere al materiale di quest&rsquo;anno sono:</p>
 <ul>
 <li><strong>username</strong>: PAR2223</li>
 <li><strong>password</strong>: Kaw8Meir</li>
+</ul>
+<p>Le credenziali per accedere al materiale dell&rsquo;anno scorso sono:</p>
+<ul>
+<li><strong>username</strong>: PAR2122</li>
+<li><strong>password</strong>: Enae3pie</li>
 </ul>
 <h2 id="troubleshooting"><em>Troubleshooting</em><a href="#troubleshooting" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Se la pagina non carica correttamente i contenuti in latec, basta <code>ricaricare</code> la pagina
@@ -220,7 +226,8 @@ quantità di testo e immagini presenti in questa sezione.</p>
 <li><a href="#htn--introduzione">(HTN) INTRODUZIONE</a></li>
 <li><a href="#htn--lan-e-ethernet">(HTN) LAN e ETHERNET</a></li>
 <li><a href="#htn--interconnessioni-di-rete-e-accesso-a-internet">(HTN) INTERCONNESSIONI DI RETE E ACCESSO A INTERNET</a></li>
-<li><a href="#ip--livello-internet">(IP) Livello Internet</a></li>
+<li><a href="#ip--livello-ip">(IP) Livello IP</a></li>
+<li><a href="#ip--ip-routing">(IP) Ip routing</a></li>
 <li><a href="#lab-6-10">Lab 6-10</a></li>
 <li><a href="#lab-20-10">Lab 20-10</a></li>
 <li><a href="#esercizi">Esercizi</a></li>
@@ -735,6 +742,8 @@ Lo scopo, alla fine, è quello di far comunicare in modo trasparente un <em>clie
 e un <em>server</em>, che sono nodi della rete.
 Internet può ad esempio essere visto come insieme di <strong>Autonomus Systems</strong>,
 oppure un&rsquo;insieme di <strong>nomi</strong>.</p>
+<p>Approfondimento sugli <strong>Autonomus System</strong></p>
+<p>📃 <a href="https://theelandor.github.io/prova/reti/aut_system.html">Autonomus Systems (telegram)</a></p>
 <p>Alcuni principi che bisogna seguire:</p>
 <ul>
 <li><strong>Survivability</strong> (<em>resilienza</em>): se tra due host esiste un percorso, la comunicazione tra
@@ -834,7 +843,7 @@ E&rsquo; una sorta di operazione di &ldquo;escaping&rdquo;: il destinatario se t
 (&lt;01111110&gt;) di fila, scarta il primo, il secondo lo considera &ldquo;dato&rdquo; e
 continua la ricezione.</p>
 <hr>
-<h2 id="ip--livello-internet">(IP) Livello Internet<a href="#ip--livello-internet" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<h2 id="ip--livello-ip">(IP) Livello IP<a href="#ip--livello-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
 <h3 id="indirizzo-ip">Indirizzo IP<a href="#indirizzo-ip" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>32 bit &ndash;&gt; 4 byte, più piccolo di un&rsquo;indirizzo MAC!
@@ -910,7 +919,8 @@ essere usati localmente senza autorizzazione.
 </ul>
 <p><strong><code>Natting</code></strong> &ndash;&gt; se ho una rete privata ma voglio comunicare con una rete
 esterna, che magari non accetta gli indirizzi IP locali. E&rsquo; una funzione
-offerta dal router locale.</p>
+offerta dal router locale.
+📃 <a href="https://theelandor.github.io/prova/reti/ip_header_nat.html">Approfondimento Natting</a></p>
 <h3 id="gestione-indirizzi-e-domini">Gestione indirizzi e domini<a href="#gestione-indirizzi-e-domini" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p><strong><code>Jon Postel</code></strong> [1943-1998]: definito <em>lo zar dei numeri</em>, direttore di <strong>IANA</strong>, si occupava
 di garantire gli standard di internet.
@@ -1011,6 +1021,9 @@ che sia un multiplo di 32 bit. Simile al &ldquo;byte stuffing&rdquo;.</li>
   </figure>
 
 
+<h2 id="ip--ip-routing">(IP) Ip routing<a href="#ip--ip-routing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>📃 <a href="https://theelandor.github.io/prova/reti/ip_routing.html">IP routing</a></p>
+<hr>
 <h2 id="lab-6-10">Lab 6-10<a href="#lab-6-10" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p><a href="#table-of-contents"> &ndash;&gt; TOC</a></p>
 <ul>
