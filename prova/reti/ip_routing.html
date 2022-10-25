@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>IP Routing (t)</b></title>
-<!-- 2022-10-24 Mon 19:22 -->
+<!-- 2022-10-25 Tue 16:08 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -20,20 +20,8 @@ html {
 }
 
 body {
-    font-size: 20px;
+    font-size: 18px;
     margin-bottom: 105px;
-    font-family: 'Fira Code', monospace;
-}
-
-h1{
-    text-decoration: underline;
-}
-h2{
-    font-weight: 400;
-}
-.container{
-    margin-left:auto; 
-    margin-right:auto;
 }
 
 footer {
@@ -200,7 +188,7 @@ $(function() {
 
     $('.bs-docs-sidebar').affix();
 });
-</script><link rel="stylesheet" type="text/css" href="./dark_theme.css"/>
+</script><link rel="stylesheet" type="text/css" href="dark_theme.css"/>
 <style>.container{padding-left: 70px; padding-right: 70px;}</style>
 
 <script type="text/x-mathjax-config">
@@ -232,6 +220,7 @@ MathJax.Hub.Config({
 <body>
 <div id="content" class="container">
 <div class="row"><div class="col-md-12"><h1 class="title"><b>IP Routing (t)</b></h1>
+<hr >
 <div id="outline-container-sec-" class="outline-2">
 <h2 id="sec-">Info</h2>
 <div class="outline-text-2" id="text-">
@@ -242,7 +231,7 @@ archivio telegram:
 <ul class="org-ul">
 <li>2020-10-27
 </li>
-<li>2020-11-02
+<li>2020-11-02 (suddivisa in 2 video nell'archivio)
 </li>
 </ul>
 </div>
@@ -250,16 +239,34 @@ archivio telegram:
 <div id="outline-container-sec-" class="outline-2">
 <h2 id="sec-">Table of Contents</h2>
 <div class="outline-text-2" id="text-">
-<ul class="org-ul">
+<ol class="org-ol">
 <li><a href="#sec-1">Host e Router</a>
 </li>
 <li><a href="#sec-2">Problema del routing</a>
+<ul class="org-ul">
+<li><a href="#sec-2-1">Ip forwarding</a>
+</li>
+<li><a href="#sec-2-2">Protocollo di Routing</a>
+</li>
+</ul>
 </li>
 <li><a href="#sec-3">Architettura di un router</a>
 </li>
 <li><a href="#sec-4">Modalità di trasmissione dei dati</a>
 </li>
+<li><a href="#sec-5">Algoritmi di Routing</a>
+<ul class="org-ul">
+<li><a href="#sec-5-1">Classi di Algoritmi di Routing</a>
+<ul class="org-ul">
+<li><a href="#sec-5-1-1">Algoritmi Link State</a>
+</li>
+<li><a href="#sec-5-1-2">Distance Vector Protocol</a>
+</li>
 </ul>
+</li>
+</ul>
+</li>
+</ol>
 <hr >
 </div>
 </div>
@@ -295,7 +302,7 @@ complesso. Può tuttavia essere suddiviso in 2 sottoproblemi:
 </p>
 </div>
 <div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> <b>Ip forwarding</b></h3>
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Ip forwarding</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
 Problema del singolo router che deve capire come inoltrare il 
@@ -310,7 +317,7 @@ La tablella di routing specifica per ogni <i>Network Destinazione</i> qual'è il
 </div>
 
 <div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> <b>Protocollo di Routing</b></h3>
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Protocollo di Routing</h3>
 <div class="outline-text-3" id="text-2-2">
 <p>
 In questo sottoproblema ci si occupa di mantenere la tabella di routing
@@ -421,10 +428,137 @@ senza ordine.
 <hr >
 </div>
 </div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Algoritmi di Routing</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+In questa sezione viene spiegato come le tabelle di routing 
+dei vari noi di una rete vengono effettivamente riempite.
+Lo scopo è quello di trovare il percorso ottimale (quindi con costo minimo)
+per raggiungere tutti gli altri nodi, <i>data una sorgente</i>.
+Nel mondo reale, il costo di percorrenza di un link dipende da alcuni fattori:
+</p>
+<ol class="org-ol">
+<li>Fattori <b>statici</b> \(\rightarrow\) topologia della rete (numero di hop) , banda dei link (cerco
+di favorire i collegamenti più veloci);
+</li>
+<li>Fattori <b>dinamici</b> \(\rightarrow\) traffico della rete, guasti, carico dei router. Magari
+mi conviene passare ad un link più lento se il link veloce manda ad un router
+congestionato;
+</li>
+<li><b>Costi economici</b> \(\rightarrow\) accordi tra A.S;
+</li>
+<li><b>Tipi di traffico</b> \(\rightarrow\) nonostante sia vietato secondo il principio
+della <i>net neutrality</i>, alcuni sistemi autonomi differenziano il traffico comunque!
+</li>
+</ol>
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Classi di Algoritmi di Routing</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Per modellare una topologia di rete, si usa un <b>grafo pesato</b>, che può essere sfruttato
+per applicare diversi algoritmi di routing. Esistono principalmente 2 classi di algoritmi di
+routing:
+</p>
+<ul class="org-ul">
+<li>Algoritmi di routing <code>globale</code>: ogni nodo ha una conoscenza completa della
+topologia della rete. Es. <i>Link state protocol</i>.
+</li>
+<li>Algoritmi di routing <code>locale</code>: algoritmi distribuiti, in cui ogni nodo sa
+comunicare soltanto con i suoi vicini, ossia gli altri nodi connessi direttamente
+a lui tramite un link. Questo approccio è ovviamente più realistico su reti con
+un alto numero di nodi.
+Es. <i>Distance Vector</i>
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-5-1-1" class="outline-4">
+<h4 id="sec-5-1-1"><span class="section-number-4">5.1.1</span> Algoritmi Link State</h4>
+<div class="outline-text-4" id="text-5-1-1">
+<p>
+Come anticipato, per quanto riguarda questa classe di algoritmi
+si parte dal presupposto secondo cui <i>i  costi di ogni link sono noti a tutti i nodi</i>.
+Ciclicamente ogni nodo invia a tutti (link state broadcast) il proprio stato interno e lo stato dei propri 
+link. E' un modo per sincronizzare tutti sull'attuale stato della rete globale.
+A questo punto ciascun nodo calcola i cammini di costo minimo verso
+<b>tutti gli altri nodi della rete</b> mediante l'algoritmo di <b><code>Dijkstra</code></b>.
+Il problema ovviamente è quello del <b>flooding</b> della rete, che viene 
+inondata da messaggi broadcast.
+</p>
+
+
+<figure>
+<p><img src="./dij.png" class="img-responsive" alt="dij.png">
+</p>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-sec-5-1-2" class="outline-4">
+<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> Distance Vector Protocol</h4>
+<div class="outline-text-4" id="text-5-1-2">
+<p>
+Secondo questo approccio si presuppone che ogni router sia indipendente, e riceve aggiornamenti soltanto dai propri vicini.
+Ad ogni iterazione, ogni nodo ricalcola la tabella di routing secondo le nuove
+informazioni fornite. Si usa quindi l'algoritmo di <b><code>Bellman-ford</code></b>
+</p>
+
+\begin{equation}
+D_{x}(y) = min_{v}\{{c(x,v) + D_{v}(y)}\}
+\end{equation}
+
+<p>
+Ripasso dell'algoritmo di bellman ford dal punto di vista teorico, ricordando
+che il numero di iterazione indica <i>quanti archi posso usare per raggiungere un determinato nodo</i>
+\(\downarrow\)
+<img src="./bellman.png" class="img-responsive" alt="bellman.png">
+</p>
+
+<p>
+Nelle reti il procedimento è più chiaro se visualizzato nel modo seguente: ad ogni
+iterazione, un nodo arbitrario fornisce informazioni sui propri link ad un'altro
+nodo a lui collegato, che aggiorna di conseguenza la sua tabella di routing. \(\downarrow\)
+</p>
+
+
+<figure>
+<p><img src="./bell2.png" class="img-responsive" alt="bell2.png">
+</p>
+</figure>
+
+<p>
+Dopo diverse iterazioni, se la topologia rimane invariata, il corrente
+stato della tabella contiene i cammini minimi di tutti i nodi \(\downarrow\)
+</p>
+
+
+<figure>
+<p><img src="./bell3.png" class="img-responsive" alt="bell3.png">
+</p>
+</figure>
+
+<p>
+Ovviamente se in ogni casella della tabella si salva anche il predecessore oltre
+che alla distanza, si riesce poi ad estrarre la tabella di routing per ogni nodo.
+</p>
+
+<p>
+I problemi possono sorgere se la rete cambia nel tempo. In tal caso, se un link degenera, 
+gli unici che si accorgono del cambiamento sono i due nodi direttamente
+collegati dal link, quindi per aggiornare l'intera tabella l'informazione
+deve essere propagata diverse volte.
+</p>
+<hr >
+</div>
+</div>
+</div>
+</div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-24 Mon 19:22</p>
+<p class="date">Created: 2022-10-25 Tue 16:08</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>

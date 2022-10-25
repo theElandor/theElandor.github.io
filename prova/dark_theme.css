@@ -1,14 +1,19 @@
+
+a{
+    color: #45b1e8;
+}
+
 body select.container
 {
   padding-right: 80px;
   padding-left: 80px;
 }
-body {
-    font-size: 20px;
-    font-family: 'Fira Code', monospace;
-    color: white;
-    background-color: #1d212c;
-}
+/* body { */
+/*     font-size: 20px; */
+/*     font-family: 'Fira Code', monospace; */
+/*     color: white; */
+/*     background-color: #1d212c; */
+/* } */
 .title{
     font-size: 40px;
     text-decoration: none;
@@ -79,7 +84,8 @@ footer{
 .src{
     background-color: black;
 }
-
-a{
-    color: #45b1e8;
+ul.nav{
+    font-size: 20px;
+    font-family: 'Fira Code', monospace;
+    color: white;        
 }
