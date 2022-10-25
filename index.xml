@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Oct 2022 19:37:05 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 25 Oct 2022 18:45:29 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Mon, 24 Oct 2022 19:37:05 +0200</pubDate>
+      <pubDate>Tue, 25 Oct 2022 18:45:29 +0200</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -853,7 +853,10 @@ che sia un multiplo di 32 bit. Simile al &amp;ldquo;byte stuffing&amp;rdquo;.&lt
 
 
 &lt;h2 id=&#34;ip--ip-routing&#34;&gt;(IP) Ip routing&lt;/h2&gt;
-&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/ip_routing.html&#34;&gt;IP routing&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/ip_routing.html&#34;&gt;IP routing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/ip_routing_2.html&#34;&gt;IP routing, p2&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;

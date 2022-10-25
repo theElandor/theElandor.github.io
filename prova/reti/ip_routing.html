@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>IP Routing (t)</b></title>
-<!-- 2022-10-25 Tue 16:08 -->
+<!-- 2022-10-25 Tue 18:42 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -260,9 +260,17 @@ archivio telegram:
 <ul class="org-ul">
 <li><a href="#sec-5-1-1">Algoritmi Link State</a>
 </li>
-<li><a href="#sec-5-1-2">Distance Vector Protocol</a>
+<li><a href="#sec-5-1-2">Algoritmi Distance Vector</a>
 </li>
 </ul>
+</li>
+</ul>
+</li>
+<li><a href="#sec-6">Complicanze</a>
+<ul class="org-ul">
+<li><a href="#sec-6-1">Evitare l'effetto Rimbalzo</a>
+</li>
+<li><a href="#sec-6-2">Caso Count to Infinity</a>
 </li>
 </ul>
 </li>
@@ -497,7 +505,7 @@ inondata da messaggi broadcast.
 </div>
 
 <div id="outline-container-sec-5-1-2" class="outline-4">
-<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> Distance Vector Protocol</h4>
+<h4 id="sec-5-1-2"><span class="section-number-4">5.1.2</span> Algoritmi Distance Vector</h4>
 <div class="outline-text-4" id="text-5-1-2">
 <p>
 Secondo questo approccio si presuppone che ogni router sia indipendente, e riceve aggiornamenti soltanto dai propri vicini.
@@ -555,10 +563,111 @@ deve essere propagata diverse volte.
 </div>
 </div>
 </div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Complicanze</h2>
+<div class="outline-text-2" id="text-6">
+<ol class="org-ol">
+<li>E' impossibile avere una tabella di routing che contiene una riga 
+per ogni router \(\rightarrow\) si usano dei modi per <b><code>aggregare</code></b> gli indirizzi.
+Si parlerà più estesamente di questo problema nella prossima lezione;
+</li>
+<li><b><code>Rimbalzo</code></b>: gli algoritmi distance vector sono limitati ad una visione parziale,
+che può essere scorretta o non più aggiornata.
+</li>
+</ol>
+</div>
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Evitare l'effetto Rimbalzo</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Con "effetto rimbalzo" si intende la verifica di cicli nell'aggiornamento della
+tabella di routing, come nel caso in figura \(\downarrow\)
+<img src="./loop.png" class="img-responsive" alt="loop.png">
+</p>
+
+<p>
+Per risolvere l'effetto rimbalzo  bisogna inventarsi un modo per evitare cicli.
+Si può fare aggiornando la tabella non solo con il costo del percorso, ma
+specificando anche per quale next hop passare. In tal caso, se un nodo
+riceve da un'altro router un cammino minimo che include lui stesso come nodo intermedio, 
+allora si può ignorare questo aggiornamento, dato che darebbe il via all'effetto rimbalzo.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Caso Count to Infinity</h3>
+<div class="outline-text-3" id="text-6-2">
+
+<figure>
+<p><img src="./infinity.png" class="img-responsive" alt="infinity.png">
+</p>
+</figure>
+
+<p>
+Come evitare questo problema? \(\rightarrow\) si può considerare una soglia
+che indica la distanza massima che può essere presente in un record.
+</p>
+
+<p>
+Metodo <b>Split Horizon</b>: non mando più il vettore di distanze a <i>tutti</i> i vicini
+indistintamente.
+Ad esempio, il vettore che B invia a C non deve contenere nessuna destinazione che B
+considera raggiungibili attraverso C.
+</p>
+
+<p>
+Tuttavia, tutti questi approcci funzionano in esempi semplici, sono difficilmente implementabili
+nel mondo reale. Per questo si usa il <b><code>Time to Live</code></b>, un modo semplice ed efficace
+per evitare cicli.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Confronto</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Per confrontare gli algoritmi si fa riferimento a 2 parametri:
+</p>
+<ol class="org-ol">
+<li><b>Overhead</b> \(\rightarrow\) (<i>i</i>)numero e (<i>ii</i>)dimensioni dei messaggi;
+<ul class="org-ul">
+<li>Dimensione:<br >
+LS \(\rightarrow\) pacchetti di piccola dimensione;<br >
+DV \(\rightarrow\) pacchetti di grande dimensione;
+</li>
+<li>Numero:<br >
+LS \(\rightarrow\) molti pacchetti;<br >
+DV \(\rightarrow\) pochi pacchetti, comunicazione solo con i vicini;
+</li>
+</ul>
+</li>
+
+<li><b>Robustezza</b>:
+<ul class="org-ul">
+<li>LS \(\rightarrow\) più robusto, non ha problemi di loop;
+</li>
+<li>DV \(\rightarrow\) problemi che abbiamo discusso in precedenza;
+</li>
+</ul>
+</li>
+</ol>
+
+<p>
+I <i>Link State</i> vengono usati per reti relativamente ristrette. Ad esempio,
+all'interno di un autonomus system.
+</p>
+
+<p>
+I <i>Distance Vector</i> vengono usati, ad esempio, per i collegamenti tra diversi autonomus system.
+</p>
+<hr >
+</div>
+</div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-25 Tue 16:08</p>
+<p class="date">Created: 2022-10-25 Tue 18:42</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
