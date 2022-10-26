@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Grammatiche formali, 20/10/22</title>
-<!-- 2022-10-22 Sat 22:57 -->
+<!-- 2022-10-26 Wed 13:45 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -309,7 +309,7 @@ momento in maniera procedurale [&#x2026;].
 Il processo di derivazione consiste essenzialmente nell'applicare le <code>produzioni</code>
 della grammatica sull'assioma (o simbolo iniziale) per ottenere una sequenza formata da soli <code>terminali</code>.
 Il concetto è più facilmente assorbibile tramite un'esempio. Si consideri la
-seguente grammatica (espressa in modo "compatto"):
+seguente grammatica \(G_{n,m}\) (espressa in modo "compatto"):
 </p>
 <ul class="org-ul">
 <li>\(S \rightarrow \epsilon|A\)
@@ -322,7 +322,8 @@ seguente grammatica (espressa in modo "compatto"):
 
 <p>
 La seconda riga, ad esempio, si può leggere come: "La \(A\) può essere riscritta come \(a\),
-\(aA\), o \(B\)";
+\(aA\), o \(B\)". Se analizzata correttamente, ci si accorge che questa grammatica genera tutte
+le stringhe del tipo \(a^{n}b^{m}\);
 </p>
 
 <p>
@@ -339,12 +340,24 @@ ottenere applicando diverse derivazioni:
 \begin{equation}
 S \Rightarrow A \Rightarrow aA \Rightarrow aB \Rightarrow  ab.
 \end{equation}
+
+<p>
+Durante la lettura è bene ricordarsi di questa notazione:<br >
+\(\alpha \overset{\\*} \Rightarrow \beta\) = dalla forma di frase \(\alpha\) si
+può ottenere \(\beta\) attraverso un numero arbitrario di trasformazioni.
+Prendiamo come esempio anche un'altra grammatica a cui si farà riferimento
+in futuro, ossia 
+</p>
+\begin{equation}
+G_{expr1} = E \rightarrow E+E|E \times E|(E)|number
+\end{equation}
+<hr >
 </div>
 </div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-22 Sat 22:57</p>
+<p class="date">Created: 2022-10-26 Wed 13:45</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
