@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Grammatiche formali, 26/10/22</title>
-<!-- 2022-10-26 Wed 19:37 -->
+<!-- 2022-10-26 Wed 21:06 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -234,6 +234,8 @@ MathJax.Hub.Config({
 </li>
 <li><a href="#sec-5">Altri problemi</a>
 </li>
+<li><a href="#sec-6">Esercizi svolti</a>
+</li>
 </ol>
 <hr >
 </div>
@@ -409,10 +411,42 @@ sinistra quando esse sono sullo stesso livello di priorità.
 <hr >
 </div>
 </div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Esercizi svolti</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li><b>Esercizio 1, slide 38</b>: fornire una grammatica libera per l’insieme delle stringhe costituite da
+parentesi correttamente bilanciate;
+</li>
+</ul>
+\begin{equation}
+S \rightarrow (S)S \ | \  \epsilon
+\end{equation}
+
+<p>
+E' interessante notare il fatto che non esiste alcun automa che possa
+riconoscere questo tipo di linguaggio, dato che richiede la memorizzazione
+di sequenze di parentesi.
+</p>
+<ul class="org-ul">
+<li><b>Esercizio 2</b>, slide 38: Fornire una grammatica libera per il linguaggio
+\(L_{1,2}=\{a^nb^{2n} | n>=0\}\)
+</li>
+</ul>
+\begin{equation}
+S \rightarrow aSbb | \epsilon
+\end{equation}
+<p>
+In questo modo, ogni volta che aggiungo una \(a\) all'inizio aggiungo 2 \(b\) alla
+fine, creando il linguaggio giusto.
+</p>
+<hr >
+</div>
+</div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-26 Wed 19:37</p>
+<p class="date">Created: 2022-10-26 Wed 21:06</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
