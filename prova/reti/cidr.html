@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Subnetting, 27/10/22-LAB</b></title>
-<!-- 2022-10-27 Thu 17:32 -->
+<!-- 2022-10-27 Thu 22:03 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -282,12 +282,12 @@ delle varie sottoreti.
 <div class="outline-text-3" id="text-">
 <p>
 Per capire meglio le successive configurazioni, conviene disegnare una struttura
-ad albero per capire meglio lo spazio di indirizzamento disponibile, e come partizionarlo
+ad albero per visualizzare meglio lo spazio di indirizzamento disponibile, e come partizionarlo
 adeguatamente.
 Essenzialmente, si potrebbe decidere di considerare una grande rete come <b>10.7.0.0/16</b>,
 e suddividerla in 2 sottoreti, cioè (<i>i</i>) <b>10.7.0.0/17</b> e (<i>ii</i>) <b>10.7.128.0/17</b>, fissando
-il primo bit dopo i primi 16 bit una volta ad 1 ed una volta a 0. (Una volta fatto ciò,
-basta convertire il terzo byte per ottenere i valori 0 e 128 che differenziano le 2 reti).
+il primo bit dopo i primi 16 bit una volta ad 1 ed una volta a 0.
+(Basta poi convertire il terzo byte per ottenere i valori 0 e 128 che differenziano le 2 reti).
 </p>
 
 <p>
@@ -309,9 +309,15 @@ e LAN3, che hanno una netmask di /18.
 </ul>
 
 <p>
-In questo modo, ho massimizzato lo spazio di indirizzamento <b><code>senza creare conflitti di indirizzamento</code></b>.
-L'albero in figura dovrebbe chiarire le idee:
+In questo modo, si massimizza lo spazio di indirizzamento <b><code>senza creare conflitti</code></b>.
+L'albero in figura dovrebbe chiarire le idee \(\downarrow\)
 </p>
+
+
+<figure>
+<p><img src="./albero_indirizzamento.png" class="img-responsive" alt="albero_indirizzamento.png">
+</p>
+</figure>
 </div>
 </div>
 </div>
@@ -450,7 +456,7 @@ un <b>ttl</b> personalizzato per ogni pacchetto che invia nella rete.
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-27 Thu 17:32</p>
+<p class="date">Created: 2022-10-27 Thu 22:03</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
