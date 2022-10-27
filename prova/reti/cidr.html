@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Subnetting, 27/10/22-LAB</b></title>
+<!-- 2022-10-27 Thu 17:32 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="dark_theme.css"/>
+<style>.container{padding-left: 70px; padding-right: 70px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Subnetting, 27/10/22-LAB</b></h1>
+<hr >
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Info</h2>
+<div class="outline-text-2" id="text-">
+<p>
+Appunti dell'esercitazione di laboratorio sul subnetting.
+Non sono riportate molte informazioni sulla configurazione in marrionet
+vera e propria, essendo lunga e tediosa. E' più importante la teoria
+sul subnetting che sta alla base dell'esercizio.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of Contents</h2>
+<div class="outline-text-2" id="text-">
+<ol class="org-ol">
+<li><a href="#sec-1">Considerazioni Iniziali</a>
+</li>
+<li><a href="#sec-2">Configurazione reti</a>
+</li>
+<li><a href="#sec-3">ICMP</a>
+<ul class="org-ul">
+<li><a href="#sec-3-1">Definizione</a>
+</li>
+<li><a href="#sec-3-2">Echo request</a>
+</li>
+<li><a href="#sec-3-3">Time Exceeded Message</a>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Considerazioni Iniziali</h2>
+<div class="outline-text-2" id="text-1">
+
+<figure>
+<p><img src="./consegna_subnetting.png" class="img-responsive" alt="consegna_subnetting.png">
+</p>
+</figure>
+
+<p>
+L'esercizio consiste nella creazione di una rete suddivisa in 3 subnet.
+La prima cosa da fare è analizzare le netmask per capire le dimensioni
+delle varie sottoreti.
+</p>
+<ul class="org-ul">
+<li><b>LAN1</b> \(\rightarrow\) 255.255.192.0 \(\rightarrow\) 11..11 11..11 11000000 \(\rightarrow\) \18
+</li>
+<li><b>LAN3</b> \(\rightarrow\) 255.255.192.0 \(\rightarrow\) 11..11 11..11 11000000 \(\rightarrow\) \18
+</li>
+<li><b>LAN2</b> \(\rightarrow\) 255.255.128.0 \(\rightarrow\) 11..11 11..11 10000000 \(\rightarrow\) \17
+</li>
+</ul>
+<hr >
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Albero di indirizzamento</h3>
+<div class="outline-text-3" id="text-">
+<p>
+Per capire meglio le successive configurazioni, conviene disegnare una struttura
+ad albero per capire meglio lo spazio di indirizzamento disponibile, e come partizionarlo
+adeguatamente.
+Essenzialmente, si potrebbe decidere di considerare una grande rete come <b>10.7.0.0/16</b>,
+e suddividerla in 2 sottoreti, cioè (<i>i</i>) <b>10.7.0.0/17</b> e (<i>ii</i>) <b>10.7.128.0/17</b>, fissando
+il primo bit dopo i primi 16 bit una volta ad 1 ed una volta a 0. (Una volta fatto ciò,
+basta convertire il terzo byte per ottenere i valori 0 e 128 che differenziano le 2 reti).
+</p>
+
+<p>
+Una volta fatto ciò, si può rinominare una delle due sottoreti /17 appena create come
+LAN2, che ha come netmask appunto /17. Il resto della rete (quindi l'altra partizione creata dalla rete "grande"),
+la si può suddividere in 2 parti usando lo stesso procedimento, per ottenere le due reti minori LAN1 
+e LAN3, che hanno una netmask di /18.
+</p>
+
+<ul class="org-ul">
+<li>P1 \(\rightarrow\) 10.7.0.0/17 \(\rightarrow\)  00001010.00000111.0 0000000.00000000
+<ul class="org-ul">
+<li>LAN1 \(\rightarrow\) 00001010.00000111.00 000000.00000000 \(\rightarrow\) <b>10.7.0.0/18</b>
+</li>
+<li>LAN3  \(\rightarrow\) 00001010.00000111.01 000000.00000000 \(\rightarrow\) <b>10.7.64.0/18</b>
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+In questo modo, ho massimizzato lo spazio di indirizzamento <b><code>senza creare conflitti di indirizzamento</code></b>.
+L'albero in figura dovrebbe chiarire le idee:
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Configurazione reti</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Ora è solo questione di capire gli indirizzi IP disponibili per ogni rete. 
+Si può fare manualmente oppure usando il tool <b>ipcalc -c addr</b> 
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> LAN1 \(\rightarrow\) 10.7.0.0/18</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Per quanto riguarda LAN1, si possono già definire gli indirizzi IP disponibili:
+<b>HostMin</b>:   10.7.0.1             00001010.00000111.00 000000.00000001<br >
+<b>HostMax</b>:   10.7.63.254          00001010.00000111.00 111111.11111110<br >
+Quindi si possono già assegnare i seguenti indirizzi:
+</p>
+<ul class="org-ul">
+<li>Node1 \(\Rightarrow\) 10.7.0.1
+</li>
+<li>NodeG12 eth0 \(\Rightarrow\) 10.7.63.253, per convenzione;
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> LAN2 \(\rightarrow\) 10.7.0.0/18</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+<b>HostMin</b>:   10.7.128.1           00001010.00000111.1 0000000.00000001
+<b>HostMax</b>:   10.7.255.254         00001010.00000111.1 1111111.11111110
+</p>
+
+<ul class="org-ul">
+<li>Node2 \(\Rightarrow\) 10.7.128.1
+</li>
+<li>NodeG12 eth1 \(\Rightarrow\) 10.7.255.253, per convenzione;
+</li>
+<li>NodeG23 eth0 \(\Rightarrow\) 10.7.255.254, per convenzione;
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-2-3" class="outline-3">
+<h3 id="sec-2-3"><span class="section-number-3">2.3</span> LAN3</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<b>HostMin</b>:   10.7.64.1            00001010.00000111.01 000000.00000001
+<b>HostMax</b>:   10.7.127.254         00001010.00000111.01 111111.11111110
+</p>
+
+<ul class="org-ul">
+<li>Node3 \(\Rightarrow\) 10.7.64.1
+</li>
+<li>NodeG23 eth1 \(\Rightarrow\) 10.7.127.254, per convenzione;
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> ICMP</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Definizione</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<code>Internet control Message Protocol</code>
+\(\rightarrow\) sotto-protocollo che gestisce messaggi di errore e 
+di controllo. E' un protocollo di livello 3 che comunica
+informazioni attraverso il payload di un datagramma IP.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Echo request</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Messaggi del protocollo
+ICMP che servono per testare attivamente la comunicazione tra due host.
+Questi messaggi sono usati da ping, a livello end-to-end. Quando un host 
+riceve un messaggio di echo request, a sua volta risponde
+con un messaggi <i>echo reply</i>.
+</p>
+
+<p>
+Il campo <b>code</b> definisce il messaggio specifico:
+</p>
+<ul class="org-ul">
+<li><b>Network Unreachable</b> \(\rightarrow\) next hop sconosciuto, problema a livello 3.
+</li>
+<li><b>Host Unreachable</b> \(\rightarrow\) impossibile raggiungere l'host a livello H2N;
+</li>
+<li><b>Port Unreachable</b> \(\rightarrow\) lo vederemo più avanti.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Time Exceeded Message</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Messaggio che comunica la fine del tempo di vita di un pacchetto.
+I router possono essere configurati per segnalare quando scartano
+un pacchetto, nel momento in cui il time to live raggiunge lo 0.
+</p>
+
+<p>
+\(\Rightarrow\) <i>provare a creare una rete con un loop, in cui due host si usano a vicenda come default gateway. Vedere il blocco di slide su ICMP a riguardo</i>;
+</p>
+
+
+<p>
+Questo messaggio è usato anche per testing di connettività.
+Esiste un comando, ossia <code>traceroute</code>, che funziona similmente
+a ping. Ping lavora livello end-to-end, mentre traceroute
+specifica ogni singolo router che viene attraversato!
+</p>
+
+<p>
+Questo comando usa delle primitive di basso livello per inserire
+un <b>ttl</b> personalizzato per ogni pacchetto che invia nella rete.
+</p>
+
+<hr >
+</div>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-10-27 Thu 17:32</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>
