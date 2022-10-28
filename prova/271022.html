@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Parsing 1, 27/10/22</b></title>
-<!-- 2022-10-27 Thu 17:46 -->
+<!-- 2022-10-28 Fri 12:12 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -190,6 +190,32 @@ $(function() {
 });
 </script><link rel="stylesheet" type="text/css" href="html_style.css" />
 <style>.container{padding-left: 70px; padding-right: 70px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
 </head>
 <body>
 <div id="content" class="container">
@@ -197,13 +223,251 @@ $(function() {
 <div id="outline-container-sec-" class="outline-2">
 <h2 id="sec-">Table of contents</h2>
 <div class="outline-text-2" id="text-">
+<ol class="org-ol">
+<li><a href="#sec-1">Parser a discesa ricorsiva</a>
+<ul class="org-ul">
+<li><a href="#sec-1-1">Parser non deterministico</a>
+</li>
+<li><a href="#sec-1-2">Parser deterministico</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">Left recursion e cicli</a>
+<ul class="org-ul">
+<li><a href="#sec-2-1">Eliminazione left recursion(esempio)</a>
+</li>
+<li><a href="#sec-2-2">Backward Production</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3">Miglioramento di una grammatica (esempio finale)</a>
+<ul class="org-ul">
+<li><a href="#sec-3-1">Eliminazione B.Production</a>
+</li>
+<li><a href="#sec-3-2">Eliminazione Left Recursion</a>
+</li>
+</ul>
+</li>
+</ol>
 <hr >
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Parser a discesa ricorsiva</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+In questo corso si tratteranno principalmente i parser a discesa
+ricorsiva, che costruiscono il parse tree a partire dall'assioma
+verso il basso, controllando se la stringa generata corrisponde 
+con l'input preso dal lexer.
+</p>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Parser non deterministico</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Pensando ad un algoritmo non deterministico, che quindi ad ogni 
+passo sceglie la produzione più "adatta", si potrebbe semplicemente
+abbozzare uno pseudo-codice del genere:
+</p>
+<p class="verse">
+for j = 1&#x2026;k do:<br >
+&#xa0;&#xa0;if \(X_{j} \in N\) then X<sub>j</sub>()<br >
+&#xa0;&#xa0;else:<br >
+&#xa0;&#xa0;&#xa0;&#xa0;\(x\) \(\leftarrow\) read()<br >
+&#xa0;&#xa0;&#xa0;&#xa0;if X<sub>j</sub> &ne; \(x\) then error()<br >
+</p>
+<p>
+Ad ogni passo, se ci si trova su un carattere <b>terminale</b> si controlla
+che esso faccia "matching" con l'input, altrimenti
+se ci si trova su un <b>non terminale</b> si richiama ricorsivamente la
+procedura sul carattere corrente. Si tenga a mente che in questo 
+primo codice <i>non ci si pone il problema di scegliere la produzione giusta,
+perchè l'algoritmo è <code>non deterministico</code></i>
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Parser deterministico</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Il passo successivo della progettazione di un parser consiste nel 
+cercare di eliminare il non determinismo, pensando ad un algoritmo
+che scelga la produzione giusta tra le varie disponibili.
+</p>
+<hr >
+
+<figure>
+<p><img src="./paraser_determ.png" class="img-responsive" alt="paraser_determ.png">
+</p>
+</figure>
+<hr >
+</div>
+<div id="outline-container-sec-1-2-1" class="outline-4">
+<h4 id="sec-1-2-1"><span class="section-number-4">1.2.1</span> Esempio:</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+Considerando questa grammatica:
+</p>
+\begin{aligned}
+& S \rightarrow aA \\
+& A \rightarrow aA | B \\
+& B \rightarrow bB | \epsilon
+\end{aligned}
+
+<p>
+si ottiene il seguente albero di derivazione:
+<img src="./parser_esempio.png" class="img-responsive" alt="parser_esempio.png">
+</p>
+<hr >
+<p>
+Se si analizzano il codice e la figura, ci si rende conto del seguente problema:
+se ad esempio invece di \(A \rightarrow aA\) avessimo usato la produzione \(A \rightarrow Aa\),
+allora l'algoritmo cadrebbe in una cascata infinita di chiamate ricorsive. 
+Una produzione che da origine a questo fenomeno prende il nome di <b><code>left recursion</code></b>.
+Il motivo per cui accade è che il parser analizza sempre il primo carattere prodotto,
+ma se questo è un non terminale, allora su di esso verrà applicata una riscrittura per verificarne
+la validità &#x2026; \(\rightarrow \infty\)
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Left recursion e cicli</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Per progettare una grammatica in modo efficate, si può pensare
+alla scrittura della stessa nel modo più semplice possibile, senza
+pensare alla ricaduta in ricorsioni infinite di vario genere.
+Solo in un secondo momento è conveniente applicare un processo di 
+raffinamento ed eliminazione di ricorsioni infinite.
+Negli esempi che seguono, si presuppone che le grammatiche non presentino errori
+banali come cicli infiniti, cioè sequenze di derivazioni di questo tipo \(\downarrow\)
+</p>
+\begin{equation}
+A \overset{*} \Rightarrow A
+\end{equation}
+<p>
+Ecco quindi un'esempio di eliminazione di left-recursion:
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Eliminazione left recursion(esempio)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Si consideri la seguente grammatica:
+</p>
+\begin{aligned}
+& A \rightarrow A\alpha \\ 
+& A \rightarrow \beta
+\end{aligned}
+<p>
+come si può notare dalla prima produzione, c'è un problema di left recursion.
+Per eliminarla si può applicare uno specifico algoritmo di eliminazione.
+In particolare, si riscrive la produzione che presenta left recursion in questo modo \(\downarrow\)
+</p>
+
+\begin{cases}
+& A \rightarrow \beta_{1}A' | \beta_{2}A' | ... | \beta_{m}A'\\
+\\
+& A' \rightarrow \alpha_{1}A' | \alpha_{2}A' | ... | \alpha_{t}A' | \epsilon
+\end{cases}
+<p>
+in cui:
+</p>
+<ul class="org-ul">
+<li>\(\beta_{x}\) \(\rightarrow\) stringhe che non hanno left recursion, quindi quelle
+che non danno problemi;
+</li>
+<li>\(\alpha_{x}\) \(\rightarrow\) parte a destra delle stringhe che presentano left
+recursion, quindi tutto tranne il carattere non terminale che da problemi;
+</li>
+</ul>
+<p>
+Alla fine di questo processo si è sicuri di non avere delle left-recursion,
+perchè tutte le produzioni iniziano per un carattere <code>terminale</code>.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Backward Production</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Per essere sicuri di aver progettato una grammatica valida, è importante anche 
+eliminare le <b><code>backward production</code></b>.
+Sia \(A_{1}...A_{n}\) un'ordinamento arbitrario dei caratteri non terminali,
+</p>
+<blockquote>
+<p>
+\(\blacktriangleright\) si dice <b>backward production</b> una produzione del tipo \(A_{i} \rightarrow A_{j}\) con \(i > j\) nell'ordinamento.
+</p>
+</blockquote>
+<p>
+L'algoritmo per l'eliminazione di queste produzioni è più chiaro se spiegato tramite
+un'esempio \(\downarrow\)
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Miglioramento di una grammatica (esempio finale)</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Si consideri la seguente grammatica:
+</p>
+\begin{align}
+& A \rightarrow Bb|a \\
+& B \rightarrow Bb|Ac
+\end{align}
+<p>
+Consideriamo l'ordinamento {A<sub>1</sub>, B<sub>2</sub>}.
+</p>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Eliminazione B.Production</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Per eliminare le backwards production, per prima cosa ci si posiziona sulla 
+produzione problematica, in questo caso la seconda, che può portare indietro
+la riscrittura al carattere non terminale A partendo da B.
+</p>
+
+<p>
+Successivamente si riscrive il carattere non terminale di destinazione (quindi A in questo
+caso, che si trova prima di B nell'ordinamento arbitrario che abbiamo scelto) e lo si riscrive
+usando le sue stesse produzioni, ottenendo:
+</p>
+
+\begin{align}
+& A \rightarrow Bb|a \\
+& B \rightarrow Bb|Bbc|ac
+\end{align}
+
+<p>
+ora si è sicuri di non avere nessuna backwards production, e si procede con
+l'eliminazione delle left recursion, come spiegato prima.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Eliminazione Left Recursion</h3>
+<div class="outline-text-3" id="text-3-2">
+\begin{align}
+& A \rightarrow Bb|a \\
+& B \rightarrow acB' \\
+& B' \rightarrow bB'|bcB'|\epsilon
+\end{align}
+<hr >
+</div>
 </div>
 </div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-27 Thu 17:46</p>
+<p class="date">Created: 2022-10-28 Fri 12:12</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>

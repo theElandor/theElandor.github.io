@@ -8,6 +8,10 @@ body {
     text-decoration: none;
     font-weight: 500;    
 }
+.verse{
+    background-color: #f0fff0;
+}
+
 p{
     font-weight: 100;
     color: #333;
