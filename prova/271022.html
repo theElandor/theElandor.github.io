@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Parsing 1, 27/10/22</b></title>
-<!-- 2022-10-28 Fri 12:12 -->
+<!-- 2022-10-28 Fri 14:25 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -189,7 +189,7 @@ $(function() {
     $('.bs-docs-sidebar').affix();
 });
 </script><link rel="stylesheet" type="text/css" href="html_style.css" />
-<style>.container{padding-left: 70px; padding-right: 70px;}</style>
+<style>.container{padding-left: 80px; padding-right: 80px;}</style>
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -384,6 +384,20 @@ che non danno problemi;
 recursion, quindi tutto tranne il carattere non terminale che da problemi;
 </li>
 </ul>
+\begin{aligned}
+& A \rightarrow A\alpha \\ 
+& A \rightarrow \beta
+\end{aligned}
+
+\begin{equation}
+\Downarrow
+\end{equation}
+
+\begin{align}
+& A \rightarrow \beta A' \\
+& A' \rightarrow \alpha A' | \epsilon
+\end{align}
+
 <p>
 Alla fine di questo processo si è sicuri di non avere delle left-recursion,
 perchè tutte le produzioni iniziano per un carattere <code>terminale</code>.
@@ -410,7 +424,6 @@ un'esempio \(\downarrow\)
 </div>
 </div>
 </div>
-
 
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> Miglioramento di una grammatica (esempio finale)</h2>
@@ -467,7 +480,7 @@ l'eliminazione delle left recursion, come spiegato prima.
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-28 Fri 12:12</p>
+<p class="date">Created: 2022-10-28 Fri 14:25</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
