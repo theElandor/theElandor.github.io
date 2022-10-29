@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title>Grammatiche formali, 26/10/22</title>
-<!-- 2022-10-26 Wed 23:05 -->
+<!-- 2022-10-29 Sat 17:17 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -235,6 +235,18 @@ MathJax.Hub.Config({
 <li><a href="#sec-5">Altri problemi</a>
 </li>
 <li><a href="#sec-6">Esercizi svolti</a>
+<ul class="org-ul">
+<li><a href="#sec-6-1">Esercizio 1</a>
+<ul class="org-ul">
+<li><a href="#sec-6-1-1">Parte 1</a>
+</li>
+<li><a href="#sec-6-1-2">Parte 2</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-6-2">Esercizio 2</a>
+</li>
+</ul>
 </li>
 </ol>
 <hr >
@@ -414,11 +426,18 @@ sinistra quando esse sono sullo stesso livello di priorità.
 <div id="outline-container-sec-6" class="outline-2">
 <h2 id="sec-6"><span class="section-number-2">6</span> Esercizi svolti</h2>
 <div class="outline-text-2" id="text-6">
-<ul class="org-ul">
-<li><b>Esercizio 1, slide 38</b>: fornire una grammatica libera per l’insieme delle stringhe costituite da
-parentesi correttamente bilanciate;
-</li>
-</ul>
+<p>
+Entrambe le consegne degli esercizi si possono trovare a <b>slide 38</b> del
+blocco sulle grammatiche.
+</p>
+</div>
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Esercizio 1</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Fornire una grammatica libera per l’insieme delle stringhe costituite da
+  parentesi correttamente bilanciate;
+</p>
 \begin{equation}
 S \rightarrow (S)S \ | \  \epsilon
 \end{equation}
@@ -428,11 +447,96 @@ E' interessante notare il fatto che non esiste alcun automa che possa
 riconoscere questo tipo di linguaggio, dato che richiede la memorizzazione
 di sequenze di parentesi.
 </p>
+
+<p>
+Forniamo ora una <b>dimostrazione formale</b> per induzione, suddivisa in 2 parti.
+</p>
+<hr >
+</div>
+<div id="outline-container-sec-6-1-1" class="outline-4">
+<h4 id="sec-6-1-1"><span class="section-number-4">6.1.1</span> Parte 1</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<p>
+Si consideri una generica stringa \(f\) di caratteri non terminali e un generico numero di passaggi di derivazione \(n\).
+</p>
 <ul class="org-ul">
-<li><b>Esercizio 2</b>, slide 38: Fornire una grammatica libera per il linguaggio
-\(L_{1,2}=\{a^nb^{2n} | n>=0\}\)
+<li><b>Hp</b>: \(f\) generabile a partire da S;
+</li>
+<li><b>Th</b>: \(f\) è bilanciata;
 </li>
 </ul>
+<p>
+<code>Ipotesi Induttiva</code>: Se si considera n = 1, l'unica stringa di caratteri non terminali
+generabile è la stringa vuota, che sicuramente è anche bilanciata.<br >
+<code>Induzione</code>: supponiamo che tutte le derivazioni con meno di n passaggi
+siano in grado di generare stringhe di parentesi bilanciate. (Se può aiutare, 
+al primo passaggio si può considerare \(n=2\), e come abbiamo dimostrato la base induttiva
+è vera per \(n=1\)).
+Scriviamo quindi una generica derivazione in \(n\) passaggi:
+</p>
+\begin{equation}
+S \rightarrow S_{1}(S_{2}) \rightarrow ...x(S_{2}) \rightarrow ...x(y)
+\end{equation}
+<p>
+dove \(x\) e \(y\) indicano delle sequenze di caratteri <b>terminali</b>.
+Dato che l'intera produzione è lunga \(n\) passaggi, si sa per certo
+che le derivazioni che hanno portato alla riscrittura di \(S_{1}\) in \(x\)
+e di \(S_{2}\) in \(y\) sono lunghe <i>meno</i> di n passaggi.
+Quindi per ipotesi induttiva le stringhe \(x\) e \(y\) saranno bilanciate.
+Ma se \(x\) e \(y\) sono bilanciate, allora anche \(x(y)\) lo è \(\square\).
+</p>
+<hr >
+</div>
+</div>
+<div id="outline-container-sec-6-1-2" class="outline-4">
+<h4 id="sec-6-1-2"><span class="section-number-4">6.1.2</span> Parte 2</h4>
+<div class="outline-text-4" id="text-6-1-2">
+<p>
+Nella seconda parte della dimostrazione si vuole dimostrare l'inverso,
+quindi: 
+</p>
+<ul class="org-ul">
+<li><b>Hp</b>: \(f\) è una stringa costituita da parentesi bilanciate;
+</li>
+<li><b>Th</b>: \(f\) è sicuramente ottenibile a partire da S;
+</li>
+</ul>
+<p>
+<code>Ipotesi Induttiva</code>: se si considera una stringa di lunghezza pari a \(0\),
+essa è sicuramente bilanciata, e di sicuro è ottenibile da S dato che si tratta 
+di &epsilon;.<br >
+<code>Passo induttivo</code>: si consideri una generica stringa \(w\) lunga \(2n\) caratteri (
+si usa \(2n\) perchè le parentesi bilanciate sono ovviamente costituite da un numero pari
+di parentesi). Presupponiamo che tutte le stringhe di lunghezza minore di \(2n\) siano ottenibili
+a partire da \(S\). 
+</p>
+
+<p>
+Dato che \(w\) è bilanciata, può sicuramente essere riscritta come \(x(y)\), dove
+\(x\) e \(y\) sono a loro volta bilanciate e di lunghezza sicuramente minore della lunghezza
+totale di \(w\), che è \(2n\). Per ipotesi induttiva esse sono quindi ottenibili a partire da \(S\).
+Ma se questo è vero, posso allora scrivere questa produzione:
+</p>
+\begin{equation}
+S \rightarrow S(S) \rightarrow ...x(S) \rightarrow ...x(y)
+\end{equation}
+<p>
+e leggendo soltanto il primo e ultimo termine
+</p>
+\begin{equation}
+S \rightarrow x(y) = w  \  \square
+\end{equation}
+<hr >
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Esercizio 2</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Fornire una grammatica libera per il linguaggio
+  \(L_{1,2}=\{a^nb^{2n} | n>=0\}\)
+</p>
 \begin{equation}
 S \rightarrow aSbb | \epsilon
 \end{equation}
@@ -443,10 +547,11 @@ fine, creando il linguaggio giusto.
 <hr >
 </div>
 </div>
+</div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-26 Wed 23:05</p>
+<p class="date">Created: 2022-10-29 Sat 17:17</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
