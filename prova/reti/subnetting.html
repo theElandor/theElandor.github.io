@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Subnetting 2020-11-5(t)</b></title>
+<!-- 2022-10-30 Sun 00:28 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="dark_theme.css"/>
+<style>.container{padding-left: 80px; padding-right: 80px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Subnetting 2020-11-5(t)</b></h1>
+<hr >
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Info</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Note e appunti della lezione dell'archivio telegram sul subnetting.
+La lezione ha un'approccio molto pratico e tratta principalmente esempi.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of Contents</h2>
+<div class="outline-text-2" id="text-">
+<ol class="org-ol">
+<li><a href="#sec-2">Alcuni esempi</a>
+<ul class="org-ul">
+<li><a href="#sec-2-1">Esempio 1</a>
+</li>
+<li><a href="#sec-2-2">Esempio 2</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3">Subnetting e Supernetting</a>
+<ul class="org-ul">
+<li><a href="#sec-3-1">Subnetting</a>
+</li>
+<li><a href="#sec-3-2">Supernetting</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-4">Routing Dinamico su Scala Geografica</a>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Alcuni esempi</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Esempio 1</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+<b>255.255.255.128</b> \(\rightarrow\) /25, è la metà di una rete con subnet mask /24. Si hanno  \(2^7\) hostid invece che 
+\(2^8\), avendo "rubato" un bit al netid.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Esempio 2</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+Un router riceve un pacchetto destinazione: <b>150.100.12.176</b>.
+Se si hanno a disposizione la  <b>subnet mask</b> della rete e <b>l'indirizzo IP</b> destinazione, il router fa
+l'and logico tra i due per ottenere il <code>NETID</code> della rete bersaglio.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Subnetting e Supernetting</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li><b>Subnetting</b> \(\rightarrow\) dividere una rete principale in diverse sottoreti;
+</li>
+<li><b>Supernetting</b> \(\rightarrow\) costruire una rete principale date diverse reti minori.
+</li>
+</ul>
+<p>
+Ecco alcuni <b>vantaggi</b> di queste operazioni di ripartizione di una rete:
+</p>
+<ol class="org-ol">
+<li>Maggiore <code>flessibilità</code> e <code>modularità</code>, anche in caso di guasti o malfunzionamenti;
+</li>
+<li>Le operazioni di routing effettuate dal router vengono <code>semplificate</code> notevolmente.
+</li>
+</ol>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Subnetting</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Essenzialmente consiste nel "rubare" uno o più bit all'hostID per riservarli al NetID.
+Supponiamo che un'amministratore di rete debba suddividere una rete con netmask /16 
+in 5 sottoreti. Una possibile ripartizione dello spazio di indirizzamento può essere la seguente: \(\downarrow\)
+<img src="./par2.png" class="img-responsive" alt="par2.png">
+</p>
+</div>
+<div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> Esempio 1:</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Consideriamo il seguente indirizzo IP: <br >
+<b>Indirizzo IP</b>: 10011100.10011010.01010001.00111000
+e la seguente subnet mask:<br >
+<b>Subnet Mask</b>: 11111111.1111111.111111111.11110000
+</p>
+<ul class="org-ul">
+<li><i>Qual'è il <code>NETID</code> della subnet in questione?</i> <br >
+</li>
+</ul>
+<p>
+\(\Rightarrow\) <code>and</code> logico tra Indirizzo IP e Subnet Mask
+\(\rightarrow\) 10011100.10011010.01010001.00110000
+</p>
+
+<ul class="org-ul">
+<li><i>Qual'è il range di host di qusta rete?</i> <br >
+</li>
+</ul>
+<p>
+<b>Range di host</b>: \(2^4-2\) dove \(n\) è il numero di ultimi zeri della mask.
+In questo caso 14 host, da <b>156.154.81.49</b> e <b>156.154.81.62</b>, che corrispondono
+a  10011100.10011010.01010001.00110001 e 10011100.10011010.01010001.00111110
+</p>
+<ul class="org-ul">
+<li><i>Qual'è l'indirizzo di broadcast di host di qusta rete?</i>
+</li>
+</ul>
+<p>
+<b>Broadcast</b> &#x2013;&gt; 10011100.10011010.01010001.00111111
+</p>
+<hr >
+</div>
+</div>
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> Esempio 2</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+Supponiamo che unimore abbia a disposizione un'indirizzo di classe B, e abbia la necessità
+di suddividere la rete in base ai vari dipartimenti. In ogni dipartimento, ci sono 
+meno di 100 host.
+</p>
+<ul class="org-ul">
+<li><i>Quanti bit servono per identificare gli host di una sottorete?</i> <br >
+</li>
+</ul>
+<p>
+\(\Rightarrow\) almeno 7 bit, in modo da avere almeno \(2^7\) host disponibili.
+</p>
+<ul class="org-ul">
+<li><i>Qual'è la netmask in questo caso?</i> <br >
+</li>
+</ul>
+<p>
+\(\Rightarrow\) 11111111.1111111.111111111.10000000 quindi 255.255.255.128, quindi serve almeno una /25
+per ogni dipartimento.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3-1-3" class="outline-4">
+<h4 id="sec-3-1-3"><span class="section-number-4">3.1.3</span> Vantaggi</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+\(\blacktriangleright\) <i>A cosa serve fare subnetting all'interno di una rete universitaria?</i> <br >
+\(\Rightarrow\) il vantaggio di avere questo tipo di suddivisione è che i router applicano
+strategie di routing <b><code>gerarchico</code></b> \(\rightarrow\) i router esterni usano
+i primi due byte per arrivare al router locale, che a sua volta usa il terzo
+byte per indirizzare i pacchetti verso il subnet corretto.
+</p>
+<hr >
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Supernetting</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Il supernetting serve per risolvere il problema dell'esaurimento dello spazio di indirizzamento.
+In questo caso il procedimento è inverso rispetto al subnetting: viene "rubato" un bit al netid per
+riservarlo all'hostID.
+Si ricordi sempre che queste operazioni sono possibili soltanto se i vari router supportano la notazione
+CIDR.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Routing Dinamico su Scala Geografica</h2>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-10-30 Sun 00:28</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>
