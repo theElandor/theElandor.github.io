@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 30 Oct 2022 00:33:47 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 03 Nov 2022 18:37:49 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Sun, 30 Oct 2022 00:33:47 +0200</pubDate>
+      <pubDate>Thu, 03 Nov 2022 18:37:49 +0100</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -63,6 +63,7 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-20-10&#34;&gt;Lab 20-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-27-10&#34;&gt;Lab 27-10&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lab-3-11&#34;&gt;Lab 3-11&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#esercizi&#34;&gt;Esercizi&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
@@ -1208,8 +1209,599 @@ iface eth1 inet static
   address 192.168.2.254/24
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;lab-27-10&#34;&gt;Lab 27-10&lt;/h2&gt;
 &lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/cidr.html&#34;&gt;Laboratorio Subnetting&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;lab-3-11&#34;&gt;Lab 3-11&lt;/h2&gt;
+&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/031122.html&#34;&gt;Laboratorio WLAN&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;esercizi&#34;&gt;Esercizi&lt;/h2&gt;
 &lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/es1reti.html&#34;&gt;Esercizio routing 20/10/22&lt;/a&gt;&lt;/p&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
+      <link>/gestione/</link>
+      <pubDate>Thu, 03 Nov 2022 09:49:14 +0100</pubDate>
+      
+      <guid>/gestione/</guid>
+      <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Gestione dell&amp;rsquo;informazione&amp;rdquo; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide del corso.
+→ Link per accedere al materiale didattico:
+https://moodle.unimore.it/course/view.php?id=7287
+Troubleshooting Se la pagina non carica correttamente i contenuti in latec, basta ricaricare la pagina una o al massimo un paio di volte.</description>
+      <content>&lt;h2 id=&#34;cosa-posso-trovare-qui&#34;&gt;&lt;em&gt;Cosa posso trovare qui?&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;ldquo;Gestione dell&amp;rsquo;informazione&amp;rdquo; del corso di laurea triennale in informatica
+di Unimore.
+Verranno quindi riportati gli approfondimenti/chiarimenti che vengono
+fatti durante le lezioni. Il materiale non è sostitutivo alle slide del corso.&lt;/p&gt;
+&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=7287&#34;&gt;https://moodle.unimore.it/course/view.php?id=7287&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting&#34;&gt;&lt;em&gt;Troubleshooting&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;Se la pagina non carica correttamente i contenuti in latec, basta &lt;code&gt;ricaricare&lt;/code&gt; la pagina
+una o al massimo un paio di volte. Questo problema può essere legato alla grande
+quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;ir--table-of-contents&#34;&gt;(IR) TABLE OF CONTENTS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#text-operations&#34;&gt;Text Operations&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#full-text-indexing&#34;&gt;Full Text Indexing&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#modelling&#34;&gt;Modelling&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr&gt;
+&lt;h2 id=&#34;text-operations&#34;&gt;Text Operations&lt;/h2&gt;
+&lt;h3 id=&#34;document-processing&#34;&gt;Document Processing&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Analisi lessicale&lt;/code&gt;&lt;/strong&gt;: si converte una sequenza di caratteri in una sequenza
+di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Eliminazione delle stopwords&lt;/code&gt;&lt;/strong&gt;: vengono eliminate quelle parole &amp;ldquo;inutili&amp;rdquo;
+che non danno informazioni per la ricerca.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Stemming e Lemmatization&lt;/code&gt;&lt;/strong&gt;: esempio di uno &lt;strong&gt;stem&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;connect&amp;rsquo; è lo stem
+di parole come &amp;lsquo;connected&amp;rsquo;, &amp;lsquo;connection&amp;rsquo;, &amp;lsquo;connecting&amp;rsquo;. Lo &lt;strong&gt;stemmer&lt;/strong&gt; è
+il tool che si occupa della stemmization.&lt;/p&gt;
+&lt;p&gt;esempio di un &lt;strong&gt;lemma&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;see&amp;rsquo; è il lemma per &amp;lsquo;seen&amp;rsquo; &amp;lsquo;saw&amp;rsquo;; Il &lt;strong&gt;lemmatizer&lt;/strong&gt;
+si occupa della generazione dei lemma.&lt;/p&gt;
+&lt;p&gt;Esistono alcuni parametri per giudicare uno stemmer: (i) &lt;strong&gt;correttezza&lt;/strong&gt;, (ii) &lt;strong&gt;efficacia&lt;/strong&gt;,
+(iii) miglioramento della &lt;strong&gt;performance&lt;/strong&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Selezione degli Index&lt;/code&gt;&lt;/strong&gt; in pratica vengono scelti i token più
+significativi. Può essere fatta manualmente (da esperti) oppure automaticamente.
+Esempio: &amp;ldquo;Say&amp;rdquo; &amp;ldquo;Chair&amp;rdquo; &amp;ldquo;Be&amp;rdquo; &amp;ldquo;Enough&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;Chair&amp;rdquo;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Parsing&lt;/code&gt;&lt;/strong&gt;: processo di analizzare uno stream di dati input e verificare la sua
+correttezza sintattica. Questi strumenti (detti parser) lavorano sulla base
+di &amp;ldquo;banche dati&amp;rdquo; usando un approccio statistico.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Tagging&lt;/code&gt;&lt;/strong&gt;: processo che assegna alle parole il loro ruolo all&amp;rsquo;interno della frase.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;(Verbo, Nome, Aggettivo, ecc&amp;hellip;)&lt;/p&gt;
+&lt;h3 id=&#34;thesauri&#34;&gt;Thesauri&lt;/h3&gt;
+&lt;p&gt;Un &lt;strong&gt;Thesaurus&lt;/strong&gt; è una lista di parole (sinonimi e contrari) importanti in un dato domain di conoscenza.
+Ad esempio, in ambito medico, alla parola &amp;ldquo;hand&amp;rdquo; potrebbero essere collegati concetti
+come &amp;ldquo;sanityzers&amp;rdquo;, &amp;ldquo;transplantation&amp;rdquo;, ecc..
+A livello strutturale sono quindi dei &lt;em&gt;dizionari&lt;/em&gt; che contengono associazioni.&lt;/p&gt;
+&lt;h3 id=&#34;python-nltk-the-basics&#34;&gt;Python NLTK, the basics&lt;/h3&gt;
+&lt;p&gt;In questo script vengono trattati i seguenti argomenti:
+(i) Generazione dei token, (ii) Rimozione delle stopwords, (iii) Lemmatizzazione,
+(iv) Stemming, (v) Tagging.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.lancaster &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; LancasterStemmer
+
+text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This is a tests&amp;#34;&lt;/span&gt;
+tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(text)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens)
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Stopwords removal and Lemmatization&lt;/span&gt;
+wnl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;WordNetLemmatizer()
+&lt;span style=&#34;color:#75715e&#34;&gt;# per stampare tutte le parole che non sono stopwords.&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens:
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;):
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;tests&amp;#39;]&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#     This&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;#     test&lt;/span&gt;
+
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# Stemming, using Porter and Lancaster, two popular stemmers&lt;/span&gt;
+&lt;span style=&#34;color:#75715e&#34;&gt;# They give the same output for easy input&lt;/span&gt;
+porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
+
+lancaster &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; LancasterStemmer()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([lancaster&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;# POS tagging a list of lemmatizen tokens!&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])])
+&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [[(&amp;#39;This&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;is&amp;#39;, &amp;#39;VBZ&amp;#39;), (&amp;#39;a&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;test&amp;#39;, &amp;#39;NN&amp;#39;)]]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Esercizio 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;eseguire le seguenti operazioni: (i)Tokenization, (ii)Elimination of stopwords, (iii)Stemming, (iv) Selection of nouns
+su un file .txt contenente un libro di testo.
+In questo caso ho scaricato una copia locale del file, per semplicità.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
+
+path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./book.txt&amp;#34;&lt;/span&gt;
+file &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; open(path)
+raw &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(raw))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step1: tokenization&lt;/span&gt;
+tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(raw)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step2: eliminate stopwords&lt;/span&gt;
+no_stop_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;)]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(no_stop_tokens))
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step3: stemming&lt;/span&gt;
+porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
+stemmed_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; no_stop_tokens])
+
+&lt;span style=&#34;color:#75715e&#34;&gt;#step4: get nouns thanks to tagging&lt;/span&gt;
+tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stemmed_tokens]))
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tagged_tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+nouns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; t[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;NN&amp;#39;&lt;/span&gt;]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(nouns[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;wordnet--thesaurus&#34;&gt;Wordnet (Thesaurus)&lt;/h3&gt;
+&lt;p&gt;&lt;code&gt;Synset&lt;/code&gt; &amp;ndash;&amp;gt; concetto, può essere rappresentato da più parole.
+In un generico thesaurus sono chiamati &lt;em&gt;Thesaurus Index Term&lt;/em&gt;.&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/thes.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Wordnet mette a disposizione una serie di relazioni tra i synset,
+come i seguenti:&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/relazioni.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;La relazioni solitamente più usate sono &lt;strong&gt;Hypernymy&lt;/strong&gt; e &lt;strong&gt;Meronymy&lt;/strong&gt;.
+Usare un thesaurus non è sempre una scelta corretta. In
+un search engine generico come google non ha senso, dato che il
+grafo delle relazioni diventerebbe enorme senza portare grossi benefici.
+Al contrario è molto utile in casi specifici (e.g. search engine per
+paper in ambito medico).&lt;/p&gt;
+&lt;h3 id=&#34;word-similarities&#34;&gt;Word similarities&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;sinonimia&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; relazione binaria che lega due parole attraverso
+il significato.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;similarità o distanza&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; metrica più &amp;ldquo;loose&amp;rdquo; per dare un gradiente
+di similarità.&lt;/p&gt;
+&lt;p&gt;Queste relazioni non vanno confuse con le relazioni del thesaurus.
+Ad esempio benzina e macchina potrebbero essere collegate nel thesaurus
+ma potrebbero anche non essere sinonimi!&lt;/p&gt;
+&lt;p&gt;Come misurare la similarità tra concetti? (&lt;em&gt;i&lt;/em&gt;)path based (&lt;em&gt;ii&lt;/em&gt;)information content measures.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Path based&lt;/strong&gt;: sfrutto la gerarchia di ipernimia per stabilire il &amp;ldquo;livello&amp;rdquo; di
+somiglianza di due concetti. Esistono principalmente 2 formule per effettuare
+il calcolo: (&lt;em&gt;i&lt;/em&gt;) path distance similarity, (&lt;em&gt;ii&lt;/em&gt;) Wu-Palmer similarity.&lt;/li&gt;
+&lt;/ul&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/pathdistance.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;Path based similarities&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Path distance&lt;/code&gt;&lt;/strong&gt; similarity:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+sim_{path-distance}(c_{1}, c_{2})= \frac{1}{ShortestPath(c_{1}, c_{2})+1}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Wu-Palmer&lt;/code&gt;&lt;/strong&gt; similarity:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+sim_{Wu-Palmer}(c_{1}, c_{2})= \frac{2*depth(LCS(c_{1},c_{2}))}{depth(c_{1})+depth(c_{2})}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;Il problema della prima formula è che è molto discontinua
+e genera dei valori non ben distribuiti. Questo problema
+viene risolto da Wu-Palmer con la loro formula.
+Per chiarezza, LCS &amp;ndash;&amp;gt; Least Common Subsumer.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Information content mesaures&lt;/strong&gt;: quanto spesso questi
+concetti vengono usati nello stesso contesto.
+Dato un concetto, definisco con P(c) la probabilità
+che scelta una parola a caso  in un corpus rappresenti
+il determinato concetto.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Information content:&lt;/strong&gt; Può essere interpretato
+come il &lt;em&gt;livello di sorpresa&lt;/em&gt; di un particolare concetto. Questo indice
+infatti è alto quando c è un synset &amp;ldquo;raro&amp;rdquo; o &amp;ldquo;inaspettato&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+IC( c) = -log P( c)
+\end{equation}&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Similarità di &lt;strong&gt;&lt;code&gt;Resnik&lt;/code&gt;&lt;/strong&gt;: calcolo l&amp;rsquo;information content del
+least common subsumer.&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+sim_{resnik}(c_{1}, c_{2}) = -log(P(LCS(c1,c2)))
+\end{equation}&lt;/p&gt;
+&lt;h3 id=&#34;word-sense-disambiguation&#34;&gt;Word Sense disambiguation&lt;/h3&gt;
+&lt;p&gt;La WSD consiste essenzialmente nell&amp;rsquo;assegnare il senso corretto ad ogni
+istanza di una certa parola di interesse.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Determinare tutti i sensi che quella parola può assumere: abbastanza
+automatico usando un thesaurus;&lt;/li&gt;
+&lt;li&gt;Analizzare il contesto dove la parola compare.
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Bag of words&lt;/strong&gt;: il &lt;em&gt;contesto&lt;/em&gt; è rappresentato da un pool di parole
+&amp;ldquo;vicine&amp;rdquo; al termine di interesse che vengono estratte.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Relational information:&lt;/strong&gt; approccio più complesso che estrae altri
+parametri come la distanza.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Ecco un&amp;rsquo;approccio per implementare il tutto:&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;for each noun N, for each sense Sn of N:
+  compute confidence Csn in choosing sn as sense of N
+select sense with higher confidence
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ora la domanda è: come calcolo la &lt;code&gt;confidence&lt;/code&gt; \(C_{s_{n}}\) ?&lt;/p&gt;
+&lt;p&gt;\(\rightarrow\) mi baso sulla similarità tra \(s_{n}\) e tutti gli altri sensi delle parole
+nel contesto! Poi per calcolare la similitudine posso usare tecniche come la &lt;em&gt;path-based&lt;/em&gt;,
+già discussa in precedenza.&lt;/p&gt;
+&lt;p&gt;Ricapitolando, ecco lo pseudocodice dell&amp;rsquo;algoritmo:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;max_confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each Si synset di I:
+  confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each J term &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; context:
+    max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each Sj synset of J:
+      similarity &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; simil(Sj, Si)
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(similarity &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; max):
+	max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; similarity
+    confidence &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; max
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(confidence &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; max_confidence):
+    max_confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; confidence
+pick(synseth_with_confidence(max_confidence))
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Codice effettivo di un semplice word sense disambiguator in python:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;disambiguateTerms&lt;/span&gt;(terms):
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_i is target term&lt;/span&gt;
+    selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; None
+    selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_ti &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_i, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
+      score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_j &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_j term in t_i&amp;#39;s context window&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (t_i&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;t_j):
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;
+      bestScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_tj &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_j, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
+	  tempScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;wup_similarity(s_tj)
+	  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (tempScore&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;bestScore):
+	    bestScore&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tempScore
+	score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; bestScore
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (score_i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;selScore):
+	selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i
+	selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (selSense &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; None):
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(t_i,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;,selSense,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;,selSense&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;definition())
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Score: &amp;#34;&lt;/span&gt;,selScore)
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(t_i,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: --&amp;#34;&lt;/span&gt;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;query-expansion&#34;&gt;Query Expansion&lt;/h3&gt;
+&lt;p&gt;Esercizio sull&amp;rsquo;espansione di query.
+Proposta di algoritmo / soluzione:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
+&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; wordnet &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; wn
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;disambiguateTerms&lt;/span&gt;(terms):
+    selected_syns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+    syns_defs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_i is target term&lt;/span&gt;
+	selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; None
+	selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_ti &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_i, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
+	    score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+	    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_j &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_j term in t_i&amp;#39;s context window&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (t_i&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;t_j):
+		    &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;
+		bestScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
+		&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_tj &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_j, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
+		    tempScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;wup_similarity(s_tj)
+		    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (tempScore&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;bestScore):
+			bestScore&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tempScore
+		score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; bestScore
+	    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (score_i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;selScore):
+		selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i
+		selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (selSense &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; None):
+	    selected_syns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(selSense)
+	    syns_defs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(selSense&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;definition())
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; selected_syns, syns_defs
+
+&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;expand_query&lt;/span&gt;(syns):
+    res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; syns:
+	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; l &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmas():
+	      res&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(l&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;name())
+    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; res
+
+
+raw &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Insert query: &amp;#34;&lt;/span&gt;)
+tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(raw)
+nostokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;)]
+tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; nostokens]))
+pool &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;morphy(x[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens]
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(pool)
+
+selected_syns, syns_def &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; disambiguateTerms(pool)
+expanded_query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; expand_query(selected_syns)
+&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(expanded_query)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
+&lt;h2 id=&#34;full-text-indexing&#34;&gt;Full Text Indexing&lt;/h2&gt;
+&lt;h3 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h3&gt;
+&lt;p&gt;Solitamente un indice è appropriato quando:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Ho molti dati da gestire;&lt;/li&gt;
+&lt;li&gt;Quando ho un pool di dati semi-statico, quindi può essere aggiornato
+periodicamente ma non supporta frequenze troppo alte.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Gli index più usati sono (&lt;em&gt;i&lt;/em&gt;) inverted indeces, (&lt;em&gt;ii&lt;/em&gt;) suffix array, (&lt;em&gt;iii&lt;/em&gt;) signature
+files. Ovviamente si cercano sempre di capire i costi di accesso, di costruzione e
+di aggiornamento.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(n\) &amp;ndash;&amp;gt; dimensione in byte occupati dal testo;&lt;/li&gt;
+&lt;li&gt;\(m\) &amp;ndash;&amp;gt; lunghezza del pattern che voglio cercare;&lt;/li&gt;
+&lt;li&gt;\(M\) &amp;ndash;&amp;gt; byte disponibili in memoria principale;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;trie&#34;&gt;TrIe&lt;/h3&gt;
+&lt;p&gt;(prefix tree)
+Indice che memorizza stringhe, per velocizzare la ricerca e altre operazioni.&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/trie.png&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;Trie, prefix tree&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;p&gt;Costo di ricerca di una parola: \(O(m)\), quindi lineare rispetto al numero di
+caratteri della parola che sto cercando.&lt;/p&gt;
+&lt;h3 id=&#34;inverted-index&#34;&gt;Inverted Index&lt;/h3&gt;
+&lt;p&gt;L&amp;rsquo;idea è quella di memorizzare, per ogni termine \(t\), una lista di tutti i
+documenti che contengono quella parola. Ecco le componenti pricipali di
+un inverted index:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Vocabolario&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; insieme di tutte le parole contenute nella collezione di documenti.
+Per ogni parola viene mantenuta come informazione il numero di documenti in cui
+quella parola è presente (&lt;em&gt;document frequency&lt;/em&gt;).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;Posting List&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; mantiene le informazioni riguardo alla precisa locazione
+delle singole parole. Esistono due tipi di posting list:
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Document based&lt;/strong&gt;: esempio &amp;ndash;&amp;gt; car:11 (4) &amp;ndash;&amp;gt; viene indicato &lt;em&gt;in che documento&lt;/em&gt;
+compare la parola e con quale frequenza.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Word based&lt;/strong&gt;: ho la &lt;em&gt;locazione&lt;/em&gt; della parola di interesse nel documento,
+a livello posizionale.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Qui sotto sono illustrati degli esempi di record che potrebbero essere presenti
+in un inverted index. Notare come la document frequency coincida con il numero
+di caselle presenti nella posting list. Questo è il caso in cui la posting
+list sia &lt;em&gt;Document based&lt;/em&gt;. Se fosse &lt;em&gt;Word Based&lt;/em&gt;, ovviamente i nodi della
+posting list sarebbero più ingombranti: invece della frequenza all&amp;rsquo;interno
+del documento, sarebbero indicate le precise posizioni delle istanze.&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Index term&lt;/th&gt;
+&lt;th&gt;df&lt;/th&gt;
+&lt;th&gt;posting-list-couple&lt;/th&gt;
+&lt;th&gt;posting-list-couple&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;computer&lt;/td&gt;
+&lt;td&gt;2&lt;/td&gt;
+&lt;td&gt;\(D_{7},4\)&lt;/td&gt;
+&lt;td&gt;\(D_{8},2\)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Index term&lt;/th&gt;
+&lt;th&gt;df&lt;/th&gt;
+&lt;th&gt;posting-list-couple&lt;/th&gt;
+&lt;th&gt;posting-list-couple&lt;/th&gt;
+&lt;th&gt;posting-list-couple&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;database&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;td&gt;\(D_{1},2\)&lt;/td&gt;
+&lt;td&gt;\(D_{2},3\)&lt;/td&gt;
+&lt;td&gt;\(D_{3},2\)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Lo space requirment del vocabolario è abbastanza esiguo: esiste una legge che
+descrive il suo andamento chiamata &lt;code&gt;Heaps law&lt;/code&gt;.
+Ovviamente la grandezza del vocabolario dipende da tutto il preprocessing che
+viene fatto, quindi da come vengono generati i token e come vengono filtrati.&lt;/p&gt;
+&lt;p&gt;In generale, per gli inverted index &lt;em&gt;word-based&lt;/em&gt; è circa \(O(n)\).
+Solitamente è attorno al 40% se vengono omesse delle stopwords, altrimenti
+se vengono mantenute si parla circa dell&amp;rsquo;80%. Nel &lt;em&gt;document based&lt;/em&gt; invece
+si parla del di valori tra il 20% e il 40%.&lt;/p&gt;
+&lt;h3 id=&#34;costruzione-di-un-inverted-index&#34;&gt;Costruzione di un Inverted Index&lt;/h3&gt;
+&lt;p&gt;Solitamente la costruzione si basa sulla memorizzazione del vocabolario
+in un &lt;strong&gt;trie&lt;/strong&gt;. Dopo aver fatto il preprocessing si seguono i seguenti
+step:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Leggere la parola del testo&lt;/li&gt;
+&lt;li&gt;Cercare la parola nel trie&lt;/li&gt;
+&lt;li&gt;Se non è presente, viene aggiunta, altrimenti viene
+aggiornata la lista delle occorrenze di quella parola.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Costo: \(O(n)\), dove n è la somma dei token da indicizzare.
+Normalmente l&amp;rsquo;inverted index viene diviso in due file, per dividere
+il dizionario dalle posting list. Questo perchè il dizionario viene
+caricato in memoria principale, mentre le posting list rimangono
+in memoria secondaria e vengono accedute mediante degli offset.
+Nel file del vocabolario vengono memorizzate le parole, e per ogni parola
+un puntatore alla propria lista all&amp;rsquo;interno del posting file.
+Ecco un&amp;rsquo;esempio di entry all&amp;rsquo;interno di un vocabulary file:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;start&amp;rdquo; indica l&amp;rsquo;offset di inizio della lista;&lt;/li&gt;
+&lt;li&gt;&amp;ldquo;n&amp;rdquo; indica la lunghezza della lista corrispondente;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Term&lt;/th&gt;
+&lt;th&gt;Start&lt;/th&gt;
+&lt;th&gt;n&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;science&lt;/td&gt;
+&lt;td&gt;7&lt;/td&gt;
+&lt;td&gt;3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Quando devo usare il vocabolario, in che struttura dati conviene caricarlo per
+velocizzare la ricerca?
+Per chiarezza: il trie di cui parlavamo prima viene usato in fase di
+&lt;strong&gt;costruzione&lt;/strong&gt;, per facilitarla. Una volta finita la fase di costruzione,
+il file con il vocabolario viene memorizzato e il trie non serve più.
+Rimane quindi da capire quale sia la struttura più efficiente in cui
+&lt;strong&gt;caricare&lt;/strong&gt;, in seguito, il vocabolario.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Sorted Array&lt;/strong&gt; &amp;ndash;&amp;gt; ricerca binaria \((log(n))\). L&amp;rsquo;inserimento è costoso, dato
+che può comportare lo shifting degli elementi all&amp;rsquo;interno della struttura.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;B+ Tree&lt;/strong&gt; &amp;ndash;&amp;gt; veloce e efficiente ma comporta spazio extra, richiede
+la gestione di una struttura dati aggiuntiva.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Trie&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h3 id=&#34;ricerca&#34;&gt;Ricerca&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Boolean Retrieval&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Un&amp;rsquo;operazione interessante per quanto riguarda la ricerca, è la
+risoluzione di semplici query binarie. Ad esempio, si supponga che
+si vogliano cercare tutti i documenti che contengono entrambe
+le parole &amp;ldquo;computer&amp;rdquo; e &amp;ldquo;science&amp;rdquo;.
+In tal caso, supponendo che le due posting list contengano gli ID
+dei documenti in maniera &lt;strong&gt;ordinata&lt;/strong&gt;, basta un&amp;rsquo;approccio a due
+puntatori per risolvere il problema in \(O(n)\).&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(p1\) &amp;ndash;&amp;gt; puntatore al primo elemento della posting list di &amp;ldquo;computer&amp;rdquo;, che contiene
+la lista (ordinata) di documenti in cui compare la parola;&lt;/li&gt;
+&lt;li&gt;\(p2\) &amp;ndash;&amp;gt; puntatore al primo elemento della posting list di &amp;ldquo;science&amp;rdquo;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
+&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; p1 &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; NULL &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; p2 &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; NULL:
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (doc_ID(p1) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; doc_ID(p2)):
+    answer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(doc_ID(p1))
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; doc_ID(p1) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; doc_ID(p2):
+    p1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p1&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;next;
+ &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
+   p2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p2&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;next;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; answer;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;Phrasal Retrieval&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Spesso è interessante sapere, ad esempio, in quali documenti e in che
+posizione appare una determinata &lt;strong&gt;frase&lt;/strong&gt;, quindi una sequenza di parole.
+Ad esempio, si può essere interessati a capire in che posizione e in quali
+documenti appare la stringa &amp;ldquo;computer science&amp;rdquo;. Come intuibile, non basta
+sapere se in un documento appaiano entrambe, serve anche controllare che esse
+siano contigue (in questo caso).
+Per eseguire in maniera efficiente questa operazione è opportuno avere
+un inverted index &lt;strong&gt;word based&lt;/strong&gt;.
+Si seguono i seguenti passi:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Si crea una lista di documenti che contengono enrambe le parole, come
+visto nel paragrafo precedente.&lt;/li&gt;
+&lt;li&gt;Si selezionano, uno alla volta, tutti i documenti di questa lista;&lt;/li&gt;
+&lt;li&gt;Per ogni documento, si creano \(n\) vettori, dove \(n\) indica il numero
+di parole della frase (nel caso dell&amp;rsquo;esempio, \(n=2\));
+Ogni vettore contiene gli tutti gli &lt;em&gt;indici di apparizione&lt;/em&gt; di quella
+parola in quel documento;&lt;/li&gt;
+&lt;li&gt;Si cercano le tuple corrette all&amp;rsquo;interno dei vettori. Nell&amp;rsquo;esempio,
+si vogliono individuare tutti gli indici \(i\) tali che
+\(Computer_{i}+1 = Science_{j}\)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Vettore delle apparizioni di &amp;ldquo;Computer&amp;rdquo; nel documento \(D_{1}\) \(\downarrow\)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;i=0&lt;/th&gt;
+&lt;th&gt;i=1&lt;/th&gt;
+&lt;th&gt;i=2&lt;/th&gt;
+&lt;th&gt;i=3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;4&lt;/td&gt;
+&lt;td&gt;8&lt;/td&gt;
+&lt;td&gt;12&lt;/td&gt;
+&lt;td&gt;44&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Vettore delle apparizioni di &amp;ldquo;Science&amp;rdquo; sempre nel documento \(D_{1}\) \(\downarrow\)&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;i=0&lt;/th&gt;
+&lt;th&gt;i=1&lt;/th&gt;
+&lt;th&gt;i=2&lt;/th&gt;
+&lt;th&gt;i=3&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;6&lt;/td&gt;
+&lt;td&gt;9&lt;/td&gt;
+&lt;td&gt;32&lt;/td&gt;
+&lt;td&gt;45&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;In questo caso, la frase &amp;ldquo;computer science&amp;rdquo; compare agli indici 1 e 3,
+perchè i valori corrispondenti sono contigui!
+Ecco lo pseudocodice, da applicare ad ogni documento \(d \in D\):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(P\) = insieme di tutti gli array del documento corrente;&lt;/li&gt;
+&lt;li&gt;\(k_{i}\) = keyword i-esima;&lt;/li&gt;
+&lt;li&gt;\(P_{i}\) = array delle apparizioni di \(k_{i}\);&lt;/li&gt;
+&lt;li&gt;\(P_{s}\) = array delle apparizioni più corto;&lt;/li&gt;
+&lt;li&gt;\(k_{s}\) = keyword che compare meno volte;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;In questo caso, si intende semplicemente ritornare la lista dei documenti
+che contengono la frase cercata.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each position p &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; Ps:
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each keyword ki &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; ks: &lt;span style=&#34;color:#75715e&#34;&gt;# per tutte le altre keyword della frase&lt;/span&gt;
+    use BinarySearch to find a position (p&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;s) &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; Pi
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; correct position &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each keyword found, add d to answer &lt;span style=&#34;color:#75715e&#34;&gt;# d is current document&lt;/span&gt;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; next position, going on &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; loop
+&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; answer
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;modelling&#34;&gt;Modelling&lt;/h2&gt;
+&lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/021122.html&#34;&gt;Lezione 02-11-22 e 03-11-22&lt;/a&gt;&lt;/p&gt;
 </content>
     </item>
     
@@ -4097,592 +4689,6 @@ Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigera
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/271022.html&#34;&gt;Lezione 27/10/22&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-    </item>
-    
-    <item>
-      <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
-      <link>/gestione/</link>
-      <pubDate>Fri, 21 Oct 2022 12:46:48 +0200</pubDate>
-      
-      <guid>/gestione/</guid>
-      <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Gestione dell&amp;rsquo;informazione&amp;rdquo; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide del corso.
-→ Link per accedere al materiale didattico:
-https://moodle.unimore.it/course/view.php?id=7287
-Troubleshooting Se la pagina non carica correttamente i contenuti in latec, basta ricaricare la pagina una o al massimo un paio di volte.</description>
-      <content>&lt;h2 id=&#34;cosa-posso-trovare-qui&#34;&gt;&lt;em&gt;Cosa posso trovare qui?&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;ldquo;Gestione dell&amp;rsquo;informazione&amp;rdquo; del corso di laurea triennale in informatica
-di Unimore.
-Verranno quindi riportati gli approfondimenti/chiarimenti che vengono
-fatti durante le lezioni. Il materiale non è sostitutivo alle slide del corso.&lt;/p&gt;
-&lt;p&gt;→ Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt;:&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://moodle.unimore.it/course/view.php?id=7287&#34;&gt;https://moodle.unimore.it/course/view.php?id=7287&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;troubleshooting&#34;&gt;&lt;em&gt;Troubleshooting&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;Se la pagina non carica correttamente i contenuti in latec, basta &lt;code&gt;ricaricare&lt;/code&gt; la pagina
-una o al massimo un paio di volte. Questo problema può essere legato alla grande
-quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;ir--table-of-contents&#34;&gt;(IR) TABLE OF CONTENTS&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#text-operations&#34;&gt;Text Operations&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#full-text-indexing&#34;&gt;Full Text Indexing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;hr&gt;
-&lt;h2 id=&#34;text-operations&#34;&gt;Text Operations&lt;/h2&gt;
-&lt;h3 id=&#34;document-processing&#34;&gt;Document Processing&lt;/h3&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Analisi lessicale&lt;/code&gt;&lt;/strong&gt;: si converte una sequenza di caratteri in una sequenza
-di token, dei potenziali canditati per dei termini &amp;ldquo;index&amp;rdquo;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Eliminazione delle stopwords&lt;/code&gt;&lt;/strong&gt;: vengono eliminate quelle parole &amp;ldquo;inutili&amp;rdquo;
-che non danno informazioni per la ricerca.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Stemming e Lemmatization&lt;/code&gt;&lt;/strong&gt;: esempio di uno &lt;strong&gt;stem&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;connect&amp;rsquo; è lo stem
-di parole come &amp;lsquo;connected&amp;rsquo;, &amp;lsquo;connection&amp;rsquo;, &amp;lsquo;connecting&amp;rsquo;. Lo &lt;strong&gt;stemmer&lt;/strong&gt; è
-il tool che si occupa della stemmization.&lt;/p&gt;
-&lt;p&gt;esempio di un &lt;strong&gt;lemma&lt;/strong&gt; &amp;ndash;&amp;gt; &amp;lsquo;see&amp;rsquo; è il lemma per &amp;lsquo;seen&amp;rsquo; &amp;lsquo;saw&amp;rsquo;; Il &lt;strong&gt;lemmatizer&lt;/strong&gt;
-si occupa della generazione dei lemma.&lt;/p&gt;
-&lt;p&gt;Esistono alcuni parametri per giudicare uno stemmer: (i) &lt;strong&gt;correttezza&lt;/strong&gt;, (ii) &lt;strong&gt;efficacia&lt;/strong&gt;,
-(iii) miglioramento della &lt;strong&gt;performance&lt;/strong&gt;.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Selezione degli Index&lt;/code&gt;&lt;/strong&gt; in pratica vengono scelti i token più
-significativi. Può essere fatta manualmente (da esperti) oppure automaticamente.
-Esempio: &amp;ldquo;Say&amp;rdquo; &amp;ldquo;Chair&amp;rdquo; &amp;ldquo;Be&amp;rdquo; &amp;ldquo;Enough&amp;rdquo; &amp;ndash;&amp;gt; &amp;ldquo;Chair&amp;rdquo;&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Parsing&lt;/code&gt;&lt;/strong&gt;: processo di analizzare uno stream di dati input e verificare la sua
-correttezza sintattica. Questi strumenti (detti parser) lavorano sulla base
-di &amp;ldquo;banche dati&amp;rdquo; usando un approccio statistico.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Tagging&lt;/code&gt;&lt;/strong&gt;: processo che assegna alle parole il loro ruolo all&amp;rsquo;interno della frase.&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;(Verbo, Nome, Aggettivo, ecc&amp;hellip;)&lt;/p&gt;
-&lt;h3 id=&#34;thesauri&#34;&gt;Thesauri&lt;/h3&gt;
-&lt;p&gt;Un &lt;strong&gt;Thesaurus&lt;/strong&gt; è una lista di parole (sinonimi e contrari) importanti in un dato domain di conoscenza.
-Ad esempio, in ambito medico, alla parola &amp;ldquo;hand&amp;rdquo; potrebbero essere collegati concetti
-come &amp;ldquo;sanityzers&amp;rdquo;, &amp;ldquo;transplantation&amp;rdquo;, ecc..
-A livello strutturale sono quindi dei &lt;em&gt;dizionari&lt;/em&gt; che contengono associazioni.&lt;/p&gt;
-&lt;h3 id=&#34;python-nltk-the-basics&#34;&gt;Python NLTK, the basics&lt;/h3&gt;
-&lt;p&gt;In questo script vengono trattati i seguenti argomenti:
-(i) Generazione dei token, (ii) Rimozione delle stopwords, (iii) Lemmatizzazione,
-(iv) Stemming, (v) Tagging.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.lancaster &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; LancasterStemmer
-
-text &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;This is a tests&amp;#34;&lt;/span&gt;
-tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(text)
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens)
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Stopwords removal and Lemmatization&lt;/span&gt;
-wnl &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;WordNetLemmatizer()
-&lt;span style=&#34;color:#75715e&#34;&gt;# per stampare tutte le parole che non sono stopwords.&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens:
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;):
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t))
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [&amp;#39;This&amp;#39;, &amp;#39;is&amp;#39;, &amp;#39;a&amp;#39;, &amp;#39;tests&amp;#39;]&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#     This&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;#     test&lt;/span&gt;
-
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# Stemming, using Porter and Lancaster, two popular stemmers&lt;/span&gt;
-&lt;span style=&#34;color:#75715e&#34;&gt;# They give the same output for easy input&lt;/span&gt;
-porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
-
-lancaster &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; LancasterStemmer()
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([lancaster&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])
-
-&lt;span style=&#34;color:#75715e&#34;&gt;# POS tagging a list of lemmatizen tokens!&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;([nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([wnl&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmatize(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens])])
-&lt;span style=&#34;color:#75715e&#34;&gt;# --&amp;gt; [[(&amp;#39;This&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;is&amp;#39;, &amp;#39;VBZ&amp;#39;), (&amp;#39;a&amp;#39;, &amp;#39;DT&amp;#39;), (&amp;#39;test&amp;#39;, &amp;#39;NN&amp;#39;)]]&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Esercizio 1:&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;eseguire le seguenti operazioni: (i)Tokenization, (ii)Elimination of stopwords, (iii)Stemming, (iv) Selection of nouns
-su un file .txt contenente un libro di testo.
-In questo caso ho scaricato una copia locale del file, per semplicità.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
-
-path &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;./book.txt&amp;#34;&lt;/span&gt;
-file &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; open(path)
-raw &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; file&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;read()
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(raw))
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step1: tokenization&lt;/span&gt;
-tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(raw)
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step2: eliminate stopwords&lt;/span&gt;
-no_stop_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;)]
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(len(no_stop_tokens))
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step3: stemming&lt;/span&gt;
-porter &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; PorterStemmer()
-stemmed_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; ([porter&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;stem(t) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; no_stop_tokens])
-
-&lt;span style=&#34;color:#75715e&#34;&gt;#step4: get nouns thanks to tagging&lt;/span&gt;
-tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stemmed_tokens]))
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(tagged_tokens[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
-nouns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;] &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; t[&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;] &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;NN&amp;#39;&lt;/span&gt;]
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(nouns[:&lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt;])
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;wordnet--thesaurus&#34;&gt;Wordnet (Thesaurus)&lt;/h3&gt;
-&lt;p&gt;&lt;code&gt;Synset&lt;/code&gt; &amp;ndash;&amp;gt; concetto, può essere rappresentato da più parole.
-In un generico thesaurus sono chiamati &lt;em&gt;Thesaurus Index Term&lt;/em&gt;.&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/thes.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;Wordnet mette a disposizione una serie di relazioni tra i synset,
-come i seguenti:&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/relazioni.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;La relazioni solitamente più usate sono &lt;strong&gt;Hypernymy&lt;/strong&gt; e &lt;strong&gt;Meronymy&lt;/strong&gt;.
-Usare un thesaurus non è sempre una scelta corretta. In
-un search engine generico come google non ha senso, dato che il
-grafo delle relazioni diventerebbe enorme senza portare grossi benefici.
-Al contrario è molto utile in casi specifici (e.g. search engine per
-paper in ambito medico).&lt;/p&gt;
-&lt;h3 id=&#34;word-similarities&#34;&gt;Word similarities&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;sinonimia&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; relazione binaria che lega due parole attraverso
-il significato.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;similarità o distanza&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; metrica più &amp;ldquo;loose&amp;rdquo; per dare un gradiente
-di similarità.&lt;/p&gt;
-&lt;p&gt;Queste relazioni non vanno confuse con le relazioni del thesaurus.
-Ad esempio benzina e macchina potrebbero essere collegate nel thesaurus
-ma potrebbero anche non essere sinonimi!&lt;/p&gt;
-&lt;p&gt;Come misurare la similarità tra concetti? (&lt;em&gt;i&lt;/em&gt;)path based (&lt;em&gt;ii&lt;/em&gt;)information content measures.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Path based&lt;/strong&gt;: sfrutto la gerarchia di ipernimia per stabilire il &amp;ldquo;livello&amp;rdquo; di
-somiglianza di due concetti. Esistono principalmente 2 formule per effettuare
-il calcolo: (&lt;em&gt;i&lt;/em&gt;) path distance similarity, (&lt;em&gt;ii&lt;/em&gt;) Wu-Palmer similarity.&lt;/li&gt;
-&lt;/ul&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/pathdistance.png&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;Path based similarities&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Path distance&lt;/code&gt;&lt;/strong&gt; similarity:&lt;/p&gt;
-&lt;p&gt;\begin{equation}
-sim_{path-distance}(c_{1}, c_{2})= \frac{1}{ShortestPath(c_{1}, c_{2})+1}
-\end{equation}&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Wu-Palmer&lt;/code&gt;&lt;/strong&gt; similarity:&lt;/p&gt;
-&lt;p&gt;\begin{equation}
-sim_{Wu-Palmer}(c_{1}, c_{2})= \frac{2*depth(LCS(c_{1},c_{2}))}{depth(c_{1})+depth(c_{2})}
-\end{equation}&lt;/p&gt;
-&lt;p&gt;Il problema della prima formula è che è molto discontinua
-e genera dei valori non ben distribuiti. Questo problema
-viene risolto da Wu-Palmer con la loro formula.
-Per chiarezza, LCS &amp;ndash;&amp;gt; Least Common Subsumer.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Information content mesaures&lt;/strong&gt;: quanto spesso questi
-concetti vengono usati nello stesso contesto.
-Dato un concetto, definisco con P(c) la probabilità
-che scelta una parola a caso  in un corpus rappresenti
-il determinato concetto.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Information content:&lt;/strong&gt; Può essere interpretato
-come il &lt;em&gt;livello di sorpresa&lt;/em&gt; di un particolare concetto. Questo indice
-infatti è alto quando c è un synset &amp;ldquo;raro&amp;rdquo; o &amp;ldquo;inaspettato&amp;rdquo;.&lt;/p&gt;
-&lt;p&gt;\begin{equation}
-IC( c) = -log P( c)
-\end{equation}&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;Similarità di &lt;strong&gt;&lt;code&gt;Resnik&lt;/code&gt;&lt;/strong&gt;: calcolo l&amp;rsquo;information content del
-least common subsumer.&lt;/p&gt;
-&lt;p&gt;\begin{equation}
-sim_{resnik}(c_{1}, c_{2}) = -log(P(LCS(c1,c2)))
-\end{equation}&lt;/p&gt;
-&lt;h3 id=&#34;word-sense-disambiguation&#34;&gt;Word Sense disambiguation&lt;/h3&gt;
-&lt;p&gt;La WSD consiste essenzialmente nell&amp;rsquo;assegnare il senso corretto ad ogni
-istanza di una certa parola di interesse.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Determinare tutti i sensi che quella parola può assumere: abbastanza
-automatico usando un thesaurus;&lt;/li&gt;
-&lt;li&gt;Analizzare il contesto dove la parola compare.
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Bag of words&lt;/strong&gt;: il &lt;em&gt;contesto&lt;/em&gt; è rappresentato da un pool di parole
-&amp;ldquo;vicine&amp;rdquo; al termine di interesse che vengono estratte.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Relational information:&lt;/strong&gt; approccio più complesso che estrae altri
-parametri come la distanza.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Ecco un&amp;rsquo;approccio per implementare il tutto:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;for each noun N, for each sense Sn of N:
-  compute confidence Csn in choosing sn as sense of N
-select sense with higher confidence
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ora la domanda è: come calcolo la &lt;code&gt;confidence&lt;/code&gt; \(C_{s_{n}}\) ?&lt;/p&gt;
-&lt;p&gt;\(\rightarrow\) mi baso sulla similarità tra \(s_{n}\) e tutti gli altri sensi delle parole
-nel contesto! Poi per calcolare la similitudine posso usare tecniche come la &lt;em&gt;path-based&lt;/em&gt;,
-già discussa in precedenza.&lt;/p&gt;
-&lt;p&gt;Ricapitolando, ecco lo pseudocodice dell&amp;rsquo;algoritmo:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;max_confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each Si synset di I:
-  confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each J term &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; context:
-    max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each Sj synset of J:
-      similarity &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; simil(Sj, Si)
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(similarity &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; max):
-	max &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; similarity
-    confidence &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; max
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt;(confidence &lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; max_confidence):
-    max_confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; confidence
-pick(synseth_with_confidence(max_confidence))
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Codice effettivo di un semplice word sense disambiguator in python:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;disambiguateTerms&lt;/span&gt;(terms):
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_i is target term&lt;/span&gt;
-    selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; None
-    selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_ti &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_i, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
-      score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_j &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_j term in t_i&amp;#39;s context window&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (t_i&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;t_j):
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;
-      bestScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_tj &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_j, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
-	  tempScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;wup_similarity(s_tj)
-	  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (tempScore&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;bestScore):
-	    bestScore&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tempScore
-	score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; bestScore
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (score_i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;selScore):
-	selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i
-	selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (selSense &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; None):
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(t_i,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: &amp;#34;&lt;/span&gt;,selSense,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;, &amp;#34;&lt;/span&gt;,selSense&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;definition())
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Score: &amp;#34;&lt;/span&gt;,selScore)
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
-      &lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(t_i,&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;: --&amp;#34;&lt;/span&gt;)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;query-expansion&#34;&gt;Query Expansion&lt;/h3&gt;
-&lt;p&gt;Esercizio sull&amp;rsquo;espansione di query.
-Proposta di algoritmo / soluzione:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; nltk
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; stopwords
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.stem.porter &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; PorterStemmer
-&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; nltk.corpus &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; wordnet &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; wn
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;disambiguateTerms&lt;/span&gt;(terms):
-    selected_syns &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
-    syns_defs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_i &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_i is target term&lt;/span&gt;
-	selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; None
-	selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_ti &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_i, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
-	    score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
-	    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t_j &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; terms: &lt;span style=&#34;color:#75715e&#34;&gt;# t_j term in t_i&amp;#39;s context window&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (t_i&lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt;t_j):
-		    &lt;span style=&#34;color:#66d9ef&#34;&gt;continue&lt;/span&gt;
-		bestScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;
-		&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s_tj &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;synsets(t_j, wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;NOUN):
-		    tempScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;wup_similarity(s_tj)
-		    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (tempScore&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;bestScore):
-			bestScore&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;tempScore
-		score_i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; bestScore
-	    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (score_i&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt;selScore):
-		selScore &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; score_i
-		selSense &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; s_ti
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (selSense &lt;span style=&#34;color:#f92672&#34;&gt;is&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; None):
-	    selected_syns&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(selSense)
-	    syns_defs&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(selSense&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;definition())
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; selected_syns, syns_defs
-
-&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;expand_query&lt;/span&gt;(syns):
-    res &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; s &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; syns:
-	&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; l &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; s&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lemmas():
-	      res&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(l&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;name())
-    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; res
-
-
-raw &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; input (&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Insert query: &amp;#34;&lt;/span&gt;)
-tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;word_tokenize(raw)
-nostokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tokens &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;not&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; stopwords&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;words(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;english&amp;#39;&lt;/span&gt;)]
-tagged_tokens &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (nltk&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;pos_tag([t &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; t &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; nostokens]))
-pool &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; [wn&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;morphy(x[&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;]) &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; x &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; tagged_tokens]
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(pool)
-
-selected_syns, syns_def &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; disambiguateTerms(pool)
-expanded_query &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; expand_query(selected_syns)
-&lt;span style=&#34;color:#66d9ef&#34;&gt;print&lt;/span&gt;(expanded_query)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;hr&gt;
-&lt;h2 id=&#34;full-text-indexing&#34;&gt;Full Text Indexing&lt;/h2&gt;
-&lt;h3 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h3&gt;
-&lt;p&gt;Solitamente un indice è appropriato quando:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Ho molti dati da gestire;&lt;/li&gt;
-&lt;li&gt;Quando ho un pool di dati semi-statico, quindi può essere aggiornato
-periodicamente ma non supporta frequenze troppo alte.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Gli index più usati sono (&lt;em&gt;i&lt;/em&gt;) inverted indeces, (&lt;em&gt;ii&lt;/em&gt;) suffix array, (&lt;em&gt;iii&lt;/em&gt;) signature
-files. Ovviamente si cercano sempre di capire i costi di accesso, di costruzione e
-di aggiornamento.&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;\(n\) &amp;ndash;&amp;gt; dimensione in byte occupati dal testo;&lt;/li&gt;
-&lt;li&gt;\(m\) &amp;ndash;&amp;gt; lunghezza del pattern che voglio cercare;&lt;/li&gt;
-&lt;li&gt;\(M\) &amp;ndash;&amp;gt; byte disponibili in memoria principale;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;trie&#34;&gt;TrIe&lt;/h3&gt;
-&lt;p&gt;(prefix tree)
-Indice che memorizza stringhe, per velocizzare la ricerca e altre operazioni.&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/trie.png&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 2: &lt;/span&gt;Trie, prefix tree&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;p&gt;Costo di ricerca di una parola: \(O(m)\), quindi lineare rispetto al numero di
-caratteri della parola che sto cercando.&lt;/p&gt;
-&lt;h3 id=&#34;inverted-index&#34;&gt;Inverted Index&lt;/h3&gt;
-&lt;p&gt;L&amp;rsquo;idea è quella di memorizzare, per ogni termine \(t\), una lista di tutti i
-documenti che contengono quella parola. Ecco le componenti pricipali di
-un inverted index:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Vocabolario&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; insieme di tutte le parole contenute nella collezione di documenti.
-Per ogni parola viene mantenuta come informazione il numero di documenti in cui
-quella parola è presente (&lt;em&gt;document frequency&lt;/em&gt;).&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;&lt;code&gt;Posting List&lt;/code&gt;&lt;/strong&gt; &amp;ndash;&amp;gt; mantiene le informazioni riguardo alla precisa locazione
-delle singole parole. Esistono due tipi di posting list:
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Document based&lt;/strong&gt;: esempio &amp;ndash;&amp;gt; car:11 (4) &amp;ndash;&amp;gt; viene indicato &lt;em&gt;in che documento&lt;/em&gt;
-compare la parola e con quale frequenza.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Word based&lt;/strong&gt;: ho la &lt;em&gt;locazione&lt;/em&gt; della parola di interesse nel documento,
-a livello posizionale.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Qui sotto sono illustrati degli esempi di record che potrebbero essere presenti
-in un inverted index. Notare come la document frequency coincida con il numero
-di caselle presenti nella posting list. Questo è il caso in cui la posting
-list sia &lt;em&gt;Document based&lt;/em&gt;. Se fosse &lt;em&gt;Word Based&lt;/em&gt;, ovviamente i nodi della
-posting list sarebbero più ingombranti: invece della frequenza all&amp;rsquo;interno
-del documento, sarebbero indicate le precise posizioni delle istanze.&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Index term&lt;/th&gt;
-&lt;th&gt;df&lt;/th&gt;
-&lt;th&gt;posting-list-couple&lt;/th&gt;
-&lt;th&gt;posting-list-couple&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;computer&lt;/td&gt;
-&lt;td&gt;2&lt;/td&gt;
-&lt;td&gt;\(D_{7},4\)&lt;/td&gt;
-&lt;td&gt;\(D_{8},2\)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Index term&lt;/th&gt;
-&lt;th&gt;df&lt;/th&gt;
-&lt;th&gt;posting-list-couple&lt;/th&gt;
-&lt;th&gt;posting-list-couple&lt;/th&gt;
-&lt;th&gt;posting-list-couple&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;database&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;td&gt;\(D_{1},2\)&lt;/td&gt;
-&lt;td&gt;\(D_{2},3\)&lt;/td&gt;
-&lt;td&gt;\(D_{3},2\)&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Lo space requirment del vocabolario è abbastanza esiguo: esiste una legge che
-descrive il suo andamento chiamata &lt;code&gt;Heaps law&lt;/code&gt;.
-Ovviamente la grandezza del vocabolario dipende da tutto il preprocessing che
-viene fatto, quindi da come vengono generati i token e come vengono filtrati.&lt;/p&gt;
-&lt;p&gt;In generale, per gli inverted index &lt;em&gt;word-based&lt;/em&gt; è circa \(O(n)\).
-Solitamente è attorno al 40% se vengono omesse delle stopwords, altrimenti
-se vengono mantenute si parla circa dell&amp;rsquo;80%. Nel &lt;em&gt;document based&lt;/em&gt; invece
-si parla del di valori tra il 20% e il 40%.&lt;/p&gt;
-&lt;h3 id=&#34;costruzione-di-un-inverted-index&#34;&gt;Costruzione di un Inverted Index&lt;/h3&gt;
-&lt;p&gt;Solitamente la costruzione si basa sulla memorizzazione del vocabolario
-in un &lt;strong&gt;trie&lt;/strong&gt;. Dopo aver fatto il preprocessing si seguono i seguenti
-step:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Leggere la parola del testo&lt;/li&gt;
-&lt;li&gt;Cercare la parola nel trie&lt;/li&gt;
-&lt;li&gt;Se non è presente, viene aggiunta, altrimenti viene
-aggiornata la lista delle occorrenze di quella parola.&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Costo: \(O(n)\), dove n è la somma dei token da indicizzare.
-Normalmente l&amp;rsquo;inverted index viene diviso in due file, per dividere
-il dizionario dalle posting list. Questo perchè il dizionario viene
-caricato in memoria principale, mentre le posting list rimangono
-in memoria secondaria e vengono accedute mediante degli offset.
-Nel file del vocabolario vengono memorizzate le parole, e per ogni parola
-un puntatore alla propria lista all&amp;rsquo;interno del posting file.
-Ecco un&amp;rsquo;esempio di entry all&amp;rsquo;interno di un vocabulary file:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&amp;ldquo;start&amp;rdquo; indica l&amp;rsquo;offset di inizio della lista;&lt;/li&gt;
-&lt;li&gt;&amp;ldquo;n&amp;rdquo; indica la lunghezza della lista corrispondente;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Term&lt;/th&gt;
-&lt;th&gt;Start&lt;/th&gt;
-&lt;th&gt;n&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;science&lt;/td&gt;
-&lt;td&gt;7&lt;/td&gt;
-&lt;td&gt;3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Quando devo usare il vocabolario, in che struttura dati conviene caricarlo per
-velocizzare la ricerca?
-Per chiarezza: il trie di cui parlavamo prima viene usato in fase di
-&lt;strong&gt;costruzione&lt;/strong&gt;, per facilitarla. Una volta finita la fase di costruzione,
-il file con il vocabolario viene memorizzato e il trie non serve più.
-Rimane quindi da capire quale sia la struttura più efficiente in cui
-&lt;strong&gt;caricare&lt;/strong&gt;, in seguito, il vocabolario.&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Sorted Array&lt;/strong&gt; &amp;ndash;&amp;gt; ricerca binaria \((log(n))\). L&amp;rsquo;inserimento è costoso, dato
-che può comportare lo shifting degli elementi all&amp;rsquo;interno della struttura.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;B+ Tree&lt;/strong&gt; &amp;ndash;&amp;gt; veloce e efficiente ma comporta spazio extra, richiede
-la gestione di una struttura dati aggiuntiva.&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Trie&lt;/strong&gt;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h3 id=&#34;ricerca&#34;&gt;Ricerca&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Boolean Retrieval&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Un&amp;rsquo;operazione interessante per quanto riguarda la ricerca, è la
-risoluzione di semplici query binarie. Ad esempio, si supponga che
-si vogliano cercare tutti i documenti che contengono entrambe
-le parole &amp;ldquo;computer&amp;rdquo; e &amp;ldquo;science&amp;rdquo;.
-In tal caso, supponendo che le due posting list contengano gli ID
-dei documenti in maniera &lt;strong&gt;ordinata&lt;/strong&gt;, basta un&amp;rsquo;approccio a due
-puntatori per risolvere il problema in \(O(n)\).&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;\(p1\) &amp;ndash;&amp;gt; puntatore al primo elemento della posting list di &amp;ldquo;computer&amp;rdquo;, che contiene
-la lista (ordinata) di documenti in cui compare la parola;&lt;/li&gt;
-&lt;li&gt;\(p2\) &amp;ndash;&amp;gt; puntatore al primo elemento della posting list di &amp;ldquo;science&amp;rdquo;;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;answer &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; []
-&lt;span style=&#34;color:#66d9ef&#34;&gt;while&lt;/span&gt; p1 &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; NULL &lt;span style=&#34;color:#f92672&#34;&gt;and&lt;/span&gt; p2 &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; NULL:
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; (doc_ID(p1) &lt;span style=&#34;color:#f92672&#34;&gt;==&lt;/span&gt; doc_ID(p2)):
-    answer&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;append(doc_ID(p1))
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; doc_ID(p1) &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; doc_ID(p2):
-    p1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p1&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;next;
- &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;
-   p2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; p2&lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt;next;
-&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; answer;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;code&gt;Phrasal Retrieval&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Spesso è interessante sapere, ad esempio, in quali documenti e in che
-posizione appare una determinata &lt;strong&gt;frase&lt;/strong&gt;, quindi una sequenza di parole.
-Ad esempio, si può essere interessati a capire in che posizione e in quali
-documenti appare la stringa &amp;ldquo;computer science&amp;rdquo;. Come intuibile, non basta
-sapere se in un documento appaiano entrambe, serve anche controllare che esse
-siano contigue (in questo caso).
-Per eseguire in maniera efficiente questa operazione è opportuno avere
-un inverted index &lt;strong&gt;word based&lt;/strong&gt;.
-Si seguono i seguenti passi:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;Si crea una lista di documenti che contengono enrambe le parole, come
-visto nel paragrafo precedente.&lt;/li&gt;
-&lt;li&gt;Si selezionano, uno alla volta, tutti i documenti di questa lista;&lt;/li&gt;
-&lt;li&gt;Per ogni documento, si creano \(n\) vettori, dove \(n\) indica il numero
-di parole della frase (nel caso dell&amp;rsquo;esempio, \(n=2\));
-Ogni vettore contiene gli tutti gli &lt;em&gt;indici di apparizione&lt;/em&gt; di quella
-parola in quel documento;&lt;/li&gt;
-&lt;li&gt;Si cercano le tuple corrette all&amp;rsquo;interno dei vettori. Nell&amp;rsquo;esempio,
-si vogliono individuare tutti gli indici \(i\) tali che
-\(Computer_{i}+1 = Science_{j}\)&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Vettore delle apparizioni di &amp;ldquo;Computer&amp;rdquo; nel documento \(D_{1}\) \(\downarrow\)&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;i=0&lt;/th&gt;
-&lt;th&gt;i=1&lt;/th&gt;
-&lt;th&gt;i=2&lt;/th&gt;
-&lt;th&gt;i=3&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;4&lt;/td&gt;
-&lt;td&gt;8&lt;/td&gt;
-&lt;td&gt;12&lt;/td&gt;
-&lt;td&gt;44&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Vettore delle apparizioni di &amp;ldquo;Science&amp;rdquo; sempre nel documento \(D_{1}\) \(\downarrow\)&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;i=0&lt;/th&gt;
-&lt;th&gt;i=1&lt;/th&gt;
-&lt;th&gt;i=2&lt;/th&gt;
-&lt;th&gt;i=3&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;6&lt;/td&gt;
-&lt;td&gt;9&lt;/td&gt;
-&lt;td&gt;32&lt;/td&gt;
-&lt;td&gt;45&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;In questo caso, la frase &amp;ldquo;computer science&amp;rdquo; compare agli indici 1 e 3,
-perchè i valori corrispondenti sono contigui!
-Ecco lo pseudocodice, da applicare ad ogni documento \(d \in D\):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;\(P\) = insieme di tutti gli array del documento corrente;&lt;/li&gt;
-&lt;li&gt;\(k_{i}\) = keyword i-esima;&lt;/li&gt;
-&lt;li&gt;\(P_{i}\) = array delle apparizioni di \(k_{i}\);&lt;/li&gt;
-&lt;li&gt;\(P_{s}\) = array delle apparizioni più corto;&lt;/li&gt;
-&lt;li&gt;\(k_{s}\) = keyword che compare meno volte;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;p&gt;In questo caso, si intende semplicemente ritornare la lista dei documenti
-che contengono la frase cercata.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each position p &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; Ps:
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each keyword ki &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; ks: &lt;span style=&#34;color:#75715e&#34;&gt;# per tutte le altre keyword della frase&lt;/span&gt;
-    use BinarySearch to find a position (p&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;s) &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; Pi
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; correct position &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each keyword found, add d to answer &lt;span style=&#34;color:#75715e&#34;&gt;# d is current document&lt;/span&gt;
-  &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; next position, going on &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; loop
-&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; answer
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
     <item>
