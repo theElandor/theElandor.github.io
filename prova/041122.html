@@ -1,0 +1,477 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Parsing 2, 03/11/22</b></title>
+<!-- 2022-11-04 Fri 17:26 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="html_style.css" />
+<style>.container{padding-left: 90px; padding-right: 90px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Parsing 2, 03/11/22</b></h1>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Info</h2>
+<div class="outline-text-2" id="text-">
+<p>
+Questa pagina riassume i concetti visti a lezione.
+Per quanto riguarda gli esempi pratici, vengono trattati
+in modo estensivo sulle slide.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of contents</h2>
+<div class="outline-text-2" id="text-">
+<ol class="org-ol">
+<li><a href="#sec-1">Parsing Predittivi</a>
+</li>
+<li><a href="#sec-2">Grammatiche <b>NON</b> LL(1)</a>
+</li>
+<li><a href="#sec-3">First e Follow</a>
+</li>
+<li><a href="#sec-5">Tabella di Parsing</a>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Parsing Predittivi</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I parser a discesa ricorsiva possono risultare lenti per
+grammatiche estese, ma esistono anche altri approcci per 
+la progettazione dei parser.
+</p>
+<blockquote>
+<p>
+Un parser <b>predittivo</b> sceglie ad ogni passo la produzione
+corretta, effettuando un lookahead per soddisfare l'input.
+</p>
+</blockquote>
+<p>
+In questo corso ci si occuperà di parser su grammatiche \(LL(1)\) \(\rightarrow\) (left-left 1),
+ossia grammatiche con solo derivazioni canoniche sinistre e che leggono
+l'input da sinistra verso destra, basandosi su un 
+lookahead di 1 carattere. Infatti implementare un lookahead
+di più caratteri diventa estremamente costoso dal punto di vista
+computazionale.
+</p>
+
+<blockquote>
+<p>
+<b>Lookahead di 1</b> significa che al parser basta conoscere
+il prossimo carattere di input per sapere quale produzione
+applicare.
+</p>
+</blockquote>
+<p>
+E' quindi necessario riuscire a progettare delle grammatiche
+che possano essere compatibili con questa logica di parsing.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Grammatiche <b>NON</b> LL(1)</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Una caratteristica che impedisce ad una grammatica di essere
+LL(1) è il fatto di avere <b>prefissi comuni</b>, ad esempio: 
+</p>
+\begin{align}
+& A \rightarrow aB | aC \\
+& B \rightarrow aB | B \\ 
+& C \rightarrow aC | C \\ 
+\end{align}
+<p>
+in questo caso, in presenza di un carattere di input \(a\),
+il parser non è in grado di decidere quale produzione 
+applicare, se \(A \rightarrow aB\) oppure \(A \rightarrow aC\).
+Ma non sempre vedere questa caratteristica è immediato, quindi
+è necessario avere dei criteri specifici, elencati di seguito \(\Downarrow\)
+</p>
+<hr >
+<p>
+Consideriamo la semplice produzione
+</p>
+\begin{equation}
+A \rightarrow \alpha|\beta
+\end{equation}
+<p>
+in cui &alpha; e &beta; sono dei caratteri <b>non terminali</b>.
+Una grammatica <b>non può essere</b> LL(1) in questi casi:
+</p>
+<ul class="org-ul">
+<li>se \(\alpha \overset{*} \Rightarrow a\alpha'\) e \(\beta \overset{*} \Rightarrow a\beta'\),
+quindi se si presenta un prefisso comune dopo * derivazioni;
+</li>
+<li>se \(\alpha\) è <i>nullificabile</i>, quindi se \(\alpha \overset{*} \Rightarrow \epsilon\),
+allora \(\beta\) non deve esserlo, altrimenti il parser in caso di bisogno
+non saprebbe come eliminare il carattere non terminale A.
+</li>
+<li>se \(\alpha\) è <i>nullificabile</i>, e \(\beta \overset{*} \Rightarrow a\beta'\), allora
+non si vuole che \(S \overset{*} \Rightarrow \gamma_{1}Aa\gamma_{2}\).
+Infatti se ci si trova \(\Rightarrow \gamma_{1}Aa\gamma_{2}\), e si vuole
+matchare un carattere \(a\) (sviluppando il carattere non terminale A, dato che \(\gamma_{1}\) e \(\gamma_{2}\) sequenze di caratteri
+non terminali), si possono fare due scelte:
+<ol class="org-ol">
+<li>\(A \rightarrow \alpha \rightarrow \epsilon\);
+</li>
+<li>\(A \rightarrow \beta \rightarrow a\beta'\);
+</li>
+</ol>
+<p>
+in entrambi i casi si otterrebbe un match con \(a\), quindi 
+ci sarebbe indecisione e indeterminismo.
+</p>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> First e Follow</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Quando si parla di grammatiche LL(\(k\)) e di parsing
+predittivo, è utile creare dei livelli di astrazione,
+per agevolare lo studio e la notazione.
+</p>
+
+<blockquote>
+<p>
+Si dice <b>FIRST(&alpha;)</b> l'insieme dei simboli <b>terminali</b> con cui
+può iniziare una frase derivabile da \(\alpha\).
+</p>
+</blockquote>
+
+<blockquote>
+<p>
+Si dice <b>FOLLOW(A)</b> l'insieme dei simboli <b>terminali</b> che posso
+trovare subito dopo A applicando delle derivazioni.
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> <b>First</b></h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Consideriamo il termine \(X\) come se fosse un generico carattere, terminale o non terminale.
+</p>
+<ul class="org-ul">
+<li>se X è terminale, allora FIRST(X) = {X};
+</li>
+<li>se X è non terminale, allora se esiste la produzione
+</li>
+</ul>
+\begin{equation}
+X \rightarrow X_{1}X_{2}...X_{n} 
+\end{equation}
+<p>
+allora FIRST(X) può essere:
+</p>
+<ul class="org-ul">
+<li>FIRST(\(X_{1}\)), oppure
+</li>
+<li>FIRST(\(X_{1}\)) \(\cup\) FIRST(\(X_{2}\)) se \(X_{1}\) è nullificabile, oppure
+</li>
+<li>FIRST(\(X_{1}\)) \(\cup\) FIRST(\(X_{2}\)) \(\cup\) FIRST(\(X_{3}\)) se \(X_{1}\) e \(X_{2}\) sono nullificabili, e così via.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> <b>Follow</b></h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Supponiamo di dover calcolare il FOLLOW(A).
+</p>
+<ul class="org-ul">
+<li>Se esiste \(B \rightarrow \alpha A \beta\), allora FOLLOW(A)
+comprende FIRST(\(\beta\));
+</li>
+<li>Se esiste \(B \rightarrow \alpha A\), allora i FOLLOW(A)
+comprendono anche i FOLLOW(B). Per capire meglio, si osservi la seguente casistica:
+</li>
+</ul>
+\begin{equation}
+B\gamma_{1} \overset{B \rightarrow \alpha A \beta} \rightarrow \alpha A\gamma_{1}
+\end{equation}
+<p>
+si vede chiaramente che \(\gamma_{1}\) (che appartiene ai follow di \(B\)) si 
+trova dopo \(A\).
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Definizione Compatta</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Viste le precedenti definizioni di First e Follow,
+si può affermare che in una grammatica LL(1) in
+cui esistono due produzioni
+</p>
+\begin{align}
+& A \rightarrow \alpha \\
+& A \rightarrow \beta
+\end{align}
+<p>
+sono vere le seguenti affermazioni:
+</p>
+<ol class="org-ol">
+<li>FIRST(\(\alpha\)) \(\cap\) FIRST(\(\beta\)) \(= \{\}\);
+</li>
+<li>FIRST (\(\beta\)) \(\cap\) FOLLOW(\(A\)) \(= \{\}\);
+</li>
+</ol>
+<p>
+che semplicemente riassumono i concetti spiegati prima
+tramite gli esempi.
+E' sempre bene ricordare che una grammatica è LL(\(k\)) quando
+<b>non presenta ricorsioni a sinistra</b>;
+</p>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Tabella di Parsing</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Ora l'idea è quella di usare le nozioni apprese sui 
+FOLLOW e i FIRST per costruire una <b>tabella</b> di parsing,
+in modo da avere un "ruleset" specifico per ogni
+situazione in cui il parser si trova in un generico momento,
+in modo da fargli sempre fare la scelta corretta.
+In particolare, <i>per ogni "prossimo" simbolo di input e per ogni simbolo non terminale in cui ci si trova, si specifica quale produzione usare</i>.
+Questo si traduce in una tabella in cui:
+</p>
+<ul class="org-ul">
+<li>Gli indici di <b>riga</b> sono i <b>non terminali</b>;
+</li>
+<li>Gli indici di <b>colonna</b> sono i simboli di input, quindi i <b>terminali</b>;
+</li>
+<li>Le caselle indicano che produzione usare in ogni situazione;
+</li>
+</ul>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-11-04 Fri 17:26</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>
