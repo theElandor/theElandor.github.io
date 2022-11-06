@@ -655,30 +655,28 @@ rispetto ai termini <b>comuni</b>.
 Un termine <b>raro</b> è un termine presente in pochi documenti.
 </p>
 </blockquote>
-
+<hr >
 <ul class="org-ul">
 <li><p>
-df di un termine i --> in quanti documenti quel termine è presente
+\(df_{i}\) --> in quanti documenti quel termine è presente
+</p>
+</li>
+<li><p>
+\(idf_{i}\) = \(\log(N/df_{i})\) --> indice di <b>rarità</b> del termine
+\(i\) all'interno della collection.
 </p>
 </li>
 </ul>
-<p>
-idf = N/dfi --> quindi si usa una misura inversa.
-idfi = log (N/dfi) --> effetti di "dumpening"
-</p>
-
+<hr >
 <p>
 
 <div class="row top-buffer"> </div>
 <img src="./df.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
 <div class="row top-buffer"> </div>
 
-</p>
-
-<p>
-Quindi, applicando questo concetto, otteniamo che il 
-peso aumenta con la sua frequenza all'interno del documento
-e la rarità all'interno della collection.
+Quindi il peso del termine \(i\) nel documento \(j\) è pari alla 
+sua frequenza all'interno del documento moltiplicata per
+la sua "rarità" all'interno della collection.
 </p>
 
 \begin{equation}
@@ -770,6 +768,94 @@ Supponiamo che in media un token di una query appaia in B documenti.
 Allora il <b>retrieval time</b> è \(O(|Q|B)\), molto meglio della ricerca
 che analizza tutti gli \(N\) documenti.
 </p>
+
+<p>
+Il problema è che non si riesce subito a calcolare l'indice di similarity
+,perchè non si ha una struttura dati che che lo permette.
+L'idea è quindi quella di costruire un'hash table in modo incrementale 
+in cui si memorizza lo "score" di ogni documento. \(/Downarrow\)
+</p>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-4-1" nil> 4.1 Inverted Index Retrieval Algorithm &triangledown;</h3>
+</button><div class='sec-4-1 collapsible-content'>
+<ul class="org-ul">
+<li><p>
+Q \(\rightarrow\) query di input;
+</p>
+</li>
+<li><p>
+R \(\rightarrow\) Hash Table vuota;
+</p>
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-4-1-1" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-4-1-1" nil> 4.1.1 Fill table &triangledown;</h4>
+</button><div class='sec-4-1-1 collapsible-content'>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #ff79c6;">for</span> each token T <span style="color: #ff79c6;">in</span> Q:
+  <span style="color: #ffc9e8;">I</span> = IDF of T (n.of documents where the token appears / total N of docs)
+  <span style="color: #ffc9e8;">K</span> = count of T <span style="color: #ff79c6;">in</span> Q
+  <span style="color: #ffc9e8;">w</span> = Weight of T <span style="color: #ff79c6;">in</span> <span style="color: #ffc9e8;">Q</span> = I*K
+
+  <span style="color: #ffc9e8;">L</span> = posting_list(T) (each node has (i)doc ID <span style="color: #ff79c6;">and</span> (ii) n.of occurences)
+  <span style="color: #ffc9e8;">O</span> = occurence
+  <span style="color: #ff79c6;">for</span> each O <span style="color: #ff79c6;">in</span> L:
+    <span style="color: #ffc9e8;">C</span> = count
+    <span style="color: #ffc9e8;">D</span> = document
+    <span style="color: #ffc9e8;">R</span>[D] = R[D] + w_q * <span style="color: #ffc9e8;">w_i</span> = w * I * C     
+</pre>
+</div>
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./algo.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-4-1-2" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-4-1-2" nil> 4.1.2 Compute similarity &triangledown;</h4>
+</button><div class='sec-4-1-2 collapsible-content'>
+<div class="org-src-container">
+
+<pre class="src src-python"><span style="color: #ffc9e8;">L</span> = length(Q) --&gt; sqrt of <span style="color: #ffb86c;">sum</span> of square of weights
+<span style="color: #ff79c6;">for</span> D <span style="color: #ff79c6;">in</span> R: (so <span style="color: #ff79c6;">for</span> each document <span style="color: #ff79c6;">in</span> <span style="color: #ffb86c;">hash</span> table)
+  <span style="color: #ffc9e8;">S</span> = R[D]
+  <span style="color: #ffc9e8;">Y</span> = length(D)
+  simil(D) = S/(L*Y) --&gt; so L <span style="color: #ff79c6;">is</span> same <span style="color: #ff79c6;">for</span> each document
+</pre>
+</div>
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./algo2.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-5" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-5" style="text-decoration: underline"> 5 Modello Probabilistico &triangledown;</h2>
+</button><div class='sec-5 collapsible-content'>
+<p>
+Il modello vuole capire "con quale probabilità" un documento 
+è di interesse.
+Rdq --> 1 se il documento d è rilevante per la query, 0 altrimenti.
+Ci si vuole calcolare la P(Rdq == 1 | d,q)
+</p>
 </div>
 </div>
    </div>
@@ -789,7 +875,7 @@ che analizza tutti gli \(N\) documenti.
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-04 Fri 20:32</p>
+<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-06 Sun 15:55</p>
 </div>
 </footer>
    </div>
