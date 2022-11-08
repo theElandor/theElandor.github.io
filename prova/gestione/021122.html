@@ -287,10 +287,9 @@ per il tema utilizzato.
 <h2 id="sec-1" style="text-decoration: underline"> 1 Introduzione &triangledown;</h2>
 </button><div class='sec-1 collapsible-content'>
 <p>
-Si cerca di definire un'ordinamento tra i documenti ritornati,
-in base alla loro rilevanza. Il <b>modello</b> di information retrieval
-descrive "quanto è rilevante" un certo documento.
-Un modello è definito dalla seguente quadrupla:
+Si cerca di definire un'ordinamento tra i documenti di interesse,
+in base alla loro rilevanza rispetto alla query inserita.
+Un <b>modello</b> è definito dalla seguente quadrupla:
 </p>
 
 \begin{equation}
@@ -308,7 +307,8 @@ Un modello è definito dalla seguente quadrupla:
 </li>
 </ul>
 <p>
-\(\Rightarrow\) quanto è rilevante il documento rispetto alla query?
+\(\Rightarrow\) La domanda a cui rispondere è: quanto è rilevante il documento rispetto alla query?
+Si introducono ora alcuni concetti fondamentali:
 </p>
 </div>
 </div>
@@ -795,17 +795,17 @@ R \(\rightarrow\) Hash Table vuota;
 </button><div class='sec-4-1-1 collapsible-content'>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #ff79c6;">for</span> each token T <span style="color: #ff79c6;">in</span> Q:
-  <span style="color: #ffc9e8;">I</span> = IDF of T (n.of documents where the token appears / total N of docs)
-  <span style="color: #ffc9e8;">K</span> = count of T <span style="color: #ff79c6;">in</span> Q
-  <span style="color: #ffc9e8;">w</span> = Weight of T <span style="color: #ff79c6;">in</span> <span style="color: #ffc9e8;">Q</span> = I*K
+<pre class="src src-python"><span style="color: #ff2afc; font-weight: bold;">for</span> each token T <span style="color: #ff2afc; font-weight: bold;">in</span> Q:
+  <span style="color: #df85ff;">I</span> = IDF of T (n.of documents where the token appears / total N of docs)
+  <span style="color: #df85ff;">K</span> = count of T <span style="color: #ff2afc; font-weight: bold;">in</span> Q
+  <span style="color: #df85ff;">w</span> = Weight of T <span style="color: #ff2afc; font-weight: bold;">in</span> <span style="color: #df85ff;">Q</span> = I*K
 
-  <span style="color: #ffc9e8;">L</span> = posting_list(T) (each node has (i)doc ID <span style="color: #ff79c6;">and</span> (ii) n.of occurences)
-  <span style="color: #ffc9e8;">O</span> = occurence
-  <span style="color: #ff79c6;">for</span> each O <span style="color: #ff79c6;">in</span> L:
-    <span style="color: #ffc9e8;">C</span> = count
-    <span style="color: #ffc9e8;">D</span> = document
-    <span style="color: #ffc9e8;">R</span>[D] = R[D] + w_q * <span style="color: #ffc9e8;">w_i</span> = w * I * C     
+  <span style="color: #df85ff;">L</span> = posting_list(T) (each node has (i)doc ID <span style="color: #ff2afc; font-weight: bold;">and</span> (ii) n.of occurences)
+  <span style="color: #df85ff;">O</span> = occurence
+  <span style="color: #ff2afc; font-weight: bold;">for</span> each O <span style="color: #ff2afc; font-weight: bold;">in</span> L:
+    <span style="color: #df85ff;">C</span> = count
+    <span style="color: #df85ff;">D</span> = document
+    <span style="color: #df85ff;">R</span>[D] = R[D] + w_q * <span style="color: #df85ff;">w_i</span> = w * I * C     
 </pre>
 </div>
 <p>
@@ -823,11 +823,11 @@ R \(\rightarrow\) Hash Table vuota;
 </button><div class='sec-4-1-2 collapsible-content'>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #ffc9e8;">L</span> = length(Q) --&gt; sqrt of <span style="color: #ffb86c;">sum</span> of square of weights
-<span style="color: #ff79c6;">for</span> D <span style="color: #ff79c6;">in</span> R: (so <span style="color: #ff79c6;">for</span> each document <span style="color: #ff79c6;">in</span> <span style="color: #ffb86c;">hash</span> table)
-  <span style="color: #ffc9e8;">S</span> = R[D]
-  <span style="color: #ffc9e8;">Y</span> = length(D)
-  simil(D) = S/(L*Y) --&gt; so L <span style="color: #ff79c6;">is</span> same <span style="color: #ff79c6;">for</span> each document
+<pre class="src src-python"><span style="color: #df85ff;">L</span> = length(Q) --&gt; sqrt of <span style="color: #1ea8fc;">sum</span> of square of weights
+<span style="color: #ff2afc; font-weight: bold;">for</span> D <span style="color: #ff2afc; font-weight: bold;">in</span> R: (so <span style="color: #ff2afc; font-weight: bold;">for</span> each document <span style="color: #ff2afc; font-weight: bold;">in</span> <span style="color: #1ea8fc;">hash</span> table)
+  <span style="color: #df85ff;">S</span> = R[D]
+  <span style="color: #df85ff;">Y</span> = length(D)
+  simil(D) = S/(L*Y) --&gt; so L <span style="color: #ff2afc; font-weight: bold;">is</span> same <span style="color: #ff2afc; font-weight: bold;">for</span> each document
 </pre>
 </div>
 <p>
@@ -858,7 +858,7 @@ R \(\rightarrow\) Hash Table vuota;
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-06 Sun 15:57</p>
+<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-08 Tue 13:44</p>
 </div>
 </footer>
    </div>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Parsing 2, 03/11/22</b></title>
-<!-- 2022-11-04 Fri 20:53 -->
+<!-- 2022-11-07 Mon 17:40 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -472,12 +472,37 @@ Questo si traduce in una tabella in cui:
 <li>Le caselle indicano che produzione usare in ogni situazione;
 </li>
 </ul>
+<hr >
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Algoritmo di costruzione della parsing table</h3>
+<div class="outline-text-3" id="text-5-1">
+<ul class="org-ul">
+<li>Per ogni produzione \(A \rightarrow \alpha\):
+<ol class="org-ol">
+<li>per ogni simbolo \(x\) in FIRST(\(\alpha\)) si pone \(M[A,X]\) = '\(A\rightarrow \alpha\)'
+</li>
+<li>se \(\epsilon\) \(\in\) FIRST(&alpha;), per ogni simbolo \(y\) in FOLLOW(\(A\)) si pone
+\(M[A,y] = 'A \rightarrow \alpha'\).
+</li>
+</ol>
+</li>
+</ul>
+<p>
+Se la grammatica è \(LL(1)\), allora in ogni casella ci sarà
+soltanto una produzione possibile. In caso contrario, significa
+che in certi passaggi il parser sarà in uno stato di indecisione
+e sarebbe costretto ad effettuare una scelta non deterministica per
+applicare la produzione corretta.
+</p>
+<hr >
+</div>
 </div>
 </div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-11-04 Fri 20:53</p>
+<p class="date">Created: 2022-11-07 Mon 17:40</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
