@@ -297,13 +297,13 @@ Introdotto nel 1945.
 <h2 id="sec-2" style="text-decoration: underline"> 2 Caratteristiche &triangledown;</h2>
 </button><div class='sec-2 collapsible-content'>
 <p>
-E' una variante del protocollo distance vector, risolvendo
+E' una variante del protocollo distance vector, risolve
 il problema dei loop inviando dei vettori di <b>percorsi</b>.
 </p>
 <ul class="org-ul">
 <li><p>
-Con BGP si capisce qual'è il percorso migliore per 
-raggiungere un determinato autonomus system.
+Grazie a questo protocollo i router riescono a capire qual'è il percorso migliore per 
+raggiungere un determinato autonomus system, partendo da quello attuale.
 </p>
 </li>
 <li><p>
@@ -313,7 +313,8 @@ un protocollo di livello 4.
 </li>
 <li><p>
 E' un protocollo <b>decentralizzato</b>, in cui ogni A.S
-inoltra le proprie informazioni agli A.S vicini.
+inoltra le proprie informazioni agli A.S vicini. (da qui la similarità
+con gli algoritmi distance-vector);
 </p>
 </li>
 </ul>
@@ -351,15 +352,14 @@ raggiungono l'A.S destinatario.
 </p>
 </li>
 <li><p>
-Tutto i i router di bordo di un A.S sono collegati
-da una rete mesh: tutti i nodi sono collegati 
-con gli altri, in modo da non avere dei problemi a
-livello di routing, per maggiorare l'efficienza.
+Tutti i router di bordo di un A.S sono collegati
+da una <b>rete mesh</b>, quindi ogni nodo è connesso con tutti gli altri, in modo da non avere dei problemi a
+livello di routing, per migliorare l'efficienza.
 </p>
 </li>
 <li><p>
 <b>EBGP</b>: variante del protocollo BGP che gestisce la comunicazione
-tra router di bordo appartenenti a diversi A.S;
+tra router di bordo appartenenti a <i>diversi</i> A.S;
 </p>
 </li>
 <li><p>
@@ -387,7 +387,7 @@ di internet a livello globale, lavorando appunto sul protocllo BGP.
 </p>
 </li>
 <li><p>
-<a href="https://www.ripe.net">https://www.ripe.net</a> \(\rightarrow\) gestisce  livello globale database di informazioni
+<a href="https://www.ripe.net">https://www.ripe.net</a> \(\rightarrow\) gestisce a livello globale database di informazioni
 sugli indirizzi IP e sul traffico di rete.
 </p>
 </li>
@@ -415,7 +415,7 @@ sugli indirizzi IP e sul traffico di rete.
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-10 Thu 11:03</p>
+<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-10 Thu 13:53</p>
 </div>
 </footer>
    </div>
