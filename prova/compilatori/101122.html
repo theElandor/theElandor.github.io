@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Parsing bottom-up, 10/11/22</b></title>
+<!-- 2022-11-10 Thu 23:58 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="html_style.css" />
+<style>.container{padding-left: 90px; padding-right: 90px;}code{color:navy;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Parsing bottom-up, 10/11/22</b></h1>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Info</h2>
+<div class="outline-text-2" id="text-">
+<p>
+Questa pagina riassume i concetti visti a lezione.
+Per quanto riguarda gli esempi pratici, vengono trattati
+in modo estensivo sulle slide.
+La lezione è una breve introduzione sui parser bottom-up.
+Viene spiegato il loro funzionamento ad alto livello.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduzione</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+I parser bottom up costruiscono la catena di produzioni in modo inverso
+rispetto ai parser visti fin'ora. A partire dall'input, cercano
+di "sostituire" i caratteri con una produzione che possa generarli,
+fino a raggiungere l'assioma. Data una generica <b>forma di frase</b>
+</p>
+\begin{equation}
+\alpha_{i} = \gamma \beta \delta	
+\end{equation}
+<p>
+, si cerca (ad esempio) uuna produzione come \(A \rightarrow \beta\)
+che ci possa permettere di <b><code>ridurre</code></b> il carattere \(\beta\). La frase
+diventa quindi
+</p>
+\begin{equation}
+\alpha_{i+1} = \gamma A \delta	
+\end{equation}
+<p>
+Se la produzione che permette di effettuare la riduzione è unica,
+allora la scelta da parte del parser è "obbligata". Ovviamente i problemi
+emergono quando possono essere applicate <b>diverse riduzioni</b>.
+Si da ora una definizione utile durante i ragionamenti che seguiranno.
+</p>
+
+<blockquote>
+<p>
+\(\blacktriangleright\) si dice <b>handle</b> la <i>parte destra</i> della produzione che 
+deve essere applicata all'inverso per effettuare l'attuale riduzione.
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Parsing Shift-Reduce</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Il parsing bottom up che prendiamo ora in esame si basa sull'uso di uno <b>stack</b> 
+di appoggio, e su due operazioni fondamentali:
+</p>
+<ul class="org-ul">
+<li><b><code>shift</code></b> \(\rightarrow\) l'attuale <i>token di input</i> viene spostato dall'input 
+ad uno stack, ovviamente in cima. Viene quindi effettuata la <b>push</b> di un token.
+</li>
+<li><b><code>reduce</code></b> \(\rightarrow\) a sua volta si divide in 2 passaggi:
+<ul class="org-ul">
+<li><b>pop</b> dei \(k\) elementi della handle;
+</li>
+<li><b>push</b> del carattere non terminale generato dalla riduzione;
+</li>
+</ul>
+</li>
+</ul>
+<p>
+Ma dove si trova la handle? \(\Rightarrow\) <b>è dimostrabile che la handle si trova sempre in cima allo stack</b>!
+Questo non vuol dire che ogni carattere o sequenza di caratteri in cima allo stack
+è automaticamente una handle. Il problema è quindi proprio questo: stabilire
+quando la cima dello stack (cima in senso lato, la handle può essere anche ovviamente una sequenza di caratteri) è la handle.
+</p>
+
+<p>
+L'idea che sta quindi alla base dell'algoritmo di parsing, è questa: <br >
+</p>
+<blockquote>
+<ul class="org-ul">
+<li>Finchè nello stack non ho soltanto l'assioma
+<ul class="org-ul">
+<li>Se in cima allo stack ho la handle, applico una <i>reduction</i>;
+</li>
+<li>altrimenti, effettuo uno <i>shift</i>, portando nello stack un nuovo carattere;
+</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+
+<p>
+In realtà i parser shift-reduce devono individuare la <b>derivazione canonica destra</b> 
+che si dovrebbe usare per ottenere (a partire dall'assioma) l'input di tokens.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Esempi</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Esempio di riduzione della stringa \(n \times n\) <br >
+</p>
+<ul class="org-ul">
+<li>Sequenza corretta \(\Downarrow\)
+</li>
+</ul>
+
+
+<figure>
+<p><img src="./reduce1.png" class="img-responsive" alt="reduce1.png">
+</p>
+</figure>
+
+<ul class="org-ul">
+<li>Sequenza errata, in cui si applica una riduzione supponendo
+che in cima allo stack ci sia sempre la handle:
+</li>
+</ul>
+
+
+<figure>
+<p><img src="./reduce2.png" class="img-responsive" alt="reduce2.png">
+</p>
+</figure>
+
+<p>
+Se usassi un parser shift-reduce che ricostruisce una <b>derivazione canonica sinistra</b>,
+è dimostrabile (in questo esempio si può facilmente notare) che <i>non è detto che le handle siano sempre in cima allo stack.</i>
+</p>
+
+
+<figure>
+<p><img src="./reduce3.png" class="img-responsive" alt="reduce3.png">
+</p>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Parser LR</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+La specifica categoria di parser bottom-up di cui ci si occuperà
+è quella dei parser LR:
+</p>
+<ul class="org-ul">
+<li><b>L</b> \(\rightarrow\): l'input è letto da sinistra verso destra;
+</li>
+<li><b>R</b> \(\rightarrow\): tipo di derivazione canonica (Right) che viene ricostruita;
+</li>
+</ul>
+
+<p>
+Questi parser sono essenzialmente degli automi a stati finiti, che si interfacciano
+con l'input e con lo stack di appoggio: \(\Downarrow\)
+</p>
+
+
+<figure>
+<p><img src="./reduce4.png" class="img-responsive" alt="reduce4.png">
+</p>
+</figure>
+
+<p>
+In particolare, ad ogni stato è associato univocamente un simbolo della grammatica.
+Per costruire questo tipo di automa si procede come al solito a ragionare
+sulla costruzione di una <b>tabella di parsing</b>;
+</p>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-11-10 Thu 23:58</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>

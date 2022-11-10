@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Nov 2022 13:47:53 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 11 Nov 2022 00:02:44 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linguaggi e compilatori</title>
       <link>/compilatori/</link>
-      <pubDate>Thu, 10 Nov 2022 13:47:53 +0100</pubDate>
+      <pubDate>Fri, 11 Nov 2022 00:02:44 +0100</pubDate>
       
       <guid>/compilatori/</guid>
       <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\)
@@ -44,6 +44,7 @@ Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigera
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/261022.html&#34;&gt;Lezione 26/10/22&lt;/a&gt; (parse tree)&lt;/li&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/271022.html&#34;&gt;Lezione 27/10/22&lt;/a&gt; (parsing 1)&lt;/li&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/041122.html&#34;&gt;Lezione 03/11/22&lt;/a&gt; (parsing 2)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/101122.html&#34;&gt;Lezione 10/11/22&lt;/a&gt; (parsing 3)&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>

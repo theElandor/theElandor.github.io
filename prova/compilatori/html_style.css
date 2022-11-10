@@ -1,0 +1,70 @@
+blockquote{
+    background-color: #FFFDC8;
+}
+
+blockquote p{
+    font-size: 20px;
+    background-color: #FFFDC8;
+}
+
+
+body {
+    font-size: 20px;
+    font-family: 'Fira Code', monospace;
+    color: #333;
+}
+.title{
+    font-size: 40px;
+    text-decoration: none;
+    font-weight: 500;    
+}
+.verse{
+    background-color: #f0fff0;
+}
+
+p{
+    font-weight: 100;
+    color: #333;
+}
+ol{
+    color: #534b4f;
+}
+
+ul{
+    color: #333;
+}
+
+
+hr{
+    border: 1px solid   #a6a6a6;
+}
+
+h1{
+    text-decoration: underline;
+}
+h2{
+    text-decoration: underline;
+    font-weight: 550;
+    font-size: 30px;
+    /*color: #23b0ff;*/
+}
+h3{
+    font-weight: 500;
+}
+
+.author{
+    font-size: 20px;
+    font-weight: 600;
+}
+.date{
+    font-size: 20px;
+}
+.creator{
+    font-size: 20px;
+}
+
+img {
+    margin-left:auto; 
+    margin-right:auto;    
+}
+
