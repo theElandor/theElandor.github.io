@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <title> <b>Modello probabilistico 10-11-22</b> </title>
-<meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="Org-mode"><meta name="author" content="Matteo Lugli">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="Org-mode"><meta name="author" content="Matteo Lugli 🐃">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -259,6 +259,306 @@ MathJax.Hub.Config({
    <div class="col-xs-10"><hr style="border: 1px solid #FFFFFF" />   </div>
    <div class="col-xs-1"></div>
 </div> <!-- end row -->
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-1" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-1" style="text-decoration: underline"> 1 Introduzione &triangledown;</h2>
+</button><div class='sec-1 collapsible-content'>
+<p>
+L'idea che sta alla base del Modello Probabilistico è
+il determinare <b>la probabilità che un documento sia rilevante</b>
+rispetto ad una query fornita dall'utente.
+Si usano quindi dei tools statistici per effettuare delle <b>stime</b> 
+e delle <b>ipotesi</b>.
+In particolare, definiamo la seguente <b>variabile aleatoria</b>:
+</p>
+\begin{align}
+& R_{d,q} = 1 \textrm{ se il documento d è rilevante per la query q} \\
+& R_{d,q} = 0 \textrm{ otherwise}
+\end{align}
+
+<p>
+In particolare, lo scopo è quello di <b>ordinare</b> i documenti
+secondo la loro <b>probabilità di rilevanza</b>, quindi secondo
+la probabilitò che \(R_{d,q}\) sia = 1.
+</p>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-2" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-2" style="text-decoration: underline"> 2 BIM in theory (1/2) &triangledown;</h2>
+</button><div class='sec-2 collapsible-content'>
+<p>
+Il <i>BIM (Binary Indipendence Model)</i> è un modello probabilistico che si basa su due elementi:
+</p>
+<ul class="org-ul">
+<li><p>
+L'<b>indipendenza</b> dei termini, quindi l'assenza della semantica;
+</p>
+</li>
+<li><p>
+L'<b>assenza di pesi reali</b>: semplicemente un termine può essere presente
+o meno all'interno di una query/documento.
+Quindi la rappresentazione logica di un documento \(j\) è
+questa: 
+</p>
+</li>
+</ul>
+\begin{equation}
+d_{j} = \{w_{1j},w_{2j},...,w_{tj}\}
+\end{equation}
+<p>
+Il tutto si basa sul <b>Probabilistic Ranking Principle (PRP)</b> \(\Downarrow\)
+</p>
+<blockquote>
+<p>
+Se i documenti vengono ordinati efficacemente in base
+alla loro probabilità di rilevanza, allora l'efficienza
+del sistema è la migliore ottenibile.
+</p>
+</blockquote>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-3" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-3" style="text-decoration: underline"> 3 BIM in practice (2/2) &triangledown;</h2>
+</button><div class='sec-3 collapsible-content'>
+<p>
+E' necessario qundi definire una <b>funzione</b> che possa
+essere usata per ottenere i valori che poi andranno
+ordinati per stilare un <b>ranking dei documenti per probabilità di rilevanza</b>.
+Usiamo la <b>similarità</b>:
+</p>
+\begin{equation}
+sim(d_{j}, q) = \frac{\overbrace{P(R|\vec{d}_{j},\vec{q})}^\text{p. che il doc. sia rilevante per la query}}{\underbrace{P(\bar{R}|\vec{d}_{j}, \vec{q})}_\text{p. che il doc NON sia rilevante per la query}}
+\end{equation}
+<p>
+Applicando la <b>regola di Bayes</b> \(\Rightarrow P(A|B)P(B) = P(B|A)P(A)\)
+</p>
+
+
+\begin{equation}
+ \frac{\overbrace{P(\vec{d}_{j}|R,\vec{q})}^\text{p. di scegliere il doc. dal pool di doc.rilevanti R} \times P(R|\vec{q})}{\overbrace{P(\vec{d}_{j}|\bar{R},\vec{q})}^\text{p. di scegliere il doc. dal pool di doc. NON rilevanti} \times P(\bar{R}|\vec{q})}
+\end{equation}
+
+<p>
+Dato che non si hanno informazioni a priori e che non influsicono sul ranking, i due termini
+a destra al numeratore e al denominatore possono essere semplificati.
+</p>
+
+<p>
+Ora riscriviamo il numeratore e il denominatore, considerando che <i>un documento
+in realtà è rappresentato come vettore di pesi binari</i>.
+</p>
+
+<p>
+Ciò significa che se preso un documento dall'insieme di documenti rilevanti
+R, esso è proprio \(d_{j}\) se contiene tutti i termini presenti (\(w_{i,j} = 1\)) in \(d_{j}\) e NON contiene
+tutti i termini assenti (\(w_{i,j} = 0\)) in \(d_{j}\). Il ragionamento
+è analogo per il denominatore.
+</p>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./bim1.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+<p>
+Ora, considerando la complementarietà delle probabilità e applicando la funzione logaritmo, si può riscrivere la formula come
+</p>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./bim2.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+<p>
+Si è essenzialmente portata fuori la produttoria, iterando su tutti i 
+termini indistintamente. In questo modo, quando il termine è presente (\(w_{i,j} = 1\)) allora si considera
+solo la prima parte elevata alla \(w_{ij}\), dato che la seconda parentesi sarà elevata alla 0 quindi varrà 1.
+Al contartio,  quando il termine NON è presente (\(1 - w_{i,j} = 1\)) allora
+alla produttoria contribuisce solo la seconda parentesi, elevata alla 1.
+</p>
+
+<p>
+Si riscrive poi la formula usando le proprietà dei logaritmi.
+Si ottiene la seguente forma
+
+<div class="row top-buffer"> </div>
+<img src="./bim3.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+<p>
+Tramite questi passaggi intermedio:
+</p>
+
+\begin{equation}
+\sum_{i=1}^t (w_{ij}log(...)+log(...)-w_{ij}log(...))
+\end{equation}
+
+<p>
+si elimina il logaritmo centrale, essendo costante e si raccoglie \(w_{ij}\) 
+</p>
+
+\begin{equation}
+\sum_{i=1}^{t} (w_{ij} (\log(...) - log(...)))
+\end{equation}
+
+<p>
+si usano le proprietà dei logaritmi (differenza di logaritmi con base uguale) e si ottiene 
+la prima delle due forme in figura.
+Si moltiplica ad ogni iterazione per \(w_{iq}\), dato che si vogliono
+considerare soltanto i termini presenti anche nella query.
+Infine si usano ancora una volta le proprietà dei logaritmi per
+la seconda delle due forme in figura.
+</p>
+
+<p>
+Consideriamo ora la costante \(c_{i}\):
+</p>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./bim4.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+<ul class="org-ul">
+<li><p>
+\(c_{i} = 0\) se un termine ha probabilità uguali di apparire in documenti
+rilevanti e non rilevanti;
+</p>
+</li>
+<li><p>
+\(c_{i} > 0\) se appare più probabilmente in documenti rilevanti;
+</p>
+</li>
+</ul>
+
+<p>
+Quindi essenzialmente per ogni documento <b>si fa la sommatoria dei \(c_{i}\) per ogni termine \(i\) presente sia nel documento che nella query</b>.
+</p>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-4" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-4" style="text-decoration: underline"> 4 Esempio &triangledown;</h2>
+</button><div class='sec-4 collapsible-content'>
+<p>
+Prima di procedere con un'esempio di applicazione, c'è una nota da fare sulla <b>probabilità iniziale</b>.
+Infatti inizialmente non si conosce il pool R di documenti
+rilevanti per la query inserita dall'utente.
+Serve quindi un modo alternativo per calcolare i due termini
+fondamentali della formula, ossia \(P(k_{i}|\bar{R},\vec{q})\) e
+\(P(k_{i}|{R},\vec{q})\)
+</p>
+
+<p>
+Si fa quindi un'assunzione iniziale: si suppone che i documenti
+rilevanti siano una piccola percentuale del pool totale, stabilendo che:
+</p>
+<ul class="org-ul">
+<li><p>
+\(P(k_{i}|R,\vec{q})\) = 0.5;
+</p>
+</li>
+<li><p>
+\(P(k_{i}|\bar{R},\vec{q})\) = \(\frac{n_{i}}{N}\);
+</p>
+</li>
+</ul>
+
+<p>
+Dopo aver fatto ciò si applicano le procedure viste, e si ottiene
+un <b>ranking iniziale</b> dei documenti.
+Si prendono i primi \(V\) documenti e si considerano come pool di documenti rilevanti.
+A questo punto si hanno tutti gli elementi della formula:
+</p>
+<ul class="org-ul">
+<li><p>
+\(P(k_{i}|R,\vec{q})\) = \(\frac{V_{i}}{V}\), dove \(V_{i}\) è il subset di V che contiene
+l'index term \(k_{i}\);
+</p>
+</li>
+<li><p>
+\(P(k_{i}|\bar{R},\vec{q})\) = \(\frac{n_{i}-V_{i}}{N-V}\);
+</p>
+</li>
+</ul>
+<p>
+Spesso si aggiungono degli offset per evitare divisioni per 0,
+per esempio:
+</p>
+\begin{equation}
+P(k_{i}|R,\vec{q}) = \frac{V_{i}+0.5}{V+1};
+\end{equation}
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./bim5.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+
+<div class="row top-buffer"> </div>
+<img src="./bim6.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-5" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-5" style="text-decoration: underline"> 5 Vantaggi e Svantaggi &triangledown;</h2>
+</button><div class='sec-5 collapsible-content'>
+<p>
+Il concetto stesso di "probabilità di essere rilevante" è
+molto utile, e questo modello ne è un'implementazione chiara ed
+efficiente.
+Dall'altro lato, come al solito si considerano i termini indipendenti, senza
+guardare alla semantica dei contenuti.
+I pesi binari poi <b>non considerano la frequenza con cui un termine compare all'interno di un documento</b>.
+E' per questo che i BIM sono utili su corpus ristretti o in ambiti specifici.
+Un'altra variabile che influenza molto il ranking è il guess iniziale sul pool di documenti
+rilevanti, il quale può spostare di molto il ranking finale.
+</p>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
 <div class="row top-buffer"> </div>
 
 <div class="row top-buffer"> </div>
@@ -272,7 +572,7 @@ MathJax.Hub.Config({
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-11 Fri 12:02</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-12 Sat 12:38</p>
 </div>
 </footer>
    </div>
