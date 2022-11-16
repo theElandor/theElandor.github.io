@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 12 Nov 2022 12:45:25 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 16 Nov 2022 22:33:45 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Sat, 12 Nov 2022 12:45:25 +0100</pubDate>
+      <pubDate>Wed, 16 Nov 2022 22:33:45 +0100</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -62,6 +62,7 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#ip--subnetting&#34;&gt;(IP) Subnetting&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#ip--ip-routing&#34;&gt;(IP) Ip routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#bgp&#34;&gt;BGP&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#tcp--lezione-15-11-22&#34;&gt;(TCP) Lezione 15/11/22&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-20-10&#34;&gt;Lab 20-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-27-10&#34;&gt;Lab 27-10&lt;/a&gt;&lt;/li&gt;
@@ -873,6 +874,10 @@ che sia un multiplo di 32 bit. Simile al &amp;ldquo;byte stuffing&amp;rdquo;.&lt
 &lt;p&gt;Breve introduzione al protocollo BGP:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/bgp.html&#34;&gt;BGP&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;tcp--lezione-15-11-22&#34;&gt;(TCP) Lezione 15/11/22&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/151122.html&#34;&gt;Livello 4, UDP e intro a TCP&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
