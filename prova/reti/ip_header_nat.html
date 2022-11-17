@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Ip header NAT, 24/10/22 (t)</b></title>
-<!-- 2022-10-24 Mon 14:56 -->
+<!-- 2022-11-17 Thu 19:53 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -237,6 +237,22 @@ Appunti lezione 2020-10-26 dall'archivio telegram.
 </li>
 <li><a href="#sec-2">Natting</a>
 </li>
+<li><a href="#sec-3">Approfondimenti in presenza</a>
+<ul class="org-ul">
+<li><a href="#sec-3-1">Source Natting</a>
+</li>
+<li><a href="#sec-3-2">Destination Natting</a>
+</li>
+<li><a href="#sec-3-3">Scenario</a>
+</li>
+<li><a href="#sec-3-4">IPtables</a>
+<ul class="org-ul">
+<li><a href="#sec-3-4-1">Tabella di Natting</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -385,15 +401,428 @@ perchè non si hanno problemi di <b>disponibilità</b> di indirizzi IP.
 Inoltre, la topologia e la configurazione della rete locale sono 
 completamente <b>oscurate</b> all'esterno. Questa è un'ottima cosa 
 per la sicurezza, ma rompe la semantica della comunicazione <i>end to end</i>.
+Il natting può dare problemi quando si usano paradigmi di comunicazione
+diversi da quello client-server, quindi finchè si usa internet in modo "normale"
+non ci sono grossi problemi.
+</p>
+<hr >
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Approfondimenti in presenza</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Lezione 17/11/22. Si parla principalmente della distinzione tra
+source natting e destination natting, per poi passare ad un'esperienza
+pratica in laboratorio.
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Source Natting</h3>
+<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-sec-3-1-1" class="outline-4">
+<h4 id="sec-3-1-1"><span class="section-number-4">3.1.1</span> Modifca del datagram IP</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+Il <b><code>router di bordo</code></b> deve agire sul datagram IP per effettuare varie
+modifiche, in modo da gestire la corretta consegna dei pacchetti.
+In particolare, deve modificare l'indirizzo IP sorgente
+togliendo quello privato e inserendo quello pubblico.
+Quando gli arriva la risposta, deve sostituire l'IP destinazione
+pubblico con quello privato dello specifico host.
 </p>
 
+<p>
+Il router deve quindi capire <b>su quale flusso di pacchetti</b> deve agire.
+Ovviamente il router deve modificare anche il checksum, perchè
+altrimenti il destinatario rileverà un errore nella trasmissione.
+</p>
+
+
+<figure>
+<p><img src="./natting1.png" class="img-responsive" alt="natting1.png">
+</p>
+</figure>
+
+<p>
+Quindi <i>se il router è configurato per fare natting</i> effettua la sostituzione
+in figura. Infatti se non la facesse, il pacchetto verrebbe prima o poi scartato, perchè sulla
+rete pubblica non possono girare pacchetti con IP privato.
+</p>
+
+<p>
+Sulla via del ritorno, il router deve avere della logica per 
+capire che quella che ha ricevuto è una risposta al pacchetto inviato 
+prima, in modo da poter sostituire correttamente l'indirzzo IP destinazione.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-1-2" class="outline-4">
+<h4 id="sec-3-1-2"><span class="section-number-4">3.1.2</span> Modifiche a livello trasporto</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+Per implementare la logica di trasformazione, il router
+deve sfruttare delle informazioni legate alle porte.
+In questo caso si parla di <b>NAT con Port Address Translation</b>,
+o <b>PAT</b>
+</p>
+
+
+<figure>
+<p><img src="./natting2.png" class="img-responsive" alt="natting2.png">
+</p>
+</figure>
+
+<p>
+Essenzialmente il router per ogni packet flow fa un mapping
+{&lt;ip privato, porta privata&gt; &lt;ip pubblico, porta pubblica&gt;}
+</p>
+
+<p>
+La modifica dell'header UDP è analoga:
+<img src="./natting3.png" class="img-responsive" alt="natting3.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Destination Natting</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Come fare se un'host deve contattare un server con IP privato?
+Il router a cui è collegato il server deve avere una regola esplicita (deve essere configurato ad hoc) in cui si specifica
+che ogni pacchetto con (ad esempio) l'IP 1.1.1.1 destinato alla porta 80 deve
+essere inoltrato all'host con IP privato 192.168.0.2 sulla porta 80.
+(Concetto di Binding Statico)
+</p>
+
+
+<figure>
+<p><img src="./natting4.png" class="img-responsive" alt="natting4.png">
+</p>
+</figure>
+
+<p>
+Ovviamente non solo l'indirizzo IP può essere modificato, ma anche la porta.
+Magari si sta  eseguendo un server sulla porta privata x ma è <b>esposto</b> <i>sulla porta pubblica 8080.</i>
+</p>
+
+
+<figure>
+<p><img src="./natting5.png" class="img-responsive" alt="natting5.png">
+</p>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Scenario</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+il router ha a disposizione molti indirizzi IP pubblici.
+</p>
+<ul class="org-ul">
+<li><i>Con quale criterio trasformo un certo indirizzo privato in un certo indirizzo pubblico?</i>
+</li>
+</ul>
+<p>
+serve una configurazione, si creano delle regole statiche per effettuare queste trasformazioni.
+</p>
+
+<p>
+Di base i router delle reti private sono configurati per fare
+<b>source natting</b>: se quindi un computer collegato al router hosta un server su una certa porta, esso non è accessibile dall'esterno!
+Quindi i router abilitati per fare destination mapping devono
+essere configurati <b>staticamente</b>, in modo da dirgli: "se ricevi
+un pacchetto che sembra destinato a te, in realtà devi trasformarlo
+e mandarlo a questo server."
+</p>
 <hr >
+</div>
+</div>
+<div id="outline-container-sec-3-4" class="outline-3">
+<h3 id="sec-3-4"><span class="section-number-3">3.4</span> IPtables</h3>
+<div class="outline-text-3" id="text-3-4">
+<p>
+Tool che ci permette di implementare la logica del natting.
+</p>
+
+<p>
+Il sistema operativo mette a disposizione diversi punti
+in cui si possono modificare i pacchetti in transito.
+Ad esempio, il primo si trova subito dopo l'interfaccia di ingresso,
+prima ancora dell'esecuzione della logica di routing. Questi punti
+sono chiamati hook \(\Downarrow\)
+</p>
+
+
+<figure>
+<p><img src="./natting6.png" class="img-responsive" alt="natting6.png">
+</p>
+</figure>
+
+<p>
+Altri termini specifici:
+</p>
+
+<ul class="org-ul">
+<li><b>Tabella</b>: insieme di regole legate ad un particolare servizio, 
+come il natting. La tabella contiene diverse catene:
+<ul class="org-ul">
+<li><b>Catena</b>: insieme di regole legate ad un particolare hook.
+Queste regole vengono consultate sequenzialmente, secondo
+un preciso ordine.
+</li>
+</ul>
+<p>
+Questa logica è molto diversa rispetto a quella delle regole di routing,
+in cui viene sempre applicata la regola più precisa.
+</p>
+</li>
+</ul>
+
+<p>
+Esistono 3 tipi di tabelle:
+</p>
+<ul class="org-ul">
+<li>Tabella <b>filter</b>;
+</li>
+<li>Tabella <b>mangle</b>: serve per manipolare NON per questioni di natting,
+ad esempio per modifiche al TTL o al TOS;
+</li>
+<li>Tabella <b><code>nat</code></b>: per il natting. Si veda sotto \(\Downarrow\) per maggiori
+informazioni.
+</li>
+</ul>
+<hr >
+</div>
+<div id="outline-container-sec-3-4-1" class="outline-4">
+<h4 id="sec-3-4-1"><span class="section-number-4">3.4.1</span> Tabella di Natting</h4>
+<div class="outline-text-4" id="text-3-4-1">
+<p>
+Si possono usare 3 diversi tipi di catena:
+</p>
+<ul class="org-ul">
+<li>Catena di <b><code>prerouting</code></b>: destination natting che abbiamo studiato
+fino ad ora, ossia il natting effettuato dal <b>router</b>. E' il tipo
+di catena che useremo. Viene applicata prima del routing, appena
+dopo che il pacchetto viene ricevuto dall'interfaccia.
+</li>
+<li>Catena di <b>output</b>;
+</li>
+<li>Catena di <b>postrouting</b>;
+</li>
+</ul>
+<hr >
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> LAB</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Introduzione</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Si crei su marrionet la topologia in figura.
+A volte ext verrà chiamato H5.
+<img src="./natting7.png" class="img-responsive" alt="natting7.png">
+Alcune osservazioni:
+</p>
+<ul class="org-ul">
+<li>R2 non deve sapere dell'esistenza di H1 che ha un'indrizzo privato.
+</li>
+<li>Se H1 deve comunicare con ext, il router R1 deve modificare
+i pacchetti e inserire il suo indirizzo come indirizzo sorgente.
+</li>
+<li>Lo switch S3 simula un collegamento ad internet
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Configurazione</h3>
+<div class="outline-text-3" id="text-4-2">
+</div><div id="outline-container-sec-4-2-1" class="outline-4">
+<h4 id="sec-4-2-1"><span class="section-number-4">4.2.1</span> Config iniziale</h4>
+<div class="outline-text-4" id="text-4-2-1">
+<p>
+La configurazione iniziale, senza le regole di natting, è simile rispetto
+a quelle fatte fino ad ora. Alcune osservazioni: \(\Downarrow\)
+</p>
+<ul class="org-ul">
+<li>H1 configurato normalmente, ricordandosi di settare il gateway 192.168.1.254;
+</li>
+<li>H2 configurato in modo analogo
+</li>
+<li>R1: non verrà riportata la config completa, ma ricordarsi di usare:
+</li>
+</ul>
+<pre class="example">
+iface eth1 inet static
+  address 1.1.1.1/32
+</pre>
+<p>
+Ricordarsi anche di aggiungere le regole per raggiungere H5 (3.3.3.3) e R2(2.2.2.2)
+Ricordarsi di dire ad esempio ad R1 di raggiungere H5 e R2 tramite livello 2, usando eth1.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-2-2" class="outline-4">
+<h4 id="sec-4-2-2"><span class="section-number-4">4.2.2</span> Source Natting</h4>
+<div class="outline-text-4" id="text-4-2-2">
+<p>
+Si vuole configurare la rete in modo  che sia H1 che H2 possano pingare external.
+Questo significa che R1 e R2 devono modificare i pacchetti in transito.
+Andiamo ad agire sul <b><code>Post Routing</code></b>:
+</p>
+<ul class="org-ul">
+<li>Snat Masquerade
+</li>
+</ul>
+<pre class="example">
+iptables -t nat -A POSTROUTING \ -o eth1 -j MASQUERADE
+</pre>
+<ul class="org-ul">
+<li>-A \(\Rightarrow\) append alla fine della catena;
+</li>
+<li>-j \(\Rightarrow\) azione che deve compiere ip tables;
+</li>
+<li>masquerade &#x2013;&gt; al pacchetto viene assegnato l'ip attualmente
+assegnato all'interfaccia di uscita.
+</li>
+<li>eth1: si vuole che il source natting venga applicato
+dall'interno verso l'esterno. Quindi semplicemente si dice di 
+applicare il routing sull'interfaccia di uscita eht1.
+</li>
+<li>Ulteriore miglioramento \(\Downarrow\)
+</li>
+</ul>
+<pre class="example">
+iptables -t nat -A POSTROUTING \ -o eth1 -s 192.168.1.0/24 -j MASQUERADE
+</pre>
+<p>
+in questo modo il router trasforma solo i pacchetti provenienti dalla rete privata
+192.168.1.0
+</p>
+
+<p>
+Per stampare le varie regole si usa
+</p>
+<pre class="example">
+iptables -t nat -L -n -v
+</pre>
+
+<p>
+Masquerade è quindi la scelta giusta se l'interfaccia ha soltanto
+un indirizzo pubblico!
+</p>
+
+<p>
+L'alternativa è usare SNAT \(\Downarrow\)
+</p>
+<pre class="example">
+iptables -t nat -A POSTROUTING \ -o eth1 -s 192.168.1.0/24 -j SNAT --to-source 1.1.1.1
+</pre>
+
+<p>
+L'indirizzo che si specifica potrebbe non essere assegnato a nessuna
+interfaccia di R1. Ad esempio, se un'interfaccia ha a disposizione 2 indirizzi IP, può
+usarne 1 da assegnare normalmente, l'altro lo può usare per la traduzione,
+quindi per gestire la rete interna.
+(Se si vuole fare un replace invece che aggiungere la regola, si usa l'opzione -R invece che -A.)
+</p>
+
+<p>
+Ovviamente in questo caso i router esterni devono essere informati
+di questa regola aggiuntiva. Altrimenti non saprebbero
+come raggiungere l'IP "riservato alle reti interne".
+Su external si deve aggiungere questa regola di routing:
+</p>
+<pre class="example">
+route add -host 1.1.1.2 gw 1.1.1.1
+</pre>
+<p>
+essenzialmente in questo modo i pacchetti vengono mandati a R1: è lui
+il responsabile di 1.1.1.2.
+</p>
+
+<p>
+Per quanto riguarda R2 il concetto è analogo:
+</p>
+<pre class="example">
+iptables -t nat -A POSTROUTING \ -o eth1 -s 192.168.1.0/24 -j SNAT --to-source 2.2.2.2
+</pre>
+</div>
+</div>
+<div id="outline-container-sec-4-2-3" class="outline-4">
+<h4 id="sec-4-2-3"><span class="section-number-4">4.2.3</span> Destination Natting</h4>
+<div class="outline-text-4" id="text-4-2-3">
+<p>
+La domanda a cui rispondere è:
+</p>
+<ul class="org-ul">
+<li><i>cosa vogliamo rendere raggiungibile degli host privati?</i>
+</li>
+</ul>
+<p>
+Voglio rendere disponibile dall'esterno un servizio sulla
+porta 8080.
+Esempio \(\Downarrow\)
+</p>
+<pre class="example">
+iptables -t nat -A PREROUTING -i eth1 -d 2.2.2.2 -p tcp --dport 8080 -j DNAT --to-destination 192.168.1.1:8080
+</pre>
+<p>
+A volte si può anche decidere di rendere un host privato completamente esposto:
+basta eliminare dei filtri!
+In questo modo rendo l'host pingabile, eliminando le regole riguardo le porte,
+quindi riguardo il livello 4. Infatti ping usa il protocollo ICMP, che usa il livello 3.
+</p>
+<pre class="example">
+iptables -t nat -A PREROUTING -i eth1 -d 2.2.2.2  -j DNAT --to-destination 192.168.1.1:8080
+</pre>
+
+<p>
+Come ultimo passo, si vuole far hostare ad H2 un servizio con protocollo TCP.
+Si usa il tool <b>netcat</b>, con questo comando: \(\Downarrow\)
+</p>
+<pre class="example">
+nc -nvltp 8080
+</pre>
+<ul class="org-ul">
+<li>-l \(\Rightarrow\) listen;
+</li>
+<li>-t \(\Rightarrow\) tcp (posso usare -u se voglio usare udp);
+</li>
+<li>-p \(\Rightarrow\) numero di porta;
+</li>
+</ul>
+
+<p>
+da external ci si può connettere sempre usando netcat:
+</p>
+<pre class="example">
+nc -nvt 2.2.2.2 8080
+</pre>
+<p>
+dopo aver lanciato il comando ovviamente la connessione
+è full duplex, quindi non ci sono più differenze "reali" tra client
+e server.
+</p>
+<hr >
+</div>
+</div>
 </div>
 </div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-10-24 Mon 14:56</p>
+<p class="date">Created: 2022-11-17 Thu 19:53</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
