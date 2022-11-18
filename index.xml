@@ -6,7 +6,50 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 18 Nov 2022 09:05:30 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 18 Nov 2022 12:18:26 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linguaggi e compilatori</title>
+      <link>/compilatori/</link>
+      <pubDate>Fri, 18 Nov 2022 12:18:26 +0100</pubDate>
+      
+      <guid>/compilatori/</guid>
+      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\)
+https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
+Link agli appunti \(\downarrow\)
+ https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing
+ Link al tutorial di riferimento \(\downarrow\)</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
+Il pdf contiene i miei appunti presi durante le lezioni.
+Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link agli &lt;code&gt;appunti&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&#34;&gt;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/201022.html&#34;&gt;Lezione 20/10/22&lt;/a&gt; (grammatiche)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/261022.html&#34;&gt;Lezione 26/10/22&lt;/a&gt; (parse tree)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/271022.html&#34;&gt;Lezione 27/10/22&lt;/a&gt; (parsing 1)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/041122.html&#34;&gt;Lezione 03/11/22&lt;/a&gt; (parsing 2)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/101122.html&#34;&gt;Lezione 10/11/22&lt;/a&gt; (parsing 3)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/171122.html&#34;&gt;Lezione 17/11/22&lt;/a&gt; (Abstract Syntax Tree)&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
@@ -1828,48 +1871,6 @@ che contengono la frase cercata.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/021122.html&#34;&gt;Lezione 02-11-22 e 03-11-22&lt;/a&gt; (Modello Vettoriale)&lt;/li&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/101122.html&#34;&gt;Lezione 10-11-22&lt;/a&gt; (Modello Probabilistico)&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Linguaggi e compilatori</title>
-      <link>/compilatori/</link>
-      <pubDate>Fri, 11 Nov 2022 00:02:44 +0100</pubDate>
-      
-      <guid>/compilatori/</guid>
-      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Link per accedere al materiale didattico \(\rightarrow\)
-https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
-Link agli appunti \(\downarrow\)
- https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing
- Link al tutorial di riferimento \(\downarrow\)</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
-Il pdf contiene i miei appunti presi durante le lezioni.
-Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Link agli &lt;code&gt;appunti&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&#34;&gt;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/201022.html&#34;&gt;Lezione 20/10/22&lt;/a&gt; (grammatiche)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/261022.html&#34;&gt;Lezione 26/10/22&lt;/a&gt; (parse tree)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/271022.html&#34;&gt;Lezione 27/10/22&lt;/a&gt; (parsing 1)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/041122.html&#34;&gt;Lezione 03/11/22&lt;/a&gt; (parsing 2)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/101122.html&#34;&gt;Lezione 10/11/22&lt;/a&gt; (parsing 3)&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>

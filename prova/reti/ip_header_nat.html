@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Ip header NAT, 24/10/22 (t)</b></title>
-<!-- 2022-11-17 Thu 19:53 -->
+<!-- 2022-11-18 Fri 10:01 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -252,6 +252,8 @@ Appunti lezione 2020-10-26 dall'archivio telegram.
 </ul>
 </li>
 </ul>
+</li>
+<li><a href="#sec-4">LAB</a>
 </li>
 </ul>
 </div>
@@ -634,12 +636,12 @@ A volte ext verrà chiamato H5.
 Alcune osservazioni:
 </p>
 <ul class="org-ul">
-<li>R2 non deve sapere dell'esistenza di H1 che ha un'indrizzo privato.
+<li>R2 non deve sapere dell'esistenza di H1, che ha un'indrizzo privato.
 </li>
 <li>Se H1 deve comunicare con ext, il router R1 deve modificare
 i pacchetti e inserire il suo indirizzo come indirizzo sorgente.
 </li>
-<li>Lo switch S3 simula un collegamento ad internet
+<li>Lo switch S3 simula un collegamento ad internet;
 </li>
 </ul>
 </div>
@@ -685,7 +687,7 @@ Andiamo ad agire sul <b><code>Post Routing</code></b>:
 </li>
 </ul>
 <pre class="example">
-iptables -t nat -A POSTROUTING \ -o eth1 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
 </pre>
 <ul class="org-ul">
 <li>-A \(\Rightarrow\) append alla fine della catena;
@@ -703,7 +705,7 @@ applicare il routing sull'interfaccia di uscita eht1.
 </li>
 </ul>
 <pre class="example">
-iptables -t nat -A POSTROUTING \ -o eth1 -s 192.168.1.0/24 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o eth1 -s 192.168.1.0/24 -j MASQUERADE
 </pre>
 <p>
 in questo modo il router trasforma solo i pacchetti provenienti dalla rete privata
@@ -726,7 +728,7 @@ un indirizzo pubblico!
 L'alternativa è usare SNAT \(\Downarrow\)
 </p>
 <pre class="example">
-iptables -t nat -A POSTROUTING \ -o eth1 -s 192.168.1.0/24 -j SNAT --to-source 1.1.1.1
+iptables -t nat -A POSTROUTING -o eth1 -s 192.168.1.0/24 -j SNAT --to-source 1.1.1.2
 </pre>
 
 <p>
@@ -755,7 +757,7 @@ il responsabile di 1.1.1.2.
 Per quanto riguarda R2 il concetto è analogo:
 </p>
 <pre class="example">
-iptables -t nat -A POSTROUTING \ -o eth1 -s 192.168.1.0/24 -j SNAT --to-source 2.2.2.2
+iptables -t nat -A POSTROUTING -o eth1 -s 192.168.1.0/24 -j SNAT --to-source 2.2.2.2
 </pre>
 </div>
 </div>
@@ -770,7 +772,7 @@ La domanda a cui rispondere è:
 </li>
 </ul>
 <p>
-Voglio rendere disponibile dall'esterno un servizio sulla
+\(\Rightarrow\) voglio rendere disponibile dall'esterno un servizio sulla
 porta 8080.
 Esempio \(\Downarrow\)
 </p>
@@ -822,7 +824,7 @@ e server.
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-11-17 Thu 19:53</p>
+<p class="date">Created: 2022-11-18 Fri 10:01</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
