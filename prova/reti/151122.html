@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
 <title> Livello 4, Trasporto </title>
-<meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="Org-mode"><meta name="author" content="Matteo Lugli">
+<meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="Org-mode"><meta name="author" content="Matteo Lugli 🐃">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
 <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
@@ -338,7 +338,7 @@ si deve capire a quale processo il pacchetto deve essere inoltrato.
 </ul>
 
 <p>
-Questi protocolli di comunicazione implementano una logica basta sulle <b>porte</b>.
+Questi protocolli di comunicazione implementano una logica basata sulle <b>porte</b>.
 Mettiamo che il processo P1 debba inviare un pacchetto a P3: entrambi
 i processi saranno identificati da una <b>porta sorgente</b>
 e una <b>porta destinataria</b>.
@@ -384,7 +384,7 @@ leggendo l'header IP.
 <p>
 Il client quando si connette ad una porta, 
 specifica anche una porta sorgente per gestire
-eventuale risposte da parte del server.
+eventuali risposte da parte del server.
 Spesso la porta sorgente del client viene scelta
 in modo autonomo dal sistema operativo.
 </p>
@@ -394,7 +394,7 @@ in modo autonomo dal sistema operativo.
 <h3 id="sec-2-2" nil> 2.2 Porte &triangledown;</h3>
 </button><div class='sec-2-2 collapsible-content'>
 <p>
-Numero intero da 0 a 2-1, quindi l'informazione
+Numero intero da 0 a \(2^{16}-1\), quindi l'informazione
 occupa <b>16 bit</b>.
 </p>
 <ul class="org-ul">
@@ -414,8 +414,11 @@ Telnet \(\rightarrow\) 23
 SMTP \(\rightarrow\) 25
 </p>
 </li>
+<li><p>
+...
+</p>
+</li>
 </ul>
-
 <p>
 In questo modo, in certi casi si riesce ad omettere l'informazione
 riguardo alla porta, che viene recuperata dallo standard.
@@ -520,14 +523,12 @@ consegna dei pacchetti.
 <ul class="org-ul">
 <li><p>
 User DATAGRAM protocol \(\rightarrow\) l'applicazione che usa il protocollo
-</p>
-</li>
-</ul>
-<p>
 sa che deve inviare dei <b>pacchetti</b>, quindi sa che deve adottare un approccio prettamente orientato
 al <b>packet switching</b>. Questi hanno una dimensione
 massima, pari a 
 </p>
+</li>
+</ul>
 \begin{equation}
 dim(Payload_{IP}) - dim(Header_{UDP})
 \end{equation}
@@ -597,7 +598,7 @@ Ecco lo pseudoheader nello specifico \(\Downarrow\)
 </p>
 
 <p>
-Il checksum viene poi inserito nel pacchetto che poi verrà 
+Il checksum viene poi inserito nel pacchetto che verrà 
 inviato: il destinatario si calcolerà il checksum con
 lo stesso algoritmo e verrà fatto un matching per capire
 se ci sono stati errori. In particolare:
@@ -674,7 +675,7 @@ tutti i dati vengono trasmessi in modo affidabile.
 </p>
 <ul class="org-ul">
 <li><p>
-Capacità di <b>rilevazione</b>  dell'errore;
+Capacità di rilevazione  dell'errore;
 </p>
 </li>
 <li><p>
@@ -688,7 +689,7 @@ Capacità di <b>reazione</b> all'errore;
 <h3 id="sec-4-2" nil> 4.2 Rilevare gli errori &triangledown;</h3>
 </button><div class='sec-4-2 collapsible-content'>
 <p>
-Quando di parla di rilevazione di un'errore, si fa riferimento
+Quando si parla di rilevazione di un'errore, si fa riferimento
 ai seguenti problemi:
 </p>
 <ul class="org-ul">
@@ -817,14 +818,10 @@ in modo che il protocollo IP non debba splittare ulteriormente i pacchetti.
 <ul class="org-ul">
 <li><p>
 <b>sequence number</b>, viene usato dal destinatario per identificare
-</p>
-</li>
-</ul>
-<p>
 segmenti duplicati, e per capire l'ordine dei segmenti TCP.
 </p>
+</li>
 
-<ul class="org-ul">
 <li><p>
 Il mittente e il destinatario hanno un buffer per gestire l'ordine
 di invio durante la comunicazione. E' una sorta di "sala d'attesa" in 
@@ -850,16 +847,12 @@ differenze tra client e server: si possono inviare dati a vicenda.
 </li>
 
 <li><p>
-<b>controllo di flusso</b> \(\righarrow\) tcp regola il tasso di trasmissione
-</p>
-</li>
-</ul>
-<p>
+<b>controllo di flusso</b> \(\rightarrow\) tcp regola il tasso di trasmissione
 di dati in base alla capacità di ricezione del destinatario,
 in modo da cercare di impedire la congestione della rete.
 </p>
+</li>
 
-<ul class="org-ul">
 <li><p>
 TCP è un <b>Protocollo asincrono</b>: il SO potrebbe aspettare ad inviare
 dati, appunto per la questione dell'affidabilità e della
@@ -913,14 +906,10 @@ implementata della logica per attivare e concludere le comunicazioni;
 
 <li><p>
 <b>Timeout</b> : deve essere lo stesso per due processi locali rispetto a un timeout
-</p>
-</li>
-</ul>
-<p>
 tra due processi agli estremi del mondo? \(\rightarrow\) c'è bisogno di usare
 un timeout <i>adattivo</i>;
 </p>
-<ul class="org-ul">
+</li>
 <li><p>
 Possibili <b>ritardi</b> nella consegna, vista la complessa logica implementata;
 </p>
@@ -955,7 +944,7 @@ essere molto diverse.
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-16 Wed 22:27</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-22 Tue 13:29</p>
 </div>
 </footer>
    </div>
