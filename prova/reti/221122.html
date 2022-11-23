@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title> Segmento TCP, Trasporto </title>
+<title> <div style="text-decoration: underline"> <b>Segmento TCP, Trasporto</b> </div> </title>
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="Org-mode"><meta name="author" content="Matteo Lugli 🐃">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
@@ -22,7 +22,7 @@
     body {
 	font-family: 'Fira Code', monospace;
 	font-size: 20px;
-	background-color: var(--color-background);
+	background-color: white;
     }
 
     div#menu {
@@ -38,28 +38,28 @@
     }
 
     p {
-	color: var(--color-text);
+	color: var(black);
     }
 
     h1, h2, h3, h4, h5, a {
-	color: var(--color-primary);
+	color: var(black);
     }
 
     nav a {
-	color: var(--color-text);
+	color: var(black);
     }
 
     nav a:hover {
-	color: var(--color-primary);
+	color: var(black);
 	text-decoration: none;
     }
 
     ul li, ol li {
-	color: var(--color-primary);
+	color: var(black);
     }
 
     .collapsible {
-	background-color: var(--color-background);
+        background-color: white;
 	border: none;
 	text-align: left;
     }
@@ -68,7 +68,10 @@
 
     figcaption { font-size: 15px; }
 
-    footer { text-align: center; }
+    footer { 
+        text-align: center; 
+        background-color: #FFFFF4;
+    }
 
     .observation {
 	border-style: solid;
@@ -84,16 +87,16 @@
 	overflow: auto;
 	word-wrap: normal;
     }
-
     blockquote {
-	border-left: 5px solid var(--color-primary);
+	border-left: 5px solid var(black);
+        background-color: #ffffd4;
     }
     .MathJax_SVG_Display{
-        color:white;
+        color:black;
     }
 
     blockquote p {
-	color: var(--color-text);
+	color: var(black);
     }
 
     /* side-menu stuff */
@@ -111,7 +114,7 @@
 	top: 60px;
 	left: 0px;
 	height: 100%;
-	/* background-color: var(--color-primary); */
+	/* background-color: var(black); */
 	z-index: 100;	
     }
 
@@ -131,7 +134,7 @@
     }
 
     .side-menu-content ul li a {
-	color: var(--color-primary);
+	color: var(black);
 	text-decoration: none;
 	font-weight: bold;
     }
@@ -143,11 +146,11 @@
 	left: 0;
 	width: 80px;
 	height: 60px;
-	background: var(--color-background);
+	background: var(white);
     }
 
     .toggle:hover {
-	background: var(--color-primary);
+	background: var(black);
     }
 
     .toggle:before {
@@ -159,7 +162,7 @@
 	line-height: 60px;
 	text-align: center;
 	font-size: 24px;
-	color: var(--color-text);
+	color: var(black);
     }
 
     @media (max-width: 1024px) {
@@ -210,7 +213,7 @@
 	    line-height: 60px;
 	    text-align: center;
 	    font-size: 12px;
-	    color: var(--color-text);
+	    color: var(black);
 	}	
     }
 
@@ -250,7 +253,7 @@ MathJax.Hub.Config({
 
 <div class="row">
    <div class="col-xs-1"></div>
-   <div class="col-xs-10"><h1 class="title">Segmento TCP, Trasporto</h1>
+   <div class="col-xs-10"><h1 class="title"><div style="text-decoration: underline"> <b>Segmento TCP, Trasporto</b> </div></h1>
    </div>
    <div class="col-xs-1"></div>
 </div> <!-- end row -->
@@ -259,6 +262,420 @@ MathJax.Hub.Config({
    <div class="col-xs-10"><hr style="border: 1px solid #FFFFFF" />   </div>
    <div class="col-xs-1"></div>
 </div> <!-- end row -->
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-" style="text-decoration: underline">  Info &triangledown;</h2>
+</button><div class='sec- collapsible-content'>
+<p>
+Appunti della lezione in presenza del 22/11/22;
+</p>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-1" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-1" style="text-decoration: underline"> 1 Formato del frammento &triangledown;</h2>
+</button><div id="outline-container-sec-1-1" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-1-1" nil> 1.1 Campi &triangledown;</h3>
+</button><div class='sec-1-1 collapsible-content'>
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./frammento1.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+<ul class="org-ul">
+<li><p>
+<b>Sequence number</b>: identificativo del segmento all'interno del
+flusso che si sta inviando/ricevendo;
+</p>
+</li>
+<li><p>
+<b>Ack number</b>: serve per comunicare quali segmenti sono stati ricevuti
+correttamente. E' strettamente legato al sequence number, è leggermente diverso;
+Viene inserito anche questo campo perchè i messaggi di conferma
+possono anch'essi inviare dati normalmente. E' un modo per
+diminuire il numero di pacchetti inviati.
+</p>
+</li>
+
+<li><p>
+<b>Hlen</b>: indica la dimensione dell'header TCP, che può essere variabile.
+Infatti alla fine dell'header possono essere aggiunti dei campi aggiuntivi.
+Hlen ragiona in multipli di 4 byte: infatti dopo TCP options si applica
+un padding per rendere il tutto un multiplo di 32 bit.
+</p>
+</li>
+<li><p>
+<b>Code bit</b>: Bitmask di 6 bit, ognuno ha un ruolo diverso.
+</p>
+<ul class="org-ul">
+<li><p>
+<b>URG</b>: campo poco utilizzato, servirebbe a comunicare la presenza di 
+dati urgenti. (Ci sono dati più importanti di altri tra quelli che si
+stanno inviando). Ora è utilizzato poco.
+</p>
+</li>
+<li><p>
+<b>ACK</b>: se == 1, indica che questo è il pacchetto di acknowledgment.
+</p>
+</li>
+<li><p>
+<b>PSH</b>: bit che viene usato per inviare i dati senza passare per il buffer.
+Usato dall'applicazione mittente quando si vuole svuotare il buffer immediatamente.
+Esempio: invio di un file pacchettizzato a livello TCP. L'ultimo pacchetto avrà
+il bit push attivato, richiedendo lo svuotamento del buffer e l'invio dei dati,
+dato che non ne arriveranno altri. Può essere utile (ad esempio) quando si vuole usare TCP per implementare
+delle applicazioni <i>real-time</i>, anche se di base non è consigliato perchè
+TCP è un protocollo <b>asincrono</b>.
+</p>
+</li>
+<li><p>
+<b>SYN</b>, <b>FIN</b>, <b>RST</b>: bit che sono a 1 solo in fasi di apertura/
+chiusura della connessione. Syn è il bit di <b>sincronizzazione</b>, è settato
+a 1 nei pacchetti mandati durante la fase di apertura della connessione,
+mentre FIN e RST sono a 1 in fase di chiusura. Essi rappresentano due diversi
+modi (<i>polite e non polite</i>) di chiudere una connessione. Si vedranno approfondimenti
+successivamente.
+</p>
+</li>
+</ul>
+</li>
+<li><p>
+<b>Window size</b>:destinatario e mittente si informano su quanti
+dati possono ancora essere immagazzinati all'interno del buffer.
+Magari il mittente rallenta il flusso dati sapendo che il destinatario
+ha poco spazio nel buffer.
+</p>
+</li>
+<li><p>
+<b>Urgent Pointer</b>: in teoria serve per specificare quali sono i dati
+urgenti ma è una funzionalità usata molto raramente.
+</p>
+</li>
+<li><p>
+<b>TCP Options</b>: comunica qual'è la dimensione massima in cui segmentare
+il flusso, ossia l'<b>MSS</b> (ci si torna successivamente);
+</p>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-1-2" nil> 1.2 MSS &triangledown;</h3>
+</button><div class='sec-1-2 collapsible-content'>
+<p>
+L'MSS è l'informazione specificata dal TCP Pointer. Se non è specificata, allora si usa <b>536 byte.</b>
+Ovviamente si punta ad avere l'MSS massima possibile (inviare pacchetti più grandi significa inviare
+meno pacchetti, quindi migliorare le performance) ma si cerca anche di rimanere in un "range" tale 
+per cui non si debba applicare la frammentazione a livello H2N.
+(Infatti bisogna "rientrare" nell'MTU).
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-1-3" nil> 1.3 Sequence Number &triangledown;</h3>
+</button><div class='sec-1-3 collapsible-content'>
+<p>
+I sequence number idealmente sono da 0 a \(2^{32}-1\), in realtà
+viene aggiunto un offset iniziale, per una ragione di sicurezza.
+Ovviamente se si finiscono i sequence number per una determinata
+connessione, si riparte da 0, ovviamente con l'offset aggiunto.
+</p>
+
+<p>
+👉 si supponga di dover trasferire un file di 500kByte, con MSS = 1000byte.
+I sequence number saranno \(X\), \(X+1000\), \(X+2000\),... dove \(X\) indica l'<b>ISN</b>,
+ossia l'offset iniziale.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-1-4" nil> 1.4 Ack Number &triangledown;</h3>
+</button><div class='sec-1-4 collapsible-content'>
+<p>
+Sequence number che identifica <b>il prossimo byte</b> che l'host A (sender) si aspetta di ricevere da B(receiver).
+Serve ad indicare la corretta ricezione del pacchetto precedente.
+</p>
+</div>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-2" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-2" style="text-decoration: underline"> 2 Fasi di una connessione &triangledown;</h2>
+</button><div id="outline-container-sec-2-1" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-2-1" nil> 2.1 Apertura (Three-way Handshake) &triangledown;</h3>
+</button><div class='sec-2-1 collapsible-content'>
+<p>
+Solo in questa fase vengono distinti i ruoli client/server.
+</p>
+<ul class="org-ul">
+<li><p>
+<i>I pacchetti in questione hanno ovviamente il campo SYN == 1</i>,
+ossia i pacchetti riservati all'apertura della connessione.
+</p>
+</li>
+</ul>
+<p>
+Ovviamente ci interessa soltanto la porta destinataria, su cui
+il server dev'essere in ascolto. Le informazioni relative all'indirizzo
+IP verranno gestite dal livello 3.
+Il client comunica l'offset di partenza della sequenza, definendo
+l'<b>ISN</b> (<i>Initial Sequence Number</i>). Questo valore viene scelto
+"casualmente", per ragioni appunto di sicurezza.
+Serve per contare i dati che <i>dal client vanno verso il server</i>, 
+quando il server deve rispondere comunicherà un'altro ISN. 
+</p>
+
+<p>
+Il segmento SYN <b>del client</b> contiene anche:
+</p>
+<ul class="org-ul">
+<li><p>
+la <b>MRW</b> (<i>maximum receive window</i>): il client comunica al server
+quanto è grande il suo buffer. E' utile perchè TCP è pensato
+per funzionare su architetture eterogenee.
+</p>
+</li>
+<li><p>
+<b>MSS</b>, ossia la massima dimensione del segmento. E' una <b>proposta</b>
+da parte del client, che può essere ritrattata in futuro. Infatti
+i due host potrebbero essere dispositivi molto diversi tra loro, 
+aventi caratteristiche hardware e necessità diverse.
+</p>
+</li>
+<li><p>
+<b>ASSENZA del payload</b>: questi pacchetti non trasportano altri dati.
+</p>
+</li>
+</ul>
+<hr >
+<p>
+Il server risponde con un pacchetto SYN, a sua volta.
+Questo pacchetto ha anche il bit di ack == 1, dato che si conferma
+l'apertura della connessione. Il pacchetto prende quindi
+comunemente il nome di <b>SYN/ACK</b> \(\Downarrow\)
+</p>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./frammento2.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+<p>
+risposta \(\Downarrow\)
+</p>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./frammento3.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-2-2" nil> 2.2 Scambio di dati &triangledown;</h3>
+</button><div class='sec-2-2 collapsible-content'>
+<p>
+Verrà trattato in futuro.
+In generale è utile ricordarsi del meccanismo di <b>PiggyBacking</b>, cioè l'inserimento
+dell'informazione di ack all'interno di pacchetti che trasportano anche dati utili.
+E' un'ottimizzazione usata per inviare meno pacchetti, quindi per migliorare la connessione.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-3" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-2-3" nil> 2.3 Chiusura &triangledown;</h3>
+</button><div id="outline-container-sec-2-3-1" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-2-3-1" nil> 2.3.1 Polite &triangledown;</h4>
+</button><div class='sec-2-3-1 collapsible-content'>
+<p>
+Modalità di chiusura con affidabilità, usata quando non si
+ha urgenza di chiudere la connessione.
+</p>
+<ul class="org-ul">
+<li><p>
+Chi decide di chiudere la connessione invia un pacchetto con
+<b>FIN</b> settato a 1.
+</p>
+</li>
+<li><p>
+Chi riceve questo pacchetto, risponde confermando semplicemente 
+la ricezione del FIN.
+Quando l'applicazione è pronta per essere chiusa, invia a sua
+volta un pacchetto con FIN settato a 1.
+</p>
+</li>
+<li><p>
+Il sender iniziale riceve un FIN, e invia a sua volta un ACK,
+confermando il FIN precedente.
+Vengono effetuati degli "sleep" per assicurare la chiusura
+corretta dei servizi.
+</p>
+</li>
+</ul>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./frammento4.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+<p>
+Il client considera "chiusa" la connessione soltanto dopo un <b>timeout</b> 
+finale.
+Questa "attesa" è dovuta al fatto che potrebbero essere in circolazione
+ancora dei pacchetti legati ad altre comunicazioni. Si riescono
+quindi a gestire anche situazioni "anomale".
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-3-2" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-2-3-2" nil> 2.3.2 un-Polite &triangledown;</h4>
+</button><div class='sec-2-3-2 collapsible-content'>
+<p>
+Protocollo di chiusura best-effort per chiudere la connessione velocemente, che si basa
+sull'invio di pacchetti/segnali RST.
+Potrebbe essere usato (ad esempio) da un web-server se nota che un client
+inizia a mandare dei pacchetti che non seguono il protocollo TCP, ossia
+dei pacchetti "anomali".
+
+<div class="row top-buffer"> </div>
+<img src="./frammento5.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-3" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-3" style="text-decoration: underline"> 3 Affidabilità del protocollo &triangledown;</h2>
+</button><div id="outline-container-sec-3-1" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-3-1" nil> 3.1 Stop and Wait &triangledown;</h3>
+</button><div class='sec-3-1 collapsible-content'>
+<p>
+Se il mittente di un pacchetto non riceve l'acknowledgment da parte
+del destinatario dopo un certo timeout, li prova a ri-inviare.
+</p>
+<ul class="org-ul">
+<li><p>
+<i>Come si fa a "stimare" il timeout?</i>
+</p>
+</li>
+</ul>
+<p>
+👉 ovviamente dipende dalla rete: in una rete locale
+potrebbe essere più basso rispetto alla rete globale.
+Ovviamente essendo TCP un protocollo adattativo e general purpose,
+il timeout deve essere calcolato e stimato.
+</p>
+<ul class="org-ul">
+<li><p>
+<b>RTT</b> (<i>round trip time</i>): tempo osservabile tra l'arrivo di 
+un ack e il pacchetto confermato. E' un calcolo basato soltanto
+sulla vista del mittente. In generale l'idea è che 
+il timeout finale deve essere maggiore dell'RTT minimo osservato
+nella comunicazione.
+</p>
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-3-1-1" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-3-1-1" nil> 3.1.1 Approcci per il calcolo dell'RTT &triangledown;</h4>
+</button><div class='sec-3-1-1 collapsible-content'>
+<ul class="org-ul">
+<li><p>
+Si usa il doppio della media rispetto agli ultimi \(n\) round trip 
+time. E' il metodo più semplice, non richede la stima del round trip time.
+</p>
+</li>
+
+<li><p>
+In alternativa, si può <i>stimare</i> il prossimo
+round trip time, per poi calcolare il timeout. I due passi sono i seguenti:
+</p>
+<ol class="org-ol">
+<li><p>
+<b>EstimatedRTT</b>: è un calcolo "on the fly" in cui si da molto
+peso all'ultimo RTT osservato, quelli precedenti vengono
+man-mano assorbiti. Infatti quelli più "vecchi" hanno meno 
+valenza: il loro peso cala <b>esponenzialmente</b>. E'
+essenzialmente una media calcolata "in movimento", dove:
+</p>
+<ul class="org-ul">
+<li><p>
+\(E_{rtt}(t)\) \(\rightarrow\) Round Trip Time stimato al tempo t;
+</p>
+</li>
+<li><p>
+\(x*S_{rtt}(t)\) \(\rightarrow\) Rond Trip Time stimato al tempo t;
+</p>
+</li>
+</ul>
+</li>
+<li><p>
+<b>Calcolo del timeout</b>. Le formule dei passaggi sono le seguenti: \(\Downarrow\)  
+</p>
+</li>
+</ol>
+</li>
+</ul>
+\begin{equation}
+E_{rtt}(t) = (1-x)*E_{rtt}(t-1) + x*S_{rtt}(t)
+\end{equation}
+\begin{equation}
+Timeout(t) = E_{rtt}(t) + 4*\sigma(t)
+\end{equation}
+
+<p>
+Esperimenti mostrano che la formula è molto resistente
+agli outlier.
+</p>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./frammento6.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+
+<hr >
+</div>
+</div>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
 <div class="row top-buffer"> </div>
 
 <div class="row top-buffer"> </div>
@@ -272,7 +689,7 @@ MathJax.Hub.Config({
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-22 Tue 14:00</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-23 Wed 11:16</p>
 </div>
 </footer>
    </div>
