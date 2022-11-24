@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Firewall e sicurezza informatica, 24-11-22</b></title>
+<!-- 2022-11-24 Thu 23:28 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="html_style.css"/>
+<style>.container{padding-left: 70px; padding-right: 70px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Firewall e sicurezza informatica, 24-11-22</b></h1>
+<hr >
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Lecture Info</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Appunti della lezione in presenza del 24/11/22. Si è parlato in modo
+discorsivo dei firewall, per poi passare ad un breve laboratorio per
+vedere una semplice configurazione su marrionet.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Introduzione</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Per "firewall" si intende generalmente un software o un dispositivo dedicato in grado di filtrare
+i pacchetti in ingresso/uscita.
+Solitamente i firewall lavorano ai livelli <b>3</b> e <b>4</b>
+dello stack, e raramente sono implementati a livello 2(ad esempio su uno
+switch);
+Ovviamente i firwewall vanno configurati in base ai requisiti della rete
+su cui vengono installati.
+Alcuni termini da tenere a mente, tra i principi fondamentali della
+sicurezza informatica:
+</p>
+<ul class="org-ul">
+<li><b>Segmentazione/Separazione</b> \(\rightarrow\) significa effettuare una "divisione" delle entità o 
+più in generale delle <b><code>risorse</code></b> di una determinata rete.
+Ad esempio le VLAN sono un modo per effettuare segmentazione e segregazione;
+</li>
+<li><b>Segregazione</b> \(\rightarrow\) si tratta di tutti i meccanismi legati al controllo degli accessi.
+Ad esempio un qualsiasi firewall è un dispositivo che effettua segregazione perchè 
+decide (in base a certe regole) quali pacchetti accettare in input e quali far passare in output.
+</li>
+</ul>
+
+<p>
+Ovviamente questi due concetti andrebbero applicati sui diversi livelli dello stack, 
+per avere una protezione completa e modulare, creando quindi una rete che 
+sia sufficientemente complessa per garantire connessioni sicure.
+Esempio menzionato: i firewall possono essere molto utili in reti non nattate,
+i cui host interni potrebbero teoricamente essere raggiungibili dall'esterno.
+In questo caso, il firewall sul router di bordo potrebbe essere configurato per scartare
+tutti i pacchetti provenienti dall'esterno che vogliono instaurare una connessione!
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Tipi di analisi</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Analisi <b>stateless</b>: si analizzano i pacchetti singolarmente, 
+in modo indipendente rispetto alle informazioni precedenti.
+</li>
+<li>Analisi <b>statefull</b>: si considera tutto il <i>flusso di comunicazione</i>.
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Paradigmi e concetti</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Ecco i paradigmi principali per la configurazione dei firewall:
+</p>
+<ul class="org-ul">
+<li><b>Blacklist</b> \(\rightarrow\)  si fanno passare tutti i pacchetti, si bloccano
+soltanto alcuni tipi di pacchetti. 
+</li>
+<li><b>Whitelist</b> \(\rightarrow\) si bloccano tutti i pacchetti, e si decide cosa far
+passare nello specifico. Ovviamente questo approccio è il più diffuso in sicurezza 
+informatica, perchè si ha più controllo sul traffico di rete;
+</li>
+<li>Ricordiamo che i controlli possono essere effettuati su pacchetti <b>in entrata</b> ma
+anche sui pacchetti <b>in uscita</b>;
+</li>
+<li><b>Defence in depth</b> \(\rightarrow\) si costruisce una difesa su vari livelli, per
+una maggiore efficacia di difesa, ovviamente valutando
+il tradeoff con le performance. Ad esempio, non si può applicare un 
+proxy firewall(<i>vedi "tipi di firewall"</i>) su <b>tutto</b> il traffico di rete. Di solito si usa un'approccio
+di questo tipo: si applica una prima scrematura con uno screening router,
+poi si applica un proxy firewall su solo alcune connessioni (magari le
+più sospette).
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Tipi di firewall</h2>
+<div class="outline-text-2" id="text-5">
+<ul class="org-ul">
+<li><b>Screening router</b> \(\rightarrow\) router che effettua un'analisi preliminare tramite
+un firewall. Ad esempio potrebbe bloccare tutte le connessioni dall'esterno, 
+escludendone alcune. Viene usato per un'analisi dei pacchetti ad alto livello,
+applicando una prima scrematura dei pacchetti.
+</li>
+<li><b>Proxy firewall</b> \(\rightarrow\) specializzato nell'analisi di solo certi protocolli
+applicativi. 
+</li>
+<li><b>Stealth Firewall</b> \(\rightarrow\) implementato in un dispositivo ad hoc "invisibile" a
+gli host sulla rete. Ovviamente i firewall sono il primo obbiettivo di 
+chi attacca i sistemi, quindi renderli trasparenti è molto utile.
+Ad esempio, uno stealth firewall non può essere implementato su un normale
+router, che per natura e visibile dall'esterno (infatti decrementa sempre il
+TTL, modifica ben visibile usando tool come <code>traceroute</code>)
+</li>
+
+<li><b>Bastion Host</b> \(\rightarrow\) usare un proxy firewall per analizzare in modo
+approfondito solo alcune connesioni. Magari prima della connessione
+con un determinato host, un router può mandare al bastion host
+i pacchetti per un'analisi più approfondita.
+Spesso i bastion host vengono usati anche per le connessioni che dall'interno
+vanno verso l'esterno. 
+
+<p>
+Esempio: si configura un bastion host per il filtraggio del traffico
+proveniente da il pc di un impiegato. Si dice poi al router di inviare
+all'esterno solo i pacchetti che sono prima passati dal bastion host.
+</p>
+</li>
+</ul>
+
+
+<figure>
+<p><img src="./fire3.png" class="img-responsive" alt="fire3.png">
+</p>
+</figure>
+
+<ul class="org-ul">
+<li><b>DMZ</b> \(\rightarrow\) sezione della rete in cui si applicano meno controlli 
+(zona demilitarizzata).
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> Esercizio</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Comando per ottenere informazioni sul firewall:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">firewall-cmd --list-all
+</pre>
+</div>
+<p>
+Per configurare i firewall, solitamente sui server, si
+usa il solito <code>iptables</code>. Da tenere in mente il solito schema:
+<img src="./fire1.png" class="img-responsive" alt="fire1.png">
+</p>
+<ul class="org-ul">
+<li><b>Input</b>: si analizzano i pacchetti appena prima che arrivino 
+ai processi. 
+</li>
+<li><b>Output</b>: si analizzano i pacchetti generati dai processi 
+applicativi
+</li>
+<li><b>Forward</b>: utile quando si vogliono configurare le regole
+di firewall su un router, ossia un dispositivo in cui è 
+attivato l'IP forwarding. Queste regole vengono quindi
+applicate prima di inoltrare del traffico ad un'altra
+interfaccia.
+</li>
+</ul>
+
+<p>
+Dopo una breve introduzione ai comandi, si passa direttamente
+al seguente esercizio:
+</p>
+
+
+<figure>
+<p><img src="./fire2.png" class="img-responsive" alt="fire2.png">
+</p>
+</figure>
+
+<p>
+Per prima cosa si configura la rete normalmente, secondo le regole
+e i concetti già visti precedentemente.
+Una volta fatto ciò, si può procedere alla configurazione dei firewall,
+adottando un'approcco <b><code>White List</code></b>.
+</p>
+</div>
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Punto 1</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Ci si posiziona su <b>www, alice e router</b> e si danno i seguenti comandi:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables  -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -P FORWARD DROP
+</pre>
+</div>
+
+<p>
+In questo modo viene bloccato tutto il traffico dall'esterno e dall'interno.
+Inoltre si blocca anche lo scambio di pacchetti attraverso l'interfaccia
+di loopback, che è a tutti gli effetti un'interfaccia di rete.
+Infatti se si prova ad aprire un server locale usando netcat e ci si prova
+a connettere dallo stesso host, la connessione non avviene.
+Per questo motivo si mettono delle regole "lasche" sull'interfaccia
+di loopback \(\Downarrow\)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+</pre>
+</div>
+<p>
+<b><code>N.B</code></b>: a volte le GUI usano l'interfaccia di loopback, quindi se
+si imposta male il firewall potrebbero esserci problemi, impedendo
+all'interfaccia di lavorare correttamente.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6-2" class="outline-3">
+<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Punto 2</h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+Ci si posiziona su <b>www</b> e si danno i seguenti comandi:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A INPUT -i eth0 -d 155.185.255.10 -p tcp --dport 80
+-m state --state NEW,ESTABLISHED -j ACCEPT
+</pre>
+</div>
+<p>
+Significato del comando:
+</p>
+<ul class="org-ul">
+<li>Si controllano i pacchetti in <b>INPUT</b>;
+</li>
+<li>riservati all'interfaccia <b>eth0</b>;
+</li>
+<li>che hanno come ip destinazione <b>155.185.255.10</b>;
+</li>
+<li>che implementano il protocollo <b>TCP</b>;
+</li>
+<li>che hanno come porta destinazione la porta <b>80</b>;
+</li>
+<li>che servono per <b>stabilire una connesione (NEW)</b> o all'interno
+di un *flusso di comunicazione già avviato (ESTABLISHED)
+</li>
+<li>i pacchetti con queste caratteristiche vengono semplicemente accettati
+(-j ACCEPT);
+</li>
+</ul>
+
+<p>
+se si volessero accettare pacchetti provenienti dalla rete locale, si usrebbe:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A INPUT -i eth0 -d 155.185.255.10 -s 155.185.255.0/24 -p tcp --dport 80
+-m state --state NEW,ESTABLISHED -j ACCEPT
+</pre>
+</div>
+
+<p>
+<b><code>N.B</code></b> Comando utile per selezionare solo una parte della tabella:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -nvL INPUT --line-numbers
+</pre>
+</div>
+
+<p>
+Ovviamente se si vuole rendere usufruibile un servizio su una certa porta, 
+bisogna anche far passare i pacchetti di risposta dall'interno all'esterno:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A OUTPUT -o eth0 -s 155.185.255.10 -p tcp -sport 80 -m state
+--state ESTABLISHED -j ACCEPT
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-6-3" class="outline-3">
+<h3 id="sec-6-3"><span class="section-number-3">6.3</span> Punto 3</h3>
+<div class="outline-text-3" id="text-6-3">
+<p>
+Ci si posiziona su alice e si da il seguente comando:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A OUTPUT -o eth0 -s 155.185.255.1 -p tcp --dport 80 -m state
+--state NEW,ESTABLISHED -j ACCEPT
+</pre>
+</div>
+
+<p>
+Se ad esempio si volesse consentire l'invio di pacchetti solo verso una 
+specifica destinazione (in questo caso, il server www):
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A OUTPUT -o eth0 -s 155.185.255.1 -d 155.185.255.10 -p tcp --dport 80 -m state
+--state NEW,ESTABLISHED -j ACCEPT
+</pre>
+</div>
+
+<p>
+Ora si deve inserire la regola per accettare sulla porta 80 soltanto dei pacchetti di risposta,
+quindi da connessioni già stabilite:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A INPUT -i eth0 -d 155.185.255.1 -p tcp --sport 80 -m state --state
+ESTABLISHED -j ACCEPT
+</pre>
+</div>
+
+<p>
+<b><code>N.B.</code></b>: per testare i firewall, ovviamente si deve usare il livello 4. 
+Sul server si usa \(\Downarrow\)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">nc -nvlp 80
+</pre>
+</div>
+<p>
+sul client si usa \(\Downarrow\)
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">nc -nv 155.185.255.10 80
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-6-4" class="outline-3">
+<h3 id="sec-6-4"><span class="section-number-3">6.4</span> Connessione ad External</h3>
+<div class="outline-text-3" id="text-6-4">
+<p>
+Al momento il router blocca tutto, quindi i servizi non sono
+raggiungibili dall'esterno \(\rightarrow\) si deve agire sulla catena di forward.
+</p>
+
+<p>
+Ci si posiziona sul router e si da questo comando, in modo da
+accettare tutto il traffico che arriva su eth0 ed è destinato ad eth1:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A FORWARD -i eth0 -o eth1 -d 155.185.255.10 -p tcp --dport 80 -m state
+--state NEW,ESTABLISHED -j ACCEPT
+</pre>
+</div>
+
+<p>
+Si inserisce poi la regola duale per lasciar passare i pacchetti di connessioni
+già stabilite provenienti da www (porta 80)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables -A FORWARD -i eth1 -o eth0 -s 155.185.255.10 -p tcp --sport 80 -m state
+--state ESTABLISHED -j ACCEPT
+</pre>
+</div>
+<hr >
+</div>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-11-24 Thu 23:28</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>

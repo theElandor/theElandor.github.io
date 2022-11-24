@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Nov 2022 14:05:18 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 24 Nov 2022 23:32:25 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Tue, 22 Nov 2022 14:05:18 +0100</pubDate>
+      <pubDate>Thu, 24 Nov 2022 23:32:25 +0100</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -68,6 +68,7 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-27-10&#34;&gt;Lab 27-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-3-11&#34;&gt;Lab 3-11&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-lezione-17-11&#34;&gt;Lab/Lezione 17-11&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#lab-lezione-24-11&#34;&gt;Lab/Lezione 24-11&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#esercizi&#34;&gt;Esercizi&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
@@ -1235,6 +1236,11 @@ iface eth1 inet static
 &lt;p&gt;Breve introduzione sul Natting (telegram + presenza) + Laboratorio in presenza:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/ip_header_nat.html&#34;&gt;Laboratorio Natting&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;lab-lezione-24-11&#34;&gt;Lab/Lezione 24-11&lt;/h2&gt;
+&lt;p&gt;Breve introduzione ai Firewall + Laboratorio:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/241122.html&#34;&gt;Laboratorio Firewall&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;esercizi&#34;&gt;Esercizi&lt;/h2&gt;
 &lt;p&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/es1reti.html&#34;&gt;Esercizio routing 20/10/22&lt;/a&gt;&lt;/p&gt;
