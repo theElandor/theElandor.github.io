@@ -1,0 +1,550 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Parser SLR(1), 23/11/22</b></title>
+<!-- 2022-11-25 Fri 15:06 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="html_style.css" />
+<style>.container{padding-left: 90px; padding-right: 90px;}code{color:navy;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Parser SLR(1), 23/11/22</b></h1>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Info</h2>
+<div class="outline-text-2" id="text-">
+<p>
+Appunti della lezione in presenza del 23/11/22. Ci si è concentrati
+principalmente sugli esempi riportati sulle slide, per cercare
+di capire in modo chiaro l'algoritmo di parsing.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of Contents</h2>
+<div class="outline-text-2" id="text-">
+<ul class="org-ul">
+<li><a href="#sec-1">Introduzione</a>
+</li>
+<li><a href="#sec-2">L'algoritmo data la tabella di parsing</a>
+</li>
+<li><a href="#sec-3">Creazione della tabella di parsing</a>
+<ul class="org-ul">
+<li><a href="#sec-3-1">Automa LR(0)</a>
+</li>
+<li><a href="#sec-3-2">Definizione della tabella</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduzione</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Vediamo ora un tipo di parser LR, chiamato <b><code>SLR(1)</code></b> (Simple LR). Le sue caratteristiche sono le seguenti:
+</p>
+<ul class="org-ul">
+<li>Si basa sulla lettura di una tabella di parsing, che viene costruita
+solamente in base alle <b>produzioni della grammatica</b>. Questo processo
+di generazione verrà trattato successivamente;
+</li>
+<li>Si interfaccia con uno <b>stack</b> su cui vengono inseriti man mano
+gli <b>stati</b> dell'automa;
+</li>
+<li>Ovviamente questo parser è del tipo <b>SHIFT*/*REDUCE</b>:
+<ul class="org-ul">
+<li>Shift \(\rightarrow\) viene consumato un carattere dell'input
+e viene inserito nello stack <i>lo stato corrente</i>;
+</li>
+<li>Reduce \(\rightarrow\) viene effettuata una <b>riduzione</b>: vengono
+fatte una serie di <code>pop()</code> dallo stack in base ad una produzione
+specificata nella tabella, per poi spostarsi su un'altro stato
+in base al contenuto della colonna <b>GOTO</b>.
+</li>
+</ul>
+</li>
+</ul>
+<p>
+Si prendano queste informazioni come un'introduzione generale al funzionamento,
+ci si soffermerà sui dettagli successivamente.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> L'algoritmo data la tabella di parsing</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+Si consideri la seguente grammatica: 
+</p>
+\begin{align}
+& 1) \  S \rightarrow (S)S \\
+& 2)  \ S \rightarrow \epsilon
+\end{align}
+<p>
+la tabella di parsing che viene costruita a partire dalla grammatica
+(vediamo successivamente come) è la seguente: 
+</p>
+
+
+<figure>
+<p><img src="./slr1.png" class="img-responsive" alt="slr1.png">
+</p>
+</figure>
+
+<p>
+Ad un generico passo, il parser dovrà consultare la tabella di parsing, 
+tenendo conto dello stato in cui è attualmente (colonna "Stato") e del prossimo carattere dallo
+stream di input (Prima riga sotto "ACTION"). Possono verificarsi le seguenti casistiche:
+</p>
+<ul class="org-ul">
+<li>La casella è vuota: viene lanciato errore. Non esiste un'azione per quella
+combinazione di stato/input;
+</li>
+<li>La casella contiene sia un'azione <b>shift</b> che un'azione <b>reduce</b>:
+in questo caso si ha un <b>conflitto shift/reduce</b>. Il parser
+non sa quale delle due azioni svolgere, quindi la grammatica
+iniziale era <b>ambigua</b>.
+</li>
+<li>La casella contiene (ad esempio) <code>shift 2</code>. Il parser avanza
+il puntatore di input e inserisce lo stato 2 nello stack.
+</li>
+<li>La casella contiene (ad esempio) <code>reduce 1</code>. In questo caso
+il parser applica una "riduzione", scorrendo la produzione 1
+al contrario. In particolare:
+<ul class="org-ul">
+<li>vengono effettuate 4 pop (perchè la produzione 1 contiene 4 caratteri);
+</li>
+<li>si guarda qual'è lo stato in cima allo stack, supponiamo che sia
+lo stato 4;
+</li>
+<li>viene inserito nello stack lo stato 5 ( visibile nella colonna GOTO, 
+in corrispondenza della riga 4).
+</li>
+</ul>
+</li>
+</ul>
+
+<p>
+Esempio di esecuzione su input "()()" \(\Downarrow\)
+<img src="./slr2.png" class="img-responsive" alt="slr2.png">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Creazione della tabella di parsing</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Automa LR(0)</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+Il primo passo della generazione della tabella di parsing
+consiste nella costruzione di un'<b>automa a stati finiti</b> di tipo LR(0),
+perchè <i>non prevede</i> nessun lookahead. Viene realizzato semplicemente
+guardando una versione "modificata" della grammatica presa come
+riferimento.
+</p>
+
+<p>
+In particolare, alla grammatica vengono associati degli <b><code>item</code></b>, 
+ossia degli oggetti molto simili alle produzioni stesse, ma in
+cui viene inserito un "." dopo ogni carattere. Ad esempio, gli
+item per la produzione \(S \rightarrow (S)S\) sono i seguenti: 
+</p>
+\begin{align}
+& S \rightarrow .(S)S \\
+& S \rightarrow (.S)S \\
+& S \rightarrow (S.)S \\
+& S \rightarrow (S).S \\
+& S \rightarrow (S)S. \\
+\end{align}
+<p>
+In particolare, il punto indica che si è riconosciuto tutto ciò che
+si trova alla sua sinistra, e ci si aspetta di riconoscere quello
+che si trova alla sua destra.
+Un'item con il punto in fondo indica che il processo di riconoscimento
+della parte destra è terminato, e che quindi si potrà applicare una <b>riduzione</b>.
+Infatti se ci si pensa, una volta che si è riconosciuta una sequenza del tipo
+</p>
+
+\begin{equation}
+S \rightarrow (S)S.
+\end{equation}
+
+<p>
+allora è come se fosse stata riconosciuta una semplice \(S\) (sequenza bilanciata
+di parentesi).
+</p>
+
+<p>
+Si procede come segue, considerando (ad esempio) la solita grammatica che 
+riconosce sequenze di parentesi bilanciate:
+</p>
+<ul class="org-ul">
+<li>Si "aumenta" la grammatica, inserendo la produzione
+</li>
+</ul>
+\begin{equation}
+S' \rightarrow S
+\end{equation}
+<ul class="org-ul">
+<li>Si definisce il primo stato dell'automa, ponendo il "." di fronte a ogni
+produzione della grammatica.
+</li>
+</ul>
+\begin{align}
+& I_{0} \\
+& S' \rightarrow .S\\
+& S \rightarrow .(S)S\\
+& S \rightarrow .\\
+\end{align}
+<ul class="org-ul">
+<li>Si fa avanzare il "." per ogni item presente nello stato. Dal primo item dello
+stato \(I_{0}\) si ottiene lo stato I<sub>1</sub>, e dal secondo item si ottiene lo 
+stato \(I_{2}\). Dall'ultimo item non si ottiene nulla, perchè il punto ha già
+raggiunto la fine della produzione.
+</li>
+</ul>
+\begin{align}
+& I_{1} \\
+& S' \rightarrow S.\\
+\end{align}
+
+\begin{align}
+& I_{2} \\
+& S \rightarrow (.S)S\\
+\end{align}
+
+<ul class="org-ul">
+<li>Si applicano le <b>chiusure</b>. Se il "." si trova davanti ad un carattere non terminale, 
+si aggiungono allo stato tutti gli item ottenuti dalle produzioni del non-terminale in questione
+inserendo il punto all'inizio. Per \(I_{1}\) non si fa nulla, mentre \(I_{2}\) diventa:
+</li>
+</ul>
+
+\begin{align}
+& I_{2} \\
+& S \rightarrow (.S)S\\
+& S \rightarrow .(S)S\\
+& S \rightarrow .\\
+\end{align}
+
+<ul class="org-ul">
+<li>Si procede in questo modo, analizzando ogni nuovo stato che viene generato.
+Gli item colorati rappresentano quelli aggiunti tramite <i>closure</i>.\(\Downarrow\)
+</li>
+</ul>
+<p>
+<img src="./slr3.png" class="img-responsive" alt="slr3.png">
+Questa collezione di item da origine all'automa a stati finiti in figura, abbastanza
+intuitivamente:
+<img src="./slr4.png" class="img-responsive" alt="slr4.png">
+</p>
+
+<p>
+Un'altro esempio, considerando la grammatica che genera il linguaggio \(\{a^{n}b^{n} | n>=1\}\):
+</p>
+
+\begin{align}
+& S' \rightarrow S\\
+& S \rightarrow aSB\\
+& S \rightarrow ab\\
+\end{align}
+
+<p>
+I numeri viola indicano la "sequenza" di stati, le note a margine dovrebbero aiutare:
+</p>
+
+
+<figure>
+<p><img src="./slr7.png" class="img-responsive" alt="slr7.png">
+</p>
+</figure>
+
+
+<figure>
+<p><img src="./slr8.png" class="img-responsive" alt="slr8.png">
+</p>
+</figure>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Definizione della tabella</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+La definizione della tabella è abbastanza lineare, c'è solo
+da effettuare un controllo aggiuntivo per quando riguarda l'inserimento
+delle reduction.
+</p>
+
+<p>
+Per ogni stato \(I_{j}\) dell'automa prodotto precedentemente, si guardano
+tutte le transizioni uscenti.
+Vengono di seguito elencate le operazioni "facili":
+</p>
+<ul class="org-ul">
+<li>Per ogni transizione uscente (da \(I_{j}\) \(I_{k}\)) etichettata con un <b>terminale</b> \(x\), poniamo
+ACTION \([j,x]\) = shift \(k\)
+</li>
+<li>Per ogni transizione uscente (da \(I_{j}\) \(I_{k}\)) etichettata con un <b>non-terminale</b> \(X\),
+poniamo GOTO \([j,X]\) = \(k\);
+</li>
+</ul>
+<p>
+ora l'operazione leggermente delicata:
+</p>
+<ul class="org-ul">
+<li>Se nell'insieme di item corrispondenti ad \(I_{j}\) esiste un item del tipo \(A \rightarrow \alpha\).
+(da notare il punto alla fine, significa che è stata riconosciuta una sequenza corretta quindi
+c'è da effettuare una reduction), allora si pone ACTION \([j,x]\) = reduce (enum \((A \rightarrow \alpha)\))
+<b>per ogni simbolo \(x\) nel FOLLOW(A)</b>.
+Con enum enum \((A \rightarrow \alpha)\)) si intende il numero corrispondente alla 
+produzione, secondo loro ordinamento arbitrario. E' semplicemente un modo per identificare
+la produzione da usare per la riduzione.
+Per capire al meglio questo controllo sui FOLLOW(A), si immagini che dopo la riduzione
+venga inserito il non-terminale A nell'"input" al posto dei caratteri che hanno portato
+alla terminazione della produzione.
+Per esempio, dopo aver riconosciuto la prima sequenza di parentesi, si ottiene (idealmente) 
+</li>
+</ul>
+\begin{equation}
+()(()) \rightarrow S(())
+\end{equation}
+<p>
+immaginiamo ora che al posto della prima parentesi alla destra della S ci sia
+un carattere <b>non presente nel follow di S</b>, come ad esempio il "+"
+\(S+())\)
+In questo caso non avrebbe avuto senso applicare la <i>reduce</i>, dato che
+il parser finirebbe in stato di errore.
+</p>
+
+<p>
+La tabella risultante rispetto alla grammatica che riconosce le parentesi bilanciate
+è infine la seguente, già mostrata in precedenza:
+<img src="./slr1.png" class="img-responsive" alt="slr1.png">
+</p>
+<hr >
+</div>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-11-25 Fri 15:06</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>
