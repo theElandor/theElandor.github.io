@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Firewall e sicurezza informatica, 24-11-22</b></title>
-<!-- 2022-11-24 Thu 23:28 -->
+<!-- 2022-11-27 Sun 10:45 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -221,9 +221,9 @@ MathJax.Hub.Config({
 <div id="content" class="container">
 <div class="row"><div class="col-md-12"><h1 class="title"><b>Firewall e sicurezza informatica, 24-11-22</b></h1>
 <hr >
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Lecture Info</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Lecture Info</h2>
+<div class="outline-text-2" id="text-">
 <p>
 Appunti della lezione in presenza del 24/11/22. Si è parlato in modo
 discorsivo dei firewall, per poi passare ad un breve laboratorio per
@@ -231,16 +231,33 @@ vedere una semplice configurazione su marrionet.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Introduzione</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of Contents</h2>
+<div class="outline-text-2" id="text-">
+<ul class="org-ul">
+<li><a href="#sec-1">Introduzione</a>
+</li>
+<li><a href="#sec-2">Tipi di analisi</a>
+</li>
+<li><a href="#sec-3">Paradigmi e concetti</a>
+</li>
+<li><a href="#sec-4">Tipi di firewall</a>
+</li>
+<li><a href="#sec-5">Esercizio</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduzione</h2>
+<div class="outline-text-2" id="text-1">
 <p>
 Per "firewall" si intende generalmente un software o un dispositivo dedicato in grado di filtrare
 i pacchetti in ingresso/uscita.
-Solitamente i firewall lavorano ai livelli <b>3</b> e <b>4</b>
+Solitamente lavorano ai livelli <b>3</b> e <b>4</b>
 dello stack, e raramente sono implementati a livello 2(ad esempio su uno
 switch);
-Ovviamente i firwewall vanno configurati in base ai requisiti della rete
+Ovviamente essi vanno configurati in base ai requisiti della rete
 su cui vengono installati.
 Alcuni termini da tenere a mente, tra i principi fondamentali della
 sicurezza informatica:
@@ -251,7 +268,7 @@ più in generale delle <b><code>risorse</code></b> di una determinata rete.
 Ad esempio le VLAN sono un modo per effettuare segmentazione e segregazione;
 </li>
 <li><b>Segregazione</b> \(\rightarrow\) si tratta di tutti i meccanismi legati al controllo degli accessi.
-Ad esempio un qualsiasi firewall è un dispositivo che effettua segregazione perchè 
+Ad esempio un qualsiasi firewall è un dispositivo che effettua segregazione, perchè 
 decide (in base a certe regole) quali pacchetti accettare in input e quali far passare in output.
 </li>
 </ul>
@@ -267,9 +284,9 @@ tutti i pacchetti provenienti dall'esterno che vogliono instaurare una connessio
 </p>
 </div>
 </div>
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Tipi di analisi</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Tipi di analisi</h2>
+<div class="outline-text-2" id="text-2">
 <ul class="org-ul">
 <li>Analisi <b>stateless</b>: si analizzano i pacchetti singolarmente, 
 in modo indipendente rispetto alle informazioni precedenti.
@@ -279,15 +296,15 @@ in modo indipendente rispetto alle informazioni precedenti.
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Paradigmi e concetti</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Paradigmi e concetti</h2>
+<div class="outline-text-2" id="text-3">
 <p>
 Ecco i paradigmi principali per la configurazione dei firewall:
 </p>
 <ul class="org-ul">
 <li><b>Blacklist</b> \(\rightarrow\)  si fanno passare tutti i pacchetti, si bloccano
-soltanto alcuni tipi di pacchetti. 
+soltanto <i>alcuni tipi</i> di pacchetti. 
 </li>
 <li><b>Whitelist</b> \(\rightarrow\) si bloccano tutti i pacchetti, e si decide cosa far
 passare nello specifico. Ovviamente questo approccio è il più diffuso in sicurezza 
@@ -299,7 +316,7 @@ anche sui pacchetti <b>in uscita</b>;
 <li><b>Defence in depth</b> \(\rightarrow\) si costruisce una difesa su vari livelli, per
 una maggiore efficacia di difesa, ovviamente valutando
 il tradeoff con le performance. Ad esempio, non si può applicare un 
-proxy firewall(<i>vedi "tipi di firewall"</i>) su <b>tutto</b> il traffico di rete. Di solito si usa un'approccio
+proxy firewall(<i>vedi <a href="#sec-4">tipi di firewall</a></i>) su <b>tutto</b> il traffico di rete. Di solito si usa un'approccio
 di questo tipo: si applica una prima scrematura con uno screening router,
 poi si applica un proxy firewall su solo alcune connessioni (magari le
 più sospette).
@@ -307,27 +324,27 @@ più sospette).
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Tipi di firewall</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Tipi di firewall</h2>
+<div class="outline-text-2" id="text-4">
 <ul class="org-ul">
 <li><b>Screening router</b> \(\rightarrow\) router che effettua un'analisi preliminare tramite
 un firewall. Ad esempio potrebbe bloccare tutte le connessioni dall'esterno, 
 escludendone alcune. Viene usato per un'analisi dei pacchetti ad alto livello,
-applicando una prima scrematura dei pacchetti.
+applicando una prima scrematura.
 </li>
-<li><b>Proxy firewall</b> \(\rightarrow\) specializzato nell'analisi di solo certi protocolli
+<li><b>Proxy firewall</b> \(\rightarrow\) specializzato nell'analisi di alcuni protocolli
 applicativi. 
 </li>
-<li><b>Stealth Firewall</b> \(\rightarrow\) implementato in un dispositivo ad hoc "invisibile" a
+<li><b>Stealth Firewall</b> \(\rightarrow\) implementato in un dispositivo specializzato "invisibile" a
 gli host sulla rete. Ovviamente i firewall sono il primo obbiettivo di 
 chi attacca i sistemi, quindi renderli trasparenti è molto utile.
 Ad esempio, uno stealth firewall non può essere implementato su un normale
 router, che per natura e visibile dall'esterno (infatti decrementa sempre il
-TTL, modifica ben visibile usando tool come <code>traceroute</code>)
+TTL, cosa ben visibile usando tool come <code>traceroute</code>)
 </li>
 
-<li><b>Bastion Host</b> \(\rightarrow\) usare un proxy firewall per analizzare in modo
+<li>Host* \(\rightarrow\) usare un proxy firewall per analizzare in modo
 approfondito solo alcune connesioni. Magari prima della connessione
 con un determinato host, un router può mandare al bastion host
 i pacchetti per un'analisi più approfondita.
@@ -335,8 +352,8 @@ Spesso i bastion host vengono usati anche per le connessioni che dall'interno
 vanno verso l'esterno. 
 
 <p>
-Esempio: si configura un bastion host per il filtraggio del traffico
-proveniente da il pc di un impiegato. Si dice poi al router di inviare
+👉🏾 Esempio: si configura un bastion host per il filtraggio del traffico
+proveniente dal pc di un impiegato, che si pensa svolga operazioni illecite/sospette. Si dice poi al router di inviare
 all'esterno solo i pacchetti che sono prima passati dal bastion host.
 </p>
 </li>
@@ -355,9 +372,12 @@ all'esterno solo i pacchetti che sono prima passati dal bastion host.
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Esercizio</h2>
-<div class="outline-text-2" id="text-6">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Esercizio</h2>
+<div class="outline-text-2" id="text-5">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Introduzione</h3>
+<div class="outline-text-3" id="text-">
 <p>
 Comando per ottenere informazioni sul firewall:
 </p>
@@ -398,15 +418,16 @@ al seguente esercizio:
 </figure>
 
 <p>
-Per prima cosa si configura la rete normalmente, secondo le regole
+Per prima cosa si configura la rete normalmente (in modo che tutti possano pingare tutti), secondo le regole
 e i concetti già visti precedentemente.
 Una volta fatto ciò, si può procedere alla configurazione dei firewall,
-adottando un'approcco <b><code>White List</code></b>.
+adottando un'approccio <b><code>White List</code></b>.
 </p>
 </div>
-<div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Punto 1</h3>
-<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Punto 1</h3>
+<div class="outline-text-3" id="text-5-1">
 <p>
 Ci si posiziona su <b>www, alice e router</b> e si danno i seguenti comandi:
 </p>
@@ -440,9 +461,9 @@ all'interfaccia di lavorare correttamente.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2"><span class="section-number-3">6.2</span> Punto 2</h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><span class="section-number-3">5.2</span> Punto 2</h3>
+<div class="outline-text-3" id="text-5-2">
 <p>
 Ci si posiziona su <b>www</b> e si danno i seguenti comandi:
 </p>
@@ -506,9 +527,9 @@ bisogna anche far passare i pacchetti di risposta dall'interno all'esterno:
 </div>
 </div>
 
-<div id="outline-container-sec-6-3" class="outline-3">
-<h3 id="sec-6-3"><span class="section-number-3">6.3</span> Punto 3</h3>
-<div class="outline-text-3" id="text-6-3">
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><span class="section-number-3">5.3</span> Punto 3</h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
 Ci si posiziona su alice e si da il seguente comando:
 </p>
@@ -561,9 +582,9 @@ sul client si usa \(\Downarrow\)
 </div>
 </div>
 </div>
-<div id="outline-container-sec-6-4" class="outline-3">
-<h3 id="sec-6-4"><span class="section-number-3">6.4</span> Connessione ad External</h3>
-<div class="outline-text-3" id="text-6-4">
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Connessione ad External</h3>
+<div class="outline-text-3" id="text-">
 <p>
 Al momento il router blocca tutto, quindi i servizi non sono
 raggiungibili dall'esterno \(\rightarrow\) si deve agire sulla catena di forward.
@@ -593,11 +614,35 @@ già stabilite provenienti da www (porta 80)
 <hr >
 </div>
 </div>
+
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Salvare le modifiche</h3>
+<div class="outline-text-3" id="text-">
+<p>
+A fine esercizio, per salvare le modifiche fatte a IPtables, usare il seguente
+comando:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables-save &gt; /etc/iptables/rules.v4
+</pre>
+</div>
+<p>
+Per caricarle dal file, usare
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">iptables-restore &lt; /etc/iptables/rules.v4
+</pre>
+</div>
+<hr >
+</div>
+</div>
 </div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-11-24 Thu 23:28</p>
+<p class="date">Created: 2022-11-27 Sun 10:45</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
