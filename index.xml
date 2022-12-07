@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 07 Dec 2022 15:41:50 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Dec 2022 15:44:49 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Wed, 07 Dec 2022 15:41:50 +0100</pubDate>
+      <pubDate>Wed, 07 Dec 2022 15:44:49 +0100</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -63,6 +63,7 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#ip--ip-routing&#34;&gt;(IP) Ip routing&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#bgp&#34;&gt;BGP&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#tcp&#34;&gt;(TCP)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#dns&#34;&gt;DNS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-20-10&#34;&gt;Lab 20-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-27-10&#34;&gt;Lab 27-10&lt;/a&gt;&lt;/li&gt;
@@ -73,14 +74,8 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;metodi-di-comunicazione&#34;&gt;METODI DI COMUNICAZIONE&lt;/h2&gt;
-&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
+&lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;
+&lt;img src=&#34;/ox-hugo/protocolli_intro_sintesi.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I protocolli hanno senso se condivisi, bisogna definire degli &lt;strong&gt;standard&lt;/strong&gt;
 comuni.&lt;/p&gt;
 &lt;ul&gt;
