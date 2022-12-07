@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 01 Dec 2022 15:24:25 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 07 Dec 2022 15:41:50 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Thu, 01 Dec 2022 15:24:25 +0100</pubDate>
+      <pubDate>Wed, 07 Dec 2022 15:41:50 +0100</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -883,6 +883,10 @@ che sia un multiplo di 32 bit. Simile al &amp;ldquo;byte stuffing&amp;rdquo;.&lt
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/221122.html&#34;&gt;Livello 4, 22/11/22, segmento TCP, TWH&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/tcp2.html&#34;&gt;Livello 4, 29/11/22, TCP, Sliding Window&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+&lt;h2 id=&#34;dns&#34;&gt;DNS&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/061122.html&#34;&gt;DNS, 06/12/22&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
 &lt;ul&gt;
@@ -915,13 +919,13 @@ a livello 2 si usa il comando &lt;strong&gt;ip link&lt;/strong&gt;. Esso elenca 
 di rete disponibili nel sistema, simile al comando &lt;code&gt;ifconfig -a&lt;/code&gt;.&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;eros@eros-ThinkPad-T430:~/website$ ip link
 1: lo: &amp;lt;LOOPBACK,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;65536&lt;/span&gt; qdisc noqueue state UNKNOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
-    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+	link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp0s25: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc fq_codel state DOWN mode DEFAULT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
-    link/ether 28:d2:44:0e:4e:f4 brd ff:ff:ff:ff:ff:ff
+	link/ether 28:d2:44:0e:4e:f4 brd ff:ff:ff:ff:ff:ff
 3: wlp3s0: &amp;lt;BROADCAST,MULTICAST,UP,LOWER_UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc mq state UP mode DORMANT group default qlen &lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;
-    link/ether 6c:88:14:86:08:08 brd ff:ff:ff:ff:ff:ff
+	link/ether 6c:88:14:86:08:08 brd ff:ff:ff:ff:ff:ff
 4: docker0: &amp;lt;NO-CARRIER,BROADCAST,MULTICAST,UP&amp;gt; mtu &lt;span style=&#34;color:#ae81ff&#34;&gt;1500&lt;/span&gt; qdisc noqueue state DOWN mode DEFAULT group default
-    link/ether 02:42:f5:40:4e:45 brd ff:ff:ff:ff:ff:ff
+	link/ether 02:42:f5:40:4e:45 brd ff:ff:ff:ff:ff:ff
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;ip link show eth0&lt;/strong&gt; per ottenere informazioni su quell&amp;rsquo;interfaccia di rete;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;ip link set eth0 up&lt;/strong&gt; per accendere l&amp;rsquo;interfaccia;&lt;/li&gt;
