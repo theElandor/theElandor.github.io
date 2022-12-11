@@ -524,14 +524,10 @@ Dove NIAP sta per <b>Non-Interpolated Average Precision</b>.
 Queste misure favoriscono sistemi che restituiscono documenti rilevanti "velocemente".
 </p>
 </div>
-</div>
-<div id="outline-container-sec-3-3" class="outline-3"><button type="button" class="collapsible">
-<h3 id="sec-3-3" nil> 3.3 Min Average Precision (MAP) &triangledown;</h3>
-</button><div class='sec-3-3 collapsible-content'>
+<div id="outline-container-sec-3-2-1" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-3-2-1" nil> 3.2.1 Esempio &triangledown;</h4>
+</button><div class='sec-3-2-1 collapsible-content'>
 <p>
-Semplicemente si calcola la media per le varie Single Precision Value
-ottenuti dalle varie query. E' quindi una <i>media delle medie</i>.
-Esempio: 
 
 <div class="row top-buffer"> </div>
 <img src="./b1.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
@@ -543,6 +539,151 @@ che è maggiore nel primo ranking che nel secondo.
 </p>
 </div>
 </div>
+</div>
+<div id="outline-container-sec-3-3" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-3-3" nil> 3.3 Min Average Precision (MAP) &triangledown;</h3>
+</button><div class='sec-3-3 collapsible-content'>
+<p>
+Semplicemente si calcola la media per le varie Single Precision Value
+ottenuti dalle varie query. E' quindi una <i>media delle medie</i>.
+E' sicuramente una delle misure più utilizzate
+</p>
+</div>
+<div id="outline-container-sec-3-3-1" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-3-3-1" nil> 3.3.1 Esempio &triangledown;</h4>
+</button><div class='sec-3-3-1 collapsible-content'>
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./b2.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+Da questi dati si potrebbe analizzare meglio il processing della seconda
+query per cercare di aumentare la MAP.
+Tuttavia considerare la rilevanza come un parametro binario è un'approccio semplicistico 
+in un contesto reale.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3-4" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-3-4" nil> 3.4 R-Precision &triangledown;</h3>
+</button><div class='sec-3-4 collapsible-content'>
+<p>
+Si basa su una singola query e restituisce un singolo valore.
+E' un metodo molto semplice dato che <b>non usa la recall</b>.
+Semplicemente: 
+</p>
+<ol class="org-ol">
+<li><p>
+Si applica la query, ottenendo un ranking dei documenti;
+</p>
+</li>
+<li><p>
+Si supponga che il pool di documenti rilevanti a priori 
+per quella query contenga \(n\) documenti;
+</p>
+</li>
+<li><p>
+Si divide il numero di documenti <b>rilevanti</b> nei primi \(n\)
+( all'interno del ranking) per \(n\).
+</p>
+</li>
+</ol>
+
+<p>
+Per vedere a occhio quale sistema funziona meglio con la query
+\(i\): 
+</p>
+\begin{equation}
+RP_{A/B}(i) = RP_{A}(i) - RP_{B}(i)
+\end{equation}
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./b3.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-4" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-4" style="text-decoration: underline"> 4 Limiti dei metodi &triangledown;</h2>
+</button><div class='sec-4 collapsible-content'>
+<ul class="org-ul">
+<li><p>
+Possibile <b>assenza di benchmark</b>, ma anche la sua costruzione
+costituisce un problema a parte ( i documenti vanno anche supervisionati
+dal programmatore/o da un responsabile)
+</p>
+</li>
+</ul>
+<ul class="org-ul">
+<li><p>
+<b>Recall</b> e <b>Precision</b> sono soltanto una piccola parte di tutto
+ciò che concerne un sistema di information retrieval, andrebbero
+considerati molti più parametri.
+</p>
+</li>
+<li><p>
+Per alcuni sistemi il meccanismo più indicato non è l'ordinamento <b>totale</b>,
+ma un'ordinamento <b>parziale</b> dei risultati: in questo caso precision e 
+recall risultano non adeguate.
+</p>
+</li>
+</ul>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-5" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-5" style="text-decoration: underline"> 5 Misure alternative &triangledown;</h2>
+</button><div id="outline-container-sec-5-1" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-5-1" nil> 5.1 Media armonica &triangledown;</h3>
+</button><div class='sec-5-1 collapsible-content'>
+\begin{equation}
+\frac{2*prec*call}{prec+recall}
+\end{equation}
+</div>
+</div>
+<div id="outline-container-sec-5-2" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-5-2" nil> 5.2 E-measure &triangledown;</h3>
+</button><div class='sec-5-2 collapsible-content'>
+\begin{equation}
+E = 1-\frac{1+b^2}{\frac{b^2}{recall}+\frac{1}{prec}}
+\end{equation}
+<ul class="org-ul">
+<li><p>
+se b == 1 allora è la media armonica ?(verificare, non mi convince);
+</p>
+</li>
+<li><p>
+se b>1 si infatizza la precision;
+</p>
+</li>
+<li><p>
+se b<1 si infatizza la recall;
+</p>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-5-3" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-5-3" nil> 5.3 Discounted Cumulative Gain &triangledown;</h3>
+</button></div>
 </div>
    </div>
    <div class="col-xs-1"></div>
@@ -561,7 +702,7 @@ che è maggiore nel primo ranking che nel secondo.
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-12-11 Sun 16:44</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-12-11 Sun 17:37</p>
 </div>
 </footer>
    </div>
