@@ -1,0 +1,638 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>DHCP, 12-12-22</b></title>
+<!-- 2022-12-13 Tue 11:06 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="html_style.css"/>
+<style>.container{padding-left: 70px; padding-right: 70px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>DHCP, 12-12-22</b></h1>
+<hr >
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Lecture Info</h2>
+<div class="outline-text-2" id="text-">
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of Contents</h2>
+<div class="outline-text-2" id="text-">
+<ul class="org-ul">
+<li><a href="#sec-1">DHCP</a>
+<ul class="org-ul">
+<li><a href="#sec-1-1">Introduzione al funzionamento</a>
+</li>
+<li><a href="#sec-1-2">Policy di rete</a>
+</li>
+<li><a href="#sec-1-3">Paradigma client/server</a>
+</li>
+<li><a href="#sec-1-4">Pacchetto DHCP</a>
+</li>
+<li><a href="#sec-1-5">Workflow più comune</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2">Laboratorio</a>
+<ul class="org-ul">
+<li><a href="#sec-2-1">Esempio semplice</a>
+<ul class="org-ul">
+<li><a href="#sec-2-1-1">Configurazione server dhcp</a>
+</li>
+<li><a href="#sec-2-1-2">Connessione del client</a>
+</li>
+<li><a href="#sec-2-1-3">Analisi del traffico</a>
+</li>
+<li><a href="#sec-2-1-4">Relay agent</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-2-2">Esercizio</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> DHCP</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Introduzione al funzionamento</h3>
+<div class="outline-text-3" id="text-1-1">
+<p>
+Protocollo applicativo basato su UDP e serve a configurare il livello 3 dei <b>client</b>.
+</p>
+<blockquote>
+<p>
+DHCP è quindi un protocollo diffuso per la <b>configurazione automatica</b> degli host.
+</p>
+</blockquote>
+<p>
+I router, essendo dei componenti fondamentali, solitamente vengono configurati
+manualmente. E' rischioso configurare un router con algoritmi automatici.
+</p>
+
+<p>
+L'amministratore di rete è il responsabile della scrittura delle policy 
+del <b>server DHCP</b>, i <b>client</b> poi si connetteranno per ottenere le informazioni
+necessarie alla loro configurazione.
+</p>
+
+<p>
+Un'obbiettivo è avere un'architettura <b>scalabile</b>: in una rete potrebbero
+essere presenti più server DHCP, per avere maggiore resilienza. Questo comporta
+anche l'implementazione di meccanismi aggiuntivi per il riconoscimento del server
+adatto alla configurazoine, nel caso in cui ce ne siano più di uno.
+</p>
+<hr >
+
+<p>
+Non avendo a disposizione il livello IP per comunicare (non essendo
+ancora configurato), i client inviano dei messaggi broadcast per
+capire se nella rete c'è un server DHCP in ascolto.
+</p>
+<ul class="org-ul">
+<li><i>Cosa succede se la rete è divisa in molte sottoreti?</i>
+</li>
+</ul>
+<p>
+\(\rightarrow\) Potrei inserire un server DHCP per ogni sottorete.<br >
+L'amministratore in questo caso non può più configurare le policy in un'unico database centralizzato.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Policy di rete</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+Le regole elencate sono <b>persistenti</b> al riavvio dei server e dei client.
+</p>
+<ul class="org-ul">
+<li>assegnazione degli indirizzi IP;
+</li>
+<li>regole aggiuntive (regole di routing, nomi degli host&#x2026;)
+</li>
+<li>comunicazione dei local name server;
+</li>
+<li>altre regole "statiche" di varia natura. Uno stesso host, ad esempio,
+può avere sempre lo stesso indirizzo IP.
+</li>
+</ul>
+<p>
+Spesso si usano dei protocolli per capire se le assegnazioni automatiche
+creano dei conflitti nella rete.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Paradigma client/server</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li>Porta UDP 67: porta su cui il <code>server</code> rimane in ascolto;
+</li>
+<li>Porta UDP 68: porta su cui il <code>client</code> rimane in ascolto;
+</li>
+</ul>
+<p>
+In questo caso quindi ci sono delle <b>porte note</b> ben specificate.
+Il server non è in grado di selezionare il destinatario in base 
+all'indirizzo IP. Quindi quello che fa è inviare i dati a <b>tutti</b> 
+i client presenti su quella rete.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Pacchetto DHCP</h3>
+<div class="outline-text-3" id="text-1-4">
+
+<figure>
+<p><img src="./a1.png" class="img-responsive" alt="a1.png">
+</p>
+</figure>
+<ul class="org-ul">
+<li><b>op</b>: specifica se il pacchetto contiene una risposta o una richiesta;
+</li>
+<li><b>xid</b>: serve a comunicare l'ID della transazione, è una sorta di "<i>identificatore di flusso</i>",
+simile a quello di TCP, anche se DHCP non è orientato alla connessione.
+Questo campo viene scelto dal client quando inizia la comunicazione con il server.
+</li>
+<li><b>ciaddr</b>: campo con cui il client può "richiedere" uno specifico indirizzo.
+</li>
+<li><b>yiaddr</b>: campo con cui il server comunica le proposte.
+</li>
+<li><b>siaddr</b>: se esistono più server (server ridondanti), indica il prossimo server
+da utilizzare.
+</li>
+<li><b>chaddr</b>: campo che contiene l'indirizzo hardware del client. E' ridondante, 
+ma serve per il corretto funzionamento del protocollo.
+</li>
+</ul>
+
+<p>
+Il pacchetto DHCP è <code>fortemente estendibile</code>, in base alle esigenze.
+</p>
+<hr >
+<p>
+Ecco alcuni esempi di messaggi da parte del client:
+<img src="./a2.png" class="img-responsive" alt="a2.png">
+Alcune precisazioni:
+</p>
+<ul class="org-ul">
+<li><b>DECLINE</b>: pensata per gestire dei conflitti tra indirizzi IP.
+A volte il client può effettuare una verifica tramite comunicazioni
+simili a quelle relative al protocollo ARP.
+</li>
+<li><b>RELEASE</b>: usato se un client si sta disconnettendo in maniera "fair".
+</li>
+</ul>
+<hr >
+
+<figure>
+<p><img src="./a3.png" class="img-responsive" alt="a3.png">
+</p>
+</figure>
+</div>
+</div>
+<div id="outline-container-sec-1-5" class="outline-3">
+<h3 id="sec-1-5"><span class="section-number-3">1.5</span> Workflow più comune</h3>
+<div class="outline-text-3" id="text-1-5">
+<ul class="org-ul">
+<li>DISCOVER (op = 1), usando l'indirizzo 255.255.255.255 e <i>decidendo il transaction ID</i>.
+</li>
+<li>OFFER (op=2), proponendo un'indirizzo. Nel caso può testarlo per
+verificare se genera dei conflitti. Solitamente l'offerta è già
+un messaggio IP Unicast, che viene accettata dal client che non
+ha ancora IP configurato. Questo messaggio è già un'ulteriore test: 
+se esiste già un client con quell'indirizzo potrebbe mandare una
+segnalazione al server dicendo che quell'ip non va bene.
+</li>
+<li>REQUEST (op = 1) Messaggio unicast in cui viene chiesta conferma
+al server dell'ip proposto. Se il client in qualche modo si ricordava
+della configurazione su quella rete, può partire direttamente con
+l'invio di questo pacchetto.
+</li>
+<li>AKC (op = 2), viene confermato il binding.
+</li>
+</ul>
+
+<p>
+Il transaction ID <b>non permette</b> a degli host malevoli che fanno girare
+un server DHCP di "spammare" in anticipo delle richieste, per <b>battere in velocità</b>
+il server legittimo.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Laboratorio</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Esempio semplice</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Mettiamo che alice sia connessa a un router (l'ip va configurato manualmente, 192.168.0.254/24) tramite uno switch.
+Per configurare il server dhcp, si modifica
+<b>/etc/dhcp/dhcpd.conf</b>.
+Le due "option" di default servono a dare a chi manda delle richieste
+delle informazioni aggiuntive. La seconda specifica i name-server,
+mentre la prima specifica il nome di dominio.
+<img src="./a5.png" class="img-responsive" alt="a5.png">
+attualmente possono essere commentate.
+</p>
+<hr >
+<p>
+opzioni riguardo al timing delle regole:
+<img src="./a6.png" class="img-responsive" alt="a6.png">
+</p>
+<hr >
+</div>
+<div id="outline-container-sec-2-1-1" class="outline-4">
+<h4 id="sec-2-1-1"><span class="section-number-4">2.1.1</span> Configurazione server dhcp</h4>
+<div class="outline-text-4" id="text-2-1-1">
+<p>
+Il blocco "subnet" serve per l'effettiva configurazione del server dhcp.
+Deve necessariamente essere presente una regola per la rete a cui il server
+appartiene. Con <code>range</code> si crea una policy di assegnazione dinamica da usare
+per le richieste.
+Con <code>option routers</code> si inserisce l'informazione riguardo il <b>default gateway</b>:
+spesso lo stesso router implementa il server dhcp.
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">subnet 192.168.0.0 netmask 255.255.255.0{
+  range 192.168.0.100 192.168.0.200;
+  option routers 192.168.0.254;
+}
+</pre>
+</div>
+<p>
+Per far partire il server, si usa 
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">service isc-dhcp-server start
+</pre>
+</div>
+<p>
+Informazioni riguardo malfuzionamenti si possono trovare in questo file:
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-sh">/var/log/syslog
+</pre>
+</div>
+
+<p>
+Per vedere lo stato del server in esecuzione:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">ss -ulp
+</pre>
+</div>
+
+<p>
+In alcuni campi si può trovare la dicitura <code>*:bootps</code>: questo perchè
+il <b>protocollo bootstrap</b> è il predecessore di dhcp, e successore di
+<b>rarp</b>.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-1-2" class="outline-4">
+<h4 id="sec-2-1-2"><span class="section-number-4">2.1.2</span> Connessione del client</h4>
+<div class="outline-text-4" id="text-2-1-2">
+<p>
+Per salvare il traffico in una directory condivisa con l'host all'interno
+di marrionet, si usa il seguente comando:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">tcpdump -ni eth0 -w /mnt/hostfs/dump.pcap
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>Per eseguire in <b>client dhcp</b> su linux si usa:
+</li>
+</ul>
+<div class="org-src-container">
+
+<pre class="src src-sh">dhclient -i eth0
+</pre>
+</div>
+<p>
+se tutto è andato correttamente, l'host dovrebbe aver acquisito (in questo caso)
+l'indirizzo 192.168.0.100 e la regola di routing che specifica il default
+gateway.
+</p>
+
+<p>
+Esiste anche un file di configurazione per il client dhcp, ossia <code>/etc/dhcpt/dhclient.conf</code>,
+per approfondimenti.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-1-3" class="outline-4">
+<h4 id="sec-2-1-3"><span class="section-number-4">2.1.3</span> Analisi del traffico</h4>
+<div class="outline-text-4" id="text-2-1-3">
+<p>
+A questo punto ci si posiziona sulla cartella <b>/tmp/marionnet-425468945.dir/dhcp/hostfs/2</b> (o qualcosa
+di simile, dipende dalla macchina) e si apre con wireshark il file che 
+contiene il traffico di rete catturato prima.
+Si nota come il server dhcp (dopo la DHCP Discover) <b>testi</b> l'indirizzo IP che sta offrendo
+tramite il protocollo ARP:
+<img src="./a7.png" class="img-responsive" alt="a7.png">
+Dopo l'ultimo ACK viene fatto un'ultimo controllo dal server: viene effettuato
+un check sia a livello 2 che a livello 3, usando <code>ping</code>:
+<img src="./a8.png" class="img-responsive" alt="a8.png">
+Da notare anche il <b>transaction ID</b> uguale per tutti i messaggi DHCP:
+<img src="./a9.png" class="img-responsive" alt="a9.png">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-1-4" class="outline-4">
+<h4 id="sec-2-1-4"><span class="section-number-4">2.1.4</span> Relay agent</h4>
+<div class="outline-text-4" id="text-2-1-4">
+<blockquote>
+<p>
+Servizio aggiuntivo da configurare su tutte le reti 
+locali su cui si vuole che il server centralizzato distribuisca
+le informazioni. Inoltra le richieste di discovery ai server DHCP
+come messaggi UNICAST.
+</p>
+</blockquote>
+
+<p>
+Per farlo bisogna specificare l'indirizzo IP del server DHCP tramite
+il file <b>/etc/default/isc-dhcp-relay</b>.
+Talvolta si può installare sul router stesso un servizio di relay agent: ossia
+un processo che se riceve una discovery la inoltra al server DHCP.
+Può anche essere una macchina dedicata, ma raramente.
+</p>
+
+<p>
+Per configurare il relay agent si modifica il file <b>/etc/default/isc-dhcp-relay</b>
+Basta aggiungere la linea:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">SERVERS="192.168.0.254"
+</pre>
+</div>
+
+<p>
+Per eseguire il relay agent si usa:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-sh">service isc-dhcp-relay start
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Esercizio</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+La configurazione da analizzare è la seguente:
+<img src="./a4.png" class="img-responsive" alt="a4.png">
+</p>
+
+<p>
+<b>dhcp</b>:
+</p>
+<ul class="org-ul">
+<li>si configura l'indirizzo in modo statico;
+</li>
+<li>gw come default gateway
+</li>
+<li>g12 per raggiungere lan2
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli</p>
+<p class="date">Created: 2022-12-13 Tue 11:06</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>

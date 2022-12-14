@@ -27,15 +27,22 @@ hr{
 
 h1{
     text-decoration: underline;
+	color: #1d212c;
 }
 h2{
     text-decoration: underline;
     font-weight: 550;
     font-size: 30px;
+	color: magenta;
     /*color: #23b0ff;*/
 }
 h3{
     font-weight: 500;
+	color: #23b0ff;
+}
+h4{
+	text-decoration: underline;
+	color: red;
 }
 
 blockquote{
