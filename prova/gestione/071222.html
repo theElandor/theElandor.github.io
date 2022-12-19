@@ -658,6 +658,10 @@ risultati (prezzo, vicinanza al centro, presenza/assenza wifi, recensioni, ecc..
 </button><div id="outline-container-sec-5-1" class="outline-3"><button type="button" class="collapsible">
 <h3 id="sec-5-1" nil> 5.1 Media armonica &triangledown;</h3>
 </button><div class='sec-5-1 collapsible-content'>
+<p>
+Misura che dato un risultato di una query, combina direttamente
+precision e recall per ottenere un'unico valore.
+</p>
 \begin{equation}
 \frac{2*prec*call}{prec+recall}
 \end{equation}
@@ -686,8 +690,90 @@ se b<1 si infatizza la recall;
 </div>
 </div>
 <div id="outline-container-sec-5-3" class="outline-3"><button type="button" class="collapsible">
-<h3 id="sec-5-3" nil> 5.3 Discounted Cumulative Gain &triangledown;</h3>
-</button></div>
+<h3 id="sec-5-3" nil> 5.3 <b>Discounted Cumulative Gain</b> &triangledown;</h3>
+</button><div class='sec-5-3 collapsible-content'>
+<p>
+ Dato un pool iniziale di documenti, l'utente assegna ad ognuno un certo
+punteggio discreto ( da 0 a 3) in base all'"utilità" del documento rispetto
+ad una determinata query.
+Dopo aver fatto ciò, la query viene applicata e viene ritornato un ranking.
+L'idea del DCG è quella di dare più peso ai documenti che appaiono <b>più in alto</b>
+nel raking: 
+</p>
+\begin{equation}
+DCG_{p} = rel_{1} + \sum^{p}_{i=2}{\frac{rel_{i}}{\log_{2}{i}}}
+\end{equation}
+<ul class="org-ul">
+<li><p>
+<b>N.B</b>: il primo elemento viene escluso dalla sommatoria dato che verrebbe
+diviso per 0.
+</p>
+</li>
+</ul>
+<p>
+Gli evidenti problemi di questo tipo di valutazione sono l'inefficienza e tal volta
+inefficacia dei giudizi umani, che richiedono anche molto tempo.
+</p>
+</div>
+<div id="outline-container-sec-5-3-1" class="outline-4"><button type="button" class="collapsible">
+<h4 id="sec-5-3-1" nil> 5.3.1 Normalized DCG &triangledown;</h4>
+</button><div class='sec-5-3-1 collapsible-content'>
+<p>
+Nella versione normalizzata della formula, il punteggio di DCG di ogni query
+viene diviso per il punteggio "ideale", ossia quello in cui i valori di DCG 
+sono in ordine decrescente nel ranking.
+</p>
+</div>
+</div>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-6" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-6" style="text-decoration: underline"> 6 Presentazione dei risultati &triangledown;</h2>
+</button><div class='sec-6 collapsible-content'>
+<p>
+I risultati del ranking vengono solitamente "estesi" con dei metadati aggiuntivi, 
+per dare all'utente un'idea iniziale del documento a prima vista. Esistono 2
+metodi per effettuare questa operazione:
+</p>
+<ul class="org-ul">
+<li><p>
+<b>Static summary (<i>query indipendent</i>)</b>: i "metadati" di ogni documento sono sempre gli stessi,
+indipendentemente dalla query.
+Lo static summary di un documento potrebbe essere:
+</p>
+<ul class="org-ul">
+<li><p>
+le prime <b>50 parole</b> del contenuto;
+</p>
+</li>
+<li><p>
+una serie di <b>keywords</b> calcolate in vari modi; 
+</p>
+</li>
+<li><p>
+un riassunto generato da algoritmi di <b>machine learning</b>;
+</p>
+</li>
+</ul>
+</li>
+<li><p>
+<b>Dynamic summary (<i>query dipendent</i>)</b>: le informazioni aggiuntive mostrate dipendono
+dalla query, vengono calcolate in modo dinamico. Si cerca di far capire
+all'utente <i>per quale motivo</i> quel particolare documento è rilevante
+per la sua query.
+L'idea è che questi <i>snippet</i> devono essere concisi, semplici, e rilevanti
+per poter rispondere in poche parole alla query dell'utente.
+Si preferiscono snippet che <b>contengono i termini della query in una frase concisa</b>.
+</p>
+</li>
+</ul>
+</div>
 </div>
    </div>
    <div class="col-xs-1"></div>
@@ -706,7 +792,7 @@ se b<1 si infatizza la recall;
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-12-11 Sun 17:42</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-12-19 Mon 11:59</p>
 </div>
 </footer>
    </div>
