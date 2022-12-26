@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Protocolli sicuri</b></title>
+<!-- 2022-12-26 Mon 12:16 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli 🐃">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="html_style.css"/>
+<style>.container{padding-left: 80px; padding-right: 80px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Protocolli sicuri</b></h1>
+<hr >
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of contents</h2>
+<div class="outline-text-2" id="text-">
+<ul class="org-ul">
+<li><a href="#sec-1">Introduzione alla crittografia</a>
+</li>
+<li><a href="#sec-2">Setting <b>simmetrico</b></a>
+</li>
+<li><a href="#sec-3">Setting <b>asimmetrico</b></a>
+<ul class="org-ul">
+<li><a href="#sec-3-2">Firme Digitali</a>
+</li>
+<li><a href="#sec-3-1">KEM (Key Encapsulation Mechanism)</a>
+</li>
+<li><a href="#sec-3-3">Diffie-Hellman Key Exchange</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-4">Altri settings</a>
+</li>
+<li><a href="#sec-5">Funzioni Hash</a>
+</li>
+<li><a href="#sec-6">MAC(Message Authentication Codes)</a>
+<ul class="org-ul">
+<li><a href="#sec-6-1">Hmac</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-8">Computational Security</a>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduzione alla crittografia</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+La sicurezza informatica mira a garantire questi 3 fattori:
+</p>
+<ul class="org-ul">
+<li><b>Riservatezza</b> (<i>Confidentiality</i>)
+</li>
+<li><b>Integrità</b> (<i>Integrity</i>)
+</li>
+<li><b>Disponibilità</b> (<i>Availability</i>)
+</li>
+</ul>
+<p>
+L'idea alla base della crittografia è quella di nascondere le informazioni
+all'interno del messaggio usando dei metodi conosciuti soltanto dal mittente
+e dal destinatario. In questo modo, l'attaccante può accedere alle informazioni
+ma non sarà in grado di decifrarle.
+La crittografia moderna cerca di garantire:
+</p>
+<ul class="org-ul">
+<li><b>sicurezza</b>;
+</li>
+<li><b>integrità</b>;
+</li>
+<li><b>autenticità</b>;
+</li>
+</ul>
+<p>
+basandosi su:
+</p>
+<ul class="org-ul">
+<li>la sicurezza di una <b>chiave</b>, anche se il metodo è <b>pubblico</b>;
+</li>
+<li>la <b>difficoltà di problemi matematici complessi</b>;
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Setting <b>simmetrico</b></h2>
+<div class="outline-text-2" id="text-2">
+<p>
+<img src="./sec1.png" class="img-responsive" alt="sec1.png">
+In questo caso, Alice e Bob <b>condividono la stessa chiave.</b>
+</p>
+<ul class="org-ul">
+<li>keygen(size) \(\rightarrow\) key;
+</li>
+<li>encr(key,p) \(\rightarrow\) c;
+</li>
+<li>decr(c, key) \(\rightarrow\) p;
+</li>
+</ul>
+<p>
+Dove <b>encr</b> è una funzione probabilistica, quindi l'output è essenzialmente diverso
+ogni volta che viene eseguita (anche con lo stesso input). Ovviamente tutti gli elementi
+in gioco sono <b>dati binari</b>.
+Spesso si inviano anche dei <b>dati associati</b> (<i>associated data</i>) che non vengono
+criptati. Quindi per quanto riguarda i dati associati vengono garantite
+autenticità e integrità, ma non confidenzialità (essendo in plain-tex).
+In questo caso, si parla di <b>AEAD</b> (<i>Authenticated Encryption with Associated Data</i>).
+</p>
+
+<p>
+In base alle situazioni si può usare anche un'approccio di tipo <b>deterministico</b>:
+</p>
+<ul class="org-ul">
+<li>keygen(size) \(\rightarrow\) key;
+</li>
+<li>encr(key,{n|iv},p) \(\rightarrow\) c;
+</li>
+<li>decr(c,{n|iv},key) \(\rightarrow\) p;
+</li>
+</ul>
+<p>
+<b>n</b> sta per <i>nonce</i> ed è un valore usato quando si vuole ottenere con sicurezza un valore
+<b>unico</b> (per questo l'approccio è deterministico, bisonga avere la certezza di ottenere
+un valore con certe caratteristiche). <b>iv</b> sta per <i>Initialization Vector</i> ed è utile quando
+si punta alla <b>randomness</b> della cifratura.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Setting <b>asimmetrico</b></h2>
+<div class="outline-text-2" id="text-3">
+<p>
+<img src="./sec2.png" class="img-responsive" alt="sec2.png">
+In questo caso, Alice e Bob hanno rispettivamente una <b>encryption key(pubblica)</b> 
+e una <b>decryption key(segreta)</b>.
+Il problema della crittografia simmetrica è che è molto difficile distribuire
+delle chiavi segrete senza avere informazioni a priori su i capi della comunicazione.
+Per questo nel setting a-simmetrico si introduce il concetto di <b>key pair</b> (chiave privata e chiave pubblica).
+</p>
+<ul class="org-ul">
+<li>alice: <b>encrypt(Bob's pk,message)</b> \(\rightarrow\) <b>cipher</b>;
+</li>
+<li>bob: <b>decrypt(Bob's sk, chiper)</b> \(\rightarrow\) <b>message</b>;
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> KEM (Key Encapsulation Mechanism)</h3>
+<div class="outline-text-3" id="text-3-1">
+<blockquote>
+<p>
+I Kem sono dei meccanismi <b>asimmetrici</b> specializzati per criptare le <b>chiavi simmetriche</b>.
+</p>
+</blockquote>
+<p>
+In effetti i meccanismi asimmetrici sono estremamente costosi, quindi si preferisce
+usarli per criptare dati di piccole dimensioni. In un approccio <b>ibrido</b> si usano quindi schemi
+asimmetrici per criptare le chiavi simmetriche, mentre i dati effettivi vengono criptati
+usando l'approccio simmetrico.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Firme Digitali</h3>
+<div class="outline-text-3" id="text-3-2">
+<p>
+Le firme digitali sono un metodo per <b>autenticare</b> un messaggio. 
+</p>
+<ul class="org-ul">
+<li><b>sign(sk, messagge) \(\rightarrow\) signature</b>;
+</li>
+<li><b>verify (pk,message,signature) \(\rightarrow\) {true,false}</b>;
+</li>
+</ul>
+<p>
+In questo caso la firma digitale può essere validata da tutti, ma soltanto
+il proprietario della chiave segreta può produrla.
+</p>
+
+<p>
+👉 <b>non repudiability</b>: alice non può negare di aver firmato i dati.
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-3-3" class="outline-3">
+<h3 id="sec-3-3"><span class="section-number-3">3.3</span> Diffie-Hellman Key Exchange</h3>
+<div class="outline-text-3" id="text-3-3">
+<p>
+Si tratta di un modo sicuro per scambiarsi chiavi simmetriche.
+<img src="./sec13.png" class="img-responsive" alt="sec13.png">
+E' abbastanza intuitivo il fatto che questo tipo di approccio <i>non</i> autentica
+i due comunicanti, perciò può essere facilmente rotto da un Man-in-the-Middle:
+<img src="./sec14.png" class="img-responsive" alt="sec14.png">
+per risolvere questo problema, Alice può decidere di firmare \(g^a\) usando
+un sistema di firma digitale.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Altri settings</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li><b>Secure key exchange protocols</b>: Alice e Bob non hanno nessuna chiave, 
+cercano di ottenerla usando un canale di comunicazione insicuro.
+</li>
+<li><b>Secure storage</b>: i dati confidenziali sono mantenuti in dei database sicuri;
+</li>
+<li><b>Strong autentication</b>: ci si basa su un processo di autenticazione, in cui 
+si prova la conoscenza di un'informazione segreta.
+</li>
+<li><b>Password protection</b> &#x2026;
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Funzioni Hash</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+Come prima cosa, ci si ricordi che le funzioni hash (usate singolarmente) garantiscono soltanto l'<b>Integrità</b>
+del messaggio. Esse trasformano un'input di lunghezza arbitraria in un <b>digest</b> 
+di piccole dimensioni.
+</p>
+<ul class="org-ul">
+<li><b>Collision resistant</b> \(\rightarrow\) è praticamente impossibile trovare due
+input che forniscono lo stesso digest dopo l'applicazione della funzione hash.
+Si può quindi affermare che:
+</li>
+</ul>
+\begin{equation}
+\nexists \ m_{1} != m_{2} : H(m_{1}) = H(m_{2})
+\end{equation}
+<p>
+Esempio di uso delle funzioni hash in un contesto reale:
+<img src="./sec3.png" class="img-responsive" alt="sec3.png">
+Per concatenare delle stringhe in input bisogna prestare attenzione:
+<img src="./sec4.png" class="img-responsive" alt="sec4.png">
+per risolvere questo problema si usano dei caratteri speciali di concatenazione.
+In generale, ogni funzione hash per cui si trovano collisioni viene <b>deprecata</b>
+(md5, sha1,sha2,sha3).
+</p>
+</div>
+</div>
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6"><span class="section-number-2">6</span> MAC(Message Authentication Codes)</h2>
+<div class="outline-text-2" id="text-6">
+<ul class="org-ul">
+<li>MAC(secret key, message) \(\rightarrow\) <b>tag</b>;
+</li>
+</ul>
+<p>
+Il compito del ricevente è quello di ri-calcolare il tag e confrontarlo
+con quello ricevuto, per verificarne la correttezza e la legittimità.
+E' importante non confondere questo procedimento con l'hashing, <i>che non fa uso di informazioni segrete</i>.
+</p>
+<ul class="org-ul">
+<li>L'uso del MAC in un contesto <b>simmetrico</b> da due garanzie:
+<ul class="org-ul">
+<li><b>Integrità</b>: comparando i due tag calcolati, si riesce a capire se qualcuno ha
+compromesso i dati.
+</li>
+<li><b>Autenticità</b>: il sender "legittimo" può essere soltanto una persona che 
+condivide con il receiver una chiave segreta, in particolare la stessa
+in un contesto simmetrico. Si dice quindi che il MAC <b><code>autentica</code></b> i dati
+che vengono inviati!
+</li>
+</ul>
+</li>
+</ul>
+<p>
+<img src="./sec5.png" class="img-responsive" alt="sec5.png">
+Un possibile attacco a cui sono vulnerabili alcuni metodi che fanno uso di MAC
+per l'autenticazione è il <b>replay attack</b>, in cui l'attaccante ri-invia il messaggio
+che ha letto sul canale di comunicazione. In questo modo, il messaggio replicato
+viene considerato "legittimo" dal ricevente.
+</p>
+
+<p>
+<img src="./sec6.png" class="img-responsive" alt="sec6.png">
+Un metodo semplice per prevenire questi attacchi è usare degli <b>identificatori univoci</b>
+che vengono letti dal ricevente. 
+</p>
+
+
+<figure>
+<p><img src="./sec7.png" class="img-responsive" alt="sec7.png">
+</p>
+</figure>
+
+<p>
+Un'altro problema è dato dalla <b>comunicazione full duplex</b>: infatti l'attaccante
+potrebbe replicare il messaggio "all'indietro", che viene riconosciuto come valido
+dal mittente, in quanto ha lo stesso tag che lui stesso ha calcolato. Per risolvere
+questo problema si usano dei <b>bit direzionali</b> come in figura:
+</p>
+
+
+<figure>
+<p><img src="./sec8.png" class="img-responsive" alt="sec8.png">
+</p>
+</figure>
+
+<p>
+Un'altro layer di sicurezza divide il singolo canale full-duplex in due canali
+<b>half-duplex.</b>
+</p>
+</div>
+<div id="outline-container-sec-6-1" class="outline-3">
+<h3 id="sec-6-1"><span class="section-number-3">6.1</span> Hmac</h3>
+<div class="outline-text-3" id="text-6-1">
+<p>
+Hmac è un modo di rendere MAC più sicuro usando anche in "black-box" delle funzioni
+<b>hash</b> collision resistant. Lo schema è il seguente:
+<img src="./sec9.png" class="img-responsive" alt="sec9.png">
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7"><span class="section-number-2">7</span> Secure Key Exchange Protocols</h2>
+<div class="outline-text-2" id="text-7">
+<p>
+Mettiamo che Alice e Bob vogliano ottenere una chiave condivisa, usando
+un canale di comunicazione potenzialmente insicuro.
+</p>
+</div>
+<div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1"><span class="section-number-3">7.1</span> Protezione da attacchi <b>passivi</b></h3>
+<div class="outline-text-3" id="text-7-1">
+<p>
+Alice manda una chiave criptata tramite KEM a Bob.
+<img src="./sec10.png" class="img-responsive" alt="sec10.png">
+</p>
+</div>
+</div>
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2"><span class="section-number-3">7.2</span> Protezione da attacchi <b>MITM</b></h3>
+<div class="outline-text-3" id="text-7-2">
+<p>
+Il cripting <b>asimmetrico</b> non dà garanzia di <b>autenticità</b>, quindi Bob non
+ha modo di sapere se il messaggio è stato mandato da Alice o da Eve.
+<img src="./sec11.png" class="img-responsive" alt="sec11.png">
+Una possibile soluzione da parte di Alice è quella di usare una <b>firma digitale</b>:
+<img src="./sec12.png" class="img-responsive" alt="sec12.png">
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Computational Security</h2>
+<div class="outline-text-2" id="text-8">
+<blockquote>
+<p>
+Il <b>livello di sicurezza</b> di uno schema è il <b>numero medio di operazioni</b>
+necessarie per romperlo.
+</p>
+</blockquote>
+<ul class="org-ul">
+<li>80 bit security: \(2^{80}\) operazioni;
+</li>
+<li>112 bit security: \(2^{112}\) operazioni, considerato sicuro fino
+al 2030.
+</li>
+<li>128 bit security: \(2^{128}\) operazioni, ancora in fase di sviluppo.
+</li>
+</ul>
+<p>
+Negli <b>schemi simmetrici</b>, il livello di sicurezza è definito dalla <b>grandezza della chiave simmetrica</b>:
+128 bit key \(\rightarrow\) 128 bit security (approssimativamente).
+</p>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli 🐃</p>
+<p class="date">Created: 2022-12-26 Mon 12:16</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>
