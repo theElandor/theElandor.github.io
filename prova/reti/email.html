@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Posta elettonica</b></title>
+<!-- 2022-12-29 Thu 12:54 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Lugli 🐃">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script><link rel="stylesheet" type="text/css" href="html_style.css"/>
+<style>.container{padding-left: 80px; padding-right: 80px;}</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-12"><h1 class="title"><b>Posta elettonica</b></h1>
+<hr >
+<div id="outline-container-sec-" class="outline-2">
+<h2 id="sec-">Table of Contents</h2>
+<div class="outline-text-2" id="text-">
+<ul class="org-ul">
+<li><a href="#sec-1">Formato</a>
+</li>
+<li><a href="#sec-2">Mail server</a>
+<ul class="org-ul">
+<li><a href="#sec-2-1">MTA (Mail Transfer Agent)</a>
+</li>
+<li><a href="#sec-2-2">Interazione con il DNS</a>
+</li>
+</ul>
+</li>
+<li><a href="#sec-3">Fasi di trasmissione</a>
+</li>
+<li><a href="#sec-4">SMTP</a>
+<ul class="org-ul">
+<li><a href="#sec-4-1">Comandi lato <b>sender</b></a>
+</li>
+<li><a href="#sec-4-2">Risposte lato <b>receiver</b></a>
+</li>
+<li><a href="#sec-4-3">Esempio di comunicazione</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Formato</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+<b><code>username@domain</code></b>, in cui:
+</p>
+<ul class="org-ul">
+<li><b>Username</b> &#x2013;&gt; max 64 caratteri;
+</li>
+<li><b>Domain</b> &#x2013;&gt; max 255 caratteri;
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Mail server</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+si occupa di gestire l'invio
+e la ricezione della posta. I client si connettono al mail server del proprio domain quando vogliono inviare messaggi o leggere
+la posta nella propria casella.
+<b>N.B</b>: a volte i termini <b>Mail server</b> e <b>Mail Transfer Agent</b> sono usati
+uno al posto dell'altro.
+Componenti principali del Mail server:
+</p>
+<ul class="org-ul">
+<li><b>User Mailbox</b>: casella di posta dell'utente, contiene
+i messaggi ancora da leggere. Il nome della mailbox
+solitamente corrisponde ad un <i>username</i>, ma a volte
+può anche essere un'<code>alias</code>.
+</li>
+<li><b>Coda di messaggi</b> di posta in uscita. Una mail può
+anche provenire dal domain locale, in tal caso l'MTA
+non deve contattare un'MTA esterno.
+</li>
+<li><b>[User Database]</b>: a volte i mail server si possono
+interfacciare con dei <i>database</i> aggiuntivi, che ad
+esempio possono contenere le associazioni {utente:alias}.
+</li>
+</ul>
+<p>
+Ricordiamo che il mail server memorizza anche i messaggi in uscita 
+all'interno di una <b>coda</b>, in caso di destinazioni non raggiungibili o per
+effettuare ritrasmissioni in casi di errore.
+</p>
+</div>
+<div id="outline-container-sec-2-1" class="outline-3">
+<h3 id="sec-2-1"><span class="section-number-3">2.1</span> MTA (Mail Transfer Agent)</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+E' il provesso principale che trasferisce i messaggi da
+un computer all'altro. Può ricevere messaggi direttamente
+da un <b>MUA(Mail User Agent)</b> oppure da un altro MTA  (<b>relaying mode</b>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Interazione con il DNS</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+La prima informazione che l'MTA deve conoscere per inoltrare
+correttamente un messaggio è il mail server che gestisce
+il domain destinatario.
+Il DNS del dominio del mail server gestisce un <b>resource record</b> di tipo
+<b>MX</b> (Mail eXchanger record) che specifica come deve essere inoltrato il messaggio.
+In particolare, viene ritornata una lista con priorità dei mail 
+server che possono ricevere la posta per quel dominio.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Fasi di trasmissione</h2>
+<div class="outline-text-2" id="text-3">
+
+<figure>
+<p><img src="./email1.png" class="img-responsive" alt="email1.png">
+</p>
+</figure>
+<ul class="org-ul">
+<li>L'<b>MTA</b> legge soltanto il <code>dominio</code> del destinatario;
+</li>
+<li>L'<b>MTA</b> effettua una <code>richiesta DNS</code> per cercare i
+mail server del dominio destinatario. Se ad esempio
+l'indirizzo del destinatario fosse <i>mirco.marchetti@studenti.unimore.it</i>,
+allora l'MTA fa un'operazione di questo tipo: 
+<div class="org-src-container">
+
+<pre class="src src-sh">dig MX unimore.itg
+</pre>
+</div>
+</li>
+<li>Bob per leggere le sue mail, contatta l'MTA del domain
+locale usando il protocollo <b>pop</b> o il protocollo <b>imap</b>.
+Quindi per questa comunicazione <b>NON</b> viene usato il
+protocollo SMTP.
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> SMTP</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+E' il protocollo che media la comunicazione tra <b>due MTA</b> o tra
+un <b>MUA(Mail User Agent) e un mail server</b>. Usa il protocollo TCP per
+il trasporto affidabile di messaggi (di default si usa la porta 25).
+L'interazione è di tipo <b>comando/risposta</b>.
+</p>
+</div>
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Comandi lato <b>sender</b></h3>
+<div class="outline-text-3" id="text-4-1">
+
+<figure>
+<p><img src="./email2.png" class="img-responsive" alt="email2.png">
+</p>
+</figure>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Risposte lato <b>receiver</b></h3>
+<div class="outline-text-3" id="text-4-2">
+
+<figure>
+<p><img src="./email3.png" class="img-responsive" alt="email3.png">
+</p>
+</figure>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Esempio di comunicazione</h3>
+<div class="outline-text-3" id="text-4-3">
+<p>
+La comunicazione si divide in 3 fasi
+</p>
+<ul class="org-ul">
+<li><b>Handshaking(TCP)</b>;
+</li>
+<li><b>Trasferimento messaggi</b>;
+</li>
+<li><b>Chiusura</b>;
+</li>
+</ul>
+
+<p>
+Il formato del <b>messaggio</b> (non del comando) SMTP è costituito da: 
+</p>
+<ul class="org-ul">
+<li><b>header</b>, contiene dei campi codificati;
+</li>
+<li><b>body</b>, ossia un testo ASCII a 7 bit;
+</li>
+</ul>
+<p>
+SMTP è quindi un protocollo interamente testuale. La codifica
+e la decodificac di allegati fa uso del protocollo <b>MIME</b>,
+che codifica informazioni binarie in sequenze di caratteri ACSII.
+Questo protocollo è nato proprio per integrare questo tipo di
+funzionalità per i messaggi di posta elettronica.
+<img src="./email5.png" class="img-responsive" alt="email5.png">
+Esempio di un messaggio: \(\downarrow\):
+<img src="./email6.png" class="img-responsive" alt="email6.png">
+Ecco un'esempio concreto di comunicazione \(\downarrow\):
+<img src="./email4.png" class="img-responsive" alt="email4.png">
+</p>
+<hr >
+</div>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Lugli 🐃</p>
+<p class="date">Created: 2022-12-29 Thu 12:54</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
+</div>
+</footer>
+</body>
+</html>

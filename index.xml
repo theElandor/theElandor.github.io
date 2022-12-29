@@ -6,11 +6,11 @@
     <description>Recent content on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 26 Dec 2022 18:43:02 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 29 Dec 2022 12:57:40 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Protocolli e architetture di rete ITA-(2022/2023)</title>
       <link>/reti/</link>
-      <pubDate>Mon, 26 Dec 2022 18:43:02 +0100</pubDate>
+      <pubDate>Thu, 29 Dec 2022 12:57:40 +0100</pubDate>
       
       <guid>/reti/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Protocolli e architetture di rete&amp;rdquo; del corso triennale di informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale include i write-up delle esperienze fatte in laboratorio.
@@ -66,6 +66,7 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#dns&#34;&gt;DNS&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#dhcp&#34;&gt;DHCP&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#security&#34;&gt;Security&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#email&#34;&gt;Email&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-6-10&#34;&gt;Lab 6-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-20-10&#34;&gt;Lab 20-10&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#lab-27-10&#34;&gt;Lab 27-10&lt;/a&gt;&lt;/li&gt;
@@ -893,6 +894,10 @@ che sia un multiplo di 32 bit. Simile al &amp;ldquo;byte stuffing&amp;rdquo;.&lt
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/sec.html&#34;&gt;Intro security&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/sec2.html&#34;&gt;Public Key Distribution&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/sec3.html&#34;&gt;Stack of Secure Protocols&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;email&#34;&gt;Email&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/reti/email.html&#34;&gt;Posta elettronica&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id=&#34;lab-6-10&#34;&gt;Lab 6-10&lt;/h2&gt;
 &lt;p&gt;&lt;a href=&#34;#table-of-contents&#34;&gt; &amp;ndash;&amp;gt; TOC&lt;/a&gt;&lt;/p&gt;
