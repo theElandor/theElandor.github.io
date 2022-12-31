@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>DHCP, 12-12-22</b></title>
-<!-- 2022-12-30 Fri 18:54 -->
+<!-- 2022-12-31 Sat 10:48 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -619,14 +619,41 @@ Per eseguire il relay agent si usa:
 <p>
 La configurazione da analizzare è la seguente:
 <img src="./a4.png" class="img-responsive" alt="a4.png">
+Tralasciando la parte riguardante <b>external</b> e <b>gw</b>, per far funzionare
+il server dhcp la configurazione è la seguente:
 </p>
+<ul class="org-ul">
+<li>configurazione di <b>dhcp</b>:
+</li>
+</ul>
+
+<figure>
+<p><img src="./dhcp1.png" class="img-responsive" alt="dhcp1.png">
+</p>
+</figure>
+<hr >
+
+<figure>
+<p><img src="./dhcp2.png" class="img-responsive" alt="dhcp2.png">
+</p>
+</figure>
+
+<ul class="org-ul">
+<li>configurazione di <b>g12</b> (bsata configurare il relay agent):
+</li>
+</ul>
+
+<figure>
+<p><img src="./dhcp3.png" class="img-responsive" alt="dhcp3.png">
+</p>
+</figure>
 </div>
 </div>
 </div>
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-12-30 Fri 18:54</p>
+<p class="date">Created: 2022-12-31 Sat 10:48</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
