@@ -645,11 +645,11 @@ essenzialmente una media calcolata "in movimento", dove:
 </p>
 <ul class="org-ul">
 <li><p>
-\(E_{rtt}(t)\) \(\rightarrow\) Round Trip Time stimato al tempo t;
+\(E_{rtt}(t)\) \(\rightarrow\) Round Trip Time <b>stimato</b> al tempo t;
 </p>
 </li>
 <li><p>
-\(x*S_{rtt}(t)\) \(\rightarrow\) Rond Trip Time stimato al tempo t;
+\(S_{rtt}(t)\) \(\rightarrow\) Round Trip Time <b>osservato</b> al tempo t;
 </p>
 </li>
 </ul>
@@ -667,6 +667,11 @@ E_{rtt}(t) = (1-x)*E_{rtt}(t-1) + x*S_{rtt}(t)
 \begin{equation}
 Timeout(t) = E_{rtt}(t) + 4*\sigma(t)
 \end{equation}
+<p>
+Dove \(x\) è un valore compreso tra 0 e 1. Tipicamente inizialmente si
+sceglie \(\frac{1}{n+1}\) dove \(n\) è il numero di campioni di RTT usati
+per il calcolo.
+</p>
 
 <p>
 Esperimenti mostrano che la formula è molto resistente
@@ -704,7 +709,7 @@ agli outlier.
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-01-02 Mon 16:58</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-01-02 Mon 17:14</p>
 </div>
 </footer>
    </div>
