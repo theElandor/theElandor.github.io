@@ -486,15 +486,15 @@ Quando arriva un segmento \(N\):
 </p>
 <ul class="org-ul">
 <li><p>
-Se $N$<LSR \(\rightarrow\) pacchetto <b>duplicato</b>;
+Se \(N\) \(<\) LSR \(\rightarrow\) pacchetto <b>duplicato</b>;
 </p>
 </li>
 <li><p>
-Se $N$<LAS \(\rightarrow\) pacchetto <b>out of window</b>, da scartare;
+Se \(N\) \(<\) LAS \(\rightarrow\) pacchetto <b>out of window</b>, da scartare;
 </p>
 </li>
 <li><p>
-Se LSR<$N$<=LAS \(\rightarrow\) tutto ok, pacchetto inserito nel buffer;
+Se LSR \(<\) \(N\) \(<=\) LAS \(\rightarrow\) tutto ok, pacchetto inserito nel buffer;
 </p>
 </li>
 </ul>
@@ -519,7 +519,7 @@ pacchetto ack, quindi dopo la scadenza del <b>timeout</b>;
 <h3 id="sec-3-1" nil> 3.1 Go-back-N &triangledown;</h3>
 </button><div class='sec-3-1 collapsible-content'>
 <p>
-Questo algoritmo agisce un un tipo di comunicazione in cui il
+Questo algoritmo agisce su un tipo di comunicazione in cui il
 destinatario <b>NON gestisce una finestra di scorrimento</b>, ma fa
 uso soltanto di un <b>buffer di ricezione</b>.
 </p>
@@ -587,10 +587,10 @@ out-of-order grazie alla sliding window.
 </p>
 </li>
 <li><p>
-Svantaggio: la rete viene riempita di pacchetti ack, che non essendo
-cumulativi devono essere inviati e recapitati <b>tutti gli ack</b> corrispondenti
+Svantaggio: la rete viene riempita di pacchetti ack: non essendo
+cumulativi, devono essere inviati e recapitati <b>tutti gli ack</b> corrispondenti
 ai pacchetti ricevuti.
-Nell'approccio con ack cumulativo, se ack1 e ack2 vengono persi ma ack3
+Nell'approccio precedente (con ack cumulativo), se ack1 e ack2 vengono persi ma ack3
 arriva correttamente, allora l'arrivo di ack1 e ack2 non è più 
 necessario!
 </p>
@@ -831,7 +831,7 @@ la dimensione della CW è incrementata di 1 MSS per ogni ack;
 </p>
 </li>
 <li><p>
-se invece si rileva una congestione (<i>pacchetto duplicati, timeout</i>)
+se invece si rileva una congestione (<i>pacchetti duplicati, timeout</i>)
 c'è un ritorno alla fase di slow-start;
 </p>
 </li>
@@ -957,11 +957,11 @@ che il Reno si appropria della maggior parte della banda disponibile.
 Ora che si ha una visione più completa dell'argomento, si può fare
 un <i>recap</i> sul confronto tra i due protocolli:
 </p>
-<ul class="org-ul">
-<li><p>
-<i>Perchè usare UDP anzichè TCP</i>?
+
+<p>
+👉🏿 <i>Perchè usare UDP anzichè TCP</i>?
 </p>
-</li>
+<ol class="org-ol">
 <li><p>
 UDP non introduce un ritardo per iniziare una connessione;
 </p>
@@ -981,7 +981,7 @@ UDP è quindi più utile per connessioni real-time;
 Non tutte le applicazioni richiedono la consegna in ordine dei pacchetti;
 </p>
 </li>
-</ul>
+</ol>
 </div>
 </div>
    </div>
@@ -1001,7 +1001,7 @@ Non tutte le applicazioni richiedono la consegna in ordine dei pacchetti;
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-01-02 Mon 17:49</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-01-03 Tue 12:15</p>
 </div>
 </footer>
    </div>
