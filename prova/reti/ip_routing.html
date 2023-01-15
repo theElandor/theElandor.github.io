@@ -324,7 +324,7 @@ pacchetto al prossimo router per raggiungere la destinazione
 (next hop).
 Questa scelta viene fatta in base alla <b><code>tabella di routing</code></b> e all'indirzzo
 destinazione.
-La tablella di routing specifica per ogni <i>Network Destinazione</i> qual'è il 
+La tabella di routing specifica per ogni <i>Network Destinazione</i> qual'è il 
 <i>next hop router</i> a cui inoltrare il pacchetto.
 </p>
 </div>
@@ -393,7 +393,7 @@ Componente che ha il compito di controllare la tabella di routing
 e <i>istruire</i> il commutatore.
 </li>
 <li><b><code>Porta di Uscita</code></b>
-Duale della porta di uscita, anche in questo caso è implementata
+Duale della porta di ingresso, anche in questo caso è implementata
 una logica di buffering con una coda. 
 </li>
 </ol>
@@ -449,7 +449,7 @@ senza ordine.
 <div class="outline-text-2" id="text-5">
 <p>
 In questa sezione viene spiegato come le tabelle di routing 
-dei vari noi di una rete vengono effettivamente riempite (nel mondo reale, dove
+dei vari nodi di una rete vengono effettivamente riempite (nel mondo reale, dove
 non è possibile configurare manualmente le reti e gli host.).
 Lo scopo è quello di trovare il percorso ottimale (quindi con costo minimo)
 per raggiungere tutti gli altri nodi, <i>data una sorgente</i>.
@@ -536,7 +536,7 @@ D_{x}(y) = min_{v}\{{c(x,v) + D_{v}(y)}\}
 
 <p>
 Ripasso dell'algoritmo di bellman ford dal punto di vista teorico, ricordando
- che il numero di iterazione indica <i>quanti archi posso usare per raggiungere un determinato nodo</i>
+ che il numero di iterazioni indica <i>quanti archi posso usare per raggiungere un determinato nodo</i>
  \(\downarrow\)
  <img src="./bellman.png" class="img-responsive" alt="bellman.png">
 </p>
