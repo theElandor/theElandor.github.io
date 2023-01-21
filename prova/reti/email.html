@@ -302,7 +302,7 @@ effettuare ritrasmissioni in casi di errore.
 <h3 id="sec-2-1"><span class="section-number-3">2.1</span> MTA (Mail Transfer Agent)</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-E' il provesso principale che trasferisce i messaggi da
+E' il processo principale che trasferisce i messaggi da
 un computer all'altro. Può ricevere messaggi direttamente
 da un <b>MUA(Mail User Agent)</b> oppure da un altro MTA  (<b>relaying mode</b>).
 </p>
@@ -341,7 +341,7 @@ l'indirizzo del destinatario fosse <i>mirco.marchetti@studenti.unimore.it</i>,
 allora l'MTA fa un'operazione di questo tipo: 
 <div class="org-src-container">
 
-<pre class="src src-sh">dig MX unimore.itg
+<pre class="src src-sh">dig MX unimore.it
 </pre>
 </div>
 </li>
@@ -410,7 +410,7 @@ Il formato del <b>messaggio</b> (non del comando) SMTP è costituito da:
 </ul>
 <p>
 SMTP è quindi un protocollo interamente testuale. La codifica
-e la decodificac di allegati fa uso del protocollo <b>MIME</b>,
+e la decodifica di allegati fa uso del protocollo <b>MIME</b>,
 che codifica informazioni binarie in sequenze di caratteri ACSII.
 Questo protocollo è nato proprio per integrare questo tipo di
 funzionalità per i messaggi di posta elettronica.
