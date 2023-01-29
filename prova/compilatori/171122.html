@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Abstract Syntax Tree construction, 17/11/22</b></title>
-<!-- 2022-11-18 Fri 12:16 -->
+<!-- 2023-01-29 Sun 10:08 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -255,7 +255,7 @@ Ad esempio, considerando la solita grammatica di riferimento, il <b>parse tree</
 l'espressione
 </p>
 \begin{equation}
-4+3
+3+4
 \end{equation}
 <p>
 sarebbe il seguente \(\Downarrow\)
@@ -334,13 +334,13 @@ Il codice che descrive questa parte è il seguente:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">else</span> {
-     <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">RHS</span> = AStree.top();
-     AStree.pop();
-     <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">LHS</span> = AStree.top();
-     AStree.pop();
-     <span style="color: #4f97d7; font-weight: bold;">if</span> (RHS==<span style="color: #a45bad;">nullptr</span>) <span style="color: #4f97d7; font-weight: bold;">return</span> LHS;
-     <span style="color: #4f97d7; font-weight: bold;">return</span> rotate(LHS,RHS);
+<pre class="src src-c++">else {
+	 ExprAST *RHS = AStree.top();
+	 AStree.pop();
+	 ExprAST *LHS = AStree.top();
+	 AStree.pop();
+	 if (RHS==nullptr) return LHS;
+	 return rotate(LHS,RHS);
    }
 </pre>
 </div>
@@ -367,20 +367,20 @@ elementi che trova nello stack (4 e nullpointer).
 
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #bc6ec5; font-weight: bold;">ASTBuild</span>(<span style="color: #a45bad;">std</span>::<span style="color: #ce537a; font-weight: bold;">vector</span>&lt;<span style="color: #ce537a; font-weight: bold;">int</span>&gt; &amp;<span style="color: #7590db;">prod</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">inner</span>) {
-  <span style="color: #4f97d7; font-weight: bold;">if</span> (inner) {
-    <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">tok</span> = prod.at(0);
-    <span style="color: #4f97d7; font-weight: bold;">if</span> (isterm(tok)) {
-      <span style="color: #4f97d7; font-weight: bold;">switch</span>(tok) {
-      <span style="color: #4f97d7; font-weight: bold;">case</span> <span style="color: #2d9574;">'+'</span>: <span style="color: #4f97d7; font-weight: bold;">case</span> <span style="color: #2d9574;">'*'</span>:
-        {
-          <span style="color: #4f97d7; font-weight: bold;">auto</span> *<span style="color: #7590db;">RHS</span> = AStree.top();
-          AStree.pop();
-          <span style="color: #4f97d7; font-weight: bold;">auto</span> *<span style="color: #7590db;">LHS</span> = AStree.top();
-          AStree.pop();
-          <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">E</span> = <span style="color: #4f97d7; font-weight: bold;">new</span> <span style="color: #ce537a; font-weight: bold;">BinaryExprAST</span>(tok,LHS,RHS);
-          <span style="color: #4f97d7; font-weight: bold;">return</span> E;
-        }
+<pre class="src src-c++">ExprAST *ASTBuild(std::vector&lt;int&gt; &amp;prod, int inner) {
+  if (inner) {
+	int tok = prod.at(0);
+	if (isterm(tok)) {
+	  switch(tok) {
+	  case '+': case '*':
+	{
+	  auto *RHS = AStree.top();
+	  AStree.pop();
+	  auto *LHS = AStree.top();
+	  AStree.pop();
+	  ExprAST *E = new BinaryExprAST(tok,LHS,RHS);
+	  return E;
+	}
 </pre>
 </div>
 
@@ -399,13 +399,13 @@ in questa parte di codice:
 </p>
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #4f97d7; font-weight: bold;">else</span> {
-     <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">RHS</span> = AStree.top();
-     AStree.pop();
-     <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">LHS</span> = AStree.top();
-     AStree.pop();
-     <span style="color: #4f97d7; font-weight: bold;">if</span> (RHS==<span style="color: #a45bad;">nullptr</span>) <span style="color: #4f97d7; font-weight: bold;">return</span> LHS;
-     <span style="color: #4f97d7; font-weight: bold;">return</span> rotate(LHS,RHS);
+<pre class="src src-c++">else {
+	 ExprAST *RHS = AStree.top();
+	 AStree.pop();
+	 ExprAST *LHS = AStree.top();
+	 AStree.pop();
+	 if (RHS==nullptr) return LHS;
+	 return rotate(LHS,RHS);
    }
 </pre>
 </div>
@@ -420,17 +420,17 @@ ed eliminare il puntatore nullo!
 
 <div class="org-src-container">
 
-<pre class="src src-c++"><span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #bc6ec5; font-weight: bold;">rotate</span>(<span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">First</span>, <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">Rest</span>) {
+<pre class="src src-c++">ExprAST *rotate(ExprAST *First, ExprAST *Rest) {
   printstack();
-  <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">top</span> = Rest;
-  <span style="color: #4f97d7; font-weight: bold;">while</span> (Rest-&gt;right() != <span style="color: #a45bad;">nullptr</span>) {
-    <span style="color: #ce537a; font-weight: bold;">ExprAST</span> *<span style="color: #7590db;">tmp</span> = Rest-&gt;left();
-    Rest-&gt;setval(First,Rest-&gt;right());
-    First = tmp;;
-    Rest = Rest-&gt;right();
+  ExprAST *top = Rest;
+  while (Rest-&gt;right() != nullptr) {
+	ExprAST *tmp = Rest-&gt;left();
+	Rest-&gt;setval(First,Rest-&gt;right());
+	First = tmp;;
+	Rest = Rest-&gt;right();
   }
   Rest-&gt;setval(First,Rest-&gt;left());
-  <span style="color: #4f97d7; font-weight: bold;">return</span> top;
+  return top;
 }
 </pre>
 </div>
@@ -445,7 +445,7 @@ ed eliminare il puntatore nullo!
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-11-18 Fri 12:16</p>
+<p class="date">Created: 2023-01-29 Sun 10:08</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
