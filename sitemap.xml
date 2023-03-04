@@ -1,63 +1,42 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
+    <loc>/posts/about_this_website/</loc>
+    <lastmod>2023-03-04T18:31:10+01:00</lastmod>
+  </url><url>
     <loc>/</loc>
-    <lastmod>2022-12-29T12:57:40+01:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2023-03-04T18:31:10+01:00</lastmod>
+  </url><url>
+    <loc>/posts/</loc>
+    <lastmod>2023-03-04T18:31:10+01:00</lastmod>
+  </url><url>
     <loc>/reti/</loc>
     <lastmod>2022-12-29T12:57:40+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/gestione/</loc>
     <lastmod>2022-12-21T16:15:33+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/compilatori/</loc>
     <lastmod>2022-11-25T15:07:47+01:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/content/</loc>
     <lastmod>2022-10-28T12:14:50+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/htb/</loc>
     <lastmod>2022-10-18T10:41:01+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/archetype/</loc>
     <lastmod>2022-10-17T12:33:37+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/posts/</loc>
-    <lastmod>2022-10-17T12:33:37+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/about/</loc>
     <lastmod>2022-10-09T21:23:49+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/posts/three/</loc>
     <lastmod>2022-09-15T14:57:26+02:00</lastmod>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/categories/</loc>
-  </url>
-  
-  <url>
+  </url><url>
     <loc>/tags/</loc>
   </url>
-  
 </urlset>

