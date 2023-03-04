@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>Parser SLR(1), 23/11/22</b></title>
-<!-- 2022-11-25 Fri 15:06 -->
+<!-- 2023-01-29 Sun 10:23 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -263,7 +263,7 @@ di generazione verrà trattato successivamente;
 <li>Si interfaccia con uno <b>stack</b> su cui vengono inseriti man mano
 gli <b>stati</b> dell'automa;
 </li>
-<li>Ovviamente questo parser è del tipo <b>SHIFT*/*REDUCE</b>:
+<li>Ovviamente questo parser è del tipo <b>SHIFT/REDUCE</b>:
 <ul class="org-ul">
 <li>Shift \(\rightarrow\) viene consumato un carattere dell'input
 e viene inserito nello stack <i>lo stato corrente</i>;
@@ -542,7 +542,7 @@ La tabella risultante rispetto alla grammatica che riconosce le parentesi bilanc
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2022-11-25 Fri 15:06</p>
+<p class="date">Created: 2023-01-29 Sun 10:23</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="http://orgmode.org">Org-mode</a> 9.1.9)</p>
 </div>
 </footer>
