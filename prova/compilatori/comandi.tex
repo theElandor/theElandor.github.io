@@ -1,0 +1,90 @@
+% Created 2023-06-03 sab 17:23
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\author{Matteo Lugli}
+\date{\today}
+\title{\textbf{Commands cheatsheet}}
+\hypersetup{
+ pdfauthor={Matteo Lugli},
+ pdftitle={\textbf{Commands cheatsheet}},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\section{Handling PassManager}
+\label{sec:orgc82caa7}
+Con il comando \textbf{opt} si può alterare il comportamento del
+pass manager di default, specificando manualmente quali 
+sono i passi da svolgere. Si possono caricare dei passi
+custom in formato .so.
+Ecco delle direttive da usare all'interno del makefile per generare
+il file ".so".
+\begin{verbatim}
+OPTIMIZER := libTestPass.so
+OBJs := $(subst .cpp,.o,$(wildcard lib/*.cpp))
+
+LLVM_VERSION ?= 14
+
+CXXFLAGS := $(shell llvm-config-$(LLVM_VERSION) --cxxflags) -fPIC
+
+all: $(OPTIMIZER) 
+
+$(OPTIMIZER): $(OBJs)
+	$(CXX) -dylib -shared $^ -o $@
+\end{verbatim}
+
+\noindent\rule{\textwidth}{0.5pt}
+\subsection{Tutorial 01}
+\label{sec:orgf7eb6e5}
+\begin{verbatim}
+.PHONY: clean
+clean:
+	$(RM) $(OPTIMIZER) $(OBJs)
+load:
+	opt -load-pass-plugin=./libTestPass.so -passes=test-pass $(file) -disable-output
+\end{verbatim}
+In questo caso per eseguire il passo è necessario dare in pasto al make anche
+il file su cui eseguire l'ottimizzazione: 
+\begin{verbatim}
+make clean all load file=test/Loop.bc
+\end{verbatim}
+
+\noindent\rule{\textwidth}{0.5pt}
+\subsection{Tutorial 02}
+\label{sec:org59e8a41}
+\begin{verbatim}
+.PHONY: clean setup
+clean:
+	$(RM) $(OPTIMIZER) $(OBJs)
+setup:
+	opt -load-pass-plugin=./libLocalOpts.so -passes=algebraic $(firstrepr) -o $(bcfile)
+	llvm-dis $(bcfile) -o $(optrepr)
+
+.PHONY: auto
+auto:
+	make clean all setup firstrepr=./testTransform/Foo.ll bcfile=./testTransform/FooOpt.bc optrepr=./testTransform/FooOpt.ll
+\end{verbatim}
+\section{OMP}
+\label{sec:org8c42ecc}
+Comando per compilare un file c, linkando la libreria \textbf{openmp} e 
+produrre un file intermedio (dopo la procedura di lowering).
+\begin{verbatim}
+gcc -fopenmp -fdump-tree-omplower example.c  
+\end{verbatim}
+\end{document}
