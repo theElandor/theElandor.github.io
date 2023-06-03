@@ -10,7 +10,7 @@
     <item>
       <title>Linguaggi e compilatori</title>
       <link>/compilatori/</link>
-      <pubDate>Sat, 03 Jun 2023 17:47:16 +0200</pubDate>
+      <pubDate>Sun, 04 Jun 2023 00:26:51 +0200</pubDate>
       
       <guid>/compilatori/</guid>
       <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Front-end Link per accedere al materiale didattico \(\rightarrow\)
@@ -52,6 +52,7 @@ Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigera
 &lt;h2 id=&#34;back-end&#34;&gt;Back-end&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/comandi.html&#34;&gt;Commands CheatSheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/dataflow.html&#34;&gt;Dataflow Analysis CheatSheet&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>
