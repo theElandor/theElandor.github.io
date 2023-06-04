@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>DataFlow Analysis cheatsheet</b></title>
-<!-- 2023-06-04 dom 00:25 -->
+<!-- 2023-06-04 dom 10:14 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -224,31 +224,32 @@ MathJax.Hub.Config({
 <li><a href="#sec-"><b>Frameworks</b></a></li>
 <li><a href="#sec-1">1. <b>Reaching definitions</b></a>
 <ul class="nav">
-<li><a href="#sec-1-1">1.1. Idea</a></li>
-<li><a href="#sec-1-2">1.2. Implementazione</a></li>
+<li><a href="#sec-">Idea</a></li>
+<li><a href="#sec-">Implementazione</a></li>
 </ul>
 </li>
 <li><a href="#sec-2">2. <b>Available Expressions</b></a>
 <ul class="nav">
-<li><a href="#sec-2-1">2.1. Idea</a></li>
-<li><a href="#sec-2-2">2.2. Implementazione</a></li>
+<li><a href="#sec-">Idea</a></li>
+<li><a href="#sec-">Implementazione</a></li>
 </ul>
 </li>
 <li><a href="#sec-3">3. <b>Live Variables</b></a>
 <ul class="nav">
-<li><a href="#sec-3-1">3.1. Idea</a></li>
-<li><a href="#sec-3-2">3.2. Implementazione</a></li>
+<li><a href="#sec-">Idea</a></li>
+<li><a href="#sec-">Implementazione</a></li>
 </ul>
 </li>
 <li><a href="#sec-4">4. <b>Dominator Analysis</b></a>
 <ul class="nav">
-<li><a href="#sec-4-1">4.1. Idea</a></li>
-<li><a href="#sec-4-2">4.2. Implementazione</a></li>
+<li><a href="#sec-">Idea</a></li>
+<li><a href="#sec-">Implementazione</a></li>
 </ul>
 </li>
 <li><a href="#sec-5">5. <b>Very Busy Expressions</b></a>
 <ul class="nav">
-<li><a href="#sec-5-1">5.1. Idea</a></li>
+<li><a href="#sec-">Idea</a></li>
+<li><a href="#sec-">Implementazione</a></li>
 </ul>
 </li>
 </ul>
@@ -318,18 +319,20 @@ MathJax.Hub.Config({
 <div id="outline-container-sec-1" class="outline-2">
 <h2 id="sec-1"><span class="section-number-2">1</span> <b>Reaching definitions</b></h2>
 <div class="outline-text-2" id="text-1">
-</div><div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Idea</h3>
-<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Idea</h3>
+<div class="outline-text-3" id="text-">
 <p>
 Una definizione \(D\) raggiunge un punto \(P\) se esiste un percorso 
 da \(D\) a \(P\) tale per cui <b>\(D\) non è uccisa (sovrascritta)</b>.
+In forma SSA, la reaching definition di un'istruzione è l'istruzione
+stessa, semplicemente rappresentata in un'altro modo.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Implementazione</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Implementazione</h3>
+<div class="outline-text-3" id="text-">
 <table class="table table-striped table-bordered table-hover table-condensed">
 
 
@@ -371,6 +374,11 @@ da \(D\) a \(P\) tale per cui <b>\(D\) non è uccisa (sovrascritta)</b>.
 </tr>
 </tbody>
 </table>
+<ul class="org-ul">
+<li><b>Definizione localmente disponibile</b>: ultima definizione di 
+una variabile all'interno di un BB.
+</li>
+</ul>
 <hr >
 </div>
 </div>
@@ -378,18 +386,22 @@ da \(D\) a \(P\) tale per cui <b>\(D\) non è uccisa (sovrascritta)</b>.
 <div id="outline-container-sec-2" class="outline-2">
 <h2 id="sec-2"><span class="section-number-2">2</span> <b>Available Expressions</b></h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-sec-2-1" class="outline-3">
-<h3 id="sec-2-1"><span class="section-number-3">2.1</span> Idea</h3>
-<div class="outline-text-3" id="text-2-1">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Idea</h3>
+<div class="outline-text-3" id="text-">
 <p>
-Una espressione \(x \otimes y\) è available in un punto \(P\) se viene valutata
+Un'espressione \(x \otimes y\) è available in un punto \(P\) se viene valutata
 in ogni percorso che da <i>entry</i> porta a P.
+Quando durante il flow di un programma viene richiesta della computazione
+per calcolare un valore, ci si chiede se quella particolare espressione è 
+già stata calcolata in passato (con gli stessi operandi ovviamente). In tal 
+caso, si possono evitare calcoli ridondanti.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-2-2" class="outline-3">
-<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Implementazione</h3>
-<div class="outline-text-3" id="text-2-2">
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Implementazione</h3>
+<div class="outline-text-3" id="text-">
 <table class="table table-striped table-bordered table-hover table-condensed">
 
 
@@ -438,18 +450,18 @@ in ogni percorso che da <i>entry</i> porta a P.
 <div id="outline-container-sec-3" class="outline-2">
 <h2 id="sec-3"><span class="section-number-2">3</span> <b>Live Variables</b></h2>
 <div class="outline-text-2" id="text-3">
-</div><div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Idea</h3>
-<div class="outline-text-3" id="text-3-1">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Idea</h3>
+<div class="outline-text-3" id="text-">
 <p>
 Una variabile \(V\) è alive in un punto \(P\) se esiste almeno
 un percorso che da \(P\) porta a exit che usa quella variabile.
 </p>
 </div>
 </div>
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Implementazione</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Implementazione</h3>
+<div class="outline-text-3" id="text-">
 <table class="table table-striped table-bordered table-hover table-condensed">
 
 
@@ -498,18 +510,18 @@ un percorso che da \(P\) porta a exit che usa quella variabile.
 <div id="outline-container-sec-4" class="outline-2">
 <h2 id="sec-4"><span class="section-number-2">4</span> <b>Dominator Analysis</b></h2>
 <div class="outline-text-2" id="text-4">
-</div><div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Idea</h3>
-<div class="outline-text-3" id="text-4-1">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Idea</h3>
+<div class="outline-text-3" id="text-">
 <p>
 Un blocco \(B\) domina un blocco \(A\) se partendo da <i>entry</i> per arrivare
 ad \(A\) si passa necessariamente per \(B\).
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4-2" class="outline-3">
-<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Implementazione</h3>
-<div class="outline-text-3" id="text-4-2">
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Implementazione</h3>
+<div class="outline-text-3" id="text-">
 <table class="table table-striped table-bordered table-hover table-condensed">
 
 
@@ -558,14 +570,65 @@ ad \(A\) si passa necessariamente per \(B\).
 <div id="outline-container-sec-5" class="outline-2">
 <h2 id="sec-5"><span class="section-number-2">5</span> <b>Very Busy Expressions</b></h2>
 <div class="outline-text-2" id="text-5">
-</div><div id="outline-container-sec-5-1" class="outline-3">
-<h3 id="sec-5-1"><span class="section-number-3">5.1</span> Idea</h3>
-<div class="outline-text-3" id="text-5-1">
+</div><div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Idea</h3>
+<div class="outline-text-3" id="text-">
 <p>
 Una espressione \(E\) è very busy in un punto \(P\) se \(E\) viene
 valutata in ogni percorso a partire da \(P\) prima che uno
 dei suoi operandi venga ridefinito.
+Il concetto è che se un'espressione è very busy in un certo punto \(P\),
+nel caso in cui ci siano più punti in cui essa viene valutata, si
+possono "accorpare" le varie valutazioni dell'espressione in una unica
+nel punto \(P\). Questo passo potrebbe essere propedeutico per la realizzazione
+di ulteriori ottimizzazioni.
 </p>
+</div>
+</div>
+<div id="outline-container-sec-" class="outline-3">
+<h3 id="sec-">Implementazione</h3>
+<div class="outline-text-3" id="text-">
+<table class="table table-striped table-bordered table-hover table-condensed">
+
+
+<colgroup>
+<col  class="left">
+
+<col  class="left">
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="text-left">Analysis</th>
+<th scope="col" class="text-left">Very Busy Expressions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="text-left">Dominio</td>
+<td class="text-left">Espressioni</td>
+</tr>
+
+<tr>
+<td class="text-left">Direzione</td>
+<td class="text-left">Backwards</td>
+</tr>
+
+<tr>
+<td class="text-left">Gen</td>
+<td class="text-left">\(x \otimes y\) se \(x \otimes y\) viene valutata prima che \(x\) o \(y\) siano ri-definiti</td>
+</tr>
+
+<tr>
+<td class="text-left">Kill</td>
+<td class="text-left">Espressioni i cui operandi sono ri-definiti all'interno del BB</td>
+</tr>
+
+<tr>
+<td class="text-left">Meet Opereator</td>
+<td class="text-left">\(\cap\)</td>
+</tr>
+</tbody>
+</table>
 <hr >
 </div>
 </div>
@@ -573,7 +636,7 @@ dei suoi operandi venga ridefinito.
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2023-06-04 dom 00:25</p>
+<p class="date">Created: 2023-06-04 dom 10:14</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="http://orgmode.org">Org-mode</a> 9.3)</p>
 </div>
 </footer>
