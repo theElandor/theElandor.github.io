@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <title><b>DataFlow Analysis cheatsheet</b></title>
-<!-- 2023-06-04 dom 10:19 -->
+<!-- 2023-06-05 lun 12:52 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Org-mode">
@@ -455,7 +455,9 @@ caso, si possono evitare calcoli ridondanti.
 <div class="outline-text-3" id="text-">
 <p>
 Una variabile \(V\) è alive in un punto \(P\) se esiste almeno
-un percorso che da \(P\) porta a exit che usa quella variabile.
+un percorso che da \(P\) porta a exit che usa <b>il valore</b> di quella variabile.
+(La variabile stessa se si considera la forma SSA).
+Altrimenti la variabile viene definita dead.
 </p>
 </div>
 </div>
@@ -636,7 +638,7 @@ di ulteriori ottimizzazioni.
 </div></div></div>
 <footer id="postamble" class="">
 <div><p class="author">Author: Matteo Lugli</p>
-<p class="date">Created: 2023-06-04 dom 10:19</p>
+<p class="date">Created: 2023-06-05 lun 12:52</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="http://orgmode.org">Org-mode</a> 9.3)</p>
 </div>
 </footer>
