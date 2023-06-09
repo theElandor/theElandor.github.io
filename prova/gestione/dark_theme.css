@@ -1,0 +1,107 @@
+.bs-docs-sidebar .nav > li > a{
+    color: #23b0ff;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Fira Coide', monospace;
+}
+.bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a{
+    color: #23b0ff;
+}
+.bs-docs-sidebar .nav > .active > a, .bs-docs-sidebar .nav > .active:hover > a, .bs-docs-sidebar .nav > .active:focus > a{
+    border-left: 2px solid white;
+}
+
+.bs-docs-sidebar .nav > li > a:hover, .bs-docs-sidebar .nav > li > a:focus{
+    color: white;
+    border-left: 1px solid white;
+}
+
+.nav > li > a{
+    position: relative;
+}
+
+body {
+    font-size: 20px;
+    font-family: 'Fira Code', monospace;
+    color: white;
+    background-color: #1d212c;
+}
+.title{
+    font-size: 40px;
+    text-decoration: none;
+    font-weight: 500;
+}
+p{
+    font-weight: 100;
+    color: white;
+}
+ol{
+    color: white;
+}
+code{
+    color: #23b0ff;
+    background-color: #1d212c;
+    font-size: 20px;
+}
+
+ul{
+    color: white;
+}
+
+
+hr{
+    border: 1px solid   #a6a6a6;
+}
+
+h1{
+    color: #23b0ff;
+    text-decoration: underline;
+}
+h2{
+    color: #23b0ff;
+    text-decoration: underline;
+    font-weight: 550;
+    font-size: 34px;
+    /*color: #23b0ff;*/
+}
+h3{
+    font-weight: 600;
+}
+
+h4{
+    font-weight: 600;    
+}
+
+blockquote{
+    font-size: 20px;
+    background-color: #f0fff0;
+}
+
+
+.author{
+    font-size: 20px;
+    font-weight: 600;
+}
+.date{
+    font-size: 20px;
+}
+.creator{
+    font-size: 20px;
+}
+img {
+    margin-left:auto; 
+    margin-right:auto;    
+}
+
+footer{
+    background-color: #1d212c;
+    color:white;
+}
+
+.src{
+    background-color: black;
+}
+
+a{
+    color: #45b1e8;
+}

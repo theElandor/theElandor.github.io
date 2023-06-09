@@ -22,7 +22,7 @@
     body {
 	font-family: 'Fira Code', monospace;
 	font-size: 20px;
-	background-color: var(--color-background);
+	background-color: white;
     }
 
     div#menu {
@@ -36,30 +36,44 @@
 	right: 0px;
 	position: absolute;
     }
-
+    .src{
+        background-color:white;
+        color:black;
+    }
     p {
-	color: var(--color-text);
+	color: var(black);
     }
 
-    h1, h2, h3, h4, h5, a {
-	color: var(--color-primary);
+    h1,h3, h4, h5, a {
+	color: var(black);
+    }
+    h2{
+        color:#337ab7;
+    }
+    h4{
+        color:magenta;
+    }
+
+    .title{
+        text-decoration: underline;
+        font-weight:bold;
     }
 
     nav a {
-	color: var(--color-text);
+	color: var(black);
     }
 
     nav a:hover {
-	color: var(--color-primary);
+	color: var(black);
 	text-decoration: none;
     }
 
     ul li, ol li {
-	color: var(--color-primary);
+	color: var(black);
     }
 
     .collapsible {
-	background-color: var(--color-background);
+        background-color: white;
 	border: none;
 	text-align: left;
     }
@@ -68,7 +82,10 @@
 
     figcaption { font-size: 15px; }
 
-    footer { text-align: center; }
+    footer { 
+        text-align: center; 
+        background-color: #FFFFEA;
+    }
 
     .observation {
 	border-style: solid;
@@ -84,16 +101,17 @@
 	overflow: auto;
 	word-wrap: normal;
     }
-
     blockquote {
-	border-left: 5px solid var(--color-primary);
+	border-left: 5px solid var(black);
+        background-color: #ffffEA;
+        font-size: 20px;
     }
     .MathJax_SVG_Display{
-        color:white;
+        color:black;
     }
 
     blockquote p {
-	color: var(--color-text);
+	color: var(black);
     }
 
     /* side-menu stuff */
@@ -111,7 +129,7 @@
 	top: 60px;
 	left: 0px;
 	height: 100%;
-	/* background-color: var(--color-primary); */
+	/* background-color: var(black); */
 	z-index: 100;	
     }
 
@@ -131,7 +149,7 @@
     }
 
     .side-menu-content ul li a {
-	color: var(--color-primary);
+	color: var(black);
 	text-decoration: none;
 	font-weight: bold;
     }
@@ -143,11 +161,11 @@
 	left: 0;
 	width: 80px;
 	height: 60px;
-	background: var(--color-background);
+	background: var(white);
     }
 
     .toggle:hover {
-	background: var(--color-primary);
+	background: var(black);
     }
 
     .toggle:before {
@@ -159,7 +177,7 @@
 	line-height: 60px;
 	text-align: center;
 	font-size: 24px;
-	color: var(--color-text);
+	color: var(black);
     }
 
     @media (max-width: 1024px) {
@@ -174,7 +192,7 @@
 	}
 
 	h1 {
-	    font-size: 13px;
+	    font-size: 13px;           
 	}
 
 	h2, h3, h4, h5 {
@@ -210,7 +228,7 @@
 	    line-height: 60px;
 	    text-align: center;
 	    font-size: 12px;
-	    color: var(--color-text);
+	    color: var(black);
 	}	
     }
 
@@ -261,35 +279,13 @@ MathJax.Hub.Config({
 </div> <!-- end row -->
 <div class="row">
    <div class="col-xs-1"></div>
-   <div class="col-xs-10"><div id="outline-container-sec-" class="outline-2"><button type="button" class="collapsible">
-<h2 id="sec-" style="text-decoration: underline">  Info &triangledown;</h2>
-</button><div class='sec- collapsible-content'>
-<p>
-Note e appunti della lezione dell'archivio telegram sul subnetting.
-La lezione ha un'approccio molto pratico e tratta principalmente esempi.
-</p>
-
-<blockquote>
-<p>
-Ringrazio Leonardo Tamiano per avermi gentilmente fornito l'exporter
-per il tema utilizzato.
-</p>
-</blockquote>
-</div>
-</div>
-   </div>
-   <div class="col-xs-1"></div>
-</div> <!-- end row -->
-
-<div class="row">
-   <div class="col-xs-1"></div>
    <div class="col-xs-10"><div id="outline-container-sec-1" class="outline-2"><button type="button" class="collapsible">
 <h2 id="sec-1" style="text-decoration: underline"> 1 Introduzione &triangledown;</h2>
 </button><div class='sec-1 collapsible-content'>
 <p>
 Si cerca di definire un'ordinamento tra i documenti di interesse,
 in base alla loro rilevanza rispetto alla query inserita.
-Un <b>modello</b> è definito dalla seguente quadrupla:
+Un <b>modello</b> è definito dalla seguente tripla:
 </p>
 
 \begin{equation}
@@ -308,6 +304,7 @@ Un <b>modello</b> è definito dalla seguente quadrupla:
 </ul>
 <p>
 \(\Rightarrow\) La domanda a cui rispondere è: quanto è rilevante il documento rispetto alla query?
+\(R(q_{j}, d_{j})\) associa un numero reale alla coppia query-documento, per stabilirne la pertinenza!
 Si introducono ora alcuni concetti fondamentali:
 </p>
 </div>
@@ -356,11 +353,11 @@ Tendenzialmente questa fase segue questo schema:
 </p>
 <ol class="org-ol">
 <li><p>
-<b>Pulizia</b> delle feature per liberarsi di eventuale rumore;
+<b>Generazione</b> delle features iniziali;
 </p>
 </li>
 <li><p>
-<b>Generazione</b> di nuove feature derivate;
+<b>Pulizia</b> delle feature per liberarsi di eventuale rumore;
 </p>
 </li>
 <li><p>
@@ -372,6 +369,9 @@ Tendenzialmente questa fase segue questo schema:
 </p>
 </li>
 </ol>
+<p>
+Solitamente vengono anche <i>generate nuove features derivate</i>. 
+</p>
 </div>
 </div>
 </div>
@@ -379,13 +379,12 @@ Tendenzialmente questa fase segue questo schema:
    <div class="col-xs-1"></div>
 </div> <!-- end row -->
 
-
 <div class="row">
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><div id="outline-container-sec-3" class="outline-2"><button type="button" class="collapsible">
 <h2 id="sec-3" style="text-decoration: underline"> 3 Modelli classici &triangledown;</h2>
 </button><div id="outline-container-sec-" class="outline-3"><button type="button" class="collapsible">
-<h3 id="sec-" nil>  Introduzione &triangledown;</h3>
+<h3 id="sec-" nil>  Introduzione (modello bag of words) &triangledown;</h3>
 </button><div class='sec- collapsible-content'>
 <p>
 Si usa una <b>bag of index terms</b> per rappresentare
@@ -799,17 +798,17 @@ delle similarity tra i vari documenti e la query.
 </p>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #339CDB;">for</span> each token T <span style="color: #339CDB;">in</span> Q:
-  <span style="color: #85DDFF;">I</span> = IDF of T <span style="color: #579C4C;"># </span><span style="color: #579C4C;">(log(total N of docs/n.of documents where token appears))</span>
-  <span style="color: #85DDFF;">K</span> = count of T <span style="color: #339CDB;">in</span> Q
-  <span style="color: #85DDFF;">w</span> = Weight of T <span style="color: #339CDB;">in</span> <span style="color: #85DDFF;">Q</span> = I*K
+<pre class="src src-python">for each token T in Q:
+  I = IDF of T # (log(total N of docs/n.of documents where token appears))
+  K = count of T in Q
+  w = Weight of T in Q = I*K
 
-  <span style="color: #85DDFF;">L</span> = posting_list(T) <span style="color: #579C4C;"># </span><span style="color: #579C4C;">(each node has (i)doc ID and (ii) n.of occurences)</span>
-  <span style="color: #85DDFF;">O</span> = occurence
-  <span style="color: #339CDB;">for</span> each O <span style="color: #339CDB;">in</span> L:
-    <span style="color: #85DDFF;">C</span> = count
-    <span style="color: #85DDFF;">D</span> = document
-    <span style="color: #85DDFF;">R</span>[D] = R[D] + w_q * <span style="color: #85DDFF;">w_i</span> = w * I * C     
+  L = posting_list(T) # (each node has (i)doc ID and (ii) n.of occurences)
+  O = occurence
+  for each O in L:
+	C = count
+	D = document
+	R[D] = R[D] + w_q * w_i = w * I * C     
 </pre>
 </div>
 <p>
@@ -830,11 +829,11 @@ In questa parte viene calcolato il denominatore della similarità \(\Downarrow\)
 </p>
 <div class="org-src-container">
 
-<pre class="src src-python"><span style="color: #85DDFF;">L</span> = length(Q) <span style="color: #579C4C;"># </span><span style="color: #579C4C;">sqrt of sum of square of weights</span>
-<span style="color: #339CDB;">for</span> D <span style="color: #339CDB;">in</span> R: (so <span style="color: #339CDB;">for</span> each document <span style="color: #339CDB;">in</span> <span style="color: #C586C0;">hash</span> table)
-  <span style="color: #85DDFF;">S</span> = R[D] <span style="color: #579C4C;"># </span><span style="color: #579C4C;">(numeratore)</span>
-  <span style="color: #85DDFF;">Y</span> = length(D)
-  simil(D) = S/(L*Y) <span style="color: #579C4C;"># </span><span style="color: #579C4C;">so L is same for each document</span>
+<pre class="src src-python">L = length(Q) # sqrt of sum of square of weights
+for D in R: (so for each document in hash table)
+  S = R[D] # (numeratore)
+  Y = length(D)
+  simil(D) = S/(L*Y) # so L is same for each document
 </pre>
 </div>
 <p>
@@ -865,7 +864,7 @@ In questa parte viene calcolato il denominatore della similarità \(\Downarrow\)
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-11 Fri 11:58</p>
+<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-06-09 ven 10:55</p>
 </div>
 </footer>
    </div>

@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2023-05-06 23:04:01 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2023-06-09 10:26:09 &#43;0200 CEST" />
 
 
 
@@ -163,7 +163,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2023-05-06
+        2023-06-09
         
       </span>
     
@@ -382,7 +382,9 @@ IC( c) = -log P( c)
 </li>
 </ul>
 <p>Similarità di <strong><code>Resnik</code></strong>: calcolo l&rsquo;information content del
-least common subsumer.</p>
+least common subsumer. Due concetti sono molto simili se
+si incontra raramente un termine il cui senso è comune tra i
+due.</p>
 <p>\begin{equation}
 sim_{resnik}(c_{1}, c_{2}) = -log(P(LCS(c1,c2)))
 \end{equation}</p>
@@ -408,7 +410,9 @@ select sense with higher confidence
 </code></pre><p>Ora la domanda è: come calcolo la <code>confidence</code> \(C_{s_{n}}\) ?</p>
 <p>\(\rightarrow\) mi baso sulla similarità tra \(s_{n}\) e tutti gli altri sensi delle parole
 nel contesto! Poi per calcolare la similitudine posso usare tecniche come la <em>path-based</em>,
-già discussa in precedenza.</p>
+già discussa in precedenza. Testualmente può anche essere espresso nel seguente modo:
+Voglio cercare di trovare il senso della parola S che &ldquo;fitta&rdquo; meglio nel contesto di riferimento,
+che è costituito da molte parole, anch&rsquo;esse legate a molti sensi.</p>
 <p>Ricapitolando, ecco lo pseudocodice dell&rsquo;algoritmo:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">max_confidence <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 <span style="color:#66d9ef">for</span> each Si synset di I:
@@ -598,7 +602,7 @@ viene fatto, quindi da come vengono generati i token e come vengono filtrati.</p
 <p>In generale, per gli inverted index <em>word-based</em> è circa \(O(n)\).
 Solitamente è attorno al 40% se vengono omesse delle stopwords, altrimenti
 se vengono mantenute si parla circa dell'80%. Nel <em>document based</em> invece
-si parla del di valori tra il 20% e il 40%.</p>
+si parla del di valori tra il 20% e il 40% (della dimensione del testo ovviamente).</p>
 <h3 id="costruzione-di-un-inverted-index">Costruzione di un Inverted Index<a href="#costruzione-di-un-inverted-index" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Solitamente la costruzione si basa sulla memorizzazione del vocabolario
 in un <strong>trie</strong>. Dopo aver fatto il preprocessing si seguono i seguenti
@@ -653,10 +657,12 @@ la gestione di una struttura dati aggiuntiva.</li>
 <li><strong>Hash</strong></li>
 </ol>
 <h3 id="ricerca">Ricerca<a href="#ricerca" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
-<p><strong><code>Boolean Retrieval</code></strong></p>
-<p>Un&rsquo;operazione interessante per quanto riguarda la ricerca, è la
-risoluzione di semplici query binarie. Ad esempio, si supponga che
-si vogliano cercare tutti i documenti che contengono entrambe
+<p><strong><code>Boolean Retrieval</code></strong>
+La boolean retrieval è semplice concettualmente, basta ottenere i risultati (insiemi di documenti )
+dei singoli elementi e combinarli usando l&rsquo;apposito operatore booleano (unione, intersezione, ecc&hellip;).</p>
+<p>Per quanto riguarda il processing dell&rsquo;operando <strong>AND</strong>, si può usare un semplice algoritmo di &ldquo;merging&rdquo; per
+risolvere il problema.
+Ad esempio, si supponga di voler cercare tutti i documenti che contengono entrambe
 le parole &ldquo;computer&rdquo; e &ldquo;science&rdquo;.
 In tal caso, supponendo che le due posting list contengano gli ID
 dei documenti in maniera <strong>ordinata</strong>, basta un&rsquo;approccio a due
@@ -692,7 +698,7 @@ visto nel paragrafo precedente.</li>
 <li>Si selezionano, uno alla volta, tutti i documenti di questa lista;</li>
 <li>Per ogni documento, si creano \(n\) vettori, dove \(n\) indica il numero
 di parole della frase (nel caso dell&rsquo;esempio, \(n=2\));
-Ogni vettore contiene gli tutti gli <em>indici di apparizione</em> di quella
+Ogni vettore contiene tutti gli <em>indici di apparizione</em> di quella
 parola in quel documento;</li>
 <li>Si cercano le tuple corrette all&rsquo;interno dei vettori. Nell&rsquo;esempio,
 si vogliono individuare tutti gli indici \(i\) tali che
@@ -748,13 +754,21 @@ Ecco lo pseudocodice, da applicare ad ogni documento \(d \in D\):</p>
 </ul>
 <p>In questo caso, si intende semplicemente ritornare la lista dei documenti
 che contengono la frase cercata.</p>
+<ul>
+<li>(p+i-s) \(\rightarrow\) si aggiunge alla posizione \(p\) all&rsquo;interno dell&rsquo;array, la distanza tra \(i\) (indice all&rsquo;interno della frase della parola
+su cui si sta facendo la binary search) e \(s\) (indice all&rsquo;interno della frase della parola di riferimento).
+Essenzialmente quindi si aggiunge la distanza tra la parola di riferimento e la parola di cui si sta cercando l&rsquo;occorrenza.</li>
+</ul>
+<!-- raw HTML omitted -->
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">for</span> each position p <span style="color:#f92672">in</span> Ps:
   <span style="color:#66d9ef">for</span> each keyword ki <span style="color:#f92672">!=</span> ks: <span style="color:#75715e"># per tutte le altre keyword della frase</span>
 	use BinarySearch to find a position (p<span style="color:#f92672">+</span>i<span style="color:#f92672">-</span>s) <span style="color:#f92672">in</span> Pi
   <span style="color:#66d9ef">if</span> correct position <span style="color:#66d9ef">for</span> each keyword found, add d to answer <span style="color:#75715e"># d is current document</span>
   <span style="color:#66d9ef">else</span> <span style="color:#66d9ef">try</span> <span style="color:#66d9ef">with</span> next position, going on <span style="color:#66d9ef">with</span> loop
 <span style="color:#66d9ef">return</span> answer
-</code></pre></div><h2 id="modelling">Modelling<a href="#modelling" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+</code></pre></div><p>Questo procedimento è da iterare su ogni documento che contiene tutte le parole di riferimento, per capire se compaiono
+nell&rsquo;ordine corretto.</p>
+<h2 id="modelling">Modelling<a href="#modelling" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
 <li>📃 <a href="https://theelandor.github.io/prova/gestione/021122.html">Lezione 02-11-22 e 03-11-22</a> (Modello Vettoriale)</li>
 <li>📃 <a href="https://theelandor.github.io/prova/gestione/101122.html">Lezione 10-11-22</a> (Modello Probabilistico)</li>

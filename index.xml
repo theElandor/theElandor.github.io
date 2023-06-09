@@ -8,99 +8,9 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 06 May 2023 23:20:16 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linguaggi e compilatori</title>
-      <link>/compilatori/</link>
-      <pubDate>Sun, 04 Jun 2023 00:26:51 +0200</pubDate>
-      
-      <guid>/compilatori/</guid>
-      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Front-end Link per accedere al materiale didattico \(\rightarrow\)
-https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
-Link agli appunti \(\downarrow\)
- https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing
- Link al tutorial di riferimento \(\downarrow\)</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
-&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
-Il pdf contiene i miei appunti presi durante le lezioni.
-Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
-&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;front-end&#34;&gt;Front-end&lt;/h2&gt;
-&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Link agli &lt;code&gt;appunti&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&#34;&gt;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;ul&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/201022.html&#34;&gt;Lezione 20/10/22&lt;/a&gt; (grammatiche)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/261022.html&#34;&gt;Lezione 26/10/22&lt;/a&gt; (parse tree)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/271022.html&#34;&gt;Lezione 27/10/22&lt;/a&gt; (parsing 1)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/041122.html&#34;&gt;Lezione 03/11/22&lt;/a&gt; (parsing 2)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/101122.html&#34;&gt;Lezione 10/11/22&lt;/a&gt; (parsing 3)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/171122.html&#34;&gt;Lezione 17/11/22&lt;/a&gt; (Abstract Syntax Tree)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/231122.html&#34;&gt;Lezione 23/11/22&lt;/a&gt; (Parser SLR(1))&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id=&#34;back-end&#34;&gt;Back-end&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/comandi.html&#34;&gt;Commands CheatSheet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/dataflow.html&#34;&gt;Dataflow Analysis CheatSheet&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Embrace Boredom</title>
-      <link>/posts/boredom/</link>
-      <pubDate>Sat, 06 May 2023 23:20:16 +0200</pubDate>
-      
-      <guid>/posts/boredom/</guid>
-      <description>Figure 1: Empty C.S lab, university campus  Thoughts Let me ask you a question.
- Do you remember the last time you felt bored?
- Just stop for a second, put down your smartphone, and think.
-Most people never feel bored nowadays.
-Social media and flashy multimedial content is always in your pocket, ready to catch your attention. As soon as you start feeling bored, you can just grab your phone and scroll instagram or tiktok, and you get your lovely dopamine rush.</description>
-      <content>
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/boredom.jpeg&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;Empty C.S lab, university campus&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;
-&lt;p&gt;Let me ask you a question.&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Do you remember the last time you felt &lt;strong&gt;bored&lt;/strong&gt;?&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;p&gt;Just stop for a second, put down your smartphone, and think.&lt;/p&gt;
-&lt;p&gt;Most people &lt;strong&gt;never&lt;/strong&gt; feel bored nowadays.&lt;/p&gt;
-&lt;p&gt;Social media and flashy multimedial content is always in your pocket, ready to catch your attention.
-As soon as you start feeling bored, you can just grab your phone and scroll instagram or tiktok, and you get
-your lovely dopamine rush. It just make you feel comfortable and instantly satisfied.&lt;/p&gt;
-&lt;p&gt;Boredom is one of the things that slowly and silently abandoned modern society.&lt;/p&gt;
-&lt;p&gt;But &lt;strong&gt;with boredom comes creativity, and only with creativity and conscious thinking we can build great things as a society&lt;/strong&gt;.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Embrace boredom, use your time carefully, endure suffering.&lt;/p&gt;
-&lt;p&gt;You&amp;rsquo;ll feel the benefits.&lt;/p&gt;
-&lt;hr&gt;
-&lt;p&gt;Matteo 🐨&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
       <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
       <link>/gestione/</link>
-      <pubDate>Sat, 06 May 2023 23:04:01 +0200</pubDate>
+      <pubDate>Fri, 09 Jun 2023 10:26:09 +0200</pubDate>
       
       <guid>/gestione/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Gestione dell&amp;rsquo;informazione&amp;rdquo; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide del corso.
@@ -311,7 +221,9 @@ IC( c) = -log P( c)
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Similarità di &lt;strong&gt;&lt;code&gt;Resnik&lt;/code&gt;&lt;/strong&gt;: calcolo l&amp;rsquo;information content del
-least common subsumer.&lt;/p&gt;
+least common subsumer. Due concetti sono molto simili se
+si incontra raramente un termine il cui senso è comune tra i
+due.&lt;/p&gt;
 &lt;p&gt;\begin{equation}
 sim_{resnik}(c_{1}, c_{2}) = -log(P(LCS(c1,c2)))
 \end{equation}&lt;/p&gt;
@@ -337,7 +249,9 @@ select sense with higher confidence
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Ora la domanda è: come calcolo la &lt;code&gt;confidence&lt;/code&gt; \(C_{s_{n}}\) ?&lt;/p&gt;
 &lt;p&gt;\(\rightarrow\) mi baso sulla similarità tra \(s_{n}\) e tutti gli altri sensi delle parole
 nel contesto! Poi per calcolare la similitudine posso usare tecniche come la &lt;em&gt;path-based&lt;/em&gt;,
-già discussa in precedenza.&lt;/p&gt;
+già discussa in precedenza. Testualmente può anche essere espresso nel seguente modo:
+Voglio cercare di trovare il senso della parola S che &amp;ldquo;fitta&amp;rdquo; meglio nel contesto di riferimento,
+che è costituito da molte parole, anch&amp;rsquo;esse legate a molti sensi.&lt;/p&gt;
 &lt;p&gt;Ricapitolando, ecco lo pseudocodice dell&amp;rsquo;algoritmo:&lt;/p&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;max_confidence &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;
 &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each Si synset di I:
@@ -527,7 +441,7 @@ viene fatto, quindi da come vengono generati i token e come vengono filtrati.&lt
 &lt;p&gt;In generale, per gli inverted index &lt;em&gt;word-based&lt;/em&gt; è circa \(O(n)\).
 Solitamente è attorno al 40% se vengono omesse delle stopwords, altrimenti
 se vengono mantenute si parla circa dell&#39;80%. Nel &lt;em&gt;document based&lt;/em&gt; invece
-si parla del di valori tra il 20% e il 40%.&lt;/p&gt;
+si parla del di valori tra il 20% e il 40% (della dimensione del testo ovviamente).&lt;/p&gt;
 &lt;h3 id=&#34;costruzione-di-un-inverted-index&#34;&gt;Costruzione di un Inverted Index&lt;/h3&gt;
 &lt;p&gt;Solitamente la costruzione si basa sulla memorizzazione del vocabolario
 in un &lt;strong&gt;trie&lt;/strong&gt;. Dopo aver fatto il preprocessing si seguono i seguenti
@@ -582,10 +496,12 @@ la gestione di una struttura dati aggiuntiva.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h3 id=&#34;ricerca&#34;&gt;Ricerca&lt;/h3&gt;
-&lt;p&gt;&lt;strong&gt;&lt;code&gt;Boolean Retrieval&lt;/code&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Un&amp;rsquo;operazione interessante per quanto riguarda la ricerca, è la
-risoluzione di semplici query binarie. Ad esempio, si supponga che
-si vogliano cercare tutti i documenti che contengono entrambe
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;Boolean Retrieval&lt;/code&gt;&lt;/strong&gt;
+La boolean retrieval è semplice concettualmente, basta ottenere i risultati (insiemi di documenti )
+dei singoli elementi e combinarli usando l&amp;rsquo;apposito operatore booleano (unione, intersezione, ecc&amp;hellip;).&lt;/p&gt;
+&lt;p&gt;Per quanto riguarda il processing dell&amp;rsquo;operando &lt;strong&gt;AND&lt;/strong&gt;, si può usare un semplice algoritmo di &amp;ldquo;merging&amp;rdquo; per
+risolvere il problema.
+Ad esempio, si supponga di voler cercare tutti i documenti che contengono entrambe
 le parole &amp;ldquo;computer&amp;rdquo; e &amp;ldquo;science&amp;rdquo;.
 In tal caso, supponendo che le due posting list contengano gli ID
 dei documenti in maniera &lt;strong&gt;ordinata&lt;/strong&gt;, basta un&amp;rsquo;approccio a due
@@ -621,7 +537,7 @@ visto nel paragrafo precedente.&lt;/li&gt;
 &lt;li&gt;Si selezionano, uno alla volta, tutti i documenti di questa lista;&lt;/li&gt;
 &lt;li&gt;Per ogni documento, si creano \(n\) vettori, dove \(n\) indica il numero
 di parole della frase (nel caso dell&amp;rsquo;esempio, \(n=2\));
-Ogni vettore contiene gli tutti gli &lt;em&gt;indici di apparizione&lt;/em&gt; di quella
+Ogni vettore contiene tutti gli &lt;em&gt;indici di apparizione&lt;/em&gt; di quella
 parola in quel documento;&lt;/li&gt;
 &lt;li&gt;Si cercano le tuple corrette all&amp;rsquo;interno dei vettori. Nell&amp;rsquo;esempio,
 si vogliono individuare tutti gli indici \(i\) tali che
@@ -677,13 +593,21 @@ Ecco lo pseudocodice, da applicare ad ogni documento \(d \in D\):&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;In questo caso, si intende semplicemente ritornare la lista dei documenti
 che contengono la frase cercata.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;(p+i-s) \(\rightarrow\) si aggiunge alla posizione \(p\) all&amp;rsquo;interno dell&amp;rsquo;array, la distanza tra \(i\) (indice all&amp;rsquo;interno della frase della parola
+su cui si sta facendo la binary search) e \(s\) (indice all&amp;rsquo;interno della frase della parola di riferimento).
+Essenzialmente quindi si aggiunge la distanza tra la parola di riferimento e la parola di cui si sta cercando l&amp;rsquo;occorrenza.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
 &lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each position p &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; Ps:
   &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each keyword ki &lt;span style=&#34;color:#f92672&#34;&gt;!=&lt;/span&gt; ks: &lt;span style=&#34;color:#75715e&#34;&gt;# per tutte le altre keyword della frase&lt;/span&gt;
 	use BinarySearch to find a position (p&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;i&lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;s) &lt;span style=&#34;color:#f92672&#34;&gt;in&lt;/span&gt; Pi
   &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; correct position &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; each keyword found, add d to answer &lt;span style=&#34;color:#75715e&#34;&gt;# d is current document&lt;/span&gt;
   &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;try&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; next position, going on &lt;span style=&#34;color:#66d9ef&#34;&gt;with&lt;/span&gt; loop
 &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; answer
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;modelling&#34;&gt;Modelling&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Questo procedimento è da iterare su ogni documento che contiene tutte le parole di riferimento, per capire se compaiono
+nell&amp;rsquo;ordine corretto.&lt;/p&gt;
+&lt;h2 id=&#34;modelling&#34;&gt;Modelling&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/021122.html&#34;&gt;Lezione 02-11-22 e 03-11-22&lt;/a&gt; (Modello Vettoriale)&lt;/li&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/101122.html&#34;&gt;Lezione 10-11-22&lt;/a&gt; (Modello Probabilistico)&lt;/li&gt;
@@ -697,6 +621,96 @@ che contengono la frase cercata.&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/tol.html&#34;&gt;Tolerant Retrieval&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Linguaggi e compilatori</title>
+      <link>/compilatori/</link>
+      <pubDate>Sun, 04 Jun 2023 00:26:51 +0200</pubDate>
+      
+      <guid>/compilatori/</guid>
+      <description>Questa pagina (in italiano) contiene i miei appunti del corso di &amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore. Il pdf contiene i miei appunti presi durante le lezioni. Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book. Front-end Link per accedere al materiale didattico \(\rightarrow\)
+https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50
+Link agli appunti \(\downarrow\)
+ https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing
+ Link al tutorial di riferimento \(\downarrow\)</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/compilers.jpeg&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code class=&#34;language-example&#34; data-lang=&#34;example&#34;&gt;Questa pagina (in italiano) contiene i miei appunti del corso di
+&amp;quot;Linguaggi e Compilatori&amp;quot; del corso di laura triennale in informatica di Unimore.
+Il pdf contiene i miei appunti presi durante le lezioni.
+Il materiale qui fornito non è sostitutivo alle slide del corso e/o il famigerato dragon book.
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;front-end&#34;&gt;Front-end&lt;/h2&gt;
+&lt;p&gt;Link per accedere al &lt;code&gt;materiale didattico&lt;/code&gt; \(\rightarrow\)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&#34;&gt;https://drive.google.com/drive/u/0/folders/1vHe1CGEjwfiLwUCVj_ryZ8f_A-GPVX50&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Link agli &lt;code&gt;appunti&lt;/code&gt;  \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&#34;&gt;https://drive.google.com/drive/folders/1q29u03uP6MI_a18g_1HWsYkzaMwYKFgA?usp=sharing&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Link al &lt;code&gt;tutorial&lt;/code&gt; di riferimento \(\downarrow\)&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&#34;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&#34;&gt;https://llvm.org/docs/tutorial/MyFirstLanguageFrontend/index.html&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/201022.html&#34;&gt;Lezione 20/10/22&lt;/a&gt; (grammatiche)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/261022.html&#34;&gt;Lezione 26/10/22&lt;/a&gt; (parse tree)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/271022.html&#34;&gt;Lezione 27/10/22&lt;/a&gt; (parsing 1)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/041122.html&#34;&gt;Lezione 03/11/22&lt;/a&gt; (parsing 2)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/101122.html&#34;&gt;Lezione 10/11/22&lt;/a&gt; (parsing 3)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/171122.html&#34;&gt;Lezione 17/11/22&lt;/a&gt; (Abstract Syntax Tree)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/231122.html&#34;&gt;Lezione 23/11/22&lt;/a&gt; (Parser SLR(1))&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;back-end&#34;&gt;Back-end&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/comandi.html&#34;&gt;Commands CheatSheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/compilatori/dataflow.html&#34;&gt;Dataflow Analysis CheatSheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
+      <title>Embrace Boredom</title>
+      <link>/posts/boredom/</link>
+      <pubDate>Sat, 06 May 2023 23:20:16 +0200</pubDate>
+      
+      <guid>/posts/boredom/</guid>
+      <description>Figure 1: Empty C.S lab, university campus  Thoughts Let me ask you a question.
+ Do you remember the last time you felt bored?
+ Just stop for a second, put down your smartphone, and think.
+Most people never feel bored nowadays.
+Social media and flashy multimedial content is always in your pocket, ready to catch your attention. As soon as you start feeling bored, you can just grab your phone and scroll instagram or tiktok, and you get your lovely dopamine rush.</description>
+      <content>
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/boredom.jpeg&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;Empty C.S lab, university campus&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;thoughts&#34;&gt;Thoughts&lt;/h2&gt;
+&lt;p&gt;Let me ask you a question.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Do you remember the last time you felt &lt;strong&gt;bored&lt;/strong&gt;?&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Just stop for a second, put down your smartphone, and think.&lt;/p&gt;
+&lt;p&gt;Most people &lt;strong&gt;never&lt;/strong&gt; feel bored nowadays.&lt;/p&gt;
+&lt;p&gt;Social media and flashy multimedial content is always in your pocket, ready to catch your attention.
+As soon as you start feeling bored, you can just grab your phone and scroll instagram or tiktok, and you get
+your lovely dopamine rush. It just make you feel comfortable and instantly satisfied.&lt;/p&gt;
+&lt;p&gt;Boredom is one of the things that slowly and silently abandoned modern society.&lt;/p&gt;
+&lt;p&gt;But &lt;strong&gt;with boredom comes creativity, and only with creativity and conscious thinking we can build great things as a society&lt;/strong&gt;.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Embrace boredom, use your time carefully, endure suffering.&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll feel the benefits.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;Matteo 🐨&lt;/p&gt;
 </content>
     </item>
     
