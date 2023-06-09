@@ -287,7 +287,6 @@ Si cerca di definire un'ordinamento tra i documenti di interesse,
 in base alla loro rilevanza rispetto alla query inserita.
 Un <b>modello</b> è definito dalla seguente tripla:
 </p>
-
 \begin{equation}
 (D,Q,R(q_{i}, dj))
 \end{equation}
@@ -451,6 +450,10 @@ quindi un documento può soddisfare o no la query data.
 Si parla quindi di <b>exact matching</b>, non esiste il 
 concetto di similarità. E' stato usato per molti
 anni all'inizio dell'information retrieval.
+</p>
+
+<p>
+In questo caso, si assume quindi che i pesi siano tutti binari.
 Esempio:
 </p>
 \begin{equation}
@@ -573,10 +576,12 @@ Ma come fare a calcolare il coseno tra i due vettori n-dimensionali?
 La misura del coseno in questo caso è anche detta <b>normalized inner product</b> \(\Downarrow\)
 </p>
 \begin{equation}
-sim(d_{j,q}) = \frac{d_{j} * q}{|d_{j}| \times |q|} =\frac{\sum_{i=1}^{t}w_{ij} \times w_{iq} }{\sqrt{\sum_{i=1}^{t}w_{ij}^2} \times  \sqrt{\sum_{i=1}^{t}w_{iq}^2}}
+sim(d_{j}, q) = \frac{d_{j} \cdot q}{|d_{j}| \times |q|} =\frac{\sum_{i=1}^{t}w_{ij} \times w_{iq} }{\sqrt{\sum_{i=1}^{t}w_{ij}^2} \times  \sqrt{\sum_{i=1}^{t}w_{iq}^2}}
 \end{equation}
 
 <p>
+Da notare che la lunghezza della query non influisce sul risultato, mentre la lunghezza del vettore \(\vec{d_{j}}\) serve per normalizzare
+il risultato (pochi termini in comune, vettori più lunghi \(\rightarrow\) minor similarità).
 Esempio preso dalle slide: \(\downarrow\)
 </p>
 
@@ -598,14 +603,16 @@ le similarity, non influenza il ranking.
 <h4 id="sec-3-3-2" nil> 3.3.2 Pesi realistici (tf) &triangledown;</h4>
 </button><div class='sec-3-3-2 collapsible-content'>
 <p>
-I pesi ci permettono di distinguere i termini che sono
-più importanti per la rappresentazione logica di un
-particolare documento. 
+Fino ad ora ci siamo posti in un contesto in cui i documenti
+sono rappresentati da una lista di pesi <i>binari</i>.
 </p>
 
 <p>
+In realtà,i pesi ci dovrebbero permettere di distinguere i termini che sono
+più importanti per la rappresentazione logica di un
+particolare documento. 
 Solitamente si usa la <b>term frequency</b> all'interno del
-testo.
+testo. Ci sono alcune alternative: 
 </p>
 <ul class="org-ul">
 <li><p>
@@ -634,7 +641,7 @@ f_{ij} = \frac{freq_{ij}}{max_{l} \ freq_{lj}}
 0 \ \ otherwise
 \end{cases}
 <p>
-in questo modo "smorzo" le diffe renze tra i valori di
+in questo modo "smorzo" le differenze tra i valori di
 frequenza.
 </p>
 </div>
@@ -737,6 +744,10 @@ Ovviamente permette di avere ricerce più accurate;
 Non c'è disambiguazione dei termini, non viene considerata la <b>semantica</b>;
 </p>
 </li>
+<li><p>
+Non viene analizzata la struttura della frase, quindi non è considerata la <b>sintassi</b>;
+</p>
+</li>
 </ul>
 </div>
 </div>
@@ -795,6 +806,7 @@ R \(\rightarrow\) Hash Table vuota;
 <p>
 Questa prima parte dell'algoritmo serve per memorizzare nell'hash table il <b>numeratore</b> 
 delle similarity tra i vari documenti e la query.
+Il concetto è che si vuole cercare di "consumare" un token alla volta, massimizzando l'efficienza.
 </p>
 <div class="org-src-container">
 
@@ -825,7 +837,9 @@ delle similarity tra i vari documenti e la query.
 <h4 id="sec-4-1-2" nil> 4.1.2 Compute similarity &triangledown;</h4>
 </button><div class='sec-4-1-2 collapsible-content'>
 <p>
-In questa parte viene calcolato il denominatore della similarità \(\Downarrow\)
+In questa parte viene calcolato il denominatore della similarità.
+In questi casi d'esempio la lunghezza della query si può calcolare, mentre
+si suppone di sapere la lungehzza dei documenti. Si veda l'esempio: \(\Downarrow\)
 </p>
 <div class="org-src-container">
 
@@ -864,7 +878,7 @@ for D in R: (so for each document in hash table)
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-06-09 ven 10:55</p>
+<p class="author"><b>Author</b>: Matteo Lugli</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-06-09 ven 15:19</p>
 </div>
 </footer>
    </div>
