@@ -22,7 +22,7 @@
     body {
 	font-family: 'Fira Code', monospace;
 	font-size: 20px;
-	background-color: var(--color-background);
+	background-color: white;
     }
 
     div#menu {
@@ -36,30 +36,44 @@
 	right: 0px;
 	position: absolute;
     }
-
+    .src{
+        background-color:white;
+        color:black;
+    }
     p {
-	color: var(--color-text);
+	color: var(black);
     }
 
-    h1, h2, h3, h4, h5, a {
-	color: var(--color-primary);
+    h1,h3, h4, h5, a {
+	color: var(black);
+    }
+    h2{
+        color:#337ab7;
+    }
+    h4{
+        color:magenta;
+    }
+
+    .title{
+        text-decoration: underline;
+        font-weight:bold;
     }
 
     nav a {
-	color: var(--color-text);
+	color: var(black);
     }
 
     nav a:hover {
-	color: var(--color-primary);
+	color: var(black);
 	text-decoration: none;
     }
 
     ul li, ol li {
-	color: var(--color-primary);
+	color: var(black);
     }
 
     .collapsible {
-	background-color: var(--color-background);
+        background-color: white;
 	border: none;
 	text-align: left;
     }
@@ -68,7 +82,10 @@
 
     figcaption { font-size: 15px; }
 
-    footer { text-align: center; }
+    footer { 
+        text-align: center; 
+        background-color: #FFFFEA;
+    }
 
     .observation {
 	border-style: solid;
@@ -84,16 +101,17 @@
 	overflow: auto;
 	word-wrap: normal;
     }
-
     blockquote {
-	border-left: 5px solid var(--color-primary);
+	border-left: 5px solid var(black);
+        background-color: #ffffEA;
+        font-size: 20px;
     }
     .MathJax_SVG_Display{
-        color:white;
+        color:black;
     }
 
     blockquote p {
-	color: var(--color-text);
+	color: var(black);
     }
 
     /* side-menu stuff */
@@ -111,7 +129,7 @@
 	top: 60px;
 	left: 0px;
 	height: 100%;
-	/* background-color: var(--color-primary); */
+	/* background-color: var(black); */
 	z-index: 100;	
     }
 
@@ -131,7 +149,7 @@
     }
 
     .side-menu-content ul li a {
-	color: var(--color-primary);
+	color: var(black);
 	text-decoration: none;
 	font-weight: bold;
     }
@@ -143,11 +161,11 @@
 	left: 0;
 	width: 80px;
 	height: 60px;
-	background: var(--color-background);
+	background: var(white);
     }
 
     .toggle:hover {
-	background: var(--color-primary);
+	background: var(black);
     }
 
     .toggle:before {
@@ -159,7 +177,7 @@
 	line-height: 60px;
 	text-align: center;
 	font-size: 24px;
-	color: var(--color-text);
+	color: var(black);
     }
 
     @media (max-width: 1024px) {
@@ -174,7 +192,7 @@
 	}
 
 	h1 {
-	    font-size: 13px;
+	    font-size: 13px;           
 	}
 
 	h2, h3, h4, h5 {
@@ -210,7 +228,7 @@
 	    line-height: 60px;
 	    text-align: center;
 	    font-size: 12px;
-	    color: var(--color-text);
+	    color: var(black);
 	}	
     }
 
@@ -392,7 +410,7 @@ Ora, considerando la complementarietà delle probabilità e applicando la funzio
 Si è essenzialmente portata fuori la produttoria, iterando su tutti i 
 termini indistintamente. In questo modo, quando il termine è presente (\(w_{i,j} = 1\)) allora si considera
 solo la prima parte elevata alla \(w_{ij}\), dato che la seconda parentesi sarà elevata alla 0 quindi varrà 1.
-Al contartio,  quando il termine NON è presente (\(1 - w_{i,j} = 1\)) allora
+Al contrario,  quando il termine NON è presente (\(1 - w_{i,j} = 1\)) allora
 alla produttoria contribuisce solo la seconda parentesi, elevata alla 1.
 </p>
 
@@ -488,15 +506,18 @@ rilevanti siano una piccola percentuale del pool totale, stabilendo che:
 </p>
 </li>
 <li><p>
-\(P(k_{i}|\bar{R},\vec{q})\) = \(\frac{n_{i}}{N}\);
+\(P(k_{i}|\bar{R},\vec{q})\) = \(\frac{n_{i}}{N}\), si sono semplificati \(V_{i}\) e \(V\), essendo piccoli;
 </p>
 </li>
 </ul>
-
 <p>
 Dopo aver fatto ciò si applicano le procedure viste, e si ottiene
 un <b>ranking iniziale</b> dei documenti.
 Si prendono i primi \(V\) documenti e si considerano come pool di documenti rilevanti.
+</p>
+
+<p>
+\(n_{i}\) è il numero di documenti che contengono il termine \(k_{i}\).
 A questo punto si hanno tutti gli elementi della formula:
 </p>
 <ul class="org-ul">
@@ -546,12 +567,17 @@ P(k_{i}|R,\vec{q}) = \frac{V_{i}+0.5}{V+1};
 Il concetto stesso di "probabilità di essere rilevante" è
 molto utile, e questo modello ne è un'implementazione chiara ed
 efficiente.
-Dall'altro lato, come al solito si considerano i termini indipendenti, senza
+Dall'altro lato, come al solito si considerano i termini <b>indipendenti</b>, senza
 guardare alla semantica dei contenuti.
 I pesi binari poi <b>non considerano la frequenza con cui un termine compare all'interno di un documento</b>.
 E' per questo che i BIM sono utili su corpus ristretti o in ambiti specifici.
 Un'altra variabile che influenza molto il ranking è il guess iniziale sul pool di documenti
 rilevanti, il quale può spostare di molto il ranking finale.
+</p>
+
+<p>
+Tendenzialmente il <i>vector model</i> performa meglio del <i>BIM</i> probabilistico su corpus
+di documenti di natura generale.
 </p>
 </div>
 </div>
@@ -572,7 +598,7 @@ rilevanti, il quale può spostare di molto il ranking finale.
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2022-11-12 Sat 12:38</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-06-10 sab 10:49</p>
 </div>
 </footer>
    </div>
