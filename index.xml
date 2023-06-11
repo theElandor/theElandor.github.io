@@ -10,7 +10,7 @@
     <item>
       <title>Gestione dell&#39;informazione ITA-(2022/2023)</title>
       <link>/gestione/</link>
-      <pubDate>Fri, 09 Jun 2023 10:26:09 +0200</pubDate>
+      <pubDate>Sun, 11 Jun 2023 19:28:37 +0200</pubDate>
       
       <guid>/gestione/</guid>
       <description>Cosa posso trovare qui? Questa pagina (in italiano) contiene i miei appunti del corso di &amp;ldquo;Gestione dell&amp;rsquo;informazione&amp;rdquo; del corso di laurea triennale in informatica di Unimore. Verranno quindi riportati gli approfondimenti/chiarimenti che vengono fatti durante le lezioni. Il materiale non è sostitutivo alle slide del corso.
@@ -37,6 +37,7 @@ quantità di testo e immagini presenti in questa sezione.&lt;/p&gt;
 &lt;li&gt;&lt;a href=&#34;#modelling&#34;&gt;Modelling&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#evaluation&#34;&gt;Evaluation&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&#34;#tolerant-retrieval&#34;&gt;Tolerant Retrieval&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#ranking-the-web&#34;&gt;Ranking the Web&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr&gt;
 &lt;h2 id=&#34;text-operations&#34;&gt;Text Operations&lt;/h2&gt;
@@ -620,6 +621,10 @@ nell&amp;rsquo;ordine corretto.&lt;/p&gt;
 &lt;h2 id=&#34;tolerant-retrieval&#34;&gt;Tolerant Retrieval&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/tol.html&#34;&gt;Tolerant Retrieval&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;ranking-the-web&#34;&gt;Ranking the Web&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/gestione/web.html&#34;&gt;Page Rank&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
     </item>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <head>
-<title> <b>Web</b> </title>
+<title> <b>Link Analysis</b> </title>
 <meta name="viewport" content="width=device-width, initial-scale=1"><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta name="generator" content="Org-mode"><meta name="author" content="Matteo Lugli 🐃">
 <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@5.2/distr/fira_code.css">
@@ -268,7 +268,7 @@ MathJax.Hub.Config({
 
 <div class="row">
    <div class="col-xs-1"></div>
-   <div class="col-xs-10"><h1 class="title"><b>Web</b></h1>
+   <div class="col-xs-10"><h1 class="title"><b>Link Analysis</b></h1>
    </div>
    <div class="col-xs-1"></div>
 </div> <!-- end row -->
@@ -291,6 +291,136 @@ Appunti presi dalle lezioni dell'anno 2021.
    <div class="col-xs-1"></div>
 </div> <!-- end row -->
 
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-1" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-1" style="text-decoration: underline"> 1 Link Analysis &triangledown;</h2>
+</button><div class='sec-1 collapsible-content'>
+<p>
+Non è facile formalizzare il concetto di <b>importanza</b> di una pagina web,
+non ci si può basare semplicemente (ad esempio) sul numero di keywords di una pagina
+(problema dello spamming). \(\rightarrow\)
+Si può pensare di misurare il numero di <b>link entranti</b> della pagina!
+Viene quindi analizzato il grafo dei collegamenti ipertestuali delle pagine \(\rightarrow\)
+tecnica della <b>link analysis</b>.
+</p>
+
+<p>
+Nascono quindi degli algoritmi di <b>page rank</b>, che si basano totalmente
+sul grafo delle dipendenze, dando in output un livello di "autorevolezza"
+della pagina, ignorando il contenuto.
+</p>
+
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./pr.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
+
+<div class="row">
+   <div class="col-xs-1"></div>
+   <div class="col-xs-10"><div id="outline-container-sec-2" class="outline-2"><button type="button" class="collapsible">
+<h2 id="sec-2" style="text-decoration: underline"> 2 Page Rank &triangledown;</h2>
+</button><div id="outline-container-sec-2-1" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-2-1" nil> 2.1 L'algoritmo &triangledown;</h3>
+</button><div class='sec-2-1 collapsible-content'>
+<p>
+Algoritmo che stila il <i>ranking</i> del web (a priori).
+Esistono anche algoritmi come <b>HITS</b> che effettuano il <i>ranking</i>
+di un piccolo subset di pagine in base alla query dell'utente.
+Queste tecniche si basano sulla natura <b>anarchica</b> del web.
+</p>
+
+<p>
+Page rank considera anche l'<b>autorità</b> della sorgente del link!
+
+<div class="row top-buffer"> </div>
+<img src="./autor.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+
+\begin{equation}
+R(P) = \overbrace{(1-\alpha) \sum_{q:q \rightarrow p}\frac{R(q)}{N_{q}}}^\text{p. di essere arrivato sulla pagina da un predecessore} + \overbrace{\alpha E(p)}^\text{p. di essere arrivato sulla pagina a caso}
+\end{equation}
+
+<p>
+Essenzialmente ogni documento sorgente \(q\) distribuisce equamente
+la sua autorevolezza a tutte le pagine a cui punta.
+</p>
+<ul class="org-ul">
+<li><p>
+\(\alpha\) serve per "tunare" la formula per dare più o meno peso
+al fattore random.
+</p>
+</li>
+<li><p>
+l'aggiunta di \(E(p)\) serve anche per prevenire il fenomeno del 
+<i>rank sink</i>, che assorbe tutto il rank del sistema.
+</p>
+</li>
+<li><p>
+\(E(p)\) può essere tunato in base all'utente, ad esempio in base alle
+sue ricerche passate. In questo modo viene data un'autorevolezza più
+alta in modo personalizzabile.
+</p>
+</li>
+</ul>
+<p>
+
+<div class="row top-buffer"> </div>
+<img src="./pagerank.png"class="img-responsive"style="display: block; margin-left: auto; margin-right: auto;">
+<div class="row top-buffer"> </div>
+
+</p>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3"><button type="button" class="collapsible">
+<h3 id="sec-2-2" nil> 2.2 Velocità di convergenza e considerazioni &triangledown;</h3>
+</button><div class='sec-2-2 collapsible-content'>
+<ul class="org-ul">
+<li><p>
+\(O(\log(n))\) dove n è il numero di links.
+Recentemente la Distributed Page Rank Computation ha ridotto
+i tempi di convergenza di circa 5 volte.
+</p>
+</li>
+
+<li><p>
+E' importante avere un algoritmo efficiente perchè il page rank
+viene lanciato spesso, dato che la struttura del web cambia
+continuamente.
+</p>
+</li>
+
+<li><p>
+Ultimamente sono stati sviluppati metodi che riducono la grandezza
+del grafo per farlo stare in memoria principale.
+</p>
+</li>
+
+<li><p>
+Ogni volta che viene lanciato Page Rank non si ricreano i valori da 0,
+ma esistono metodi per "aggiornare" i valori già esistenti all'interno
+del DB.
+</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+   </div>
+   <div class="col-xs-1"></div>
+</div> <!-- end row -->
+
 <div class="row top-buffer"> </div>
 
 <div class="row top-buffer"> </div>
@@ -304,7 +434,7 @@ Appunti presi dalle lezioni dell'anno 2021.
    <div class="col-xs-1"></div>
    <div class="col-xs-10"><footer id="postamble">
 <div>
-<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-06-11 dom 17:32</p>
+<p class="author"><b>Author</b>: Matteo Lugli 🐃</p><p class="email"><b>Email</b>: <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a></p><p class="date"><b>Created</b>: 2023-06-11 dom 19:21</p>
 </div>
 </footer>
    </div>
