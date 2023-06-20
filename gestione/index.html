@@ -53,7 +53,7 @@
 <meta property="og:image:height" content="1024">
 
 
-  <meta property="article:published_time" content="2023-06-11 19:28:37 &#43;0200 CEST" />
+  <meta property="article:published_time" content="2023-06-20 16:30:40 &#43;0200 CEST" />
 
 
 
@@ -163,7 +163,7 @@
   <div class="post-meta">
     
       <span class="post-date">
-        2023-06-11
+        2023-06-20
         
       </span>
     
@@ -193,6 +193,7 @@ quantità di testo e immagini presenti in questa sezione.</p>
 <hr>
 <h2 id="ir--table-of-contents">(IR) TABLE OF CONTENTS<a href="#ir--table-of-contents" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <ul>
+<li><a href="#information-retrieval-vs-data-retrieval">Information Retrieval vs Data Retrieval</a></li>
 <li><a href="#text-operations">Text Operations</a></li>
 <li><a href="#full-text-indexing">Full Text Indexing</a></li>
 <li><a href="#modelling">Modelling</a></li>
@@ -201,35 +202,54 @@ quantità di testo e immagini presenti in questa sezione.</p>
 <li><a href="#ranking-the-web">Ranking the Web</a></li>
 </ul>
 <hr>
+<h2 id="information-retrieval-vs-data-retrieval">Information Retrieval vs Data Retrieval<a href="#information-retrieval-vs-data-retrieval" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Già dal titolo del si può intuire la principale differenza tra le due discipline: nell&rsquo;information retrieval
+il focus è sulle <strong>informazioni</strong>, mentre in basi di dati il focus è sui <strong>dati</strong>. Ciò significa che in I.R
+si lavora per soddisfare le <strong>esigenze informative</strong> dell&rsquo;utente, che possono essere più o meno articolate
+e/o difficili da interpretare. Al contrario in basi di dati l&rsquo;utente ha il compito di descrivere esattamente
+le sue necessità attraverso una <strong>query in linguaggio di interrogazione</strong>, la quale viene processata e vengono
+restituiti gli oggetti che &ldquo;matchano&rdquo; esattamente la richiesta. In information retrieval si lavora con corpus
+costituiti da documenti in linguaggio naturale, quindi si parla di dati <strong>non strutturati</strong>, mentre in data retrieval
+si lavora solitamente con database relazionali (quindi strutturati).
+L&rsquo;output del sistema è molto diverso nei due casi:</p>
+<ul>
+<li>I sistemi di I.R puntano a restituire un <strong>ranking</strong> che sia il più pertinente possibile alle richieste dell&rsquo;utente,
+cercando di restituire nelle prime posizioni documenti rilevanti;</li>
+<li>I sistemi di D.R restituiscono un pool di oggetti che semplicemente &ldquo;matchano&rdquo; la query inserita dall&rsquo;utente.</li>
+</ul>
 <h2 id="text-operations">Text Operations<a href="#text-operations" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
 <h3 id="document-processing">Document Processing<a href="#document-processing" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <ul>
 <li>
 <p><strong><code>Analisi lessicale</code></strong>: si converte una sequenza di caratteri in una sequenza
-di token, dei potenziali canditati per dei termini &ldquo;index&rdquo;.</p>
+di token, dei potenziali canditati per dei termini &ldquo;index&rdquo;. Questo compito viene
+eseguito dal <strong>lexer</strong> (es. GNU lex).</p>
 </li>
 <li>
 <p><strong><code>Eliminazione delle stopwords</code></strong>: vengono eliminate quelle parole &ldquo;inutili&rdquo;
-che non danno informazioni per la ricerca.</p>
+che non danno informazioni per la ricerca, esistono elenchi appositi di stopwords
+per ogni lingua.</p>
 </li>
 <li>
 <p><strong><code>Stemming e Lemmatization</code></strong>: esempio di uno <strong>stem</strong> &ndash;&gt; &lsquo;connect&rsquo; è lo stem
 di parole come &lsquo;connected&rsquo;, &lsquo;connection&rsquo;, &lsquo;connecting&rsquo;. Lo <strong>stemmer</strong> è
 il tool che si occupa della stemmization.</p>
-<p>esempio di un <strong>lemma</strong> &ndash;&gt; &lsquo;see&rsquo; è il lemma per &lsquo;seen&rsquo; &lsquo;saw&rsquo;; Il <strong>lemmatizer</strong>
-si occupa della generazione dei lemma.</p>
 <p>Esistono alcuni parametri per giudicare uno stemmer: (i) <strong>correttezza</strong>, (ii) <strong>efficacia</strong>,
 (iii) miglioramento della <strong>performance</strong>.</p>
+<p>esempio di un <strong>lemma</strong> &ndash;&gt; &lsquo;see&rsquo; è il lemma per &lsquo;seen&rsquo; &lsquo;saw&rsquo;; Il <strong>lemmatizer</strong>
+si occupa della generazione dei lemma.</p>
 </li>
 <li>
-<p><strong><code>Selezione degli Index</code></strong> in pratica vengono scelti i token più
-significativi. Può essere fatta manualmente (da esperti) oppure automaticamente.
-Esempio: &ldquo;Say&rdquo; &ldquo;Chair&rdquo; &ldquo;Be&rdquo; &ldquo;Enough&rdquo; &ndash;&gt; &ldquo;Chair&rdquo;</p>
+<p><strong><code>Selezione degli Index</code></strong> vengono scelti i token più
+significativi (attraverso l&rsquo;uso di parsers e taggers). Può essere fatta manualmente (da esperti) oppure automaticamente.
+Esempio: &ldquo;Say&rdquo; &ldquo;Chair&rdquo; &ldquo;Be&rdquo; &ldquo;Enough&rdquo; &ndash;&gt; &ldquo;Chair&rdquo;.</p>
 </li>
 <li>
 <p><strong><code>Parsing</code></strong>: processo di analizzare uno stream di dati input e verificare la sua
 correttezza sintattica. Questi strumenti (detti parser) lavorano sulla base
-di &ldquo;banche dati&rdquo; usando un approccio statistico.</p>
+di &ldquo;banche dati&rdquo; usando un approccio statistico. I parser analizzano l&rsquo;intera
+struttura sintattica della frase e generano un&rsquo;altra struttura dati che descrive
+il ruolo di ogni token (es. Abstract Syntax Tree).</p>
 </li>
 <li>
 <p><strong><code>Tagging</code></strong>: processo che assegna alle parole il loro ruolo all&rsquo;interno della frase.</p>
@@ -331,7 +351,8 @@ Usare un thesaurus non è sempre una scelta corretta. In
 un search engine generico come google non ha senso, dato che il
 grafo delle relazioni diventerebbe enorme senza portare grossi benefici.
 Al contrario è molto utile in casi specifici (e.g. search engine per
-paper in ambito medico).</p>
+paper in ambito medico). Per corpus generici solitamente si usa un approccio
+più naive ma che comunque è efficiente: il <strong>bag of words</strong> (vedi dopo).</p>
 <h3 id="word-similarities">Word similarities<a href="#word-similarities" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p><strong><code>sinonimia</code></strong> &ndash;&gt; relazione binaria che lega due parole attraverso
 il significato.</p>
@@ -340,7 +361,7 @@ di similarità.</p>
 <p>Queste relazioni non vanno confuse con le relazioni del thesaurus.
 Ad esempio benzina e macchina potrebbero essere collegate nel thesaurus
 ma potrebbero anche non essere sinonimi!</p>
-<p>Come misurare la similarità tra concetti? (<em>i</em>)path based (<em>ii</em>)information content measures.</p>
+<p>Come misurare la similarità tra concetti (tramite l&rsquo;uso di un thesaurus)? (<em>i</em>)path based (<em>ii</em>)information content measures.</p>
 <ul>
 <li><strong>Path based</strong>: sfrutto la gerarchia di ipernimia per stabilire il &ldquo;livello&rdquo; di
 somiglianza di due concetti. Esistono principalmente 2 formule per effettuare
@@ -376,7 +397,7 @@ che scelta una parola a caso  in un corpus rappresenti
 il determinato concetto.</p>
 <p><strong>Information content:</strong> Può essere interpretato
 come il <em>livello di sorpresa</em> di un particolare concetto. Questo indice
-infatti è alto quando c è un synset &ldquo;raro&rdquo; o &ldquo;inaspettato&rdquo;.</p>
+infatti è alto quando c&rsquo;è un synset &ldquo;raro&rdquo; o &ldquo;inaspettato&rdquo;.</p>
 <p>\begin{equation}
 IC( c) = -log P( c)
 \end{equation}</p>
@@ -512,7 +533,7 @@ print(expanded_query)
 <li>Quando ho un pool di dati semi-statico, quindi può essere aggiornato
 periodicamente ma non supporta frequenze troppo alte.</li>
 </ol>
-<p>Gli index più usati sono (<em>i</em>) inverted indeces, (<em>ii</em>) suffix array, (<em>iii</em>) signature
+<p>Gli index più usati sono (<em>i</em>) inverted index, (<em>ii</em>) suffix array, (<em>iii</em>) signature
 files. Ovviamente si cercano sempre di capire i costi di accesso, di costruzione e
 di aggiornamento.</p>
 <ul>
@@ -597,13 +618,14 @@ del documento, sarebbero indicate le precise posizioni delle istanze.</p>
 </tbody>
 </table>
 <p>Lo space requirment del vocabolario è abbastanza esiguo: esiste una legge che
-descrive il suo andamento chiamata <code>Heaps law</code>.
+descrive il suo andamento chiamata <code>Heaps law</code>. L&rsquo;andamento è \(O(n^{b})\) con \(b \in [0,1]\)
 Ovviamente la grandezza del vocabolario dipende da tutto il preprocessing che
 viene fatto, quindi da come vengono generati i token e come vengono filtrati.</p>
-<p>In generale, per gli inverted index <em>word-based</em> è circa \(O(n)\).
-Solitamente è attorno al 40% se vengono omesse delle stopwords, altrimenti
-se vengono mantenute si parla circa dell'80%. Nel <em>document based</em> invece
-si parla del di valori tra il 20% e il 40% (della dimensione del testo ovviamente).</p>
+<p>Il costo di memorizzazione dell&rsquo;inverted index è generalmente \(O(n)\):</p>
+<ul>
+<li>Per i document based, è circa il 20%-40% della dimensione del testo;</li>
+<li>Per i word based, è il 40% senza stopwords e l'80% con le stopwords;</li>
+</ul>
 <h3 id="costruzione-di-un-inverted-index">Costruzione di un Inverted Index<a href="#costruzione-di-un-inverted-index" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h3>
 <p>Solitamente la costruzione si basa sulla memorizzazione del vocabolario
 in un <strong>trie</strong>. Dopo aver fatto il preprocessing si seguono i seguenti
