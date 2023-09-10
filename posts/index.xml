@@ -6,7 +6,224 @@
     <description>Recent content in Posts on ML</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 May 2023 23:20:16 +0200</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 10 Sep 2023 20:24:14 +0200</lastBuildDate><atom:link href="/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The fastest introduction to machine learning 🧠</title>
+      <link>/posts/ml/</link>
+      <pubDate>Sun, 10 Sep 2023 20:24:14 +0200</pubDate>
+      
+      <guid>/posts/ml/</guid>
+      <description>A.I is a hot topic nowadays. The goal of this post is to explain as simply as possible the idea behind every known algorithm of machine learning. By using an example I want to make things really clear, and I&amp;rsquo;ll try to use less math as possibile. I provide also a pdf version of this post. Enjoy!
+ Disclaimer: for the experiments I used a modified version of Tsoding Daily&amp;rsquo;s code, which is really clean and easy to understand.</description>
+      <content>&lt;p&gt;A.I is a hot topic nowadays.
+The goal of this post is to explain &lt;strong&gt;as simply as possible&lt;/strong&gt; the idea behind
+every known algorithm of machine learning. By using an example I want to make
+things really clear, and I&amp;rsquo;ll try to use less math as possibile. I provide
+also a pdf version of this post.
+Enjoy!&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Disclaimer: for the experiments I used a modified version of &lt;a href=&#34;https://www.youtube.com/watch?v=PGSba51aRYU&amp;amp;t=751s&#34;&gt;Tsoding Daily&amp;rsquo;s&lt;/a&gt; code,
+which is really clean and easy to understand.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;the-premise&#34;&gt;The premise&lt;/h2&gt;
+&lt;p&gt;This is a &lt;strong&gt;neuron&lt;/strong&gt;. Our brain is full of them, the more neurons (and connections between them) you have, the
+more &amp;ldquo;computational&amp;rdquo; power you have as a human being. Our intelligence is mainly determined by the number
+of connections that our brain creates over time.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;x1, x2 \(\rightarrow\) &lt;strong&gt;inputs&lt;/strong&gt; of the neuron, they are bio-electrical impulses that are coming from other connected neurons.&lt;/li&gt;
+&lt;li&gt;w1, w2 \(\rightarrow\) &lt;strong&gt;weights&lt;/strong&gt; of each input, they represent &amp;ldquo;how thick&amp;rdquo; the connection is, so &amp;ldquo;how much&amp;rdquo; of the original
+input actually passes through the connection.&lt;/li&gt;
+&lt;li&gt;output \(\rightarrow\) the impulse that the neuron produces and sends to other connected neurons.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img src=&#34;/ox-hugo/neuron.png&#34; alt=&#34;&#34;&gt;
+Computer scientists during the last 30/40 years tried to model something like this using a computer, and right now
+they are creating &lt;strong&gt;huge brains&lt;/strong&gt; that are just made of billions of connections between theese really simple neurons.&lt;/p&gt;
+&lt;h2 id=&#34;the-goal&#34;&gt;The goal&lt;/h2&gt;
+&lt;p&gt;The goal of this post is to teach you &lt;strong&gt;how one neuron works&lt;/strong&gt; and &lt;strong&gt;how it can learn to recognize really simple patterns&lt;/strong&gt;,
+for example the &lt;strong&gt;AND gate&lt;/strong&gt;. For those of you that are not into computer science, what I am refering to is this:&lt;/p&gt;
+&lt;p&gt;\begin{align}
+x1=0,x2=0 \rightarrow y = 0 \\
+x1=1,x2=0 \rightarrow y = 0 \\
+x1=0,x2=1 \rightarrow y = 0 \\
+x1=1,x2=1 \rightarrow y = 1
+\end{align}&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Training the neuron&lt;/em&gt; means teaching him how to find the optimal values of &lt;strong&gt;w1&lt;/strong&gt; and &lt;strong&gt;w2&lt;/strong&gt; so that it can use them to produce
+(on a given input of for example \(x1=0\) \(x2=1\)) an output that is as close as possible to the expected output (\(0\) in this case)!&lt;/p&gt;
+&lt;h2 id=&#34;the-formula-of-the-neuron&#34;&gt;The formula of the neuron&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;But what does the neuron exactly?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The formula that is &amp;ldquo;embedded&amp;rdquo; inside the neuron is the following:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+f(\sum_{i=1}^{N}{(x_{i} \times w_{i}}) + b) = output
+\end{equation}&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(N\) is the number of input connections of the neuron (2 in our case);&lt;/li&gt;
+&lt;li&gt;\(w_{i}\) are the &lt;strong&gt;weights&lt;/strong&gt; of the connections;&lt;/li&gt;
+&lt;li&gt;\(x_{i}\) are the &lt;strong&gt;inputs&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;\(f\) is the &lt;strong&gt;activation function&lt;/strong&gt;: it &amp;ldquo;compresses&amp;rdquo; the final output of
+the neuron to make it fit in the \([0,1]\) range. This is used because we want the
+neuron to only produce an output value that is between \(0\) and \(1\).&lt;/li&gt;
+&lt;li&gt;\(b\) is the &lt;strong&gt;bias&lt;/strong&gt;, a single value that is conventionally used to improve the performance
+of the model. The neuron will understand itself what is the optimal value for this parameter.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;the-idea-behind-gradient-descent&#34;&gt;The idea behind gradient descent&lt;/h2&gt;
+&lt;p&gt;Our neuron/model is going to have completely random parameters (\(w1\), \(w2\), \(b\)) at
+the beginning of the training. So it is almost 100% sure that it is going to produce a &lt;strong&gt;wrong&lt;/strong&gt;
+output when we submit the inputs for the first time.
+The cool thing is that we can measure the &lt;strong&gt;error&lt;/strong&gt; that it made and try to &lt;strong&gt;minimize it&lt;/strong&gt; over time.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The main goal of a machine learning algorithm is to minimize the error made by the model.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;But how do we measure the error?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;The error is going to be represented by a function, usually called &lt;strong&gt;cost function&lt;/strong&gt; or &lt;strong&gt;loss function&lt;/strong&gt;.
+The most common and simple cost function is the &lt;strong&gt;Mean Squared Error&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+MSE = \frac{1}{T} * \sum_{i=1}^{T}{(p - y)^2}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(T\) is the number of examples that we provide to the model (in our case, 4 examples);&lt;/li&gt;
+&lt;li&gt;\(p\) is the output of the neuron, also called &lt;strong&gt;prediction&lt;/strong&gt;;&lt;/li&gt;
+&lt;li&gt;\(y\) is the expected output related to the given input;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let&amp;rsquo;s treat the loss function as a mathematical function: let&amp;rsquo;s suppose that it is represented
+by a parabola:
+&lt;img src=&#34;/ox-hugo/parabola.png&#34; alt=&#34;&#34;&gt;
+always remember that our goal is to &lt;strong&gt;minimize&lt;/strong&gt; this function: so we have to find a way to &lt;strong&gt;tune the parameters of our model (\(w1\),\(w2\),\(b\)) to make the function reach the yellow point!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Well, it doesn&amp;rsquo;t look that hard: if the function is currently growing, that we move our parameters to the left a little bit, if it is
+decreasing then we move them to the right!&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;But how do we know if the function is growing/decreasing?&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;I am sure that you remember from high school that the only way to know if a function is decreasing/increasing is to calculate the &lt;strong&gt;derivative&lt;/strong&gt;
+of the function in that point! The idea is that we always want to move &lt;strong&gt;on the opposite direction of the derivative!&lt;/strong&gt;&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/grad.png&#34;   /&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;h2 id=&#34;gradient-descent&#34;&gt;Gradient descent&lt;/h2&gt;
+&lt;p&gt;I think that now you are ready to get in touch for the first time with the formula of &lt;strong&gt;gradient descent&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;\begin{array}{lcl}
+w_{i} = w_{i} + \Delta w_{i} \\
+\Delta w_{i} = -\epsilon*E&#39;(w_{i}) \\
+\end{array}&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;\(E\)&lt;/strong&gt; is the cost function (Mean Squared Error in our case);&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\(\epsilon\)&lt;/strong&gt; is the &lt;strong&gt;learning rate&lt;/strong&gt;, it represents of how much we want to move towards the minimum
+(in other words, how big is the step).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If we have multiple parameters (like in our case, where we have 3 parameters) we have to use the above
+formula for each one of them! (In other words, we want to &amp;ldquo;correct&amp;rdquo; each parameter based on the error
+that we saw in the last iteration, trying to have a smaller error the next time that we compute the output with
+the neuron).&lt;/p&gt;
+&lt;p&gt;\begin{array}{lcl}
+w_{1} = w_{1} + \Delta w_{1} \\
+w_{2} = w_{2} + \Delta w_{2} \\
+b = b + \Delta b \\
+\end{array}&lt;/p&gt;
+&lt;p&gt;If we repeat this process many times our model will find the minimum of the cost function, and that is a good point to
+stop the training and start using the neural network!&lt;/p&gt;
+&lt;h2 id=&#34;finite-difference&#34;&gt;Finite difference&lt;/h2&gt;
+&lt;p&gt;There is only one problem that we have now.&lt;/p&gt;
+&lt;p&gt;We don&amp;rsquo;t &lt;strong&gt;really&lt;/strong&gt; know how the derivative of the loss function looks like,
+the parabola was just an example to understand the idea of gradient descent.
+For the purpose of this post, we are going to use a trick that is really good
+for understanding the general mechanism, but it&amp;rsquo;s not actually used in the real world.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s go back again to high school and write the definition of derivative,
+also called &lt;strong&gt;finite difference&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;\begin{equation}
+\lim_{h\to 0} f&#39;(x) = \frac{f(x+h) - f(x)}{h}
+\end{equation}&lt;/p&gt;
+&lt;p&gt;where:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;\(f\) is the loss function;&lt;/li&gt;
+&lt;li&gt;\(x\) is the parameter that we are tuning (one of \(w_{1}\),\(w_{2}\),\(b\));&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;if we pick a really small h (for example 0.001) we can make this calculus
+and aproximate correctly the derivative of our loss function!&lt;/p&gt;
+&lt;h2 id=&#34;c-plus-plus-code&#34;&gt;C++ Code&lt;/h2&gt;
+&lt;p&gt;Simple declaration of the training data:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; train_x1[&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;] {&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;};
+&lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; train_x2[&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;] {&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;};
+&lt;span style=&#34;color:#66d9ef&#34;&gt;static&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; train_y[&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;]  {&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;,&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;};
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In the main we initialize the model with random values:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; w1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (rand()&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
+&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; w2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (rand()&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
+&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; b &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (rand()&lt;span style=&#34;color:#f92672&#34;&gt;%&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;5&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;After that, we define:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;epocs&lt;/strong&gt;: the number of times that we are going to loop
+through the train data, to teach the neuron the given
+examples (training data).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;h&lt;/strong&gt;: small value used to compute finite difference;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;rate&lt;/strong&gt;: learning rate \(\epsilon\);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; epocs &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1000&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; h &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.1&lt;/span&gt;;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; rate &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.1&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we go through the epochs and we apply the delta rule to
+each one of the parameters of the model:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; epocs; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; dloss1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (loss(w1&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;h, w2, b) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; loss(w1, w2, b))&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;h;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; dloss2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (loss(w1, w2&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;h, b) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; loss(w1, w2, b))&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;h;
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; dloss3 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (loss(w1, w2, b&lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;h) &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; loss(w1, w2, b))&lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt;h;
+  w1 &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; rate&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;dloss1;
+  w2 &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; rate&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;dloss2;
+  b &lt;span style=&#34;color:#f92672&#34;&gt;-=&lt;/span&gt; rate&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;dloss3;
+  cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;W1: &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;w1&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; W2: &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;w2&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; B: &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;b&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34; C: &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;loss(w1,w2, b)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Once we finished the training, we use the neuron to check if
+it learned correctly the examples.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0 &amp;amp; 0 = &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;sigf(&lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w2 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;b)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;0 &amp;amp; 1 = &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;sigf(&lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w2 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;b)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1 &amp;amp; 0 = &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;sigf(&lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w2 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;b)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+cout&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;1 &amp;amp; 1 = &amp;#34;&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;sigf(&lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1.0&lt;/span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w2 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt;b)&lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&amp;lt;&lt;/span&gt;endl;
+&lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is the end of the main program, now let&amp;rsquo;s define
+the loss function and the sigmoid function, that we left
+behind.
+The sigmoid function looks something like this:
+&lt;img src=&#34;/ox-hugo/sigmoid.png&#34; alt=&#34;&#34;&gt;
+and it is defined as follows, but we don&amp;rsquo;t really need to
+dive into that:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;sigf&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; x){
+  &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; (&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; pow(M_E, &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt;x));
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now let&amp;rsquo;s define the cost function:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-c++&#34; data-lang=&#34;c++&#34;&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;loss&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; w1, &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; w2, &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; b){
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; result &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;;
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; train_count &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt;;
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt;(&lt;span style=&#34;color:#66d9ef&#34;&gt;int&lt;/span&gt; i &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;; i &lt;span style=&#34;color:#f92672&#34;&gt;&amp;lt;&lt;/span&gt; train_count; i&lt;span style=&#34;color:#f92672&#34;&gt;++&lt;/span&gt;){
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; x1 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; train_x1[i];
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; x2 &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; train_x2[i];
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; expected_output &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; train_y[i];
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; predicted_output &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; sigf(x1&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w1 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; x2&lt;span style=&#34;color:#f92672&#34;&gt;*&lt;/span&gt;w2 &lt;span style=&#34;color:#f92672&#34;&gt;+&lt;/span&gt; b);
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;float&lt;/span&gt; mse &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; pow((expected_output &lt;span style=&#34;color:#f92672&#34;&gt;-&lt;/span&gt; predicted_output),&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt;); &lt;span style=&#34;color:#75715e&#34;&gt;// mean squared error
+&lt;/span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;&lt;/span&gt;   result &lt;span style=&#34;color:#f92672&#34;&gt;+=&lt;/span&gt; mse;
+   }
+   &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; result &lt;span style=&#34;color:#f92672&#34;&gt;/&lt;/span&gt; train_count;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;As you can see we apply and return the Mean Squared Error!
+If you try this code by yourself, you&amp;rsquo;ll see that the algorithm
+drives the cost function to zero, learning the examples really well.&lt;/p&gt;
+&lt;h2 id=&#34;conclusions&#34;&gt;Conclusions&lt;/h2&gt;
+&lt;p&gt;With this post we went through the basics of machine learning.
+We used the &amp;ldquo;finite difference trick&amp;rdquo; with a really simple model
+to keep things clear, avoiding the backpropagation algorithm (used
+for models that have multiple layers).
+With the C++ code, we used a low-level representation to see in practice
+what we studied before.&lt;/p&gt;
+&lt;p&gt;I hope that this brief introduction helped some of you in getting
+in touch with some of the math behind every ML algorithm.
+If you spot any errors or typos please contact me at &lt;a href=&#34;mailto:matteolugli18@gmail.com&#34;&gt;matteolugli18@gmail.com&lt;/a&gt;.
+See you soon!
+Matteo 🐨&lt;/p&gt;
+</content>
+    </item>
+    
     <item>
       <title>Embrace Boredom</title>
       <link>/posts/boredom/</link>

@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+    <title>The fastest introduction to machine learning 🧠 :: ML</title>
+  
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Gradient descent for dummies" />
+<meta name="keywords" content="" />
+<meta name="robots" content="noodp" />
+<link rel="canonical" href="/posts/ml/" />
+
+
+
+
+<link rel="stylesheet" href="/assets/style.css">
+
+  <link rel="stylesheet" href="/assets/blue.css">
+
+
+
+<link rel="stylesheet" href="/style.css">
+
+
+<link rel="apple-touch-icon" href="/img/apple-touch-icon-192x192.png">
+
+  <link rel="shortcut icon" href="/img/favicon/blue.png">
+
+
+
+<meta name="twitter:card" content="summary" />
+
+  
+    <meta name="twitter:site" content="" />
+  
+    <meta name="twitter:creator" content="" />
+
+
+
+<meta property="og:locale" content="en" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The fastest introduction to machine learning 🧠">
+<meta property="og:description" content="Gradient descent for dummies" />
+<meta property="og:url" content="/posts/ml/" />
+<meta property="og:site_name" content="ML" />
+
+  
+    <meta property="og:image" content="/img/favicon/blue.png">
+  
+
+<meta property="og:image:width" content="2048">
+<meta property="og:image:height" content="1024">
+
+
+  <meta property="article:published_time" content="2023-09-10 20:24:14 &#43;0200 CEST" />
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+<body class="blue">
+
+
+<div class="container center headings--one-size">
+
+  <header class="header">
+  <div class="header__inner">
+    <div class="header__logo">
+      <a href="/">
+  <div class="logo">
+    Home
+  </div>
+</a>
+
+    </div>
+    
+      <div class="menu-trigger">menu</div>
+    
+  </div>
+  
+    <nav class="menu">
+  <ul class="menu__inner menu__inner--desktop">
+    
+      
+        
+          <li><a href="/about">About</a></li>
+        
+      
+        
+          <li><a href="/htb">HTB</a></li>
+        
+      
+      
+        <ul class="menu__sub-inner">
+          <li class="menu__sub-inner-more-trigger">Uni-Notes ▾</li>
+
+          <ul class="menu__sub-inner-more hidden">
+            
+              
+                <li><a href="/gestione">Inform. Retrieval</a></li>
+              
+            
+              
+                <li><a href="/compilatori">Linguaggi e Compilatori</a></li>
+              
+            
+              
+                <li><a href="/reti">Reti</a></li>
+              
+            
+          </ul>
+        </ul>
+      
+    
+
+    
+  </ul>
+
+  <ul class="menu__inner menu__inner--mobile">
+    
+      
+        <li><a href="/about">About</a></li>
+      
+    
+      
+        <li><a href="/htb">HTB</a></li>
+      
+    
+      
+        <li><a href="/gestione">Inform. Retrieval</a></li>
+      
+    
+      
+        <li><a href="/compilatori">Linguaggi e Compilatori</a></li>
+      
+    
+      
+        <li><a href="/reti">Reti</a></li>
+      
+    
+    
+  </ul>
+</nav>
+
+  
+</header>
+
+
+  <div class="content">
+    
+<div class="post">
+  <h1 class="post-title">
+    <a href="/posts/ml/">The fastest introduction to machine learning 🧠</a></h1>
+  <div class="post-meta">
+    
+      <span class="post-date">
+        2023-09-10
+        
+      </span>
+    
+    
+    
+  </div>
+
+  
+  
+
+
+  
+
+  <div class="post-content"><div>
+        <p>A.I is a hot topic nowadays.
+The goal of this post is to explain <strong>as simply as possible</strong> the idea behind
+every known algorithm of machine learning. By using an example I want to make
+things really clear, and I&rsquo;ll try to use less math as possibile. I provide
+also a pdf version of this post.
+Enjoy!</p>
+<blockquote>
+<p>Disclaimer: for the experiments I used a modified version of <a href="https://www.youtube.com/watch?v=PGSba51aRYU&amp;t=751s">Tsoding Daily&rsquo;s</a> code,
+which is really clean and easy to understand.</p>
+</blockquote>
+<h2 id="the-premise">The premise<a href="#the-premise" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>This is a <strong>neuron</strong>. Our brain is full of them, the more neurons (and connections between them) you have, the
+more &ldquo;computational&rdquo; power you have as a human being. Our intelligence is mainly determined by the number
+of connections that our brain creates over time.</p>
+<ul>
+<li>x1, x2 \(\rightarrow\) <strong>inputs</strong> of the neuron, they are bio-electrical impulses that are coming from other connected neurons.</li>
+<li>w1, w2 \(\rightarrow\) <strong>weights</strong> of each input, they represent &ldquo;how thick&rdquo; the connection is, so &ldquo;how much&rdquo; of the original
+input actually passes through the connection.</li>
+<li>output \(\rightarrow\) the impulse that the neuron produces and sends to other connected neurons.</li>
+</ul>
+<p><img src="/ox-hugo/neuron.png" alt="">
+Computer scientists during the last 30/40 years tried to model something like this using a computer, and right now
+they are creating <strong>huge brains</strong> that are just made of billions of connections between theese really simple neurons.</p>
+<h2 id="the-goal">The goal<a href="#the-goal" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>The goal of this post is to teach you <strong>how one neuron works</strong> and <strong>how it can learn to recognize really simple patterns</strong>,
+for example the <strong>AND gate</strong>. For those of you that are not into computer science, what I am refering to is this:</p>
+<p>\begin{align}
+x1=0,x2=0 \rightarrow y = 0 \\
+x1=1,x2=0 \rightarrow y = 0 \\
+x1=0,x2=1 \rightarrow y = 0 \\
+x1=1,x2=1 \rightarrow y = 1
+\end{align}</p>
+<p><em>Training the neuron</em> means teaching him how to find the optimal values of <strong>w1</strong> and <strong>w2</strong> so that it can use them to produce
+(on a given input of for example \(x1=0\) \(x2=1\)) an output that is as close as possible to the expected output (\(0\) in this case)!</p>
+<h2 id="the-formula-of-the-neuron">The formula of the neuron<a href="#the-formula-of-the-neuron" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p><em>But what does the neuron exactly?</em></p>
+<p>The formula that is &ldquo;embedded&rdquo; inside the neuron is the following:</p>
+<p>\begin{equation}
+f(\sum_{i=1}^{N}{(x_{i} \times w_{i}}) + b) = output
+\end{equation}</p>
+<p>where:</p>
+<ul>
+<li>\(N\) is the number of input connections of the neuron (2 in our case);</li>
+<li>\(w_{i}\) are the <strong>weights</strong> of the connections;</li>
+<li>\(x_{i}\) are the <strong>inputs</strong>;</li>
+<li>\(f\) is the <strong>activation function</strong>: it &ldquo;compresses&rdquo; the final output of
+the neuron to make it fit in the \([0,1]\) range. This is used because we want the
+neuron to only produce an output value that is between \(0\) and \(1\).</li>
+<li>\(b\) is the <strong>bias</strong>, a single value that is conventionally used to improve the performance
+of the model. The neuron will understand itself what is the optimal value for this parameter.</li>
+</ul>
+<h2 id="the-idea-behind-gradient-descent">The idea behind gradient descent<a href="#the-idea-behind-gradient-descent" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Our neuron/model is going to have completely random parameters (\(w1\), \(w2\), \(b\)) at
+the beginning of the training. So it is almost 100% sure that it is going to produce a <strong>wrong</strong>
+output when we submit the inputs for the first time.
+The cool thing is that we can measure the <strong>error</strong> that it made and try to <strong>minimize it</strong> over time.</p>
+<blockquote>
+<p>The main goal of a machine learning algorithm is to minimize the error made by the model.</p>
+</blockquote>
+<p><em>But how do we measure the error?</em></p>
+<p>The error is going to be represented by a function, usually called <strong>cost function</strong> or <strong>loss function</strong>.
+The most common and simple cost function is the <strong>Mean Squared Error</strong>:</p>
+<p>\begin{equation}
+MSE = \frac{1}{T} * \sum_{i=1}^{T}{(p - y)^2}
+\end{equation}</p>
+<p>where:</p>
+<ul>
+<li>\(T\) is the number of examples that we provide to the model (in our case, 4 examples);</li>
+<li>\(p\) is the output of the neuron, also called <strong>prediction</strong>;</li>
+<li>\(y\) is the expected output related to the given input;</li>
+</ul>
+<p>Let&rsquo;s treat the loss function as a mathematical function: let&rsquo;s suppose that it is represented
+by a parabola:
+<img src="/ox-hugo/parabola.png" alt="">
+always remember that our goal is to <strong>minimize</strong> this function: so we have to find a way to <strong>tune the parameters of our model (\(w1\),\(w2\),\(b\)) to make the function reach the yellow point!</strong></p>
+<p>Well, it doesn&rsquo;t look that hard: if the function is currently growing, that we move our parameters to the left a little bit, if it is
+decreasing then we move them to the right!</p>
+<p><em>But how do we know if the function is growing/decreasing?</em></p>
+<p>I am sure that you remember from high school that the only way to know if a function is decreasing/increasing is to calculate the <strong>derivative</strong>
+of the function in that point! The idea is that we always want to move <strong>on the opposite direction of the derivative!</strong></p>
+
+  <figure class="left" >
+    <img src="/ox-hugo/grad.png"   />
+    
+  </figure>
+
+
+<h2 id="gradient-descent">Gradient descent<a href="#gradient-descent" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>I think that now you are ready to get in touch for the first time with the formula of <strong>gradient descent</strong>:</p>
+<p>\begin{array}{lcl}
+w_{i} = w_{i} + \Delta w_{i} \\
+\Delta w_{i} = -\epsilon*E'(w_{i}) \\
+\end{array}</p>
+<p>where:</p>
+<ul>
+<li><strong>\(E\)</strong> is the cost function (Mean Squared Error in our case);</li>
+<li><strong>\(\epsilon\)</strong> is the <strong>learning rate</strong>, it represents of how much we want to move towards the minimum
+(in other words, how big is the step).</li>
+</ul>
+<p>If we have multiple parameters (like in our case, where we have 3 parameters) we have to use the above
+formula for each one of them! (In other words, we want to &ldquo;correct&rdquo; each parameter based on the error
+that we saw in the last iteration, trying to have a smaller error the next time that we compute the output with
+the neuron).</p>
+<p>\begin{array}{lcl}
+w_{1} = w_{1} + \Delta w_{1} \\
+w_{2} = w_{2} + \Delta w_{2} \\
+b = b + \Delta b \\
+\end{array}</p>
+<p>If we repeat this process many times our model will find the minimum of the cost function, and that is a good point to
+stop the training and start using the neural network!</p>
+<h2 id="finite-difference">Finite difference<a href="#finite-difference" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>There is only one problem that we have now.</p>
+<p>We don&rsquo;t <strong>really</strong> know how the derivative of the loss function looks like,
+the parabola was just an example to understand the idea of gradient descent.
+For the purpose of this post, we are going to use a trick that is really good
+for understanding the general mechanism, but it&rsquo;s not actually used in the real world.</p>
+<p>Let&rsquo;s go back again to high school and write the definition of derivative,
+also called <strong>finite difference</strong>:</p>
+<p>\begin{equation}
+\lim_{h\to 0} f'(x) = \frac{f(x+h) - f(x)}{h}
+\end{equation}</p>
+<p>where:</p>
+<ul>
+<li>\(f\) is the loss function;</li>
+<li>\(x\) is the parameter that we are tuning (one of \(w_{1}\),\(w_{2}\),\(b\));</li>
+</ul>
+<p>if we pick a really small h (for example 0.001) we can make this calculus
+and aproximate correctly the derivative of our loss function!</p>
+<h2 id="c-plus-plus-code">C++ Code<a href="#c-plus-plus-code" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>Simple declaration of the training data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">static</span> <span style="color:#66d9ef">float</span> train_x1[<span style="color:#ae81ff">4</span>] {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">1</span>};
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">float</span> train_x2[<span style="color:#ae81ff">4</span>] {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>};
+<span style="color:#66d9ef">static</span> <span style="color:#66d9ef">float</span> train_y[<span style="color:#ae81ff">4</span>]  {<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>};
+</code></pre></div><p>In the main we initialize the model with random values:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">float</span> w1 <span style="color:#f92672">=</span> (rand()<span style="color:#f92672">%</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+<span style="color:#66d9ef">float</span> w2 <span style="color:#f92672">=</span> (rand()<span style="color:#f92672">%</span><span style="color:#ae81ff">10</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+<span style="color:#66d9ef">float</span> b <span style="color:#f92672">=</span> (rand()<span style="color:#f92672">%</span><span style="color:#ae81ff">5</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>);
+</code></pre></div><p>After that, we define:</p>
+<ul>
+<li><strong>epocs</strong>: the number of times that we are going to loop
+through the train data, to teach the neuron the given
+examples (training data).</li>
+<li><strong>h</strong>: small value used to compute finite difference;</li>
+<li><strong>rate</strong>: learning rate \(\epsilon\);</li>
+</ul>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">int</span> epocs <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span><span style="color:#f92672">*</span><span style="color:#ae81ff">1000</span>;
+<span style="color:#66d9ef">float</span> h <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>;
+<span style="color:#66d9ef">float</span> rate <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.1</span>;
+</code></pre></div><p>Now we go through the epochs and we apply the delta rule to
+each one of the parameters of the model:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> epocs; i<span style="color:#f92672">++</span>){
+  <span style="color:#66d9ef">float</span> dloss1 <span style="color:#f92672">=</span> (loss(w1<span style="color:#f92672">+</span>h, w2, b) <span style="color:#f92672">-</span> loss(w1, w2, b))<span style="color:#f92672">/</span>h;
+  <span style="color:#66d9ef">float</span> dloss2 <span style="color:#f92672">=</span> (loss(w1, w2<span style="color:#f92672">+</span>h, b) <span style="color:#f92672">-</span> loss(w1, w2, b))<span style="color:#f92672">/</span>h;
+  <span style="color:#66d9ef">float</span> dloss3 <span style="color:#f92672">=</span> (loss(w1, w2, b<span style="color:#f92672">+</span>h) <span style="color:#f92672">-</span> loss(w1, w2, b))<span style="color:#f92672">/</span>h;
+  w1 <span style="color:#f92672">-=</span> rate<span style="color:#f92672">*</span>dloss1;
+  w2 <span style="color:#f92672">-=</span> rate<span style="color:#f92672">*</span>dloss2;
+  b <span style="color:#f92672">-=</span> rate<span style="color:#f92672">*</span>dloss3;
+  cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;W1: &#34;</span><span style="color:#f92672">&lt;&lt;</span>w1<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; W2: &#34;</span><span style="color:#f92672">&lt;&lt;</span>w2<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; B: &#34;</span><span style="color:#f92672">&lt;&lt;</span>b<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34; C: &#34;</span><span style="color:#f92672">&lt;&lt;</span>loss(w1,w2, b)<span style="color:#f92672">&lt;&lt;</span>endl;
+}
+</code></pre></div><p>Once we finished the training, we use the neuron to check if
+it learned correctly the examples.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++">cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;0 &amp; 0 = &#34;</span><span style="color:#f92672">&lt;&lt;</span>sigf(<span style="color:#ae81ff">0.0</span><span style="color:#f92672">*</span>w1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.0</span><span style="color:#f92672">*</span>w2 <span style="color:#f92672">+</span>b)<span style="color:#f92672">&lt;&lt;</span>endl;
+cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;0 &amp; 1 = &#34;</span><span style="color:#f92672">&lt;&lt;</span>sigf(<span style="color:#ae81ff">0.0</span><span style="color:#f92672">*</span>w1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>w2 <span style="color:#f92672">+</span>b)<span style="color:#f92672">&lt;&lt;</span>endl;
+cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;1 &amp; 0 = &#34;</span><span style="color:#f92672">&lt;&lt;</span>sigf(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>w1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">0.0</span><span style="color:#f92672">*</span>w2 <span style="color:#f92672">+</span>b)<span style="color:#f92672">&lt;&lt;</span>endl;
+cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;1 &amp; 1 = &#34;</span><span style="color:#f92672">&lt;&lt;</span>sigf(<span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>w1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1.0</span><span style="color:#f92672">*</span>w2 <span style="color:#f92672">+</span>b)<span style="color:#f92672">&lt;&lt;</span>endl;
+<span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
+</code></pre></div><p>This is the end of the main program, now let&rsquo;s define
+the loss function and the sigmoid function, that we left
+behind.
+The sigmoid function looks something like this:
+<img src="/ox-hugo/sigmoid.png" alt="">
+and it is defined as follows, but we don&rsquo;t really need to
+dive into that:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">sigf</span>(<span style="color:#66d9ef">float</span> x){
+  <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">/</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> pow(M_E, <span style="color:#f92672">-</span>x));
+}
+</code></pre></div><p>Now let&rsquo;s define the cost function:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c++" data-lang="c++"><span style="color:#66d9ef">float</span> <span style="color:#a6e22e">loss</span>(<span style="color:#66d9ef">float</span> w1, <span style="color:#66d9ef">float</span> w2, <span style="color:#66d9ef">float</span> b){
+   <span style="color:#66d9ef">float</span> result <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+   <span style="color:#66d9ef">float</span> train_count <span style="color:#f92672">=</span> <span style="color:#ae81ff">4</span>;
+   <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> train_count; i<span style="color:#f92672">++</span>){
+   <span style="color:#66d9ef">float</span> x1 <span style="color:#f92672">=</span> train_x1[i];
+   <span style="color:#66d9ef">float</span> x2 <span style="color:#f92672">=</span> train_x2[i];
+   <span style="color:#66d9ef">float</span> expected_output <span style="color:#f92672">=</span> train_y[i];
+   <span style="color:#66d9ef">float</span> predicted_output <span style="color:#f92672">=</span> sigf(x1<span style="color:#f92672">*</span>w1 <span style="color:#f92672">+</span> x2<span style="color:#f92672">*</span>w2 <span style="color:#f92672">+</span> b);
+   <span style="color:#66d9ef">float</span> mse <span style="color:#f92672">=</span> pow((expected_output <span style="color:#f92672">-</span> predicted_output),<span style="color:#ae81ff">2</span>); <span style="color:#75715e">// mean squared error
+</span><span style="color:#75715e"></span>   result <span style="color:#f92672">+=</span> mse;
+   }
+   <span style="color:#66d9ef">return</span> result <span style="color:#f92672">/</span> train_count;
+}
+</code></pre></div><p>As you can see we apply and return the Mean Squared Error!
+If you try this code by yourself, you&rsquo;ll see that the algorithm
+drives the cost function to zero, learning the examples really well.</p>
+<h2 id="conclusions">Conclusions<a href="#conclusions" class="hanchor" ariaLabel="Anchor">&#8983;</a> </h2>
+<p>With this post we went through the basics of machine learning.
+We used the &ldquo;finite difference trick&rdquo; with a really simple model
+to keep things clear, avoiding the backpropagation algorithm (used
+for models that have multiple layers).
+With the C++ code, we used a low-level representation to see in practice
+what we studied before.</p>
+<p>I hope that this brief introduction helped some of you in getting
+in touch with some of the math behind every ML algorithm.
+If you spot any errors or typos please contact me at <a href="mailto:matteolugli18@gmail.com">matteolugli18@gmail.com</a>.
+See you soon!
+Matteo 🐨</p>
+
+      </div></div>
+
+  
+  
+<div class="pagination">
+    <div class="pagination__title">
+        <span class="pagination__title-h">Read other posts</span>
+        <hr />
+    </div>
+    <div class="pagination__buttons">
+        
+        
+        <span class="button next">
+            <a href="/posts/boredom/">
+                <span class="button__text">Embrace Boredom</span>
+                <span class="button__icon">→</span>
+            </a>
+        </span>
+        
+    </div>
+</div>
+
+  
+
+  
+  <script>
+  MathJax = {
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$','$$'], ['\\[', '\\]']],
+      processEscapes: true,
+      processEnvironments: true
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+    }
+  };
+
+  window.addEventListener('load', (event) => {
+      document.querySelectorAll("mjx-container").forEach(function(x){
+        x.parentElement.classList += 'has-jax'})
+    });
+
+</script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script type="text/javascript" id="MathJax-script" async
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+  
+</div>
+
+  </div>
+
+  
+    <footer class="footer">
+  <div class="footer__inner">
+    
+      <div class="copyright">
+        <span>© 2023 Powered by <a href="http://gohugo.io">Hugo</a></span>
+    
+        <span>:: Theme made by <a href="https://twitter.com/panr">panr</a></span>
+      </div>
+  </div>
+</footer>
+
+<script src="/assets/main.js"></script>
+<script src="/assets/prism.js"></script>
+
+
+
+
+
+
+
+  
+</div>
+
+</body>
+</html>
