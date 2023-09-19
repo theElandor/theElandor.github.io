@@ -8,6 +8,25 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Sep 2023 20:24:14 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Machine Learning and Deep Learning</title>
+      <link>/ml/</link>
+      <pubDate>Tue, 19 Sep 2023 16:44:04 +0200</pubDate>
+      
+      <guid>/ml/</guid>
+      <description>Introduzione Appunti del corso di Machine Learning and Deep Learing.
+UNIMORE, 2023/2024. Written and manteined by Matteo Lugli.
+Materiale  📃 Cheatsheet  </description>
+      <content>&lt;h2 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h2&gt;
+&lt;p&gt;Appunti del corso di Machine Learning and Deep Learing.&lt;/p&gt;
+&lt;p&gt;UNIMORE, 2023/2024. Written and manteined by Matteo Lugli.&lt;/p&gt;
+&lt;h2 id=&#34;materiale&#34;&gt;Materiale&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/ml/summary.html&#34;&gt;Cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
       <title>The fastest introduction to machine learning 🧠</title>
       <link>/posts/ml/</link>
       <pubDate>Sun, 10 Sep 2023 20:24:14 +0200</pubDate>
