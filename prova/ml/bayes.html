@@ -1,0 +1,394 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title><b>Supervised Learning</b></title>
+<!-- 2023-09-27 mer 18:22 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="Org-mode">
+<meta name="author" content="Matteo Eros Lugli">
+
+<link  href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<style>
+/* org mode styles on top of twbs */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    font-size: 18px;
+    margin-bottom: 105px;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 101px;
+    background-color: #f5f5f5;
+}
+
+footer > div {
+    padding: 10px;
+}
+
+footer p {
+    margin: 0 0 5px;
+    text-align: center;
+    font-size: 16px;
+}
+
+#table-of-contents {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+blockquote p {
+    font-size: 18px;
+}
+
+pre {
+    font-size: 16px;
+}
+
+.footpara {
+    display: inline-block;
+}
+
+figcaption {
+  font-size: 16px;
+  color: #666;
+  font-style: italic;
+  padding-bottom: 15px;
+}
+
+/* from twbs docs */
+
+.bs-docs-sidebar.affix {
+    position: static;
+}
+@media (min-width: 768px) {
+    .bs-docs-sidebar {
+        padding-left: 20px;
+    }
+}
+
+/* All levels of nav */
+.bs-docs-sidebar .nav > li > a {
+    display: block;
+    padding: 4px 20px;
+    font-size: 14px;
+    font-weight: 500;
+    color: #999;
+}
+.bs-docs-sidebar .nav > li > a:hover,
+.bs-docs-sidebar .nav > li > a:focus {
+    padding-left: 19px;
+    color: #A1283B;
+    text-decoration: none;
+    background-color: transparent;
+    border-left: 1px solid #A1283B;
+}
+.bs-docs-sidebar .nav > .active > a,
+.bs-docs-sidebar .nav > .active:hover > a,
+.bs-docs-sidebar .nav > .active:focus > a {
+    padding-left: 18px;
+    font-weight: bold;
+    color: #A1283B;
+    background-color: transparent;
+    border-left: 2px solid #A1283B;
+}
+
+/* Nav: second level (shown on .active) */
+.bs-docs-sidebar .nav .nav {
+    display: none; /* Hide by default, but at >768px, show it */
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 30px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav > li > a:focus {
+    padding-left: 29px;
+}
+.bs-docs-sidebar .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav > .active:focus > a {
+    padding-left: 28px;
+    font-weight: 500;
+}
+
+/* Nav: third level (shown on .active) */
+.bs-docs-sidebar .nav .nav .nav {
+    padding-bottom: 10px;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a {
+    padding-top: 1px;
+    padding-bottom: 1px;
+    padding-left: 40px;
+    font-size: 12px;
+    font-weight: normal;
+}
+.bs-docs-sidebar .nav .nav .nav > li > a:hover,
+.bs-docs-sidebar .nav .nav .nav > li > a:focus {
+    padding-left: 39px;
+}
+.bs-docs-sidebar .nav .nav .nav > .active > a,
+.bs-docs-sidebar .nav .nav .nav > .active:hover > a,
+.bs-docs-sidebar .nav .nav .nav > .active:focus > a {
+    padding-left: 38px;
+    font-weight: 500;
+}
+
+/* Show and affix the side nav when space allows it */
+@media (min-width: 992px) {
+    .bs-docs-sidebar .nav > .active > ul {
+        display: block;
+    }
+    /* Widen the fixed sidebar */
+    .bs-docs-sidebar.affix,
+    .bs-docs-sidebar.affix-bottom {
+        width: 213px;
+    }
+    .bs-docs-sidebar.affix {
+        position: fixed; /* Undo the static from mobile first approach */
+        top: 20px;
+    }
+    .bs-docs-sidebar.affix-bottom {
+        position: absolute; /* Undo the static from mobile first approach */
+    }
+    .bs-docs-sidebar.affix .bs-docs-sidenav,.bs-docs-sidebar.affix-bottom .bs-docs-sidenav {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+}
+@media (min-width: 1200px) {
+    /* Widen the fixed sidebar again */
+    .bs-docs-sidebar.affix-bottom,
+    .bs-docs-sidebar.affix {
+        width: 263px;
+    }
+}
+</style>
+<script>
+$(function() {
+    'use strict';
+
+    $('.bs-docs-sidebar li').first().addClass('active');
+
+    $(document.body).scrollspy({target: '.bs-docs-sidebar'});
+
+    $('.bs-docs-sidebar').affix();
+});
+</script>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  displayAlign: "center",
+  displayIndent: "2em",
+  messageStyle: "none",
+  "HTML-CSS": {
+    scale: 100,
+    styles: {
+      ".MathJax_Display": {
+        "font-size": "100%"
+      }
+    }
+  },
+  "SVG": {
+    scale: 100,
+    styles: {
+      ".MathJax_SVG_Display": {
+        "font-size": "100%",
+        "margin-left": "-2.281em"
+      }
+    }
+  }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_SVG"></script>
+</head>
+<body>
+<div id="content" class="container">
+<div class="row"><div class="col-md-3 col-md-push-9"><nav id="table-of-contents">
+<div id="text-table-of-contents" class="bs-docs-sidebar">
+<ul class="nav">
+<li><a href="#sec-1">1. Probabilistic Classification</a>
+<ul class="nav">
+<li><a href="#sec-1-1">1.1. Maximum <b>likelyhood</b> classification</a></li>
+<li><a href="#sec-1-2">1.2. Maximum <b>A-posteriori</b> classification</a></li>
+<li><a href="#sec-1-3">1.3. Naive Bayes Classification</a></li>
+<li><a href="#sec-1-4">1.4. Geometric Interpretation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</nav>
+</div><div class="col-md-9 col-md-pull-3"><h1 class="title"><b>Supervised Learning</b></h1>
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Probabilistic Classification</h2>
+<div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>\(P(Y=c) = \pi_{c}\): <b>Prior probability,</b> probability density of seeing a data case of class Y.
+For visualization purposes, it is a function with \(c\) on the x axis and \(P(Y=C)\) on the y axis.
+</li>
+<li>\(P(X=x|Y=c) = \phi_{c}(x)\): <b>Likelyhood function,</b> probability density of seeing a data vector \(x \in R^{\mathbb{D}}\) 
+that belongs to class \(c\);
+For visualization purposes, it's a function with \(x\) (samples) on the x axis and \(P(X=x|Y=C)\) on the y axis.
+This function is referred to a specific class \(C\). The function describes how likely it is for sample \(x_{i}\) to
+be of class \(C\);
+</li>
+<li>Using <b>Bayes Rules</b> we can compute the <b>A-posteriori probability</b> distribution of any observed
+feature vector belonging to class \(c\). This distribution also takes into account the frequency of each class.
+\begin{align}
+P(Y=c|X=x) = \frac{P(X=x|Y=c)P(Y=c)}{\sum_{c'}P(X=x|Y=c')P(Y=c')} = \frac{\phi_{c}(x)\pi_{c}}{\sum_{c'}\phi_{c'}(x)\pi_{c'}}
+\end{align}
+</li>
+</ul>
+</div>
+<div id="outline-container-sec-1-1" class="outline-3">
+<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Maximum <b>likelyhood</b> classification</h3>
+<div class="outline-text-3" id="text-1-1">
+<ol class="org-ol">
+<li>Learn from the dataset D a likelyhood function for every class \(c_{i}\).
+Can be written as \(P(x|c_{i})\)
+</li>
+<li>Given a sampled \(x'\) evaluate each one of the k likelyhood functions.
+</li>
+<li>Pick the class \(c'\) that has the highest likelyhood function \(argmax_{c}P(x'|c)\)
+</li>
+</ol>
+<p>
+The problem of this method is that an example \(x'\) of class \(c'\) taken from \(\mathbb{D}\) is likely to be \(x_{1}\) \(50\%\) of
+the times, but this probability might be calculated on a dataset with very few examples of class \(c'\). This
+means that class \(c'\) might be taken instead of class \(c''\) whose likelyhood function is calculated on a dataset with
+many examples.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-1-2" class="outline-3">
+<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Maximum <b>A-posteriori</b> classification</h3>
+<div class="outline-text-3" id="text-1-2">
+<p>
+The a-posteriori classification solves the previoius problem.
+</p>
+<ol class="org-ol">
+<li>Learn from the dataset D a likelyhood function for every class \(c_{i}\).
+Can be written as \(P(x|c_{i}\));
+</li>
+<li>Given \(x'\), apply Bayes Rules and obtain \(P(c_{i}|x')\);
+</li>
+<li>Pick the class \(c'\) that has the highest <b>A-Posteriori probability</b> \(argmax_{c}P(c|x')\);
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-1-3" class="outline-3">
+<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Naive Bayes Classification</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+The point of this tecnique is to aproximate the likelihood function for each class for each feature
+in a way that prevents overfitting. If we have a small dataset and we just count elements, the risk
+of falling into overfitting is high. 
+The concept is to assume the shape of the distribution of the likelihood function for each class
+and for each feature (usually a gaussian distribution).
+Let's imagine that our \(x\) vectors just have 1 feature. Now we have to find the <b>parametric maximul likelyhood</b>,
+which is a function based on some paramters \(\theta\) that used in this formula gives the highest value:
+</p>
+\begin{equation}
+\theta' = argmax_{\theta}\prod_{x_{i} \in D}p(x_{i}|\theta) = argmax_{\theta}\sum_{x_{i} \in D}log(p(x_{i}|\theta))
+\end{equation}
+<p>
+To make it a little bit more visual: if you have many x values that are near \(\bar{x}\), it means that it is better
+if the max value of your distribution is for \(x=\bar{x}\). If the distribution is a gaussian, it means that
+the mean has to be \(\bar{x}\).
+If we suppose that the distribution is a gaussian, then we want to maximize this function:
+</p>
+\begin{equation}
+L(\mu, \sigma) = \sum_{i=1}^{N}\ln{\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x_{i}-\mu)^2}{\sigma^{2}}}}
+\end{equation}
+<p>
+To do it we can set \(\frac{dL}{d\mu} = 0\) to find \(\mu\) and \(\frac{dL}{d\sigma} = 0\) to find \(\sigma\).
+</p>
+\begin{align}
+0 &= \sum_{i=1}^{N} \ln\bigl({\frac{1}{\sqrt{2\pi\sigma^{2}}}e^{-\frac{(x_{i}-\mu)^2}{\sigma^2}}\bigr)}d\mu \\
+  &= \sum_{i=1}^{N} \ln\bigl({\frac{1}{\sqrt{2\pi\sigma^{2}}}}\bigr) + \ln\bigl({e^{-\frac{(x_{i}-\mu)^2}{\sigma^2}}}\bigr)d\mu \\
+  &= \sum_{i=1}^{N} \ln\bigl({\frac{1}{\sqrt{2\pi\sigma^{2}}}}\bigr) - {\frac{(x_{i}-\mu)^2}{\sigma^2}} d\mu \\
+  &= \sum_{i=1}^{N} \frac{2\mu x_{i}}{\sigma^2} - \frac{\mu^2}{\sigma^2} \\
+0 &= \sum_{i=1}^{N} x_{i} - \mu \\
+0 &= \sum_{i=1}^{N} \bigl(x_{i}\bigr) - N\mu \\
+N\mu &= \sum_{i=1}^{N} \bigl(x_{i}\bigr) \\
+ \mu &= \frac{1}{N}\sum_{i=1}^{N} \bigl(x_{i}\bigr)
+\end{align}
+<p>
+If we do the same for \(\sigma\) we'll find the formula of the variance.
+The problem is that a single \(x\) is itself a vector of features \((x_{1} \hdots x_{k})\) so
+we need a probability distribution for each feature.
+In the naive version, we assume that each <b>marginal probability distribution</b> \(P(X_{d} = x_{d}|Y = c)\)
+is independent from the others, so a comprehensive score is calculated:
+</p>
+\begin{equation}
+\phi_{c}(x) = p(X=x|Y=c) = \prod_{d=1}^{k}p(X_{d} = x_{d} | Y = c) = \prod_{d=1}^{k}\phi_{cd}(x_{d})
+\end{equation}
+<p>
+Now we can write the formula of the classification function, that given a \(k\) -dimensional sample \(x\)
+returns the predicted class to which it belongs:
+</p>
+\begin{equation}
+fNB(x) = argmax_{c}\pi_{c}\prod_{d=1}^{k}\phi_{cd}(x_{d})
+\end{equation}
+<p>
+The marginal distributions are usually modeled as a normal density:
+</p>
+\begin{equation}
+\phi_{cd}(x_{d}) = P(X_{d} = x_{d} | Y = c) = N(x_{d}; \mu_{dc}, \sigma^{2}_{dc})
+\end{equation}
+<p>
+If we are using the normal distribution the whole point of the <b>learning process</b> is to compute \(\mu_{dc}\) and \(\sigma^{2}_{dc}\) from the
+dataset.
+</p>
+\begin{equation}
+\mu_{dc} = \frac{\sum_{i=1}^{n}[y_{i}=c]x_{di}}{[y_{i}=c]} \\
+\sigma^{2} = ...
+\end{equation}
+</div>
+</div>
+
+<div id="outline-container-sec-1-4" class="outline-3">
+<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Geometric Interpretation</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+Let's suppose we are in a binary case where we want to assign either label 0 or 1 to points.
+It's called <b>decision boundary</b> the set of points where this happens:
+</p>
+\begin{align}
+\pi_{0} \prod_{d=1}^{D}\phi_{0d}(x_{d}) &= \pi_{1} \prod_{d=1}^{D}\phi_{1d}(x_{d}) \\
+\log(\pi_{0} \prod_{d=1}^{D}\phi_{0d}(x_{d})) &= \log(\pi_{1} \prod_{d=1}^{D}\phi_{1d}(x_{d})) \\
+\log(\pi_{0}) + \log(\prod_{d=1}^{D}\phi_{0d}(x_{d})) &= \log(\pi_{1}) + \log(\prod_{d=1}^{D}\phi_{1d}(x_{d})) \\
+\log(\pi_{0}) + \sum_{d=1}^{D}\log(\phi_{0d}(x_{d})) &= \log(\pi_{1}) + \prod_{d=1}^{D}\log(\phi_{1d}(x_{d})) \\
+\vdots \\
+\log(\pi_{0}) + \sum_{d=1}^{D}-\frac{1}{2}\log(2\pi\sigma_{0d}^{2})-\frac{1}{\sigma^{2}_{0d}}(x-\mu_{cd})^2 &=  \log(\pi_{1}) + \sum_{d=1}^{D}-\frac{1}{2}\log(2\pi\sigma_{1d}^{2})-\frac{1}{\sigma^{2}_{1d}}(x-\mu_{1d})^2\\
+\end{align}
+<p>
+Which is a quadratic function of \(x\).
+</p>
+</div>
+</div>
+</div>
+</div></div></div>
+<footer id="postamble" class="">
+<div><p class="author">Author: Matteo Eros Lugli</p>
+<p class="date">Created: 2023-09-27 mer 18:22</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="http://orgmode.org">Org-mode</a> 9.3)</p>
+</div>
+</footer>
+</body>
+</html>
