@@ -1,0 +1,77 @@
+% Created 2023-10-05 gio 11:43
+% Intended LaTeX compiler: pdflatex
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{hyperref}
+\setcounter{secnumdepth}{2}
+\author{Matteo Eros Lugli}
+\date{\today}
+\title{\textbf{Logistic Regression}}
+\hypersetup{
+ pdfauthor={Matteo Eros Lugli},
+ pdftitle={\textbf{Logistic Regression}},
+ pdfkeywords={},
+ pdfsubject={},
+ pdfcreator={Emacs 27.1 (Org mode 9.3)}, 
+ pdflang={English}}
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\section{Intro}
+\label{sec:org8d7d2e6}
+Sometimes it is not necessary to calculate the likelyhood and then get the posterior via Bayes Rule.
+Eventually you can directly model the posterior with some specific methods. One of theese is the
+logistic regression. Basically you model your prior as function based on some paramteres \(\theta\), 
+then you try to minimize the error made by this function comparing the predictions on the 
+labels with the training data.
+By modelling the prior directly, you only have \(P(Y=c|X=x)\), so you cannot sample from this distribution.
+It means that if the model cannot output a element \(x\) given a class \(c\), because we would need the 
+likelyhood for that. Logistic regression is a \textbf{Probabilistic discriminative classifier}.
+
+\noindent\rule{\textwidth}{0.5pt}
+\section{Binary case}
+\label{sec:orgcdb2b19}
+\begin{align}
+P(Y=0|x) &= \frac{e^{w^{T}x + b}}{1+e^{w^{T}x + b}} \\
+P(Y=1|x) &= \frac{1}{1+e^{w^{T}x + b}}
+\end{align}
+We can compute the decision boundary, which is linear in x.
+\begin{align}
+P(Y=0|x) &= P(Y=1|x) \\
+P(Y=0|x) &- P(Y=1|x) = 0 \\
+\log{P(Y=0|x)} &- \log{P(Y=1|x)} = 0\\
+\vdots \\
+w^{T}x+b &= 0
+\end{align}
+
+\noindent\rule{\textwidth}{0.5pt}
+\section{Multiclass case}
+\label{sec:org48e2290}
+We need a set of weights \(w\) for each class. Actually, we can save 1 set of weights that we
+don't need for the last class, that is the complementar of the rest.
+For each class we also need the bias. In the equations, \(P(Y=K|x)\) is the probability of the
+sample of not being assigned to class \(c\).
+\begin{align}
+P(Y=c|x) &= \frac{e^{w_{c}^{T}x + b_{c}}}{1+\sum_{l=1}^{K-1}e^{w_{l}^{T}x + b_{l}}} \\
+P(Y=K|x) &= \frac{1}{1+\sum_{l=1}^{K-1}e^{w_{l}^{T}x + b_{l}}}
+\end{align}
+The classification function is
+\begin{equation}
+f_{LR}(x) = argmax_{c}P(Y=c|x)
+\end{equation}
+\subsection{Example}
+\label{sec:orgd22ddb6}
+\end{document}
