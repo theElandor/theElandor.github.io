@@ -8,6 +8,72 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 10 Sep 2023 20:24:14 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 02 Nov 2023 12:37:10 +0100</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hello stranger, and welcome to my personal blog!
+My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena. I study Artificial Intelligence Engineering. Computer science is my biggest passion, that&amp;rsquo;s why here you will mainly find I.T related posts and articles, together with some of my university notes.
+You&amp;rsquo;ll find more information about me down below. Link to bachelor&amp;rsquo;s thesis \(\rightarrow\) https://theelandor.github.io/prova/Tesi_Stampa.pdf
+Enjoy! ( I mean life, in general ;) )</description>
+      <content>&lt;p&gt;Hello stranger, and welcome to my personal blog!&lt;/p&gt;
+&lt;p&gt;My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena.
+I study &lt;strong&gt;&lt;code&gt;Artificial Intelligence Engineering&lt;/code&gt;&lt;/strong&gt;. Computer science is my biggest passion, that&amp;rsquo;s why here you will mainly find I.T related posts and articles,
+together with some of my university notes.&lt;/p&gt;
+&lt;p&gt;You&amp;rsquo;ll find more information about me down below.
+Link to bachelor&amp;rsquo;s thesis \(\rightarrow\) &lt;a href=&#34;https://theelandor.github.io/prova/Tesi_Stampa.pdf&#34;&gt;https://theelandor.github.io/prova/Tesi_Stampa.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Enjoy!&lt;/strong&gt; ( I mean life, in general ;) )&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/profile.jpg&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;This is me.&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Age&lt;/strong&gt;: 22&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Birthday&lt;/strong&gt;: 1/8/2001&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Other interests&lt;/strong&gt;: Productivity, Reading, Vintage Technology,
+Dungeons and Dragons, Boardgames.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Favourite books&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deep Work (Cal Newport);&lt;/li&gt;
+&lt;li&gt;How to win friends and influence people (Dale Carnegie);&lt;/li&gt;
+&lt;li&gt;The Old Man and the Sea (Ernest_Hemingway);&lt;/li&gt;
+&lt;li&gt;Walden; or, Life in the Woods (Henry_David_Thoreau);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Favourite quote&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[&amp;hellip;] &lt;em&gt;but man is not made for defeat.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ernest_Hemingway&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt; #\##|   |
+##\\ |   |
+   \\|   \&amp;#39;---&amp;#39;/
+    \   _&amp;#39;.&amp;#39;O&amp;#39;.&amp;#39;
+     | :___   \
+     |  _| :  |
+     | :__,___/
+     |   |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
       <title>Machine Learning and Deep Learning</title>
       <link>/ml/</link>
       <pubDate>Sun, 22 Oct 2023 18:03:58 +0200</pubDate>
@@ -5514,71 +5580,6 @@ the root flag. You can use&lt;/p&gt;
 &lt;p&gt;root flag &amp;ndash;&amp;gt; b91ccec3305e98240082d4474b848528&lt;/p&gt;
 &lt;/blockquote&gt;
 </content>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Sun, 09 Oct 2022 21:23:49 +0200</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Hello stranger, and welcome to my personal blog!
-My name is Matteo Lugli, and I am currently an undergraduate student at university of Modena. I study Computer Science, which is also one of my biggest passions. That&amp;rsquo;s why here you will mainly find I.T related posts and articles, together with some of my university notes.
-You&amp;rsquo;ll find more information about me down below.
-Enjoy! ( I mean life, in general ;) )</description>
-      <content>&lt;p&gt;Hello stranger, and welcome to my personal blog!&lt;/p&gt;
-&lt;p&gt;My name is Matteo Lugli, and I am currently an undergraduate student at university of Modena.
-I study &lt;strong&gt;&lt;code&gt;Computer Science&lt;/code&gt;&lt;/strong&gt;, which is also one of my biggest passions. That&amp;rsquo;s why here you will mainly find I.T related posts and articles,
-together with some of my university notes.&lt;/p&gt;
-&lt;p&gt;You&amp;rsquo;ll find more information about me down below.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Enjoy!&lt;/strong&gt; ( I mean life, in general ;) )&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/profile.jpg&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;This is me.&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Age&lt;/strong&gt;: 21&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Birthday&lt;/strong&gt;: 1/8/2001&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Other interests&lt;/strong&gt;: Productivity, Reading,  Vintage Technology,
-Dungeons and Dragons, Boardgames.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Favourite books&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Deep Work (Cal Newport);&lt;/li&gt;
-&lt;li&gt;How to win friends and influence people (Dale Carnegie);&lt;/li&gt;
-&lt;li&gt;The Old Man and the Sea (Ernest_Hemingway);&lt;/li&gt;
-&lt;li&gt;Walden; or, Life in the Woods (Henry_David_Thoreau);&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Favourite quote&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[&amp;hellip;] &lt;em&gt;but man is not made for defeat.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Ernest_Hemingway&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt; #\##|   |
-##\\ |   |
-   \\|   \&amp;#39;---&amp;#39;/
-    \   _&amp;#39;.&amp;#39;O&amp;#39;.&amp;#39;
-     | :___   \
-     |  _| :  |
-     | :__,___/
-     |   |
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
     <item>
