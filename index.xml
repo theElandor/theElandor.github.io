@@ -8,6 +8,33 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Nov 2023 21:40:21 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Machine Learning and Deep Learning</title>
+      <link>/ml/</link>
+      <pubDate>Fri, 29 Dec 2023 17:30:54 +0100</pubDate>
+      
+      <guid>/ml/</guid>
+      <description>Introduzione Appunti del corso di Machine Learning and Deep Learing.
+UNIMORE, 2023/2024. Written and manteined by Matteo Lugli.
+Materiale  📃 Cheatsheet 📃 Intro to supervised learning 📃 Bayes classifier 📃 SVM 📃 Spectral Clustering (Explanation on why we use the Laplacian matrix) 📃 PCA (dimensionality reduction) 📃 Backpropagation 📃 CNN (convs) 📃 Variational Autoencoders  </description>
+      <content>&lt;h2 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h2&gt;
+&lt;p&gt;Appunti del corso di Machine Learning and Deep Learing.&lt;/p&gt;
+&lt;p&gt;UNIMORE, 2023/2024. Written and manteined by Matteo Lugli.&lt;/p&gt;
+&lt;h2 id=&#34;materiale&#34;&gt;Materiale&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/ml/summary.html&#34;&gt;Cheatsheet&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/ml/supervised.html&#34;&gt;Intro to supervised learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/ml/bayes.html&#34;&gt;Bayes classifier&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/svm_notes.pdf&#34;&gt;SVM&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/clustering_notes.pdf&#34;&gt;Spectral Clustering&lt;/a&gt; (Explanation on why we use the Laplacian matrix)&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/pca_notes.pdf&#34;&gt;PCA (dimensionality reduction)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/backprop.pdf&#34;&gt;Backpropagation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/cnn_notes.pdf&#34;&gt;CNN (convs)&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/autoencoders.pdf&#34;&gt;Variational Autoencoders&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
       <title>Thoughts after graduation</title>
       <link>/posts/grad/</link>
       <pubDate>Thu, 16 Nov 2023 21:40:21 +0100</pubDate>
@@ -120,30 +147,6 @@ morning for and what  think of before going to bed.&lt;/p&gt;
 but it is surely what sometimes pushed me beyond my limits.&lt;/p&gt;
 &lt;p&gt;Have a nice day,&lt;/p&gt;
 &lt;p&gt;Matteo 🐨&lt;/p&gt;
-</content>
-    </item>
-    
-    <item>
-      <title>Machine Learning and Deep Learning</title>
-      <link>/ml/</link>
-      <pubDate>Thu, 09 Nov 2023 19:41:21 +0100</pubDate>
-      
-      <guid>/ml/</guid>
-      <description>Introduzione Appunti del corso di Machine Learning and Deep Learing.
-UNIMORE, 2023/2024. Written and manteined by Matteo Lugli.
-Materiale  📃 Cheatsheet 📃 Intro to supervised learning 📃 Bayes classifier 📃 SVM 📃 Spectral Clustering (Explanation on why we use the Laplacian matrix) 📃 PCA (dimensionality reduction)  </description>
-      <content>&lt;h2 id=&#34;introduzione&#34;&gt;Introduzione&lt;/h2&gt;
-&lt;p&gt;Appunti del corso di Machine Learning and Deep Learing.&lt;/p&gt;
-&lt;p&gt;UNIMORE, 2023/2024. Written and manteined by Matteo Lugli.&lt;/p&gt;
-&lt;h2 id=&#34;materiale&#34;&gt;Materiale&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/ml/summary.html&#34;&gt;Cheatsheet&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/ml/supervised.html&#34;&gt;Intro to supervised learning&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/ml/bayes.html&#34;&gt;Bayes classifier&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/svm_notes.pdf&#34;&gt;SVM&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/clustering_notes.pdf&#34;&gt;Spectral Clustering&lt;/a&gt; (Explanation on why we use the Laplacian matrix)&lt;/li&gt;
-&lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/pca_notes.pdf&#34;&gt;PCA (dimensionality reduction)&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
 </content>
     </item>
     
