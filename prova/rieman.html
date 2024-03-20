@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Integrale di Riemann \(\int_{a}^{b}\)</title>
+<meta name="author" content="prof. Matteo Lugli"/>
+<meta name="description" content=""/>
+<meta name="keywords" content=""/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="file:///C:/Users/web/Desktop/emacs/reveal/dist/reveal.css"/>
+
+<link rel="stylesheet" href="file:///C:/Users/web/Desktop/emacs/reveal/dist/theme/white.css" id="theme"/>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Integrale di Riemann \(\int_{a}^{b}\)</h1><p class="subtitle"></p>
+<h2 class="author">prof. Matteo Lugli</h2><p class="date">Created: 2024-03-12 mar 09:13</p>
+</section>
+<section id="sec-table-of-contents"><div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#/slide-org92e937c">Introduzione</a></li>
+<li><a href="#/slide-org74f15aa">Concetto di Integrale</a></li>
+<li><a href="#/slide-org677b6dc">Implementazione</a></li>
+</ul>
+</div>
+</div>
+</section>
+<section>
+<section id="slide-org92e937c">
+<h2 id="org92e937c">Introduzione</h2>
+
+<div class="figure">
+<p><img src="file:///c:/Users/web/Desktop/emacs/memes/skeletor.jpg" alt="skeletor.jpg" class="fragment roll-in" width="500px" />
+</p>
+</div>
+</section>
+<section id="slide-org879331d">
+<h3 id="org879331d"></h3>
+<p class="fragment roll-in">
+I calcolatori sanno fare soltanto le operazioni
+che vi hanno insegnato alle elementari: \(+, \times , -, \%\)
+</p>
+
+<p class="fragment roll-in">
+Non hanno nemmeno il concetto di <b>continuita'</b>, ragionano sempre
+in termini discreti.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org74f15aa">
+<h2 id="org74f15aa">Concetto di Integrale</h2>
+<hr />
+<p>
+Non ci concentreremo quindi sulle tecniche di integrazione, 
+che avete visto a matematica.
+</p>
+
+<p class="fragment roll-in">
+Vedremo piu' nello specifico il "significato" dell'integrale
+in calcolo numerico.
+</p>
+</section>
+<section id="slide-org3bdb305">
+<h3 id="org3bdb305">Definizione</h3>
+<hr />
+<p>
+L'integrale e' l'<b>area sottesa</b> alla curva descritta da una funzione.
+</p>
+
+<p class="fragment roll-in">
+Ad esempio:
+</p>
+
+<div class="figure">
+<p><img src="file:///c:/Users/web/Desktop/emacs/memes/integral.png" alt="integral.png" class="fragment roll-in" width="350px" />
+</p>
+</div>
+</section>
+<section id="slide-org7b5f514">
+<h3 id="org7b5f514"></h3>
+<p>
+Bernhard Riemann agli inizi del 600' descrive una tecnica
+interessante per poter <b>calcolare l'area sottesa di qualsiasi funzione.</b>
+</p>
+
+<p class="fragment roll-in">
+Si basa su <b>un'idea semplice</b> che ha portato alle <b>tecniche di integrazione</b>
+usate oggi, ma che grazie ai calcolatori puo' anche essere applicata
+direttamente.
+</p>
+
+</section>
+<section id="slide-orgd37c8d4">
+<h3 id="orgd37c8d4">Formula (somma inferiore)</h3>
+<hr />
+<p>
+Definiamo la <b>somma inferiore di rieman</b> la seguente quantita':
+</p>
+
+<div>
+\begin{equation}
+s(f) = \sum_{k=1}^{n} m_k (x_k - x_{k-1})
+\end{equation}
+
+</div>
+<p>
+con
+</p>
+<div>
+\begin{equation}
+m_k = inf_{x \in [x_{k-1}, x_k]}f(x)
+\end{equation}
+
+</div>
+</section>
+<section id="slide-orgb4574a8">
+<h3 id="orgb4574a8">Confronto grafico</h3>
+<hr />
+<div class="column" style="float:left; width: 20%">
+<p>
+<b>Formula:</b>
+<br />
+<br />
+</p>
+<div>
+\begin{equation}
+s(f) = \sum_{k=1}^{n} m_k (x_k - x_{k-1})
+\end{equation}
+
+</div>
+</div>
+
+<div class="column" style="float:right; width: 50%">
+<p>
+<b>Idea:</b>
+</p>
+
+<div class="figure">
+<p><img src="file:///c:/Users/web/Desktop/emacs/memes/rettangolo.png" alt="rettangolo.png" width="600px" />
+</p>
+</div>
+</div>
+
+</section>
+<section id="slide-org2e2dacc">
+<h3 id="org2e2dacc"></h3>
+<p>
+Quindi per risolvere l'integrale \(\int_{a}^{b}\) dx, gli step
+da seguire sono questi:
+</p>
+<p class="fragment roll-in">
+Dividere l'intervallo di interesse in \(n\) intervalli, 
+quindi prendendo \(n-1\) punti equidistanziati in \([a,b]\).
+</p>
+
+<p class="fragment roll-in">
+Partendo dal secondo punto (\(k=1\)), per ogni punto si calcolano:
+</p>
+<p class="fragment roll-in">
+<b>l'immagine di \(x_{k}\)</b>
+</p>
+<p class="fragment roll-in">
+<b>l'immagine di \(x_{k-1}\)</b>
+</p>
+<p class="fragment roll-in">
+Si applica la formula per ottenere la somma finale.
+</p>
+</section>
+<section id="slide-org41b8502">
+<h3 id="org41b8502">Passare al limite</h3>
+<hr />
+<p>
+In teoria, secondo la formula che avete visto a matematica, 
+bisognerebbe <b>passare al limite</b> perche' il calcolo abbia senso.
+</p>
+
+<p>
+E' quindi necessario che gli intervalli diventino <b>estremamente piccoli</b>.
+</p>
+
+<p class="fragment roll-in">
+Come fare?
+</p>
+
+<p class="fragment roll-in">
+Basta prendere \(n\) grande: piu' grande sara' \(n\), piu'
+piccoli saranno gli intervalli, e di conseguenza
+piu' preciso il nostro integrale.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-org677b6dc">
+<h2 id="org677b6dc">Implementazione</h2>
+<hr />
+<p>
+Definiamo i parametri \(a,b,n\)
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment roll-in"   ><code trim><span style="color: #E06C75;">n</span> = 2000000
+<span style="color: #E06C75;">a</span> = 2
+<span style="color: #E06C75;">b</span> = 6
+<span style="color: #E06C75;">step</span> = (b-a)/n
+</code></pre>
+</div>
+<p>
+Prendiamo i punti \({x_k}\) equidistanziati
+in base all'intervallo scelto:
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment roll-in"   ><code trim><span style="color: #E06C75;">step</span> = (b-a)/n
+<span style="color: #E06C75;">x</span> = [a+step*i <span style="color: #3a81c3;">for</span> i <span style="color: #3a81c3;">in</span> <span style="color: #56B6C2;">range</span>(0,n+1)]
+</code></pre>
+</div>
+</section>
+<section id="slide-org9e13d04">
+<h3 id="org9e13d04"></h3>
+<p>
+Ora possiamo creare gli intervalli usando
+delle tuple in cui inseriamo l'elemento \(x_{k}\)
+e il successivo (stessa cosa che il precedente).
+Inizializziamo la variabile che conterra' il risultato
+finale a zero.
+</p>
+<div class="org-src-container">
+
+<pre  class="fragment roll-in"   ><code trim><span style="color: #E06C75;">c</span> = [(x[i], x[i+1]) <span style="color: #3a81c3;">for</span> i <span style="color: #3a81c3;">in</span> <span style="color: #56B6C2;">range</span>(n)]
+<span style="color: #E06C75;">a</span> = 0
+</code></pre>
+</div>
+</section>
+<section id="slide-org6444d2c">
+<h3 id="org6444d2c"></h3>
+<p>
+Definiamo la funzione \(f = 3x^2\):
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #3a81c3;">def</span> <span style="color: #61AFEF;">f</span>(x):
+        <span style="color: #3a81c3;">return</span> 3*<span style="color: #56B6C2;">pow</span>(x,2)
+</code></pre>
+</div>
+<p>
+Traduciamo la sommatoria con un for loop,
+e stampiamo il risultato finale.
+</p>
+<div class="org-src-container">
+
+<pre  class="src src-python"   ><code trim><span style="color: #3a81c3;">for</span> x1, x2 <span style="color: #3a81c3;">in</span> c:
+        <span style="color: #E06C75;">b</span> = x2-x1
+        <span style="color: #E06C75;">h</span> = <span style="color: #56B6C2;">max</span>(f(x2),f(x1))
+        <span style="color: #E06C75;">a</span> += (b*h)
+<span style="color: #3a81c3;">print</span>(a)
+</code></pre>
+</div>
+</section>
+</section>
+</div>
+</div>
+<script src="C:/Users/web/Desktop/emacs/reveal/dist/reveal.js"></script>
+<script src="file:///C:/Users/web/Desktop/emacs/reveal/plugin/markdown/markdown.js"></script>
+<script src="file:///C:/Users/web/Desktop/emacs/reveal/plugin/zoom/zoom.js"></script>
+<script src="file:///C:/Users/web/Desktop/emacs/reveal/plugin/notes/notes.js"></script>
+
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+plugins: [RevealMarkdown, RevealZoom, RevealNotes]
+});
+
+</script>
+</body>
+</html>
