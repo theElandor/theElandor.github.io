@@ -8,6 +8,26 @@
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Nov 2023 21:40:21 +0100</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Challenges</title>
+      <link>/challenges/</link>
+      <pubDate>Sun, 21 Apr 2024 10:08:58 +0200</pubDate>
+      
+      <guid>/challenges/</guid>
+      <description>Yet Another Python Challenge This is a challenge that I created for high school students to teach them programming and problem solving. It takes inspiration from other challenges like Advent of Code or The Python challenge. I strongly believe that having fun in competing in these events is a great way to learn new stuff. Enjoy!
+ Yet Another Python Challenge  </description>
+      <content>&lt;h2 id=&#34;yet-another-python-challenge&#34;&gt;Yet Another Python Challenge&lt;/h2&gt;
+&lt;p&gt;This is a challenge that I created for high school students to teach them
+programming and problem solving. It takes inspiration from other challenges
+like &lt;a href=&#34;https://adventofcode.com/&#34;&gt;Advent of Code&lt;/a&gt; or &lt;a href=&#34;http://www.pythonchallenge.com/&#34;&gt;The Python challenge&lt;/a&gt;. I strongly believe that having
+fun in competing in these events is a great way to learn new stuff.
+Enjoy!&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://theelandor.github.io/challenge/intro.html&#34;&gt;Yet Another Python Challenge&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+    </item>
+    
+    <item>
       <title>About</title>
       <link>/about/</link>
       <pubDate>Mon, 19 Feb 2024 18:57:16 +0100</pubDate>
