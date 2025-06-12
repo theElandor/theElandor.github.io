@@ -8,6 +8,110 @@
     <language>en-us</language>
     <lastBuildDate>Sat, 17 May 2025 12:24:09 +0200</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>About</title>
+      <link>/about/</link>
+      <pubDate>Thu, 12 Jun 2025 19:27:41 +0200</pubDate>
+      
+      <guid>/about/</guid>
+      <description>Hello stranger, and welcome to my personal blog! My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena, studying Artificial Intelligence Engineering. I have a BS degree in Computer Science, which is one of my biggest passions. In my free time, I like teaching stuff. I occasionally post videos on my YouTube channel and I’ve also had the chance to be a computer science teacher in high school.</description>
+      <content>&lt;p&gt;Hello stranger, and welcome to my personal blog!
+My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena,
+studying &lt;strong&gt;&lt;code&gt;Artificial Intelligence Engineering&lt;/code&gt;&lt;/strong&gt;. I have a BS degree in &lt;strong&gt;&lt;code&gt;Computer Science&lt;/code&gt;&lt;/strong&gt;,
+which is one of my biggest passions.
+In my free time, I like teaching stuff. I occasionally post videos on my &lt;a href=&#34;https://www.youtube.com/@MLStudentOdyssey&#34;&gt;YouTube channel&lt;/a&gt; and I’ve also had the chance to be a computer science teacher in high school.
+My course was all about programming and problem-solving, with a strong focus on learning through coding challenges.&lt;/p&gt;
+&lt;p&gt;My primary interests lie in deep learning, algorithms and puzzles.
+Here&amp;rsquo;s a list of cool project I conducted in the recent years, grouped by topic:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Machine Learning &amp;amp; Deep Learning&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A toy gradient descent implementation (from scratch) using numpy: &lt;a href=&#34;https://github.com/theElandor/GradientDescent&#34;&gt;https://github.com/theElandor/GradientDescent&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Reinforcement learning applied to autonomous crossing management: &lt;a href=&#34;https://www.mdpi.com/1424-8220/24/4/1288&#34;&gt;https://www.mdpi.com/1424-8220/24/4/1288&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Semantic segmentation of remote-sensing images using deep learning: &lt;a href=&#34;https://github.com/theElandor/CVCS&#34;&gt;https://github.com/theElandor/CVCS&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;Self-supervised learning applied to fluorescent microscopy images: &lt;a href=&#34;https://github.com/homarone00/AIBIO_proj&#34;&gt;https://github.com/homarone00/AIBIO_proj&lt;/a&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Algorithms and puzzles&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;All 25 days of Advent of Code (2024) in Python: &lt;a href=&#34;https://github.com/theElandor/aoc2024&#34;&gt;https://github.com/theElandor/aoc2024&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;All 20 days of EveryBody codes (2024) in Python: &lt;a href=&#34;https://github.com/theElandor/Everybody-Codes&#34;&gt;https://github.com/theElandor/Everybody-Codes&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;All 18 days of Codyssi (2025) in Python and C++: &lt;a href=&#34;https://github.com/theElandor/codyssi2025&#34;&gt;https://github.com/theElandor/codyssi2025&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;All 3 quests of the first EveryBody codes story in C++ and Python: &lt;a href=&#34;https://github.com/theElandor/ec2025&#34;&gt;https://github.com/theElandor/ec2025&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;A coding challenge that I made for students (will you be able to complete it? ;) &lt;a href=&#34;https://theelandor.github.io/challenges/&#34;&gt;https://theelandor.github.io/challenges/&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Nodes&lt;/strong&gt;, a Python framework to play with distributed algorithms: &lt;a href=&#34;https://github.com/theElandor/Nodes&#34;&gt;https://github.com/theElandor/Nodes&lt;/a&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You&amp;rsquo;ll find more information about me down below.
+If you are interested, you can find my bachelor&amp;rsquo;s thesis at the following link: &lt;a href=&#34;https://theelandor.github.io/prova/Tesi_Stampa.pdf&#34;&gt;https://theelandor.github.io/prova/Tesi_Stampa.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Enjoy!&lt;/strong&gt; ( I mean life, in general ;) )&lt;/p&gt;
+
+  &lt;figure class=&#34;left&#34; &gt;
+    &lt;img src=&#34;/ox-hugo/profile.jpg&#34;   /&gt;
+    
+      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;This is me.&lt;/figcaption&gt;
+    
+  &lt;/figure&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Age&lt;/strong&gt;: 24&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Birthday&lt;/strong&gt;: 1/8/2001&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Other interests&lt;/strong&gt;: Productivity, Reading, Vintage Technology,
+Dungeons and Dragons, Boardgames.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Favourite books&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Deep Work (Cal Newport);&lt;/li&gt;
+&lt;li&gt;How to win friends and influence people (Dale Carnegie);&lt;/li&gt;
+&lt;li&gt;The Old Man and the Sea (Ernest_Hemingway);&lt;/li&gt;
+&lt;li&gt;Walden; or, Life in the Woods (Henry_David_Thoreau);&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Some things I believe about life&lt;/strong&gt; (they might change over time):&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Be kind to others, and dedicate time to your family and friends.
+One of the most common regrets of old people is not having dedicated enough
+time to people they love;&lt;/li&gt;
+&lt;li&gt;One of your main priorities in life should be to develop the ability to work deeply
+and with concentration. If you unlock this skill, you will live an happier life.
+You will be more satisfied with your work and you will be able to accomplish more in less time;&lt;/li&gt;
+&lt;li&gt;From a young age, you should work more than what other people think you should;&lt;/li&gt;
+&lt;li&gt;Find something that makes you genuinely happy and keep doing it. If it can become your job,
+then you are very lucky, but it doesn&amp;rsquo;t always happen;&lt;/li&gt;
+&lt;li&gt;University is overrated. You can learn a lot more with experience and personal projects;&lt;/li&gt;
+&lt;li&gt;You don&amp;rsquo;t need to have an opinion about everything. Sometimes, just let people talk;&lt;/li&gt;
+&lt;li&gt;Physical activity (somehow moving your body) should be one of the main priorities during your day;&lt;/li&gt;
+&lt;li&gt;Only buy objects that you need;&lt;/li&gt;
+&lt;li&gt;Generative models (e.g ChatGPT) should be used with a lot of care. We still don&amp;rsquo;t know how these
+tools impact our brain and our learning capabilities;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Happiness lies in creativity&lt;/strong&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Favourite quote&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;[&amp;hellip;] &lt;em&gt;but man is not made for defeat.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Ernest_Hemingway&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt; #\##|   |
+##\\ |   |
+   \\|   \&amp;#39;---&amp;#39;/
+    \   _&amp;#39;.&amp;#39;O&amp;#39;.&amp;#39;
+     | :___   \
+     |  _| :  |
+     | :__,___/
+     |   |
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
+    </item>
+    
+    <item>
       <title>Z340 Decoder in C</title>
       <link>/posts/zodiac/</link>
       <pubDate>Sat, 17 May 2025 12:24:09 +0200</pubDate>
@@ -331,96 +435,6 @@ Materiale  📃 Cheatsheet 📃 Intro to supervised learning 📃 Bayes classifi
 &lt;li&gt;📃 &lt;a href=&#34;https://theelandor.github.io/prova/autoencoders.pdf&#34;&gt;Variational Autoencoders&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </content>
-    </item>
-    
-    <item>
-      <title>About</title>
-      <link>/about/</link>
-      <pubDate>Sun, 11 May 2025 23:55:51 +0200</pubDate>
-      
-      <guid>/about/</guid>
-      <description>Hello stranger, and welcome to my personal blog! My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena. I study Artificial Intelligence Engineering. Computer science is my biggest passion, that&amp;rsquo;s why here you will mainly find I.T related posts and articles, together with some of my university notes.
-My primary interests lie in algorithms, machine learning and deep learning. During my bachelor&amp;rsquo;s internship I worked on reinforcement learning applied to autonomous vehicles coordination at smart intersections.</description>
-      <content>&lt;p&gt;Hello stranger, and welcome to my personal blog!
-My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena.
-I study &lt;strong&gt;&lt;code&gt;Artificial Intelligence Engineering&lt;/code&gt;&lt;/strong&gt;. Computer science is my biggest passion, that&amp;rsquo;s why here you will mainly find I.T related posts and articles,
-together with some of my university notes.&lt;/p&gt;
-&lt;p&gt;My primary interests lie in algorithms, machine learning and deep learning.
-During my bachelor&amp;rsquo;s internship I worked on reinforcement learning applied to
-autonomous vehicles coordination at smart intersections.
-Together with my supervisors, I co-authored a &lt;strong&gt;scientific article&lt;/strong&gt; that has now been published.
-If you&amp;rsquo;re interested, you can find the work at the following link: &lt;a href=&#34;https://www.mdpi.com/1424-8220/24/4/1288&#34;&gt;https://www.mdpi.com/1424-8220/24/4/1288&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;I used to teach computer science in Liceo Statale “R. Corso”. My course was an introduction
-to algorithms and problem solving, which I believe is a really important skill to develop from a young age.&lt;/p&gt;
-&lt;p&gt;You&amp;rsquo;ll find more information about me down below.
-If you are interested, you can find my bachelor&amp;rsquo;s thesis at the following link: &lt;a href=&#34;https://theelandor.github.io/prova/Tesi_Stampa.pdf&#34;&gt;https://theelandor.github.io/prova/Tesi_Stampa.pdf&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Enjoy!&lt;/strong&gt; ( I mean life, in general ;) )&lt;/p&gt;
-
-  &lt;figure class=&#34;left&#34; &gt;
-    &lt;img src=&#34;/ox-hugo/profile.jpg&#34;   /&gt;
-    
-      &lt;figcaption class=&#34;center&#34; &gt;&lt;span class=&#34;figure-number&#34;&gt;Figure 1: &lt;/span&gt;This is me.&lt;/figcaption&gt;
-    
-  &lt;/figure&gt;
-
-
-&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Age&lt;/strong&gt;: 24&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Birthday&lt;/strong&gt;: 1/8/2001&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Other interests&lt;/strong&gt;: Productivity, Reading, Vintage Technology,
-Dungeons and Dragons, Boardgames.&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Favourite books&lt;/strong&gt;:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Deep Work (Cal Newport);&lt;/li&gt;
-&lt;li&gt;How to win friends and influence people (Dale Carnegie);&lt;/li&gt;
-&lt;li&gt;The Old Man and the Sea (Ernest_Hemingway);&lt;/li&gt;
-&lt;li&gt;Walden; or, Life in the Woods (Henry_David_Thoreau);&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;&lt;strong&gt;Some things I believe about life&lt;/strong&gt; (they might change over time):&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Be kind to others, and dedicate time to your family and friends.
-One of the most common regrets of old people is not having dedicated enough
-time to people they love;&lt;/li&gt;
-&lt;li&gt;One of your main priorities in life should be to develop the ability to work deeply
-and with concentration. If you unlock this skill, you will live an happier life.
-You will be more satisfied with your work and you will be able to accomplish more in less time;&lt;/li&gt;
-&lt;li&gt;From a young age, you should work more than what other people think you should;&lt;/li&gt;
-&lt;li&gt;Find something that makes you genuinely happy and keep doing it. If it can become your job,
-then you are very lucky, but it doesn&amp;rsquo;t always happen;&lt;/li&gt;
-&lt;li&gt;University is overrated. You can learn a lot more with experience and personal projects;&lt;/li&gt;
-&lt;li&gt;You don&amp;rsquo;t need to have an opinion about everything. Sometimes, just let people talk;&lt;/li&gt;
-&lt;li&gt;Physical activity (somehow moving your body) should be one of the main priorities during your day;&lt;/li&gt;
-&lt;li&gt;Only buy objects that you need;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Happiness lies in creativity&lt;/strong&gt;.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Favourite quote&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;p&gt;[&amp;hellip;] &lt;em&gt;but man is not made for defeat.&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;Ernest_Hemingway&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-&lt;!-- raw HTML omitted --&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt; #\##|   |
-##\\ |   |
-   \\|   \&amp;#39;---&amp;#39;/
-    \   _&amp;#39;.&amp;#39;O&amp;#39;.&amp;#39;
-     | :___   \
-     |  _| :  |
-     | :__,___/
-     |   |
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content>
     </item>
     
     <item>
