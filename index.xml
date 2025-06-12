@@ -10,7 +10,7 @@
     <item>
       <title>About</title>
       <link>/about/</link>
-      <pubDate>Thu, 12 Jun 2025 19:27:41 +0200</pubDate>
+      <pubDate>Thu, 12 Jun 2025 19:38:15 +0200</pubDate>
       
       <guid>/about/</guid>
       <description>Hello stranger, and welcome to my personal blog! My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena, studying Artificial Intelligence Engineering. I have a BS degree in Computer Science, which is one of my biggest passions. In my free time, I like teaching stuff. I occasionally post videos on my YouTube channel and I’ve also had the chance to be a computer science teacher in high school.</description>
@@ -20,8 +20,8 @@ studying &lt;strong&gt;&lt;code&gt;Artificial Intelligence Engineering&lt;/code&
 which is one of my biggest passions.
 In my free time, I like teaching stuff. I occasionally post videos on my &lt;a href=&#34;https://www.youtube.com/@MLStudentOdyssey&#34;&gt;YouTube channel&lt;/a&gt; and I’ve also had the chance to be a computer science teacher in high school.
 My course was all about programming and problem-solving, with a strong focus on learning through coding challenges.&lt;/p&gt;
-&lt;p&gt;My primary interests lie in deep learning, algorithms and puzzles.
-Here&amp;rsquo;s a list of cool project I conducted in the recent years, grouped by topic:&lt;/p&gt;
+&lt;p&gt;My primary interests lie in deep learning, algorithms and puzzles.&lt;/p&gt;
+&lt;p&gt;Here are some cool projects I&amp;rsquo;ve been working on recently, sorted by topic&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Machine Learning &amp;amp; Deep Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;A toy gradient descent implementation (from scratch) using numpy: &lt;a href=&#34;https://github.com/theElandor/GradientDescent&#34;&gt;https://github.com/theElandor/GradientDescent&lt;/a&gt;;&lt;/li&gt;
