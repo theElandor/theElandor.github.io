@@ -10,7 +10,7 @@
     <item>
       <title>About</title>
       <link>/about/</link>
-      <pubDate>Thu, 12 Jun 2025 19:27:41 +0200</pubDate>
+      <pubDate>Fri, 29 Aug 2025 19:36:02 +0200</pubDate>
       
       <guid>/about/</guid>
       <description>Hello stranger, and welcome to my personal blog! My name is Matteo Lugli, and I am currently a Master&amp;rsquo;s student at university of Modena, studying Artificial Intelligence Engineering. I have a BS degree in Computer Science, which is one of my biggest passions. In my free time, I like teaching stuff. I occasionally post videos on my YouTube channel and I’ve also had the chance to be a computer science teacher in high school.</description>
@@ -20,23 +20,27 @@ studying &lt;strong&gt;&lt;code&gt;Artificial Intelligence Engineering&lt;/code&
 which is one of my biggest passions.
 In my free time, I like teaching stuff. I occasionally post videos on my &lt;a href=&#34;https://www.youtube.com/@MLStudentOdyssey&#34;&gt;YouTube channel&lt;/a&gt; and I’ve also had the chance to be a computer science teacher in high school.
 My course was all about programming and problem-solving, with a strong focus on learning through coding challenges.&lt;/p&gt;
-&lt;p&gt;My primary interests lie in deep learning, algorithms and puzzles.
-Here&amp;rsquo;s a list of cool project I conducted in the recent years, grouped by topic:&lt;/p&gt;
+&lt;p&gt;My primary interests lie in deep learning, algorithms and puzzles.&lt;/p&gt;
+&lt;p&gt;Here are some cool projects I&amp;rsquo;ve been working on recently, sorted by topic&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Machine Learning &amp;amp; Deep Learning&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;A toy gradient descent implementation (from scratch) using numpy: &lt;a href=&#34;https://github.com/theElandor/GradientDescent&#34;&gt;https://github.com/theElandor/GradientDescent&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;Reinforcement learning applied to autonomous crossing management: &lt;a href=&#34;https://www.mdpi.com/1424-8220/24/4/1288&#34;&gt;https://www.mdpi.com/1424-8220/24/4/1288&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;Semantic segmentation of remote-sensing images using deep learning: &lt;a href=&#34;https://github.com/theElandor/CVCS&#34;&gt;https://github.com/theElandor/CVCS&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;Self-supervised learning applied to fluorescent microscopy images: &lt;a href=&#34;https://github.com/homarone00/AIBIO_proj&#34;&gt;https://github.com/homarone00/AIBIO_proj&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;📐​ A toy gradient descent implementation (from scratch) using numpy: &lt;a href=&#34;https://github.com/theElandor/GradientDescent&#34;&gt;https://github.com/theElandor/GradientDescent&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;🚦 R​einforcement learning applied to autonomous crossing management: &lt;a href=&#34;https://www.mdpi.com/1424-8220/24/4/1288&#34;&gt;https://www.mdpi.com/1424-8220/24/4/1288&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;​🛰 Semantic segmentation and retrieval of remote sensing images: &lt;a href=&#34;https://github.com/theElandor/CVCS&#34;&gt;https://github.com/theElandor/CVCS&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;​🔬 ​S​​elf-supervised learning applied to classification of fluorescent microscopy images: &lt;a href=&#34;https://github.com/homarone00/AIBIO_proj&#34;&gt;https://github.com/homarone00/AIBIO_proj&lt;/a&gt;;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;Algorithms and puzzles&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;All 25 days of Advent of Code (2024) in Python: &lt;a href=&#34;https://github.com/theElandor/aoc2024&#34;&gt;https://github.com/theElandor/aoc2024&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;All 20 days of EveryBody codes (2024) in Python: &lt;a href=&#34;https://github.com/theElandor/Everybody-Codes&#34;&gt;https://github.com/theElandor/Everybody-Codes&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;All 18 days of Codyssi (2025) in Python and C++: &lt;a href=&#34;https://github.com/theElandor/codyssi2025&#34;&gt;https://github.com/theElandor/codyssi2025&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;All 3 quests of the first EveryBody codes story in C++ and Python: &lt;a href=&#34;https://github.com/theElandor/ec2025&#34;&gt;https://github.com/theElandor/ec2025&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;A coding challenge that I made for students (will you be able to complete it? ;) &lt;a href=&#34;https://theelandor.github.io/challenges/&#34;&gt;https://theelandor.github.io/challenges/&lt;/a&gt;;&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Nodes&lt;/strong&gt;, a Python framework to play with distributed algorithms: &lt;a href=&#34;https://github.com/theElandor/Nodes&#34;&gt;https://github.com/theElandor/Nodes&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;​🌲​ All 25 days of Advent of Code (2024) in Python: &lt;a href=&#34;https://github.com/theElandor/aoc2024&#34;&gt;https://github.com/theElandor/aoc2024&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;​​🦆​ All 20 days of EveryBody codes (2024) in Python: &lt;a href=&#34;https://github.com/theElandor/Everybody-Codes&#34;&gt;https://github.com/theElandor/Everybody-Codes&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;🦆​ E​verybody codes stories in C++ and Python: &lt;a href=&#34;https://github.com/theElandor/ec2025&#34;&gt;https://github.com/theElandor/ec2025&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;​​​🔱​ A​​ll 18 days of Codyssi (2025) in Python and C++: &lt;a href=&#34;https://github.com/theElandor/codyssi2025&#34;&gt;https://github.com/theElandor/codyssi2025&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;🖥️ ​A coding challenge that I made for students (will you be able to complete it? ;) &lt;a href=&#34;https://theelandor.github.io/challenges/&#34;&gt;https://theelandor.github.io/challenges/&lt;/a&gt;;&lt;/li&gt;
+&lt;li&gt;​🌐 ​&lt;strong&gt;Nodes&lt;/strong&gt;, a Python framework to play with distributed algorithms: &lt;a href=&#34;https://github.com/theElandor/Nodes&#34;&gt;https://github.com/theElandor/Nodes&lt;/a&gt;;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Currently Working on&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;​🎴 ​A MTGO (Magic The Gathering Online) clone to play online for free: &lt;a href=&#34;https://github.com/theElandor/psim&#34;&gt;https://github.com/theElandor/psim&lt;/a&gt;;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;You&amp;rsquo;ll find more information about me down below.
 If you are interested, you can find my bachelor&amp;rsquo;s thesis at the following link: &lt;a href=&#34;https://theelandor.github.io/prova/Tesi_Stampa.pdf&#34;&gt;https://theelandor.github.io/prova/Tesi_Stampa.pdf&lt;/a&gt;&lt;/p&gt;
