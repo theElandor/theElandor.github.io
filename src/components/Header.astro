@@ -1,6 +1,5 @@
 ---
-import { nav, site } from '../lib/site';
-import Logo from './Logo.astro';
+import { nav } from '../lib/site';
 
 const { overlay = false } = Astro.props;
 const path = Astro.url.pathname;
@@ -8,10 +7,7 @@ const isActive = (href: string) => path === href || path.startsWith(href);
 ---
 <header class:list={['site-header', { overlay }]} data-header>
   <div class="wrap bar">
-    <a href="/" class="brand" aria-label={`${site.name}, home`}>
-      <Logo />
-      <span>{site.name}</span>
-    </a>
+    <a href="/" class="home" aria-current={path === '/' ? 'page' : undefined}>Home</a>
     <nav aria-label="Main">
       <ul class="links" id="nav-links">
         {nav.map((item) => (
@@ -83,16 +79,22 @@ const isActive = (href: string) => path === href || path.startsWith(href);
     gap: 24px;
     height: 64px;
   }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  .home {
+    padding: 7px 16px;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
     font-family: var(--font-display);
     font-weight: 600;
-    font-size: 1.05rem;
+    font-size: 0.95rem;
+    color: var(--text);
     text-decoration: none;
-    letter-spacing: -0.01em;
     white-space: nowrap;
+    transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+  }
+  .home:hover,
+  .home[aria-current='page'] {
+    border-color: var(--accent);
+    background: var(--accent-soft);
   }
   nav {
     margin-left: auto;
