@@ -12,7 +12,6 @@ const scholar = site.links.find((l) => l.label.toLowerCase().includes('scholar')
     <header class="page-head">
       <p class="eyebrow">Research</p>
       <h1>Publications</h1>
-      <p class="lede">My research focuses on AI for medical imaging, in particular dental data: intraoral scans, CBCT and photographs.</p>
       {scholar && <p><a class="btn" href={scholar.url} target="_blank" rel="noopener">Google Scholar profile ↗</a></p>}
     </header>
     <section class="list">{pubs.map((p) => <Publication pub={p.data} />)}</section>
