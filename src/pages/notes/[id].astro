@@ -1,0 +1,23 @@
+---
+import { getCollection, render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import ArchiveBanner from '../../components/ArchiveBanner.astro';
+
+export async function getStaticPaths() {
+  const notes = await getCollection('notes');
+  return notes.map((note) => ({ params: { id: note.id }, props: { note } }));
+}
+
+const { note } = Astro.props;
+const { Content, headings } = await render(note);
+---
+<Article
+  title={note.data.course}
+  description={note.data.title}
+  eyebrow={`University notes${note.data.year ? ` · ${note.data.year}` : ''}`}
+  back={{ href: '/notes/', label: 'All notes' }}
+  headings={headings}
+>
+  <ArchiveBanner slot="banner" />
+  <Content />
+</Article>

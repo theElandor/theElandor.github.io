@@ -1,0 +1,263 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Sierpinski from '../components/Sierpinski.astro';
+import PostRow from '../components/PostRow.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Publication from '../components/Publication.astro';
+import { site } from '../lib/site';
+import { getPosts } from '../lib/content';
+
+const posts = (await getPosts()).slice(0, 4);
+const featured = (await getCollection('projects')).filter((p) => p.data.featured);
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const slides = await getCollection('slides');
+const notes = await getCollection('notes');
+const slideCount = slides.reduce((n, t) => n + t.data.items.filter((i) => i.kind === 'slides').length, 0);
+
+const explore = [
+  { href: '/teaching/', label: 'Teaching', title: 'School slides', text: `${slideCount} decks from my time as a high-school CS teacher, grouped by topic.`, glyph: '▲' },
+  { href: '/notes/', label: 'Archive', title: 'University notes', text: `${notes.length} courses of notes, written before LLMs. A historical document.`, glyph: '◢' },
+  { href: '/challenges/', label: 'Puzzle', title: 'Yet Another Python Challenge', text: 'The coding challenge I made for my students. Can you finish it?', glyph: '◣' },
+  { href: '/about/', label: 'Bio', title: 'About me', text: 'Who I am, what I believe in, and the books I keep coming back to.', glyph: '◤' },
+];
+---
+<Base bleed>
+  <section class="hero">
+    <Sierpinski />
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">{site.handle} · {site.location}</p>
+      <h1>{site.name}</h1>
+      <p class="tagline">{site.tagline}</p>
+      <p class="intro">{site.intro}</p>
+      <div class="cta">
+        <a class="btn primary" href="/posts/">Read the blog</a>
+        <a class="btn" href="/publications/">Publications</a>
+        <a class="btn" href="/projects/">Projects</a>
+      </div>
+      <ul class="socials">
+        {site.links.map((l) => <li><a href={l.url} target="_blank" rel="me noopener">{l.label} ↗</a></li>)}
+      </ul>
+    </div>
+    <p class="caption mono" aria-hidden="true">Sierpiński gasket · rendered live, per pixel</p>
+    <a class="scroll" href="#latest" aria-label="Scroll to content"><span></span></a>
+  </section>
+
+  <section class="section wrap" id="latest">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Writing</p>
+        <h2>Latest posts</h2>
+      </div>
+      <a class="more" href="/posts/">All posts →</a>
+    </div>
+    <div>{posts.map((post) => <PostRow post={post} />)}</div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Research</p>
+        <h2>Publications</h2>
+      </div>
+      <a class="more" href="/publications/">All publications →</a>
+    </div>
+    <div>{pubs.slice(0, 3).map((p) => <Publication pub={p.data} />)}</div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Building</p>
+        <h2>Featured projects</h2>
+      </div>
+      <a class="more" href="/projects/">All projects →</a>
+    </div>
+    <div class="grid">{featured.map((p) => <ProjectCard project={p.data} />)}</div>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <div>
+        <p class="eyebrow">Explore</p>
+        <h2>More from the archive</h2>
+      </div>
+    </div>
+    <div class="explore">
+      {explore.map((e) => (
+        <a class="card tile" href={e.href}>
+          <span class="glyph" aria-hidden="true">{e.glyph}</span>
+          <span class="eyebrow">{e.label}</span>
+          <h3>{e.title}</h3>
+          <p>{e.text}</p>
+        </a>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100svh;
+    display: flex;
+    align-items: flex-end;
+    overflow: hidden;
+    background: #09090f;
+    isolation: isolate;
+  }
+  :global([data-theme='light']) .hero {
+    background: #f9f8f5;
+  }
+  .scrim {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(to bottom, color-mix(in srgb, var(--bg) 70%, transparent) 0, transparent 140px),
+      linear-gradient(to right, color-mix(in srgb, var(--bg) 90%, transparent) 0%, color-mix(in srgb, var(--bg) 62%, transparent) 40%, transparent 68%),
+      linear-gradient(to top, var(--bg) 0%, transparent 28%);
+  }
+  @media (max-width: 800px) {
+    .scrim {
+      background:
+        linear-gradient(to bottom, color-mix(in srgb, var(--bg) 70%, transparent) 0, transparent 140px),
+        linear-gradient(to top, var(--bg) 0%, color-mix(in srgb, var(--bg) 85%, transparent) 45%, color-mix(in srgb, var(--bg) 35%, transparent) 75%);
+    }
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+    padding-top: 120px;
+    padding-bottom: clamp(72px, 12vh, 128px);
+  }
+  .hero h1 {
+    font-size: clamp(3rem, 10vw, 7.2rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+    margin: 0;
+    font-weight: 650;
+  }
+  .tagline {
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.4vw, 1.6rem);
+    margin: 18px 0 0;
+    background: linear-gradient(90deg, #a78bfa, #22d3ee 55%, #fbbf24);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-weight: 550;
+    width: fit-content;
+  }
+  :global([data-theme='light']) .tagline {
+    background-image: linear-gradient(90deg, #6d28d9, #0e7490 55%, #b45309);
+  }
+  .intro {
+    max-width: 54ch;
+    color: var(--text-soft);
+    font-size: 1.08rem;
+    margin: 14px 0 0;
+  }
+  .cta {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .socials {
+    list-style: none;
+    padding: 0;
+    margin: 24px 0 0;
+    display: flex;
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .socials a {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: none;
+  }
+  .socials a:hover {
+    color: var(--accent);
+  }
+  .caption {
+    position: absolute;
+    right: var(--gutter);
+    bottom: 22px;
+    margin: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    opacity: 0.8;
+    z-index: 1;
+  }
+  .scroll {
+    position: absolute;
+    left: 50%;
+    bottom: 22px;
+    width: 22px;
+    height: 34px;
+    margin-left: -11px;
+    border: 1.5px solid var(--border-strong);
+    border-radius: 12px;
+    z-index: 1;
+  }
+  .scroll span {
+    position: absolute;
+    left: 50%;
+    top: 7px;
+    width: 3px;
+    height: 7px;
+    margin-left: -1.5px;
+    border-radius: 2px;
+    background: var(--text-soft);
+    animation: drip 1.8s ease-in-out infinite;
+  }
+  @keyframes drip {
+    0% { transform: translateY(0); opacity: 1; }
+    70% { transform: translateY(12px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 0; }
+  }
+  @media (max-width: 700px) {
+    .caption,
+    .scroll {
+      display: none;
+    }
+  }
+
+  .explore {
+    display: grid;
+    gap: 18px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr));
+  }
+  .tile {
+    position: relative;
+    padding: 24px 22px;
+    overflow: hidden;
+  }
+  .tile h3 {
+    margin: 0 0 8px;
+    font-size: 1.2rem;
+  }
+  .tile p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.94rem;
+  }
+  .glyph {
+    position: absolute;
+    right: -6px;
+    top: -18px;
+    font-size: 5.5rem;
+    line-height: 1;
+    color: var(--accent);
+    opacity: 0.08;
+    transition: opacity 0.2s ease, transform 0.3s ease;
+  }
+  .tile:hover .glyph {
+    opacity: 0.18;
+    transform: rotate(-8deg) scale(1.05);
+  }
+</style>

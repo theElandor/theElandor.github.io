@@ -1,0 +1,74 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatDate } from '../lib/site';
+
+interface Props { post: CollectionEntry<'posts'> }
+const { post } = Astro.props;
+---
+<a class="row" href={`/posts/${post.id}/`}>
+  <time class="date" datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+  <div class="body">
+    <h3>{post.data.title}</h3>
+    {post.data.description && <p>{post.data.description}</p>}
+  </div>
+  <div class="tags">{post.data.tags.map((t) => <span class="chip">{t}</span>)}</div>
+  <span class="arrow" aria-hidden="true">→</span>
+</a>
+
+<style>
+  .row {
+    display: grid;
+    grid-template-columns: 120px 1fr auto 20px;
+    gap: 20px;
+    align-items: baseline;
+    padding: 20px 4px;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.15s ease;
+  }
+  .row:hover h3 {
+    color: var(--accent);
+  }
+  .row:hover .arrow {
+    transform: translateX(4px);
+    color: var(--accent);
+  }
+  .date {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    transition: color 0.15s ease;
+  }
+  p {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+  .tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    justify-content: end;
+  }
+  .arrow {
+    color: var(--muted);
+    transition: transform 0.15s ease;
+  }
+  @media (max-width: 680px) {
+    .row {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+    .tags {
+      justify-content: start;
+    }
+    .arrow {
+      display: none;
+    }
+  }
+</style>

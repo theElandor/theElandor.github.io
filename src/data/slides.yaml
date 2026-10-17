@@ -1,0 +1,71 @@
+# Slides and materials from my time as a high-school CS teacher, grouped by topic.
+# Each topic has a list of items; "url" can point to a file in /public or anywhere on the web.
+- topic: Python, from zero
+  description: Setting up Python and building up the language one concept at a time.
+  items:
+    - title: Python setup
+      description: Introduzione, setup, come aprire l'IDLE e creare un file.
+      url: /prova/tutorial.html
+    - title: Python basics
+      description: Liste ed esempi guidati.
+      url: /prova/python.html
+    - title: Python, Memoria e While loops
+      description: Esercizi di ripasso, memoria e cicli while.
+      url: /prova/memoria.html
+    - title: Funzioni e Ricorsione
+      description: Funzioni, intuizione, sintassi e ricorsione.
+      url: /prova/funzioni.html
+    - title: Esercizi di ripasso
+      description: Una raccolta di esercizi, dai più facili ai più difficili.
+      url: /prova/esercizi.html
+- topic: Algorithms
+  description: Classic algorithms, explained and coded.
+  items:
+    - title: Bubble e Selection Sort
+      description: Idea e codice dei due algoritmi di ordinamento.
+      url: /prova/sorting.html
+- topic: Numerical methods
+  description: How computers represent numbers, and what happens to the error.
+  items:
+    - title: La rappresentazione dei numeri
+      description: Metodo atomico e rappresentazione in base β.
+      url: /rapp.html
+    - title: Propagazione dell'errore
+      description: Il concetto di errore, con esempi ed esperimenti.
+      url: /prova/errors.html
+    - title: Metodi iterativi
+      description: Metodo di bisezione e metodo di Newton.
+      url: /prova/metodi_iterativi.html
+    - title: Integrale di Riemann
+      description: Il concetto di integrale e la sua definizione.
+      url: /prova/rieman.html
+- topic: Data science
+  description: Why problem solving matters, and where it leads.
+  items:
+    - title: Data Science Intro
+      description: Motivazioni, l'importanza del problem solving, applicazioni.
+      url: /prova/commedia.html
+- topic: Exercises & tests
+  description: Printable handouts and past tests (PDF).
+  items:
+    - title: Esercizi sulla ricorsione
+      url: /prova/Esercizi_Ricorsione.pdf
+      kind: pdf
+    - title: Verifica 3E
+      url: /prova/verifiche/Verifica_3E.pdf
+      kind: pdf
+    - title: Verifica 3ESa (Maggio)
+      url: /prova/verifiche/Verifica_3ESa_Maggio.pdf
+      kind: pdf
+    - title: Verifica 4C
+      url: /prova/verifiche/Verifica_4C.pdf
+      kind: pdf
+    - title: Verifica 4CSa (Maggio)
+      url: /prova/verifiche/Verifica_Maggio_4CSa.pdf
+      kind: pdf
+    - title: Verifica 5C
+      url: /prova/verifiche/Verifica_5C.pdf
+      kind: pdf
+    - title: Verifica di recupero
+      url: /prova/verifiche/Verifica_di_Recupero.pdf
+      kind: pdf

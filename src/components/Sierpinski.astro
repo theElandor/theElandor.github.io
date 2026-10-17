@@ -1,0 +1,304 @@
+---
+// Real-time Sierpiński gasket rendered per-pixel in a WebGL fragment shader.
+// It builds itself level by level, then dives forever into a self-similar
+// point of the fractal (the loop is seamless, so float precision never runs out).
+---
+<canvas class="sierpinski" aria-hidden="true"></canvas>
+
+<style>
+  .sierpinski {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+</style>
+
+<script>
+  const VERT = `
+    attribute vec2 a;
+    void main() { gl_Position = vec4(a, 0.0, 1.0); }
+  `;
+
+  const FRAG = `
+    #ifdef GL_FRAGMENT_PRECISION_HIGH
+    precision highp float;
+    #else
+    precision mediump float;
+    #endif
+    uniform vec2 uRes;
+    uniform vec2 uCenter;
+    uniform float uHalfH;
+    uniform float uZoom;
+    uniform float uTime;
+    uniform float uReveal;
+    uniform vec2 uMouse;
+    uniform float uLight;
+    uniform float uShift;
+
+    const float H = 0.8660254;
+
+    vec3 ramp(float t) {
+      t = fract(t) * 3.0;
+      vec3 a = vec3(0.545, 0.361, 0.965); // violet
+      vec3 b = vec3(0.133, 0.827, 0.933); // cyan
+      vec3 c = vec3(0.984, 0.749, 0.141); // amber
+      if (t < 1.0) return mix(a, b, smoothstep(0.0, 1.0, t));
+      if (t < 2.0) return mix(b, c, smoothstep(0.0, 1.0, t - 1.0));
+      return mix(c, a, smoothstep(0.0, 1.0, t - 2.0));
+    }
+
+    float hash(vec2 p) { return fract(sin(dot(p, vec2(12.9898, 78.233))) * 43758.5453); }
+
+    void main() {
+      vec2 uv = (gl_FragCoord.xy - 0.5 * uRes) / uRes.y;
+      vec2 p = uCenter + (uv - vec2(uShift, 0.0)) * 2.0 * uHalfH;
+      float pw = 2.0 * uHalfH / uRes.y;
+
+      vec3 bgDark = vec3(0.035, 0.035, 0.063);
+      vec3 bgLight = vec3(0.976, 0.973, 0.961);
+      vec3 bg = mix(bgDark, bgLight, uLight);
+      vec3 ink = mix(vec3(0.93, 0.93, 1.0), vec3(0.08, 0.08, 0.14), uLight);
+
+      float v = p.y / H;
+      float u = p.x - 0.5 * v;
+      float dOut = max(max(-u, -v), u + v - 1.0) * H;
+
+      // mouse spotlight
+      float md = length(gl_FragCoord.xy - uMouse) / uRes.y;
+      float spot = uMouse.x < 0.0 ? 0.0 : exp(-md * md * 9.0);
+
+      vec3 col;
+      if (dOut > 0.0) {
+        float glow = exp(-dOut / 0.05);
+        col = bg + ramp(uTime * 0.03) * glow * mix(0.16, 0.08, uLight);
+        col = mix(ink, col, smoothstep(0.0, pw * 1.5, dOut));
+      } else {
+        float scale = 1.0;
+        float holeK = -1.0;
+        float dLocal = 0.0;
+        for (int i = 0; i < 30; i++) {
+          if (scale < pw * 1.5) break;
+          u *= 2.0; v *= 2.0; scale *= 0.5;
+          if (u >= 1.0) { u -= 1.0; }
+          else if (v >= 1.0) { v -= 1.0; }
+          else if (u + v > 1.0) {
+            holeK = float(i);
+            dLocal = min(min(1.0 - u, 1.0 - v), u + v - 1.0);
+            break;
+          }
+        }
+
+        float rel = holeK - uZoom;
+        vec3 tint = ramp(rel * 0.11 + uTime * 0.025);
+        vec3 line = mix(ink, tint, 0.45 + 0.25 * uLight);
+
+        // Average look of structure too small to resolve (level-of-detail target).
+        vec3 dust = mix(bg, mix(ink, ramp(uTime * 0.025 + 0.5), 0.5), mix(0.22, 0.3, uLight));
+        if (holeK < 0.0) {
+          col = dust;
+        } else {
+          float reveal = clamp(uReveal - holeK, 0.0, 1.0);
+          float dW = dLocal * scale * H * 2.0;
+          float inside = smoothstep(0.0, pw * 1.4, dW);
+          float size = clamp(1.0 - rel * 0.07, 0.25, 1.0);
+          float rim = exp(-dLocal * 10.0) * size;
+          float fill = exp(-dLocal * 2.4) * 0.06 * size;
+          vec3 hole = bg + tint * (rim * 0.55 + fill) * (1.0 + spot * 1.4);
+          if (uLight > 0.5) hole = bg - (vec3(1.0) - tint) * (rim * 0.5 + fill);
+          vec3 solid = mix(bg, line, 0.92);
+          vec3 c = mix(solid, mix(line, hole, inside), reveal);
+          // Fade holes that are only a few pixels wide into the dust tone (no shimmer).
+          col = mix(dust, c, smoothstep(pw * 2.0, pw * 7.0, scale));
+        }
+      }
+
+      // vignette + grain (kills banding)
+      float vig = 1.0 - 0.35 * dot(uv * vec2(0.8, 1.0), uv * vec2(0.8, 1.0));
+      col *= mix(vig, 1.0, uLight * 0.7);
+      col += (hash(gl_FragCoord.xy + fract(uTime)) - 0.5) * 0.012;
+      gl_FragColor = vec4(col, 1.0);
+    }
+  `;
+
+  const H = Math.sqrt(3) / 2;
+  // Fixed point of f_L ∘ f_R ∘ f_T: zooming by 8x around it reproduces the same picture.
+  const P = { x: 2.5 / 7, y: H / 7 };
+  const CENTROID = { x: 0.5, y: H / 3 };
+  const EDGE_MARGIN = 0.112; // distance from P to the nearest edge is H/7 ≈ 0.124
+  const REVEAL_SECONDS = 2.8;
+  const REVEAL_DEPTH = 9;
+  const OCTAVES_PER_SECOND = 0.2;
+
+  const smooth = (t: number) => t * t * (3 - 2 * t);
+
+  function init(canvas: HTMLCanvasElement) {
+    const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'high-performance' });
+    if (!gl) return fallback(canvas);
+
+    const compile = (type: number, src: string) => {
+      const s = gl.createShader(type)!;
+      gl.shaderSource(s, src);
+      gl.compileShader(s);
+      if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) throw new Error(gl.getShaderInfoLog(s) ?? 'shader');
+      return s;
+    };
+    const prog = gl.createProgram()!;
+    try {
+      gl.attachShader(prog, compile(gl.VERTEX_SHADER, VERT));
+      gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FRAG));
+      gl.linkProgram(prog);
+    } catch (e) {
+      console.warn(e);
+      return fallback(canvas);
+    }
+    gl.useProgram(prog);
+    const buf = gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1, -1, 3, -1, -1, 3]), gl.STATIC_DRAW);
+    const loc = gl.getAttribLocation(prog, 'a');
+    gl.enableVertexAttribArray(loc);
+    gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
+
+    const U = Object.fromEntries(
+      ['uRes', 'uCenter', 'uHalfH', 'uZoom', 'uTime', 'uReveal', 'uMouse', 'uLight', 'uShift'].map((n) => [n, gl.getUniformLocation(prog, n)]),
+    );
+
+    const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let quality = Math.min(window.devicePixelRatio || 1, 2);
+    let w = 0, h = 0;
+    const resize = () => {
+      const r = canvas.getBoundingClientRect();
+      w = Math.max(1, Math.round(r.width * quality));
+      h = Math.max(1, Math.round(r.height * quality));
+      if (canvas.width !== w || canvas.height !== h) {
+        canvas.width = w;
+        canvas.height = h;
+        gl.viewport(0, 0, w, h);
+      }
+    };
+
+    const mouse = { x: -1, y: -1, tx: 0, ty: 0, px: 0, py: 0 };
+    const onMove = (e: PointerEvent) => {
+      const r = canvas.getBoundingClientRect();
+      mouse.x = (e.clientX - r.left) * quality;
+      mouse.y = (r.bottom - e.clientY) * quality;
+      mouse.tx = (e.clientX - r.left) / r.width - 0.5;
+      mouse.ty = 0.5 - (e.clientY - r.top) / r.height;
+    };
+    window.addEventListener('pointermove', onMove, { passive: true });
+
+    const isLight = () => document.documentElement.dataset.theme === 'light';
+
+    let start = performance.now();
+    let last = start;
+    let visible = true;
+    let raf = 0;
+    let slowFrames = 0;
+
+    const frame = (now: number) => {
+      raf = 0;
+      const dt = now - last;
+      last = now;
+      // Adaptive resolution: keep it fluid on slow GPUs.
+      if (dt > 24 && dt < 200) slowFrames++;
+      else slowFrames = Math.max(0, slowFrames - 1);
+      if (slowFrames > 20 && quality > 0.5) {
+        quality = Math.max(0.5, quality * 0.8);
+        slowFrames = 0;
+      }
+      resize();
+
+      const t = reduced ? 1e3 : (now - start) / 1000;
+      const aspect = w / h;
+      // On wide screens the triangle sits to the right of the hero text.
+      const shift = aspect > 1.15 ? Math.min(0.19 * aspect, 0.4) : 0;
+      const halfFull = Math.max(0.56, 0.6 / aspect);
+      // Farthest visible point from the zoom target, in units of the view's half-height.
+      const reach = 2 * Math.hypot(aspect / 2 + shift, 0.5);
+      const zLoop = Math.max(0, Math.log2((halfFull * reach * 1.08) / EDGE_MARGIN));
+
+      const z = reduced ? 0 : Math.max(0, t - REVEAL_SECONDS) * OCTAVES_PER_SECOND;
+      let zEff = z;
+      let cx: number, cy: number;
+      if (z < zLoop) {
+        const k = smooth(Math.min(1, z / zLoop));
+        cx = CENTROID.x + (P.x - CENTROID.x) * k;
+        cy = CENTROID.y + (P.y - CENTROID.y) * k;
+      } else {
+        zEff = zLoop + ((z - zLoop) % 3);
+        cx = P.x;
+        cy = P.y;
+      }
+      const half = halfFull * Math.pow(2, -zEff);
+      // Gentle parallax, proportional to the view so the loop stays seamless.
+      mouse.px += (mouse.tx - mouse.px) * 0.04;
+      mouse.py += (mouse.ty - mouse.py) * 0.04;
+      cx += mouse.px * half * 0.06;
+      cy += mouse.py * half * 0.06;
+
+      const reveal = reduced ? 99 : t < REVEAL_SECONDS ? smooth(t / REVEAL_SECONDS) * REVEAL_DEPTH : 99;
+
+      gl.uniform2f(U.uRes, w, h);
+      gl.uniform2f(U.uCenter, cx, cy);
+      gl.uniform1f(U.uHalfH, half);
+      gl.uniform1f(U.uZoom, zEff);
+      gl.uniform1f(U.uTime, reduced ? 0 : t);
+      gl.uniform1f(U.uReveal, reveal);
+      gl.uniform2f(U.uMouse, mouse.x, mouse.y);
+      gl.uniform1f(U.uLight, isLight() ? 1 : 0);
+      gl.uniform1f(U.uShift, shift);
+      gl.drawArrays(gl.TRIANGLES, 0, 3);
+
+      if (!reduced && visible) raf = requestAnimationFrame(frame);
+    };
+    const kick = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(frame); } };
+
+    new IntersectionObserver(([entry]) => {
+      const wasVisible = visible;
+      visible = entry.isIntersecting;
+      if (visible && !wasVisible) {
+        // resume where we left off
+        const paused = performance.now() - last;
+        start += paused;
+        kick();
+      }
+    }).observe(canvas);
+    new ResizeObserver(kick).observe(canvas);
+    new MutationObserver(kick).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    kick();
+  }
+
+  // Canvas 2D fallback when WebGL is unavailable: a static gasket.
+  function fallback(canvas: HTMLCanvasElement) {
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+    const draw = () => {
+      const r = canvas.getBoundingClientRect();
+      canvas.width = r.width;
+      canvas.height = r.height;
+      const s = Math.min(r.width, r.height / H) * 0.8;
+      const ox = (r.width - s) / 2, oy = (r.height + s * H) / 2;
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg') || '#09090f';
+      ctx.fillRect(0, 0, r.width, r.height);
+      ctx.strokeStyle = '#8b5cf6';
+      ctx.lineWidth = 1;
+      const tri = (x: number, y: number, size: number, d: number) => {
+        if (d === 0) {
+          ctx.beginPath();
+          ctx.moveTo(x, y); ctx.lineTo(x + size, y); ctx.lineTo(x + size / 2, y - size * H); ctx.closePath();
+          ctx.stroke();
+          return;
+        }
+        const h2 = size / 2;
+        tri(x, y, h2, d - 1); tri(x + h2, y, h2, d - 1); tri(x + h2 / 2, y - h2 * H, h2, d - 1);
+      };
+      tri(ox, oy, s, 6);
+    };
+    draw();
+    new ResizeObserver(draw).observe(canvas);
+  }
+
+  document.querySelectorAll<HTMLCanvasElement>('canvas.sierpinski').forEach(init);
+</script>

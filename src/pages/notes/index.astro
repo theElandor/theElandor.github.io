@@ -1,0 +1,55 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import ArchiveBanner from '../../components/ArchiveBanner.astro';
+
+const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
+const words = (s = '') => s.split(/\s+/).length;
+---
+<Base title="University notes" description="My university notes, written before LLMs: a historical archive.">
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Archive</p>
+      <h1>University notes</h1>
+      <p class="lede">Course notes from my years at Unimore: networks, information retrieval, compilers, security and machine learning.</p>
+    </header>
+    <ArchiveBanner />
+    <div class="grid">
+      {notes.map((n) => (
+        <a class="card note" href={`/notes/${n.id}/`}>
+          <span class="mono course">{n.data.year ?? n.data.date.getFullYear()}</span>
+          <h2>{n.data.course}</h2>
+          <p>{n.data.title}</p>
+          <span class="mono size">~{Math.round(words(n.body) / 100) * 100} words</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
+
+<style>
+  .note {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-height: 180px;
+  }
+  .course,
+  .size {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+  .size {
+    margin-top: auto;
+  }
+  h2 {
+    font-size: 1.3rem;
+    margin: 4px 0 0;
+  }
+  p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const topics = await getCollection('slides');
+const glyphs = ['▲', '◆', '●', '■', '✦', '⬢'];
+---
+<Base title="Teaching" description="Slides and material from my time as a high-school computer science teacher, grouped by topic.">
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Teaching</p>
+      <h1>School slides</h1>
+      <p class="lede">
+        Slides I made as a high-school computer science teacher. The course was all about programming and
+        problem solving, with a strong focus on learning through coding challenges. Material is in Italian.
+      </p>
+      <nav class="jump" aria-label="Topics">
+        {topics.map((t) => <a href={`#topic-${t.id}`}>{t.data.topic}</a>)}
+      </nav>
+    </header>
+
+    {topics.map((t, ti) => (
+      <section class="topic" id={`topic-${t.id}`}>
+        <div class="topic-head">
+          <span class="num mono">{String(ti + 1).padStart(2, '0')}</span>
+          <div>
+            <h2>{t.data.topic}</h2>
+            {t.data.description && <p>{t.data.description}</p>}
+          </div>
+        </div>
+        <div class="deck-grid">
+          {t.data.items.map((s, i) => (
+            <a class="card deck" href={s.url} target="_blank" rel="noopener" data-kind={s.kind}>
+              <div class="thumb" style={`--h:${(ti * 47 + i * 23) % 360}`}>
+                <span class="g" aria-hidden="true">{glyphs[(ti + i) % glyphs.length]}</span>
+                <span class="kind mono">{s.kind === 'pdf' ? 'PDF' : 'Slides'}</span>
+              </div>
+              <div class="info">
+                <h3>{s.title}</h3>
+                {s.description && <p>{s.description}</p>}
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .jump {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+  }
+  .jump a {
+    font-size: 0.88rem;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    text-decoration: none;
+    color: var(--text-soft);
+  }
+  .jump a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .topic {
+    padding: 36px 0 28px;
+    border-top: 1px solid var(--border);
+  }
+  .topic-head {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 24px;
+  }
+  .num {
+    color: var(--accent);
+    font-size: 0.9rem;
+    padding-top: 8px;
+  }
+  .topic-head h2 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  .topic-head p {
+    margin: 4px 0 0;
+    color: var(--muted);
+  }
+  .deck-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+  }
+  .deck {
+    overflow: hidden;
+  }
+  .thumb {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    background:
+      radial-gradient(circle at 20% 120%, hsl(var(--h) 80% 60% / 0.55), transparent 60%),
+      radial-gradient(circle at 110% 0%, hsl(calc(var(--h) + 60) 85% 60% / 0.45), transparent 55%),
+      var(--surface-2);
+    display: grid;
+    place-items: center;
+    border-bottom: 1px solid var(--border);
+  }
+  .g {
+    font-size: 2.6rem;
+    color: var(--text);
+    opacity: 0.75;
+    transition: transform 0.3s ease;
+  }
+  .deck:hover .g {
+    transform: scale(1.12) rotate(-6deg);
+  }
+  .kind {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 0.66rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text-soft);
+  }
+  .info {
+    padding: 14px 16px 16px;
+  }
+  .info h3 {
+    margin: 0;
+    font-size: 1.02rem;
+  }
+  .info p {
+    margin: 6px 0 0;
+    font-size: 0.88rem;
+    color: var(--muted);
+  }
+</style>

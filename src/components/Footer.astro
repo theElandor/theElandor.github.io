@@ -1,0 +1,74 @@
+---
+import { site } from '../lib/site';
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="wrap inner">
+    <div>
+      <p class="name">{site.name}</p>
+      <p class="muted">{site.tagline}</p>
+    </div>
+    <ul class="links">
+      {site.links.map((l) => <li><a href={l.url} rel="me noopener" target="_blank">{l.label}</a></li>)}
+      <li><a href="/index.xml">RSS</a></li>
+    </ul>
+  </div>
+  <div class="wrap fine">
+    <span>© {year} {site.name}</span>
+    <span>Built with Astro · <a href="/about/">About</a></span>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid var(--border);
+    margin-top: 64px;
+    padding: 40px 0 28px;
+    background: var(--bg-soft);
+  }
+  .inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .name {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+  }
+  .muted {
+    color: var(--muted);
+    margin: 4px 0 0;
+    font-size: 0.92rem;
+  }
+  .links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+  }
+  .links a,
+  .fine a {
+    color: var(--text-soft);
+    text-decoration: none;
+    font-size: 0.92rem;
+  }
+  .links a:hover,
+  .fine a:hover {
+    color: var(--accent);
+  }
+  .fine {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 28px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--muted);
+  }
+</style>

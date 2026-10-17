@@ -1,0 +1,115 @@
+# Projects shown on /projects (and the "featured" ones on the home page).
+# category must be one of: Deep Learning, Puzzles, Educational, Contributions
+- name: IOS-Landmarks
+  emoji: 🦷
+  description: A model for fast intraoral-scan (IOS) segmentation and landmark prediction.
+  url: https://github.com/AImageLab-zip/IOS-Landmarks
+  category: Deep Learning
+  featured: true
+- name: IOS-Normalizer
+  emoji: 🦷
+  description: A small model for automatic IOS orientation.
+  url: https://github.com/AImageLab-zip/IOS-Normalizer
+  category: Deep Learning
+- name: CVCS
+  emoji: 🛰️
+  description: Remote Sensing Semantic Segmentation Virtual Lab.
+  url: https://github.com/theElandor/CVCS
+  report: /remotesemseg.pdf
+  category: Deep Learning
+  featured: true
+- name: AIBIO_proj
+  emoji: 🔬
+  description: Classification of microscopy images using cross batch consistency learning.
+  url: https://github.com/theElandor/AIBIO_proj
+  report: /rxrx1.pdf
+  category: Deep Learning
+  featured: true
+- name: GradientDescent
+  emoji: 📉
+  description: Gradient descent implementation done from scratch with numpy.
+  url: https://github.com/theElandor/GradientDescent
+  category: Deep Learning
+- name: Advent of Code 2025
+  emoji: 🎁
+  url: https://github.com/theElandor/aoc2025
+  category: Puzzles
+- name: Advent of Code 2024
+  emoji: 🎄
+  url: https://github.com/theElandor/aoc2024
+  category: Puzzles
+- name: Codyssi 2025
+  emoji: 🌊
+  url: https://github.com/theElandor/codyssi2025
+  category: Puzzles
+- name: Everybody Codes 2026
+  emoji: 🦆
+  url: https://github.com/theElandor/ec2026
+  category: Puzzles
+- name: Everybody Codes 2025
+  emoji: 🦆
+  url: https://github.com/theElandor/ec2025
+  category: Puzzles
+- name: Everybody Codes 2024
+  emoji: 🦆
+  url: https://github.com/theElandor/Everybody-Codes
+  category: Puzzles
+- name: Flip Flop 2025
+  emoji: 🩴
+  url: https://github.com/theElandor/flipflop2025
+  category: Puzzles
+- name: Autumn Code Walks 2026
+  emoji: 🍂
+  url: https://github.com/theElandor/acww2026
+  category: Puzzles
+- name: Nodes
+  emoji: ✉️
+  description: A Python framework to play with distributed algorithms.
+  url: https://github.com/theElandor/Nodes
+  image: /NodesLogoB.png
+  category: Educational
+  featured: true
+- name: Ant Sorting
+  emoji: 🐜
+  description: A cool computational model for ant sorting written in NetLogo.
+  url: https://github.com/theElandor/ant_sorting
+  report: /A_Computational_Model_for_Ant_Sorting.pdf
+  category: Educational
+  featured: true
+- name: Z340
+  emoji: 👮🏻
+  description: Z340 solution in C.
+  url: https://github.com/theElandor/Z340
+  post: /posts/zodiac/
+  category: Educational
+  featured: true
+- name: PsimW
+  emoji: 🃏
+  description: A mini 2D card engine to play MTG (WIP).
+  url: https://github.com/theElandor/Psimw
+  category: Educational
+- name: DCT
+  emoji: 📦
+  description: A small DCT (Discrete Cosine Transform) educational implementation in C with no dependencies.
+  url: https://github.com/theElandor/DCT
+  category: Educational
+- name: lose_law
+  emoji: 📋
+  description: A bash script that reminds you of the most important laws of software engineering.
+  url: https://github.com/theElandor/lose_law
+  category: Educational
+- name: L2L-Registration
+  emoji: 🩻
+  description: A landmark-guided IOS-CBCT registration pipeline.
+  url: https://github.com/AImageLab-zip/L2L-Registration
+  category: Contributions
+- name: Yggdrasil
+  emoji: 🌳
+  description: Contributing to the back-end algorithms for dental data analysis.
+  url: https://github.com/AImageLab-zip/Yggdrasil
+  category: Contributions
+- name: Voynich NLP analysis
+  emoji: 📜
+  description: Visualizing embeddings and discussing.
+  url: https://github.com/brianmg/voynich-nlp-analysis
+  category: Contributions

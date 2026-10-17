@@ -1,0 +1,103 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { project: CollectionEntry<'projects'>['data'] }
+const { project: p } = Astro.props;
+const repo = p.url.replace(/^https:\/\/github\.com\//, '');
+---
+<article class="card project">
+  <div class="top">
+    <span class="emoji" aria-hidden="true">{p.emoji ?? '◆'}</span>
+    <span class="cat">{p.category}</span>
+  </div>
+  <h3><a href={p.url} target="_blank" rel="noopener">{p.name}</a></h3>
+  {p.description && <p>{p.description}</p>}
+  <div class="links">
+    <span class="repo mono">{repo}</span>
+    {p.report && <a href={p.report} class="extra">Report ↗</a>}
+    {p.post && <a href={p.post} class="extra">Blog post →</a>}
+  </div>
+</article>
+
+<style>
+  .project {
+    position: relative;
+    padding: 20px 20px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .project:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+  .top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .emoji {
+    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 12px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+  }
+  .cat {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+  }
+  h3 {
+    margin: 6px 0 0;
+    font-size: 1.15rem;
+  }
+  h3 a {
+    text-decoration: none;
+  }
+  /* whole card is clickable via the title link */
+  h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+  }
+  p {
+    margin: 0;
+    color: var(--text-soft);
+    font-size: 0.94rem;
+  }
+  .links {
+    margin-top: auto;
+    padding-top: 8px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+  }
+  .repo {
+    color: var(--muted);
+    font-size: 0.75rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 100%;
+  }
+  .extra {
+    position: relative;
+    z-index: 1;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 550;
+  }
+  .extra:hover {
+    text-decoration: underline;
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+import type { MarkdownHeading } from 'astro';
+import Base from './Base.astro';
+import { formatDate } from '../lib/site';
+
+interface Props {
+  title: string;
+  description?: string;
+  date?: Date;
+  tags?: string[];
+  minutes?: number;
+  eyebrow?: string;
+  back?: { href: string; label: string };
+  /** Show a table of contents built from h2 headings (for long pages). */
+  headings?: MarkdownHeading[];
+}
+const { title, description, date, tags = [], minutes, eyebrow, back, headings = [] } = Astro.props;
+const toc = headings.filter((h) => h.depth === 2);
+const showToc = toc.length >= 4;
+---
+<Base title={title} description={description}>
+  <article class:list={['wrap', 'article', { 'with-toc': showToc }]}>
+    <header class="head">
+      {back && <a class="back mono" href={back.href}>← {back.label}</a>}
+      {eyebrow && <p class="eyebrow">{eyebrow}</p>}
+      <h1>{title}</h1>
+      {description && <p class="desc">{description}</p>}
+      {(date || minutes || tags.length > 0) && (
+        <div class="meta mono">
+          {date && <time datetime={date.toISOString()}>{formatDate(date)}</time>}
+          {minutes && <span>{minutes} min read</span>}
+          {tags.map((t) => <span class="chip">{t}</span>)}
+        </div>
+      )}
+    </header>
+    <slot name="banner" />
+    <div class="layout">
+      <div class="prose"><slot /></div>
+      {showToc && (
+        <aside class="toc" aria-label="On this page">
+          <p class="mono">On this page</p>
+          <ul>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ul>
+        </aside>
+      )}
+    </div>
+    <slot name="after" />
+  </article>
+</Base>
+
+<style>
+  .article {
+    padding-top: clamp(40px, 7vw, 80px);
+  }
+  .head {
+    max-width: 820px;
+    margin-bottom: 40px;
+  }
+  .back {
+    display: inline-block;
+    font-size: 0.82rem;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 28px;
+  }
+  .back:hover {
+    color: var(--accent);
+  }
+  h1 {
+    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    margin: 0;
+  }
+  .desc {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin: 14px 0 0;
+  }
+  .meta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 22px;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  .layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 56px;
+  }
+  .with-toc .layout {
+    grid-template-columns: minmax(0, var(--prose)) 240px;
+    justify-content: space-between;
+  }
+  .toc {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+    font-size: 0.86rem;
+    border-left: 1px solid var(--border);
+    padding-left: 18px;
+  }
+  .toc p {
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .toc ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .toc li {
+    margin: 0 0 8px;
+  }
+  .toc a {
+    color: var(--text-soft);
+    text-decoration: none;
+  }
+  .toc a:hover {
+    color: var(--accent);
+  }
+  @media (max-width: 1000px) {
+    .with-toc .layout {
+      grid-template-columns: minmax(0, 1fr);
+    }
+    .toc {
+      display: none;
+    }
+  }
+</style>

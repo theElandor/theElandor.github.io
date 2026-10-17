@@ -1,0 +1,25 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="Not found">
+  <div class="wrap nf">
+    <p class="eyebrow">404</p>
+    <h1>This page fell into a hole.</h1>
+    <p>Like the middle of a Sierpiński triangle: there's nothing here, at any scale.</p>
+    <a class="btn primary" href="/">Back home</a>
+  </div>
+</Base>
+
+<style>
+  .nf {
+    padding: 18vh var(--gutter) 10vh;
+  }
+  h1 {
+    font-size: clamp(2.2rem, 6vw, 4rem);
+    margin: 0 0 12px;
+  }
+  p:not(.eyebrow) {
+    color: var(--muted);
+    margin: 0 0 28px;
+  }
+</style>

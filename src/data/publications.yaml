@@ -1,0 +1,16 @@
+# Papers shown on /publications, newest first.
+# Your name is highlighted automatically in the author list.
+- title: A Public Dataset for Tooth Segmentation in Multi-View Intraoral Photographs
+  authors: [YA Zelelew, L Borghi, K Marchesini, M Lugli, C Grana, F Bolelli]
+  venue: Medical Image Computing and Computer Assisted Intervention – MICCAI 2026
+  year: 2026
+- title: Landmark-Guided Coarse-to-Fine Registration of Intraoral Scans and Cone-Beam CT
+  authors: [A Veronese, M Lugli, O Carpentiero, K Marchesini, L Lumetti, F Bolelli]
+  venue: Medical Image Computing and Computer Assisted Intervention – MICCAI 2026
+  year: 2026
+  code: https://github.com/AImageLab-zip/L2L-Registration
+- title: "Learn to bet: Using reinforcement learning to improve vehicle bids in auction-based smart intersections"
+  authors: [G Cabri, M Lugli, M Montangero, F Muzzini]
+  venue: Sensors 24 (4), 1288
+  year: 2024
+  url: https://www.mdpi.com/1424-8220/24/4/1288

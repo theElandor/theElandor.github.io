@@ -1,0 +1,98 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { site } from '../lib/site';
+
+interface Props { pub: CollectionEntry<'publications'>['data'] }
+const { pub } = Astro.props;
+// "Matteo Lugli" -> highlight "M Lugli", "M. Lugli", "Matteo Lugli"
+const surname = site.name.split(' ').at(-1)!;
+const isMe = (a: string) => a.includes(surname) && a.trim().startsWith(site.name[0]);
+---
+<article class="pub">
+  <div class="year mono">{pub.year}</div>
+  <div class="body">
+    <h3>
+      {pub.url ? <a href={pub.url} target="_blank" rel="noopener">{pub.title}</a> : pub.title}
+    </h3>
+    <p class="authors">
+      {pub.authors.map((a, i) => (
+        <>{isMe(a) ? <strong>{a}</strong> : a}{i < pub.authors.length - 1 ? ', ' : ''}</>
+      ))}
+    </p>
+    <p class="venue">{pub.venue}</p>
+    {(pub.url || pub.pdf || pub.code) && (
+      <div class="links">
+        {pub.url && <a href={pub.url} target="_blank" rel="noopener">Paper</a>}
+        {pub.pdf && <a href={pub.pdf} target="_blank" rel="noopener">PDF</a>}
+        {pub.code && <a href={pub.code} target="_blank" rel="noopener">Code</a>}
+      </div>
+    )}
+  </div>
+</article>
+
+<style>
+  .pub {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .year {
+    color: var(--accent);
+    font-size: 0.9rem;
+    padding-top: 3px;
+  }
+  h3 {
+    margin: 0;
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+  h3 a {
+    text-decoration: none;
+  }
+  h3 a:hover {
+    color: var(--accent);
+  }
+  .authors {
+    margin: 8px 0 2px;
+    color: var(--text-soft);
+    font-size: 0.95rem;
+  }
+  .authors strong {
+    color: var(--text);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 3px;
+  }
+  .venue {
+    margin: 0;
+    color: var(--muted);
+    font-style: italic;
+    font-size: 0.93rem;
+  }
+  .links {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+  }
+  .links a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    text-decoration: none;
+    color: var(--text-soft);
+  }
+  .links a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  @media (max-width: 560px) {
+    .pub {
+      grid-template-columns: 1fr;
+      gap: 6px;
+    }
+  }
+</style>

@@ -1,0 +1,17 @@
+# Global site settings. Edit freely: everything here is plain text.
+name: Matteo Lugli
+handle: theElandor
+# Shown under your name on the home page.
+tagline: PhD Student @ AImageLab · AI for Medical Imaging
+# One or two sentences shown in the home page hero.
+intro: >-
+  BSc in Computer Science, MSc in AI Engineering, now a PhD student working on deep learning for dental and medical imaging.
+  I love algorithms, puzzles and teaching.
+location: Modena, Italy
+links:
+  - label: GitHub
+    url: https://github.com/theElandor
+  - label: Scholar
+    url: https://scholar.google.com/citations?user=bAN1Ht4AAAAJ
+  - label: YouTube
+    url: https://www.youtube.com/@MLStudentOdyssey

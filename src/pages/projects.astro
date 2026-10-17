@@ -1,0 +1,63 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+
+const projects = await getCollection('projects');
+const sections = [
+  { name: 'Deep Learning', blurb: 'Models and experiments, mostly on medical and remote-sensing imaging.' },
+  { name: 'Puzzles', blurb: 'Every December (and then some): coding puzzle events, solved end to end.' },
+  { name: 'Educational', blurb: 'Small tools and implementations built to understand things deeply.' },
+  { name: 'Contributions', blurb: 'Projects I help build.' },
+] as const;
+---
+<Base title="Projects" description="Deep learning, puzzles and educational projects.">
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Building</p>
+      <h1>Projects</h1>
+      <p class="lede">A selection of things I've built, from segmentation models for intraoral scans to puzzle solutions and tiny educational engines.</p>
+    </header>
+    {sections.map((s) => {
+      const items = projects.filter((p) => p.data.category === s.name);
+      return items.length > 0 && (
+        <section class="cat">
+          <div class="cat-head">
+            <h2>{s.name} <span class="mono">{items.length}</span></h2>
+            <p>{s.blurb}</p>
+          </div>
+          <div class:list={['grid', { compact: s.name === 'Puzzles' }]}>
+            {items.map((p) => <ProjectCard project={p.data} />)}
+          </div>
+        </section>
+      );
+    })}
+  </div>
+</Base>
+
+<style>
+  .cat {
+    margin-bottom: 56px;
+  }
+  .cat-head {
+    margin-bottom: 20px;
+  }
+  .cat-head h2 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  .cat-head h2 span {
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-weight: 400;
+    vertical-align: middle;
+    margin-left: 6px;
+  }
+  .cat-head p {
+    margin: 4px 0 0;
+    color: var(--muted);
+  }
+  .compact {
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr));
+  }
+</style>

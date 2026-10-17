@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Publication from '../components/Publication.astro';
+import { site } from '../lib/site';
+
+const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
+const scholar = site.links.find((l) => l.label.toLowerCase().includes('scholar'));
+---
+<Base title="Publications" description="Peer-reviewed papers on AI for medical imaging and reinforcement learning.">
+  <div class="wrap narrow">
+    <header class="page-head">
+      <p class="eyebrow">Research</p>
+      <h1>Publications</h1>
+      <p class="lede">My research focuses on AI for medical imaging, in particular dental data: intraoral scans, CBCT and photographs.</p>
+      {scholar && <p><a class="btn" href={scholar.url} target="_blank" rel="noopener">Google Scholar profile ↗</a></p>}
+    </header>
+    <section class="list">{pubs.map((p) => <Publication pub={p.data} />)}</section>
+  </div>
+</Base>
+
+<style>
+  .narrow {
+    max-width: 920px;
+  }
+  .list {
+    border-top: 1px solid var(--border-strong);
+  }
+</style>

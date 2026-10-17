@@ -1,0 +1,23 @@
+---
+import { getEntry, render } from 'astro:content';
+import Article from '../layouts/Article.astro';
+
+const page = (await getEntry('pages', 'about'))!;
+const { Content } = await render(page);
+---
+<Article title={page.data.title} eyebrow="Bio">
+  <div class="about"><Content /></div>
+</Article>
+
+<style>
+  .about :global(figure img) {
+    max-width: 340px;
+    width: 100%;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+  }
+  .about :global(pre) {
+    width: fit-content;
+    max-width: 100%;
+  }
+</style>

@@ -1,0 +1,66 @@
+---
+import { render } from 'astro:content';
+import Article from '../../layouts/Article.astro';
+import { getPosts } from '../../lib/content';
+import { readingTime } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const all = await getPosts({ listed: false });
+  const listed = all.filter((p) => !p.data.hidden);
+  return all.map((post) => {
+    const i = listed.indexOf(post);
+    return {
+      params: { id: post.id },
+      props: { post, newer: i > 0 ? listed[i - 1] : undefined, older: i >= 0 ? listed[i + 1] : undefined },
+    };
+  });
+}
+
+const { post, newer, older } = Astro.props;
+const { Content, headings } = await render(post);
+---
+<Article
+  title={post.data.title}
+  description={post.data.description}
+  date={post.data.date}
+  tags={post.data.tags}
+  minutes={readingTime(post.body)}
+  back={{ href: '/posts/', label: 'All posts' }}
+  headings={headings}
+>
+  <Content />
+  <nav slot="after" class="pager" aria-label="More posts">
+    {older ? <a class="card" href={`/posts/${older.id}/`}><span class="mono">← Older</span>{older.data.title}</a> : <span />}
+    {newer ? <a class="card right" href={`/posts/${newer.id}/`}><span class="mono">Newer →</span>{newer.data.title}</a> : <span />}
+  </nav>
+</Article>
+
+<style>
+  .pager {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    max-width: var(--prose);
+    margin-top: 64px;
+  }
+  .pager a {
+    padding: 18px 20px;
+    font-family: var(--font-display);
+    font-weight: 600;
+  }
+  .pager span.mono {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .right {
+    text-align: right;
+  }
+  @media (max-width: 560px) {
+    .pager {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

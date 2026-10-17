@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import PostRow from '../../components/PostRow.astro';
+import { getPosts } from '../../lib/content';
+
+const posts = await getPosts();
+const years = [...new Set(posts.map((p) => p.data.date.getFullYear()))];
+---
+<Base title="Posts" description="Writing about algorithms, machine learning, security and life.">
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Writing</p>
+      <h1>Posts</h1>
+      <p class="lede">Notes on algorithms, machine learning, security, and the occasional thought about life.</p>
+    </header>
+    {years.map((year) => (
+      <section class="year">
+        <h2 class="mono">{year}</h2>
+        <div>{posts.filter((p) => p.data.date.getFullYear() === year).map((post) => <PostRow post={post} />)}</div>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<style>
+  .year {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .year h2 {
+    font-size: 1rem;
+    color: var(--muted);
+    margin: 22px 0 0;
+    font-weight: 500;
+  }
+  @media (max-width: 760px) {
+    .year {
+      grid-template-columns: 1fr;
+      gap: 0;
+    }
+  }
+</style>

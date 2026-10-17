@@ -1,0 +1,136 @@
+# Pages CMS configuration: edit the site from https://app.pagescms.org
+# (log in with GitHub, pick this repo). Every save is a commit, and the
+# GitHub Action rebuilds the site automatically.
+
+media:
+  input: public/media
+  output: /media
+
+content:
+  - name: posts
+    label: Blog posts
+    type: collection
+    path: src/content/posts
+    format: yaml-frontmatter
+    filename: "{primary}.md"
+    view:
+      fields: [title, date, hidden]
+      primary: title
+      sort: date
+      order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Subtitle, type: string }
+      - { name: date, label: Date, type: date, required: true }
+      - { name: tags, label: Tags, type: string, list: true }
+      - { name: hidden, label: "Hidden (published, but not listed)", type: boolean, default: false }
+      - { name: draft, label: "Draft (not published)", type: boolean, default: false }
+      - { name: body, label: Content, type: rich-text, options: { format: markdown } }
+
+  - name: pages
+    label: Pages (About, Challenge, HTB)
+    type: collection
+    path: src/content/pages
+    format: yaml-frontmatter
+    view:
+      primary: title
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: description, label: Description, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: body, label: Content, type: rich-text, options: { format: markdown } }
+
+  - name: projects
+    label: Projects
+    type: file
+    path: src/data/projects.yaml
+    format: yaml
+    list: true
+    fields:
+      - { name: name, label: Name, type: string, required: true }
+      - { name: emoji, label: Emoji, type: string }
+      - { name: description, label: Description, type: text }
+      - { name: url, label: Repository / link, type: string, required: true }
+      - name: category
+        label: Category
+        type: select
+        required: true
+        options:
+          values: [Deep Learning, Puzzles, Educational, Contributions]
+      - { name: featured, label: Show on home page, type: boolean, default: false }
+      - { name: report, label: Report (PDF link), type: string }
+      - { name: post, label: Related blog post (e.g. /posts/zodiac/), type: string }
+
+  - name: publications
+    label: Publications
+    type: file
+    path: src/data/publications.yaml
+    format: yaml
+    list: true
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: authors, label: Authors, type: string, list: true, required: true }
+      - { name: venue, label: Venue, type: string, required: true }
+      - { name: year, label: Year, type: number, required: true }
+      - { name: url, label: Paper link, type: string }
+      - { name: pdf, label: PDF link, type: string }
+      - { name: code, label: Code link, type: string }
+
+  - name: slides
+    label: Teaching slides
+    type: file
+    path: src/data/slides.yaml
+    format: yaml
+    list: true
+    fields:
+      - { name: topic, label: Topic, type: string, required: true }
+      - { name: description, label: Description, type: string }
+      - name: items
+        label: Slides
+        type: object
+        list: true
+        fields:
+          - { name: title, label: Title, type: string, required: true }
+          - { name: description, label: Description, type: string }
+          - { name: url, label: Link (e.g. /prova/sorting.html), type: string, required: true }
+          - name: kind
+            label: Kind
+            type: select
+            default: slides
+            options:
+              values: [slides, pdf]
+
+  - name: site
+    label: Site settings
+    type: file
+    path: src/data/site.yaml
+    format: yaml
+    fields:
+      - { name: name, label: Name, type: string }
+      - { name: handle, label: Handle, type: string }
+      - { name: tagline, label: Tagline, type: string }
+      - { name: intro, label: Home page intro, type: text }
+      - { name: location, label: Location, type: string }
+      - name: links
+        label: Links
+        type: object
+        list: true
+        fields:
+          - { name: label, type: string }
+          - { name: url, type: string }
+
+  - name: notes
+    label: University notes (archive)
+    type: collection
+    path: src/content/notes
+    format: yaml-frontmatter
+    view:
+      primary: course
+    fields:
+      - { name: title, label: Title, type: string }
+      - { name: description, label: Description, type: string }
+      - { name: date, label: Date, type: date }
+      - { name: course, label: Course, type: string }
+      - { name: year, label: Academic year, type: string }
+      - { name: order, label: Order, type: number }
+      - { name: body, label: Content, type: rich-text, options: { format: markdown } }
