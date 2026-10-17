@@ -153,13 +153,15 @@ h4 {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
   margin: 0;
 }
-.section-head .more {
+.section-head .more,
+.more {
   font-family: var(--font-mono);
   font-size: 0.85rem;
   color: var(--muted);
   text-decoration: none;
 }
-.section-head .more:hover {
+.section-head .more:hover,
+.more:hover {
   color: var(--accent);
 }
 

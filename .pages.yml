@@ -83,22 +83,21 @@ content:
     format: yaml
     list: true
     fields:
-      - { name: topic, label: Topic, type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: topic, label: Topic (small label, searchable), type: string }
       - { name: description, label: Description, type: string }
-      - name: items
-        label: Slides
-        type: object
-        list: true
-        fields:
-          - { name: title, label: Title, type: string, required: true }
-          - { name: description, label: Description, type: string }
-          - { name: url, label: Link (e.g. /prova/sorting.html), type: string, required: true }
-          - name: kind
-            label: Kind
-            type: select
-            default: slides
-            options:
-              values: [slides, pdf]
+      - { name: url, label: Link (e.g. /prova/sorting.html), type: string, required: true }
+
+  - name: videos
+    label: YouTube videos
+    type: file
+    path: src/data/videos.yaml
+    format: yaml
+    list: true
+    fields:
+      - { name: youtube, label: Video id (the part after watch?v=), type: string, required: true }
+      - { name: title, label: Title, type: string, required: true }
+      - { name: start, label: Start at (seconds), type: number }
 
   - name: site
     label: Site settings

@@ -1,0 +1,9 @@
+# YouTube videos shown on /teaching/. "youtube" is the part after "watch?v=" in the link;
+# "start" (optional) is where playback starts, in seconds.
+- youtube: 0sVST3ZmLFc
+  title: Christofides Algorithm for TSP!
+- youtube: fKJBngthPHA
+  title: Transformers, Pipelining and Tensor Parallelism!
+- youtube: w-4cn80o4dI
+  title: Advent of Code, day 18 (live solve + comments)
+  start: 1163

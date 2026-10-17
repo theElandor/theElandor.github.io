@@ -74,17 +74,20 @@ const publications = defineCollection({
 const slides = defineCollection({
   loader: yamlList('src/data/slides.yaml'),
   schema: z.object({
-    topic: z.string(),
+    title: z.string(),
+    topic: z.string().optional(),
     description: z.string().optional(),
-    items: z.array(
-      z.object({
-        title: z.string(),
-        description: z.string().optional(),
-        url: z.string(),
-        kind: z.enum(['slides', 'pdf']).default('slides'),
-      }),
-    ),
+    url: z.string(),
   }),
 });
 
-export const collections = { posts, notes, pages, projects, publications, slides };
+const videos = defineCollection({
+  loader: yamlList('src/data/videos.yaml'),
+  schema: z.object({
+    youtube: z.string(),
+    title: z.string(),
+    start: z.number().optional(),
+  }),
+});
+
+export const collections = { posts, notes, pages, projects, publications, slides, videos };

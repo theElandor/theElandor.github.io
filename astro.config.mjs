@@ -9,6 +9,8 @@ import rehypeAnchors from './src/lib/rehype-anchors.mjs';
 
 export default defineConfig({
   site: 'https://theelandor.github.io',
+  // Listen on IPv4 too, so both localhost and 127.0.0.1 work in every browser.
+  server: { host: '127.0.0.1', port: 4321 },
   integrations: [sitemap()],
   markdown: {
     processor: unified({

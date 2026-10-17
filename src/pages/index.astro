@@ -11,12 +11,10 @@ import { getPosts } from '../lib/content';
 const posts = (await getPosts()).slice(0, 4);
 const featured = (await getCollection('projects')).filter((p) => p.data.featured);
 const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
-const slides = await getCollection('slides');
 const notes = await getCollection('notes');
-const slideCount = slides.reduce((n, t) => n + t.data.items.filter((i) => i.kind === 'slides').length, 0);
 
 const explore = [
-  { href: '/teaching/', label: 'Teaching', title: 'School slides', text: `${slideCount} decks from my time as a high-school CS teacher, grouped by topic.`, glyph: '▲' },
+  { href: '/teaching/', label: 'Teaching', title: 'School slides', text: 'Teaching material I made for my YouTube channel and for teaching programming in high school.', glyph: '▲' },
   { href: '/notes/', label: 'Archive', title: 'University notes', text: `${notes.length} courses of notes, written before LLMs. A historical document.`, glyph: '◢' },
   { href: '/challenges/', label: 'Puzzle', title: 'Yet Another Python Challenge', text: 'The coding challenge I made for my students. Can you finish it?', glyph: '◣' },
   { href: '/about/', label: 'Bio', title: 'About me', text: 'Who I am, what I believe in, and the books I keep coming back to.', glyph: '◤' },

@@ -9,7 +9,7 @@ Content is plain Markdown and YAML, so you can edit it without writing code.
 
 1. Go to <https://app.pagescms.org> and sign in with GitHub.
 2. Pick the `theElandor/theElandor.github.io` repository.
-3. You'll see **Blog posts**, **Projects**, **Publications**, **Teaching slides**, **Pages**, **Site settings** and **University notes**.
+3. You'll see **Blog posts**, **Projects**, **Publications**, **Teaching slides**, **YouTube videos**, **Pages**, **Site settings** and **University notes**.
    Edit, click **Save**: that's a commit, and the site redeploys by itself in about a minute.
 
 Images you upload go to `public/media/` and are served at `/media/...`.
@@ -30,6 +30,7 @@ Open a file on github.com and click the pencil icon. Commit, and the site redepl
 | Projects | `src/data/projects.yaml` |
 | Publications | `src/data/publications.yaml` |
 | Teaching slides | `src/data/slides.yaml` |
+| YouTube videos (Teaching page) | `src/data/videos.yaml` |
 | Name, tagline, links | `src/data/site.yaml` |
 | Static files (PDFs, slides, old notes, challenge) | `public/` (served as-is, same URLs as before) |
 
