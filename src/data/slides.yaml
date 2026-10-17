@@ -1,5 +1,21 @@
 # Teaching slides, shown in the carousel on /teaching/.
 # "url" can point to a file in /public or anywhere on the web; "topic" is a small label that is also searchable.
+- title: La rappresentazione dei numeri
+  topic: Numerical methods
+  description: Metodo atomico e rappresentazione in base β.
+  url: /rapp.html
+- title: Propagazione dell'errore
+  topic: Numerical methods
+  description: Il concetto di errore, con esempi ed esperimenti.
+  url: /prova/errors.html
+- title: Integrale di Riemann
+  topic: Numerical methods
+  description: Il concetto di integrale e la sua definizione.
+  url: /prova/rieman.html
+- title: Metodi iterativi
+  topic: Numerical methods
+  description: Metodo di bisezione e metodo di Newton.
+  url: /prova/metodi_iterativi.html
 - title: Python setup
   topic: Python
   description: Introduzione, setup, come aprire l'IDLE e creare un file.
@@ -24,22 +40,6 @@
   topic: Algorithms
   description: Idea e codice dei due algoritmi di ordinamento.
   url: /prova/sorting.html
-- title: La rappresentazione dei numeri
-  topic: Numerical methods
-  description: Metodo atomico e rappresentazione in base β.
-  url: /rapp.html
-- title: Propagazione dell'errore
-  topic: Numerical methods
-  description: Il concetto di errore, con esempi ed esperimenti.
-  url: /prova/errors.html
-- title: Metodi iterativi
-  topic: Numerical methods
-  description: Metodo di bisezione e metodo di Newton.
-  url: /prova/metodi_iterativi.html
-- title: Integrale di Riemann
-  topic: Numerical methods
-  description: Il concetto di integrale e la sua definizione.
-  url: /prova/rieman.html
 - title: Data Science Intro
   topic: Data science
   description: Motivazioni, l'importanza del problem solving, applicazioni.
