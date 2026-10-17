@@ -1,11 +1,26 @@
 @import '@fontsource-variable/inter';
 @import '@fontsource-variable/space-grotesk';
 @import '@fontsource-variable/jetbrains-mono';
+
+/* Excalifont, the hand-drawn font from Excalidraw (SIL OFL 1.1, see /fonts/excalifont/OFL.txt). */
+@font-face {
+  font-family: 'Excalifont';
+  src: url('/fonts/excalifont/excalifont-latin.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+20-7E, U+A0-A3, U+A5-A6, U+A8-AB, U+AD-B1, U+B4, U+B6-B8, U+BA-FF, U+131, U+152-153, U+2BC, U+2C6, U+2DA, U+2DC, U+304, U+308, U+2013-2014, U+2018-201A, U+201C-201E, U+2020, U+2022, U+2024-2026, U+2030, U+2039-203A, U+20AC, U+2122, U+2212;
+}
+@font-face {
+  font-family: 'Excalifont';
+  src: url('/fonts/excalifont/excalifont-latin-ext.woff2') format('woff2');
+  font-display: swap;
+  unicode-range: U+100-130, U+132-137, U+139-149, U+14C-151, U+154-17E, U+192, U+1FC-1FF, U+218-21B, U+237, U+1E80-1E85, U+1EF2-1EF3, U+2113;
+}
 @import 'katex/dist/katex.min.css';
 
 :root {
   --font-sans: 'Inter Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-display: 'Space Grotesk Variable', var(--font-sans);
+  --font-hand: 'Excalifont', 'Comic Sans MS', 'Segoe Print', cursive;
   --font-mono: 'JetBrains Mono Variable', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   --bg: #f9f8f5;
