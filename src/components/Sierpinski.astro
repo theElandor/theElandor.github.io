@@ -1,9 +1,10 @@
 ---
-// Real-time Sierpiński gasket rendered per-pixel in a WebGL fragment shader.
-// It builds itself level by level, then dives forever into a self-similar
-// point of the fractal (the loop is seamless, so float precision never runs out).
+// Real-time Sierpiński gasket. It is first drawn point by point with the chaos game
+// (2D canvas), then crossfades into a per-pixel WebGL render that dives forever into a
+// self-similar point of the fractal (the loop is seamless, so float precision never runs out).
 ---
 <canvas class="sierpinski" aria-hidden="true"></canvas>
+<canvas class="sierpinski chaos" aria-hidden="true"></canvas>
 
 <style>
   .sierpinski {
@@ -32,7 +33,7 @@
     uniform float uHalfH;
     uniform float uZoom;
     uniform float uTime;
-    uniform float uReveal;
+    uniform float uFade;
     uniform vec2 uMouse;
     uniform float uLight;
     uniform float uShift;
@@ -99,7 +100,6 @@
         if (holeK < 0.0) {
           col = dust;
         } else {
-          float reveal = clamp(uReveal - holeK, 0.0, 1.0);
           float dW = dLocal * scale * H * 2.0;
           float inside = smoothstep(0.0, pw * 1.4, dW);
           float size = clamp(1.0 - rel * 0.07, 0.25, 1.0);
@@ -107,12 +107,14 @@
           float fill = exp(-dLocal * 2.4) * 0.06 * size;
           vec3 hole = bg + tint * (rim * 0.55 + fill) * (1.0 + spot * 1.4);
           if (uLight > 0.5) hole = bg - (vec3(1.0) - tint) * (rim * 0.5 + fill);
-          vec3 solid = mix(bg, line, 0.92);
-          vec3 c = mix(solid, mix(line, hole, inside), reveal);
+          vec3 c = mix(line, hole, inside);
           // Fade holes that are only a few pixels wide into the dust tone (no shimmer).
           col = mix(dust, c, smoothstep(pw * 2.0, pw * 7.0, scale));
         }
       }
+
+      // Fade in after the chaos game intro.
+      col = mix(bg, col, uFade);
 
       // vignette + grain (kills banding)
       float vig = 1.0 - 0.35 * dot(uv * vec2(0.8, 1.0), uv * vec2(0.8, 1.0));
@@ -125,17 +127,170 @@
   const H = Math.sqrt(3) / 2;
   // Fixed point of f_L ∘ f_R ∘ f_T: zooming by 8x around it reproduces the same picture.
   const P = { x: 2.5 / 7, y: H / 7 };
-  const CENTROID = { x: 0.5, y: H / 3 };
+  // Intro camera: the middle of the triangle's bounding box, so all three corners are on screen.
+  const VIEW_CENTER = { x: 0.5, y: H / 2 };
   const EDGE_MARGIN = 0.112; // distance from P to the nearest edge is H/7 ≈ 0.124
-  const REVEAL_SECONDS = 2.8;
-  const REVEAL_DEPTH = 9;
   const OCTAVES_PER_SECOND = 0.2;
 
-  const smooth = (t: number) => t * t * (3 - 2 * t);
+  // Intro timeline: chaos game, crossfade to the shader, then the endless zoom.
+  const CHAOS_SECONDS = 8.5;
+  const FADE_SECONDS = 1.6;
+  const ZOOM_START = CHAOS_SECONDS + FADE_SECONDS + 0.4;
+  const CHAOS_POINTS = 420_000;
+  // Points drawn after t seconds: a slow trickle you can follow, then exponential.
+  const TRICKLE = 1.6; // points per second at the start
+  const GROWTH = 1.8;
+  const AMP = (CHAOS_POINTS - TRICKLE * CHAOS_SECONDS) / Math.expm1(GROWTH * CHAOS_SECONDS);
+  const pointsAt = (t: number) => Math.min(CHAOS_POINTS, Math.floor(TRICKLE * t + AMP * Math.expm1(GROWTH * t)));
+  const rateAt = (t: number) => TRICKLE + AMP * GROWTH * Math.exp(GROWTH * t);
 
-  function init(canvas: HTMLCanvasElement) {
+  const VERTICES = [
+    { x: 0, y: 0 },
+    { x: 1, y: 0 },
+    { x: 0.5, y: H },
+  ];
+  const COLORS = {
+    dark: [[167, 139, 250], [34, 211, 238], [251, 191, 36]],
+    light: [[109, 40, 217], [14, 116, 144], [180, 83, 9]],
+  };
+
+  const smooth = (t: number) => t * t * (3 - 2 * t);
+  const clamp01 = (t: number) => Math.min(1, Math.max(0, t));
+
+  function mulberry32(seed: number) {
+    return () => {
+      seed |= 0;
+      seed = (seed + 0x6d2b79f5) | 0;
+      let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+
+  type View = { cx: number; cy: number; half: number; shift: number };
+  type Jump = { x0: number; y0: number; x1: number; y1: number; v: number; at: number };
+
+  /**
+   * The chaos game: start anywhere, pick a random corner, jump halfway to it, plot, repeat.
+   * Points accumulate in a pixel buffer; the most recent jumps are drawn as lines on top.
+   */
+  class ChaosGame {
+    ctx: CanvasRenderingContext2D;
+    img!: ImageData;
+    px!: Uint32Array;
+    w = 0;
+    h = 0;
+    view: View = { cx: 0, cy: 0, half: 1, shift: 0 };
+    light = false;
+    rand = mulberry32(7);
+    x = 0;
+    y = 0;
+    n = 0;
+    trail: Jump[] = [];
+    box = { x: 0, y: 0, w: 0, h: 0 };
+
+    constructor(public canvas: HTMLCanvasElement) {
+      this.ctx = canvas.getContext('2d')!;
+    }
+
+    toScreen(x: number, y: number): [number, number] {
+      const { cx, cy, half, shift } = this.view;
+      return [this.w / 2 + ((x - cx) / (2 * half) + shift) * this.h, this.h / 2 - ((y - cy) / (2 * half)) * this.h];
+    }
+
+    /** (Re)size the buffer for a new view or theme and replay the first `n` points. */
+    setup(view: View, light: boolean) {
+      const r = this.canvas.getBoundingClientRect();
+      const w = Math.max(1, Math.round(r.width));
+      const h = Math.max(1, Math.round(r.height));
+      const same = w === this.w && h === this.h && light === this.light &&
+        view.cx === this.view.cx && view.cy === this.view.cy && view.half === this.view.half && view.shift === this.view.shift;
+      if (same) return;
+      const replay = this.n;
+      this.w = this.canvas.width = w;
+      this.h = this.canvas.height = h;
+      this.view = view;
+      this.light = light;
+      this.img = this.ctx.createImageData(w, h);
+      this.px = new Uint32Array(this.img.data.buffer);
+      const pts = VERTICES.map((v) => this.toScreen(v.x, v.y));
+      const pad = 28;
+      const x0 = Math.max(0, Math.floor(Math.min(...pts.map((p) => p[0])) - pad));
+      const y0 = Math.max(0, Math.floor(Math.min(...pts.map((p) => p[1])) - pad));
+      const x1 = Math.min(w, Math.ceil(Math.max(...pts.map((p) => p[0])) + pad));
+      const y1 = Math.min(h, Math.ceil(Math.max(...pts.map((p) => p[1])) + pad));
+      this.box = { x: x0, y: y0, w: Math.max(0, x1 - x0), h: Math.max(0, y1 - y0) };
+      this.rand = mulberry32(7);
+      this.x = 0.62;
+      this.y = 0.55;
+      this.n = 0;
+      this.trail = [];
+      this.advance(replay, -1, false);
+    }
+
+    advance(target: number, now: number, keepTrail = true) {
+      const colors = (this.light ? COLORS.light : COLORS.dark).map(
+        ([r, g, b]) => ((255 << 24) | (b << 16) | (g << 8) | r) >>> 0,
+      );
+      while (this.n < target) {
+        const v = Math.floor(this.rand() * 3);
+        const nx = (this.x + VERTICES[v].x) / 2;
+        const ny = (this.y + VERTICES[v].y) / 2;
+        if (keepTrail && target - this.n <= 48) this.trail.push({ x0: this.x, y0: this.y, x1: nx, y1: ny, v, at: now });
+        const [sx, sy] = this.toScreen(nx, ny);
+        if (sx >= 0 && sy >= 0 && sx < this.w && sy < this.h) this.px[(sy | 0) * this.w + (sx | 0)] = colors[v];
+        this.x = nx;
+        this.y = ny;
+        this.n++;
+      }
+    }
+
+    draw(now: number, lineAlpha: number) {
+      const { ctx, box } = this;
+      // Restores the clean point buffer, which also erases last frame's lines.
+      ctx.putImageData(this.img, 0, 0, box.x, box.y, box.w, box.h);
+      const palette = this.light ? COLORS.light : COLORS.dark;
+      const rgba = (v: number, a: number) => `rgba(${palette[v].join(',')},${a})`;
+
+      this.trail = this.trail.filter((j) => now - j.at < 1.4).slice(-48);
+      ctx.lineCap = 'round';
+      for (const j of this.trail) {
+        const a = lineAlpha * (1 - (now - j.at) / 1.4);
+        if (a <= 0.01) continue;
+        const [x0, y0] = this.toScreen(j.x0, j.y0);
+        const [x1, y1] = this.toScreen(j.x1, j.y1);
+        const [vx, vy] = this.toScreen(VERTICES[j.v].x, VERTICES[j.v].y);
+        // where we aim: the chosen corner
+        ctx.setLineDash([3, 6]);
+        ctx.lineWidth = 1;
+        ctx.strokeStyle = rgba(j.v, a * 0.35);
+        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(vx, vy); ctx.stroke();
+        // the jump itself: halfway there
+        ctx.setLineDash([]);
+        ctx.lineWidth = 1.6;
+        ctx.strokeStyle = rgba(j.v, a);
+        ctx.beginPath(); ctx.moveTo(x0, y0); ctx.lineTo(x1, y1); ctx.stroke();
+        ctx.fillStyle = rgba(j.v, a);
+        ctx.beginPath(); ctx.arc(x1, y1, 2.6, 0, Math.PI * 2); ctx.fill();
+      }
+      // the three corners
+      VERTICES.forEach((v, i) => {
+        const [x, y] = this.toScreen(v.x, v.y);
+        const recent = this.trail.length && this.trail[this.trail.length - 1].v === i ? lineAlpha : 0;
+        ctx.fillStyle = rgba(i, 0.18 + 0.3 * recent);
+        ctx.beginPath(); ctx.arc(x, y, 9 + 4 * recent, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = rgba(i, 1);
+        ctx.beginPath(); ctx.arc(x, y, 3.5, 0, Math.PI * 2); ctx.fill();
+      });
+    }
+  }
+
+  function init(canvas: HTMLCanvasElement, chaosCanvas: HTMLCanvasElement) {
     const gl = canvas.getContext('webgl', { antialias: false, alpha: false, powerPreference: 'high-performance' });
-    if (!gl) return fallback(canvas);
+    if (!gl) {
+      chaosCanvas.remove();
+      return fallback(canvas);
+    }
 
     const compile = (type: number, src: string) => {
       const s = gl.createShader(type)!;
@@ -151,6 +306,7 @@
       gl.linkProgram(prog);
     } catch (e) {
       console.warn(e);
+      chaosCanvas.remove();
       return fallback(canvas);
     }
     gl.useProgram(prog);
@@ -162,14 +318,15 @@
     gl.vertexAttribPointer(loc, 2, gl.FLOAT, false, 0, 0);
 
     const U = Object.fromEntries(
-      ['uRes', 'uCenter', 'uHalfH', 'uZoom', 'uTime', 'uReveal', 'uMouse', 'uLight', 'uShift'].map((n) => [n, gl.getUniformLocation(prog, n)]),
+      ['uRes', 'uCenter', 'uHalfH', 'uZoom', 'uTime', 'uFade', 'uMouse', 'uLight', 'uShift'].map((n) => [n, gl.getUniformLocation(prog, n)]),
     );
 
     const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
     let quality = Math.min(window.devicePixelRatio || 1, 2);
-    let w = 0, h = 0;
+    let w = 0, h = 0, aspect = 1;
     const resize = () => {
       const r = canvas.getBoundingClientRect();
+      aspect = r.width / Math.max(1, r.height);
       w = Math.max(1, Math.round(r.width * quality));
       h = Math.max(1, Math.round(r.height * quality));
       if (canvas.width !== w || canvas.height !== h) {
@@ -191,6 +348,12 @@
 
     const isLight = () => document.documentElement.dataset.theme === 'light';
 
+    const chaos = new ChaosGame(chaosCanvas);
+    const caption = document.querySelector<HTMLElement>('[data-fractal-caption]');
+    const captionText = caption?.textContent ?? '';
+    let chaosDone = reduced;
+    if (reduced) chaosCanvas.remove();
+
     let start = performance.now();
     let last = start;
     let visible = true;
@@ -211,7 +374,6 @@
       resize();
 
       const t = reduced ? 1e3 : (now - start) / 1000;
-      const aspect = w / h;
       // On wide screens the triangle sits to the right of the hero text.
       const shift = aspect > 1.15 ? Math.min(0.19 * aspect, 0.4) : 0;
       const halfFull = Math.max(0.56, 0.6 / aspect);
@@ -219,13 +381,13 @@
       const reach = 2 * Math.hypot(aspect / 2 + shift, 0.5);
       const zLoop = Math.max(0, Math.log2((halfFull * reach * 1.08) / EDGE_MARGIN));
 
-      const z = reduced ? 0 : Math.max(0, t - REVEAL_SECONDS) * OCTAVES_PER_SECOND;
+      const z = reduced ? 0 : Math.max(0, t - ZOOM_START) * OCTAVES_PER_SECOND;
       let zEff = z;
       let cx: number, cy: number;
       if (z < zLoop) {
         const k = smooth(Math.min(1, z / zLoop));
-        cx = CENTROID.x + (P.x - CENTROID.x) * k;
-        cy = CENTROID.y + (P.y - CENTROID.y) * k;
+        cx = VIEW_CENTER.x + (P.x - VIEW_CENTER.x) * k;
+        cy = VIEW_CENTER.y + (P.y - VIEW_CENTER.y) * k;
       } else {
         zEff = zLoop + ((z - zLoop) % 3);
         cx = P.x;
@@ -235,17 +397,32 @@
       // Gentle parallax, proportional to the view so the loop stays seamless.
       mouse.px += (mouse.tx - mouse.px) * 0.04;
       mouse.py += (mouse.ty - mouse.py) * 0.04;
-      cx += mouse.px * half * 0.06;
-      cy += mouse.py * half * 0.06;
+      const parallax = reduced ? 0 : smooth(clamp01((t - ZOOM_START) / 2));
+      cx += mouse.px * half * 0.06 * parallax;
+      cy += mouse.py * half * 0.06 * parallax;
 
-      const reveal = reduced ? 99 : t < REVEAL_SECONDS ? smooth(t / REVEAL_SECONDS) * REVEAL_DEPTH : 99;
+      const fade = reduced ? 1 : smooth(clamp01((t - CHAOS_SECONDS) / FADE_SECONDS));
+      if (!chaosDone) {
+        if (fade >= 1) {
+          chaosDone = true;
+          chaosCanvas.remove();
+          if (caption) caption.textContent = captionText;
+        } else {
+          // Same camera as the shader at z = 0, so the crossfade lines up exactly.
+          chaos.setup({ cx: VIEW_CENTER.x, cy: VIEW_CENTER.y, half: halfFull, shift }, isLight());
+          chaos.advance(pointsAt(t), t);
+          chaos.draw(t, clamp01(1 - (rateAt(t) - 3) / 20));
+          chaosCanvas.style.opacity = String(1 - fade);
+          if (caption) caption.textContent = `Chaos game · jump halfway to a random corner · ${chaos.n.toLocaleString('en-US')} points`;
+        }
+      }
 
       gl.uniform2f(U.uRes, w, h);
       gl.uniform2f(U.uCenter, cx, cy);
       gl.uniform1f(U.uHalfH, half);
       gl.uniform1f(U.uZoom, zEff);
       gl.uniform1f(U.uTime, reduced ? 0 : t);
-      gl.uniform1f(U.uReveal, reveal);
+      gl.uniform1f(U.uFade, fade);
       gl.uniform2f(U.uMouse, mouse.x, mouse.y);
       gl.uniform1f(U.uLight, isLight() ? 1 : 0);
       gl.uniform1f(U.uShift, shift);
@@ -300,5 +477,7 @@
     new ResizeObserver(draw).observe(canvas);
   }
 
-  document.querySelectorAll<HTMLCanvasElement>('canvas.sierpinski').forEach(init);
+  document.querySelectorAll<HTMLCanvasElement>('canvas.sierpinski:not(.chaos)').forEach((c) =>
+    init(c, c.nextElementSibling as HTMLCanvasElement),
+  );
 </script>
