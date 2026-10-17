@@ -55,7 +55,7 @@ You’ll find more information about me down below. If you are interested, you c
     
 -   **Birthday**: 1/8/2001
     
--   **Other interests**: Productivity, Reading, Vintage Technology, Dungeons and Dragons, Boardgames.
+-   **Other interests**: Magic the Gathering, Reading, Vintage Technology, Boardgames.
     
 -   **Favourite books**:
     
