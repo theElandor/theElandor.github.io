@@ -132,4 +132,5 @@ content:
       - { name: course, label: Course, type: string }
       - { name: year, label: Academic year, type: string }
       - { name: order, label: Order, type: number }
+      - { name: draft, label: Hide from the website, type: boolean }
       - { name: body, label: Content, type: rich-text, options: { format: markdown } }

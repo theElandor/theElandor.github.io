@@ -4,7 +4,7 @@ import Article from '../../layouts/Article.astro';
 import ArchiveBanner from '../../components/ArchiveBanner.astro';
 
 export async function getStaticPaths() {
-  const notes = await getCollection('notes');
+  const notes = await getCollection('notes', (n) => !n.data.draft);
   return notes.map((note) => ({ params: { id: note.id }, props: { note } }));
 }
 

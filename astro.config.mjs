@@ -28,7 +28,6 @@ export default defineConfig({
     '/compilatori': '/notes/compilatori/',
     '/ml': '/notes/ml/',
     '/reti': '/notes/reti/',
-    '/security': '/notes/security/',
     '/content': '/notes/',
     '/page/1': '/posts/',
     '/page/2': '/posts/',

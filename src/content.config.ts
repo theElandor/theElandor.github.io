@@ -26,6 +26,8 @@ const notes = defineCollection({
     course: z.string(),
     year: z.string().optional(),
     order: z.number().default(99),
+    // true keeps the notes in the repo but off the website.
+    draft: z.boolean().default(false),
   }),
 });
 

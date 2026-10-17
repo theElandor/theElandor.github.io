@@ -4,6 +4,7 @@ description: "Cyber-Phisical Security"
 date: 2022-10-17
 course: "Cyber Physical Security"
 order: 4
+draft: true
 ---
 
 ![](/ox-hugo/security.jpeg)

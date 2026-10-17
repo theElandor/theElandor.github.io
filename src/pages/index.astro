@@ -11,7 +11,7 @@ import { getPosts } from '../lib/content';
 const posts = (await getPosts()).slice(0, 4);
 const featured = (await getCollection('projects')).filter((p) => p.data.featured);
 const pubs = (await getCollection('publications')).sort((a, b) => b.data.year - a.data.year);
-const notes = await getCollection('notes');
+const notes = await getCollection('notes', (n) => !n.data.draft);
 
 const explore = [
   { href: '/teaching/', label: 'Teaching', title: 'School slides', text: 'Teaching material I made for my YouTube channel and for teaching programming in high school.', glyph: '▲' },

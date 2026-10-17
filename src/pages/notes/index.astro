@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import ArchiveBanner from '../../components/ArchiveBanner.astro';
 
-const notes = (await getCollection('notes')).sort((a, b) => a.data.order - b.data.order);
+const notes = (await getCollection('notes', (n) => !n.data.draft)).sort((a, b) => a.data.order - b.data.order);
 const words = (s = '') => s.split(/\s+/).length;
 ---
 <Base title="University notes" description="My university notes, written before LLMs: a historical archive.">
@@ -11,7 +11,7 @@ const words = (s = '') => s.split(/\s+/).length;
     <header class="page-head">
       <p class="eyebrow">Archive</p>
       <h1>University notes</h1>
-      <p class="lede">Course notes from my years at Unimore: networks, information retrieval, compilers, security and machine learning.</p>
+      <p class="lede">Course notes from my years at Unimore: networks, information retrieval, compilers and machine learning.</p>
     </header>
     <ArchiveBanner />
     <div class="grid">
