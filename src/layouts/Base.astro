@@ -23,7 +23,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-    {Astro.url.pathname === '/' && <link rel="preload" href="/fonts/excalifont/excalifont-latin.woff2" as="font" type="font/woff2" crossorigin />}
+    <link rel="preload" href="/fonts/excalifont/excalifont-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="alternate" type="application/rss+xml" title={site.name} href="/index.xml" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <meta property="og:type" content="website" />

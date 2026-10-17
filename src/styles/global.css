@@ -147,9 +147,11 @@ h4 {
   margin: 0;
 }
 .page-head .lede {
-  max-width: 62ch;
+  max-width: 54ch;
   color: var(--text-soft);
-  font-size: 1.1rem;
+  font-family: var(--font-hand);
+  font-size: 1.32rem;
+  line-height: 1.45;
   margin: 1rem 0 0;
 }
 
