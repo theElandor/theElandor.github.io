@@ -8,6 +8,8 @@
   authors: [A Veronese, M Lugli, O Carpentiero, K Marchesini, L Lumetti, F Bolelli]
   venue: Medical Image Computing and Computer Assisted Intervention – MICCAI 2026
   year: 2026
+  pdf: https://papers.miccai.org/miccai-2026-sat/paper/ODIN_challenges_004.pdf
+  poster: /media/ODIN_2026_STSR.pdf
   code: https://github.com/AImageLab-zip/L2L-Registration
 - title: "Learn to bet: Using reinforcement learning to improve vehicle bids in auction-based smart intersections"
   authors: [G Cabri, M Lugli, M Montangero, F Muzzini]

@@ -74,6 +74,7 @@ content:
       - { name: year, label: Year, type: number, required: true }
       - { name: url, label: Paper link, type: string }
       - { name: pdf, label: PDF link, type: string }
+      - { name: poster, label: Poster link (e.g. /media/poster.pdf), type: string }
       - { name: code, label: Code link, type: string }
 
   - name: slides

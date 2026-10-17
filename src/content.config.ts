@@ -69,6 +69,7 @@ const publications = defineCollection({
     year: z.number(),
     url: z.string().optional(),
     pdf: z.string().optional(),
+    poster: z.string().optional(),
     code: z.string().optional(),
   }),
 });

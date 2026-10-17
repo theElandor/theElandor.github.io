@@ -12,7 +12,7 @@ const isMe = (a: string) => a.includes(surname) && a.trim().startsWith(site.name
   <div class="year mono">{pub.year}</div>
   <div class="body">
     <h3>
-      {pub.url ? <a href={pub.url} target="_blank" rel="noopener">{pub.title}</a> : pub.title}
+      {pub.url || pub.pdf ? <a href={pub.url ?? pub.pdf} target="_blank" rel="noopener">{pub.title}</a> : pub.title}
     </h3>
     <p class="authors">
       {pub.authors.map((a, i) => (
@@ -20,10 +20,11 @@ const isMe = (a: string) => a.includes(surname) && a.trim().startsWith(site.name
       ))}
     </p>
     <p class="venue">{pub.venue}</p>
-    {(pub.url || pub.pdf || pub.code) && (
+    {(pub.url || pub.pdf || pub.poster || pub.code) && (
       <div class="links">
         {pub.url && <a href={pub.url} target="_blank" rel="noopener">Paper</a>}
         {pub.pdf && <a href={pub.pdf} target="_blank" rel="noopener">PDF</a>}
+        {pub.poster && <a href={pub.poster} target="_blank" rel="noopener">Poster</a>}
         {pub.code && <a href={pub.code} target="_blank" rel="noopener">Code</a>}
       </div>
     )}
