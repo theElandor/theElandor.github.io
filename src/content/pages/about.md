@@ -1,34 +1,49 @@
 ---
 title: "About"
 description: "My about page"
-date: 2025-11-29
+date: 2026-10-17
 ---
 
-Hello stranger, and welcome to my personal blog! My name is Matteo Lugli, and I am currently a Master’s student at university of Modena, studying **`Artificial Intelligence Engineering`**. I have a BS degree in **`Computer Science`**, which is one of my biggest passions. In my free time, I like teaching stuff. I occasionally post videos on my [YouTube channel](https://www.youtube.com/@MLStudentOdyssey) and I’ve also had the chance to be a computer science teacher in high school. My course was all about programming and problem-solving, with a strong focus on learning through coding challenges.
+Hello stranger, and welcome to my personal blog! My name is Matteo Lugli, and I am currently a PhD student at [**AImageLab**](https://aimagelab.ing.unimore.it) (University of Modena and Reggio Emilia), where I work on **`AI for Medical Imaging`**. I have a Master’s degree in **`Artificial Intelligence Engineering`** and a BS degree in **`Computer Science`**, which is one of my biggest passions. In my free time, I like teaching stuff. I occasionally post videos on my [YouTube channel](https://www.youtube.com/@MLStudentOdyssey) and I’ve also had the chance to be a computer science teacher in high school. My course was all about programming and problem-solving, with a strong focus on learning through coding challenges.
 
 My primary interests lie in deep learning, algorithms and puzzles.
 
-Here are some cool projects I’ve been working on recently, sorted by topic
+Here are some cool projects I’ve been working on, sorted by topic (you can also browse them on the [projects page](/projects/))
 
-**Machine Learning & Deep Learning**
+**Deep Learning**
 
--   📐​ A toy gradient descent implementation (from scratch) using numpy: [https://github.com/theElandor/GradientDescent](https://github.com/theElandor/GradientDescent);
--   🚦 R​einforcement learning applied to autonomous crossing management: [https://www.mdpi.com/1424-8220/24/4/1288](https://www.mdpi.com/1424-8220/24/4/1288);
--   ​🛰 Semantic segmentation and retrieval of remote sensing images: [https://github.com/theElandor/CVCS](https://github.com/theElandor/CVCS);
--   ​🔬 ​S​​elf-supervised learning applied to classification of fluorescent microscopy images: [https://github.com/homarone00/AIBIO\_proj](https://github.com/homarone00/AIBIO_proj);
+-   🦷 A model for fast IOS segmentation and landmark prediction: [https://github.com/AImageLab-zip/IOS-Landmarks](https://github.com/AImageLab-zip/IOS-Landmarks);
+-   🦷 A small model for automatic IOS orientation: [https://github.com/AImageLab-zip/IOS-Normalizer](https://github.com/AImageLab-zip/IOS-Normalizer);
+-   🛰️ Remote Sensing Semantic Segmentation Virtual Lab: [https://github.com/theElandor/CVCS](https://github.com/theElandor/CVCS);
+-   🔬 Classification of microscopy images using cross batch consistency learning: [https://github.com/theElandor/AIBIO\_proj](https://github.com/theElandor/AIBIO_proj);
+-   📉 Gradient descent implementation done from scratch with numpy: [https://github.com/theElandor/GradientDescent](https://github.com/theElandor/GradientDescent);
 
-**Algorithms and puzzles**
+**Puzzles**
 
--   ​🌲​ All 25 days of Advent of Code (2024) in Python: [https://github.com/theElandor/aoc2024](https://github.com/theElandor/aoc2024);
--   ​​🦆​ All 20 days of EveryBody codes (2024) in Python: [https://github.com/theElandor/Everybody-Codes](https://github.com/theElandor/Everybody-Codes);
--   🦆​ E​verybody codes stories in C++ and Python: [https://github.com/theElandor/ec2025](https://github.com/theElandor/ec2025);
--   ​​​🔱​ A​​ll 18 days of Codyssi (2025) in Python and C++: [https://github.com/theElandor/codyssi2025](https://github.com/theElandor/codyssi2025);
--   🖥️ ​A coding challenge that I made for students (will you be able to complete it? ;) [https://theelandor.github.io/challenges/](https://theelandor.github.io/challenges/);
--   ​🌐 ​**Nodes**, a Python framework to play with distributed algorithms: [https://github.com/theElandor/Nodes](https://github.com/theElandor/Nodes);
+-   🎁 Advent of Code 2025: [https://github.com/theElandor/aoc2025](https://github.com/theElandor/aoc2025);
+-   🎄 Advent of Code 2024: [https://github.com/theElandor/aoc2024](https://github.com/theElandor/aoc2024);
+-   🌊 Codyssi 2025: [https://github.com/theElandor/codyssi2025](https://github.com/theElandor/codyssi2025);
+-   🦆 Everybody Codes 2026: [https://github.com/theElandor/ec2026](https://github.com/theElandor/ec2026);
+-   🦆 Everybody Codes 2025: [https://github.com/theElandor/ec2025](https://github.com/theElandor/ec2025);
+-   🦆 Everybody Codes 2024: [https://github.com/theElandor/Everybody-Codes](https://github.com/theElandor/Everybody-Codes);
+-   🩴 Flip Flop 2025: [https://github.com/theElandor/flipflop2025](https://github.com/theElandor/flipflop2025);
+-   🍂 Autumn Code Walks 2026: [https://github.com/theElandor/acww2026](https://github.com/theElandor/acww2026);
+-   🖥️ A coding challenge that I made for students (will you be able to complete it? ;) [https://theelandor.github.io/challenges/](https://theelandor.github.io/challenges/);
 
-**Currently Working on**
+**More Educational Projects**
 
--   🦷​ Segmentation of 3D maxillofacial point-cloud data (Intraoral Scans);
+-   ✉️ **Nodes**, a Python framework to play with distributed algorithms: [https://github.com/theElandor/Nodes](https://github.com/theElandor/Nodes);
+-   🐜 A cool computational model for Ant Sorting written in NetLogo: [https://github.com/theElandor/ant\_sorting](https://github.com/theElandor/ant_sorting);
+-   👮🏻 Z340 solution in C, with a [blog post](/posts/zodiac/): [https://github.com/theElandor/Z340](https://github.com/theElandor/Z340);
+-   🃏 PsimW, a mini 2D card engine to play MTG (*WIP*): [https://github.com/theElandor/Psimw](https://github.com/theElandor/Psimw);
+-   📦 A small DCT (Discrete Cosine Transform) educational implementation in C with no dependencies: [https://github.com/theElandor/DCT](https://github.com/theElandor/DCT);
+-   📋 A bash script that reminds you of the most important laws of software engineering: [https://github.com/theElandor/lose\_law](https://github.com/theElandor/lose_law);
+
+**Other Contributions**
+
+-   🩻 L2L-Registration, a landmark-guided IOS-CBCT registration pipeline: [https://github.com/AImageLab-zip/L2L-Registration](https://github.com/AImageLab-zip/L2L-Registration);
+-   🌳 Yggdrasil, contributing to the back-end algorithms for dental data analysis: [https://github.com/AImageLab-zip/Yggdrasil](https://github.com/AImageLab-zip/Yggdrasil);
+-   📜 Voynich NLP analysis, visualizing embeddings and discussing: [https://github.com/brianmg/voynich-nlp-analysis](https://github.com/brianmg/voynich-nlp-analysis);
 
 You’ll find more information about me down below. If you are interested, you can find my bachelor’s thesis at the following link: [https://theelandor.github.io/prova/Tesi\_Stampa.pdf](https://theelandor.github.io/prova/Tesi_Stampa.pdf)
 
@@ -36,7 +51,7 @@ You’ll find more information about me down below. If you are interested, you c
 
 ![This is me.](/ox-hugo/profile.jpg "This is me.")
 
--   **Age**: 24
+-   **Age**: 25
     
 -   **Birthday**: 1/8/2001
     
