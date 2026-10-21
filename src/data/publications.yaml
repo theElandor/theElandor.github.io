@@ -1,5 +1,10 @@
 # Papers shown on /publications, newest first.
 # Your name is highlighted automatically in the author list.
+- title: "Video-Based Remote Photoplethysmography for Atrial Fibrillation Detection: A Systematic Review"
+  authors: [M Lugli, DA Mei, JF Imberti, M Vitolo, C Grana, F Bolelli, G Boriani]
+  venue: IEEE Access
+  year: 2026
+  url: https://doi.org/10.1109/ACCESS.2026.3744545
 - title: A Public Dataset for Tooth Segmentation in Multi-View Intraoral Photographs
   authors: [YA Zelelew, L Borghi, K Marchesini, M Lugli, C Grana, F Bolelli]
   venue: Medical Image Computing and Computer Assisted Intervention – MICCAI 2026
