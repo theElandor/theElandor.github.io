@@ -2,6 +2,7 @@ import { defineCollection } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
 import { parse } from 'yaml';
+import { asdTopics } from './lib/asd-topics';
 
 // Blog posts: one Markdown file per post in src/content/posts.
 const posts = defineCollection({
@@ -93,4 +94,15 @@ const videos = defineCollection({
   }),
 });
 
-export const collections = { posts, notes, pages, projects, publications, slides, videos };
+// Handwritten notes from the Algorithms and Data Structures course (one photo per page).
+const asdNotes = defineCollection({
+  loader: yamlList('src/data/asd-notes.yaml'),
+  schema: z.object({
+    title: z.string(),
+    topic: z.enum(asdTopics),
+    image: z.string(),
+    featured: z.boolean().default(false), // also shown in the carousel on /teaching/
+  }),
+});
+
+export const collections = { posts, notes, pages, projects, publications, slides, videos, asdNotes };

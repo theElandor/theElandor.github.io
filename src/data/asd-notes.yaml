@@ -1,0 +1,186 @@
+# Handwritten notes from the Algorithms and Data Structures course (2026), shown on /teaching/asd-2026/.
+# "image" is a file in public/media; a smaller copy with the same name in a "thumbs" folder next to it is used
+# for the previews when it exists. Pages are grouped by "topic" (order of the topics: see content.config.ts),
+# and keep the order of this file inside each topic. "featured: true" also shows the page in the carousel.
+
+- title: Esercizi induzione (1/3)
+  topic: Induction
+  image: /media/asd-2026/induzione-1.webp
+- title: Esercizi induzione (2/3)
+  topic: Induction
+  image: /media/asd-2026/induzione-2.webp
+- title: 'Esercizi induzione (3/3): piastrellature a L'
+  topic: Induction
+  image: /media/asd-2026/induzione-3.webp
+  featured: true
+- title: Intro costi computazionali (1/2)
+  topic: Complexity
+  image: /media/asd-2026/costi-intro-1.webp
+- title: Intro costi computazionali (2/2)
+  topic: Complexity
+  image: /media/asd-2026/costi-intro-2.webp
+- title: Esercizi sommatorie
+  topic: Complexity
+  image: /media/asd-2026/sommatorie.webp
+  featured: true
+- title: Sommatorie, costi, codice
+  topic: Complexity
+  image: /media/asd-2026/sommatorie-costi-codice.webp
+- title: Costo con il metodo iterativo
+  topic: Complexity
+  image: /media/asd-2026/metodo-iterativo.webp
+- title: Master Theorem (1/2)
+  topic: Complexity
+  image: /media/asd-2026/master-theorem-1.webp
+  featured: true
+- title: Master Theorem (2/2)
+  topic: Complexity
+  image: /media/asd-2026/master-theorem-2.webp
+- title: Binary search
+  topic: Sorting & searching
+  image: /media/asd-2026/binary-search.webp
+  featured: true
+- title: 'Esercizi: binary search e insertion sort'
+  topic: Sorting & searching
+  image: /media/asd-2026/es-binsearch-insertion-sort.webp
+- title: Insertion sort e merge sort
+  topic: Sorting & searching
+  image: /media/asd-2026/insertion-merge-sort.webp
+  featured: true
+- title: Partition e quick sort
+  topic: Sorting & searching
+  image: /media/asd-2026/quick-sort.webp
+  featured: true
+- title: 'Esercizio: partition passo per passo'
+  topic: Sorting & searching
+  image: /media/asd-2026/es-quick-sort.webp
+- title: 'Lower bound per l''ordinamento'
+  topic: Sorting & searching
+  image: /media/asd-2026/lower-bound-sorting.webp
+- title: Ricorsione
+  topic: Recursion
+  image: /media/asd-2026/ricorsione.webp
+- title: 'Recursion problems: path sum (LeetCode 437)'
+  topic: Recursion
+  image: /media/asd-2026/recursion-problems-1.webp
+- title: 'Recursion problems: flatten (LeetCode 114)'
+  topic: Recursion
+  image: /media/asd-2026/recursion-problems-2.webp
+- title: 'Esercizio liste: rimuovere i nodi dispari'
+  topic: Lists
+  image: /media/asd-2026/liste-rimuovi-dispari.webp
+  featured: true
+- title: 'Esercizio liste: rotazione di k posizioni'
+  topic: Lists
+  image: /media/asd-2026/liste-rotazione.webp
+- title: 'Esercizio alberi: altezza minima'
+  topic: Trees
+  image: /media/asd-2026/alberi-altezza.webp
+- title: 'Esercizi alberi: completezza e confronto'
+  topic: Trees
+  image: /media/asd-2026/alberi-completi.webp
+- title: Esercizio alberi (DFS)
+  topic: Trees
+  image: /media/asd-2026/alberi-dfs.webp
+- title: Esercizio alberi (BFS)
+  topic: Trees
+  image: /media/asd-2026/alberi-bfs.webp
+- title: 'Esercizi alberi: lowest common ancestor'
+  topic: Trees
+  image: /media/asd-2026/alberi-lca.webp
+- title: 'AVL trees: proof exercises'
+  topic: Trees
+  image: /media/asd-2026/avl.webp
+  featured: true
+- title: Esercizi heap
+  topic: Trees
+  image: /media/asd-2026/heap.webp
+- title: Esame 12 giugno 2024 (seconda parte)
+  topic: Trees
+  image: /media/asd-2026/esame-2024-06-12.webp
+- title: 'Grafi: definizioni'
+  topic: Graphs
+  image: /media/asd-2026/grafi-definizioni.webp
+- title: Componenti connesse, alberi e foreste
+  topic: Graphs
+  image: /media/asd-2026/componenti-connesse.webp
+- title: 'Esercizi grafi: dimostrazioni'
+  topic: Graphs
+  image: /media/asd-2026/grafi-dimostrazioni.webp
+- title: Esercizio grafi (DFS)
+  topic: Graphs
+  image: /media/asd-2026/grafi-dfs.webp
+- title: Esercizio DFS e Dijkstra
+  topic: Graphs
+  image: /media/asd-2026/dfs-dijkstra.webp
+- title: 'Esercizio grafi: bipartito (BFS)'
+  topic: Graphs
+  image: /media/asd-2026/bipartito-1.webp
+  featured: true
+- title: 'Grafo bipartito: pseudocodice'
+  topic: Graphs
+  image: /media/asd-2026/bipartito-2.webp
+- title: Ordinamento topologico
+  topic: Graphs
+  image: /media/asd-2026/ordinamento-topologico.webp
+- title: Dijkstra
+  topic: Graphs
+  image: /media/asd-2026/dijkstra.webp
+- title: Bellman-Ford (1ª parte)
+  topic: Graphs
+  image: /media/asd-2026/bellman-ford-1.webp
+- title: Bellman-Ford (2ª parte)
+  topic: Graphs
+  image: /media/asd-2026/bellman-ford-2.webp
+- title: Esame 2 luglio 2024 (1/2)
+  topic: Graphs
+  image: /media/asd-2026/esame-2024-07-02-1.webp
+- title: Esame 2 luglio 2024 (2/2)
+  topic: Graphs
+  image: /media/asd-2026/esame-2024-07-02-2.webp
+- title: 'Minimum spanning tree: Kruskal e Prim'
+  topic: Greedy algorithms
+  image: /media/asd-2026/mst.webp
+- title: 'Prim: pseudocodice'
+  topic: Greedy algorithms
+  image: /media/asd-2026/prim.webp
+- title: Esercizio Kruskal e Prim
+  topic: Greedy algorithms
+  image: /media/asd-2026/kruskal-prim.webp
+- title: Esercizio Prim e Huffman
+  topic: Greedy algorithms
+  image: /media/asd-2026/prim-huffman.webp
+- title: Codifica di Huffman (1/2)
+  topic: Greedy algorithms
+  image: /media/asd-2026/huffman-1.webp
+- title: Codifica di Huffman (2/2)
+  topic: Greedy algorithms
+  image: /media/asd-2026/huffman-2.webp
+  featured: true
+- title: 'Disjoint set: operazioni'
+  topic: Disjoint sets
+  image: /media/asd-2026/disjoint-set-1.webp
+  featured: true
+- title: 'Disjoint set: union by rank'
+  topic: Disjoint sets
+  image: /media/asd-2026/disjoint-set-2.webp
+- title: 'Longest increasing subsequence: ricorsione'
+  topic: Dynamic programming
+  image: /media/asd-2026/lis-ricorsione.webp
+- title: Analisi del costo (longest)
+  topic: Dynamic programming
+  image: /media/asd-2026/lis-costo.webp
+- title: Longest increasing subsequence
+  topic: Dynamic programming
+  image: /media/asd-2026/lis.webp
+- title: 'Longest increasing subsequence: tabella'
+  topic: Dynamic programming
+  image: /media/asd-2026/lis-dp.webp
+  featured: true
+- title: Knapsack senza ripetizione
+  topic: Dynamic programming
+  image: /media/asd-2026/knapsack-1.webp
+- title: Knapsack con ripetizione
+  topic: Dynamic programming
+  image: /media/asd-2026/knapsack-2.webp
+  featured: true

@@ -1,22 +1,56 @@
 ---
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
+import NoteViewer from '../components/NoteViewer.astro';
+import { getAsdNotes } from '../lib/content';
 
 const slides = await getCollection('slides');
 const videos = await getCollection('videos');
+const asd = await getAsdNotes();
+const featured = asd.notes.filter((n) => n.featured);
 const glyphs = ['▲', '◆', '●', '■', '✦', '⬢'];
 const channel = 'https://www.youtube.com/@MLStudentOdyssey';
 ---
-<Base title="Teaching" description="Teaching material I made for my YouTube channel and for teaching programming in high school.">
+<Base title="Teaching" description="My handwritten notes from the Algorithms and Data Structures course, and teaching material I made for my YouTube channel and for teaching programming in high school.">
   <div class="wrap">
     <header class="page-head">
       <p class="eyebrow">Teaching</p>
       <h1>Teaching</h1>
       <p class="lede">
-        Teaching material I made for my YouTube channel and for teaching programming in high school.
-        The slides are in Italian; the videos are in English.
+        My handwritten notes from the Algorithms and Data Structures course, and material I made for my
+        YouTube channel and for teaching programming in high school.
+        The notes and slides are in Italian; the videos are in English.
       </p>
     </header>
+
+    <section class="block" data-autoplay>
+      <div class="block-head">
+        <div>
+          <h2>Algorithms &amp; Data Structures</h2>
+          <p class="sub">Handwritten notes from the 2026 course. Click a page to read it.</p>
+        </div>
+        <div class="controls">
+          <a class="more" href="/teaching/asd-2026/">All {asd.notes.length} pages, by topic →</a>
+          <button class="arrow" type="button" aria-label="Previous notes" data-prev>←</button>
+          <button class="arrow" type="button" aria-label="Next notes" data-next>→</button>
+        </div>
+      </div>
+      <div class="track papers-track" data-track>
+        <div class="papers-row" data-row>
+          {featured.map((n) => (
+            <button class="paper" type="button" data-note data-full={n.image} data-title={n.title} data-topic={n.topic}>
+              <span class="sheet"><img src={n.thumb} alt="" loading="lazy" decoding="async" width="420" height="560" /></span>
+              <span class="paper-title">{n.title}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+      <ul class="topic-links" aria-label="Notes by topic">
+        {asd.topics.map((t) => (
+          <li><a class="chip" href={`/teaching/asd-2026/#${t.slug}`}>{t.name}</a></li>
+        ))}
+      </ul>
+    </section>
 
     <section class="block">
       <div class="block-head">
@@ -70,6 +104,7 @@ const channel = 'https://www.youtube.com/@MLStudentOdyssey';
       <p class="empty" hidden data-empty>No slides match your search.</p>
     </section>
   </div>
+  <NoteViewer />
 </Base>
 
 <script>
@@ -85,15 +120,11 @@ const channel = 'https://www.youtube.com/@MLStudentOdyssey';
     });
   }
 
-  // Slides: a scrolling carousel with a search filter.
-  const root = document.querySelector<HTMLElement>('[data-slides]');
-  if (root) {
+  // Carousels: a scrolling track with ← / → buttons that move one view at a time.
+  const carousel = (root: HTMLElement) => {
     const track = root.querySelector<HTMLElement>('[data-track]')!;
-    const search = root.querySelector<HTMLInputElement>('[data-search]')!;
     const prev = root.querySelector<HTMLButtonElement>('[data-prev]')!;
     const next = root.querySelector<HTMLButtonElement>('[data-next]')!;
-    const empty = root.querySelector<HTMLElement>('[data-empty]')!;
-    const cards = [...track.querySelectorAll<HTMLElement>('.deck')];
 
     const updateArrows = () => {
       const max = track.scrollWidth - track.clientWidth - 2;
@@ -106,6 +137,114 @@ const channel = 'https://www.youtube.com/@MLStudentOdyssey';
     next.addEventListener('click', () => page(1));
     track.addEventListener('scroll', updateArrows, { passive: true });
     window.addEventListener('resize', updateArrows);
+    updateArrows();
+    return { track, updateArrows, controls: [prev, next] };
+  };
+
+  // Handwritten notes: the pages slide by themselves in an endless loop. The slide is a transform
+  // animation, so the browser runs it off the main thread with sub-pixel steps (scrolling would
+  // round every step to whole pixels and stutter). It eases to a stop while the mouse is over the
+  // pages, so they're easy to click; when someone scrolls or uses the arrows, normal scrolling
+  // takes over from the same spot, and the slide starts again a few seconds later.
+  const notes = document.querySelector<HTMLElement>('[data-autoplay]');
+  if (notes) {
+    const { track, controls } = carousel(notes);
+    const row = notes.querySelector<HTMLElement>('[data-row]')!;
+    if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const SPEED = 40; // px per second
+      const RESUME_AFTER = 4000; // ms after the last scroll / arrow click
+      const pages = [...row.querySelectorAll<HTMLElement>('.paper')];
+
+      // A second copy of the pages after the first, so the loop has no visible seam.
+      const copies = pages.map((page) => {
+        const copy = page.cloneNode(true) as HTMLElement;
+        delete copy.dataset.note; // the viewer only steps through the real pages
+        copy.setAttribute('aria-hidden', 'true');
+        copy.tabIndex = -1;
+        copy.style.setProperty('--tilt', getComputedStyle(page).getPropertyValue('--tilt'));
+        copy.addEventListener('click', () => page.click());
+        row.append(copy);
+        return copy;
+      });
+      const loopWidth = () => copies[0].offsetLeft - pages[0].offsetLeft;
+
+      let slide: Animation | null = null;
+      let visible = false;
+      let hovered = false;
+      let idleUntil = 0;
+      let rate = 0;
+      let last = 0;
+
+      // Hand over from scrolling to the animation, starting from where the track is scrolled to.
+      const start = () => {
+        const loop = loopWidth();
+        const offset = track.scrollLeft % loop;
+        track.style.scrollSnapType = 'none';
+        track.style.scrollBehavior = 'auto';
+        track.scrollLeft = 0;
+        slide = row.animate(
+          [{ transform: 'translate3d(0, 0, 0)' }, { transform: `translate3d(${-loop}px, 0, 0)` }],
+          { duration: (loop / SPEED) * 1000, iterations: Infinity },
+        );
+        slide.currentTime = (offset / SPEED) * 1000;
+        slide.playbackRate = rate;
+        controls.forEach((btn) => (btn.disabled = false));
+      };
+      // ...and back: stop the animation and scroll to the spot it had reached.
+      const stop = () => {
+        if (!slide) return;
+        const offset = ((Number(slide.currentTime) / 1000) * SPEED) % loopWidth();
+        slide.cancel();
+        slide = null;
+        track.scrollLeft = offset;
+        track.style.scrollSnapType = '';
+        track.style.scrollBehavior = '';
+      };
+      const wait = () => {
+        idleUntil = performance.now() + RESUME_AFTER;
+        rate = 0;
+        stop();
+      };
+
+      // Each frame only eases the speed up or down; the movement itself is the browser's.
+      const frame = (now: number) => {
+        const dt = last ? Math.min(now - last, 50) / 1000 : 0;
+        last = now;
+        const free =
+          visible && now >= idleUntil && !hovered && !document.hidden &&
+          !document.querySelector('dialog[open]') && !notes.querySelector(':focus-visible');
+        const target = free ? 1 : 0;
+        if (rate !== target) {
+          rate += (target - rate) * Math.min(1, dt * 3);
+          if (Math.abs(target - rate) < 0.002) rate = target;
+          if (slide) slide.playbackRate = rate;
+        }
+        if (!slide && free) start();
+        requestAnimationFrame(frame);
+      };
+      requestAnimationFrame(frame);
+
+      // Capture phase, so the hand-over happens before the arrow scrolls the track.
+      notes.addEventListener('click', (e) => controls.some((btn) => btn.contains(e.target as Node)) && wait(), true);
+      track.addEventListener('wheel', (e) => Math.abs(e.deltaX) > Math.abs(e.deltaY) && wait(), { passive: true });
+      track.addEventListener('pointerdown', (e) => e.pointerType !== 'mouse' && wait());
+      track.addEventListener('mouseenter', () => (hovered = true));
+      track.addEventListener('mouseleave', () => (hovered = false));
+      // While the animation runs the track sits at scroll 0, but both directions still make sense.
+      track.addEventListener('scroll', () => slide && controls.forEach((btn) => (btn.disabled = false)), { passive: true });
+      // The loop width depends on the card size, so restart the animation after a resize.
+      window.addEventListener('resize', () => slide && stop());
+      new IntersectionObserver(([entry]) => (visible = entry.isIntersecting)).observe(track);
+    }
+  }
+
+  // Slides: a carousel with a search filter.
+  const root = document.querySelector<HTMLElement>('[data-slides]');
+  if (root) {
+    const { track, updateArrows } = carousel(root);
+    const search = root.querySelector<HTMLInputElement>('[data-search]')!;
+    const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+    const cards = [...track.querySelectorAll<HTMLElement>('.deck')];
 
     search.addEventListener('input', () => {
       const words = search.value.toLowerCase().trim().split(/\s+/).filter(Boolean);
@@ -119,7 +258,6 @@ const channel = 'https://www.youtube.com/@MLStudentOdyssey';
       track.scrollLeft = 0;
       updateArrows();
     });
-    updateArrows();
   }
 </script>
 
@@ -280,6 +418,67 @@ const channel = 'https://www.youtube.com/@MLStudentOdyssey';
   @media (max-width: 480px) {
     .track { --per-view: 1.2; }
   }
+
+  /* Handwritten notes: portrait pages, so more of them per view. Padding leaves room for the tilt. */
+  .block-head .sub {
+    margin: 6px 0 0;
+    font-family: var(--font-hand);
+    font-size: 1.1rem;
+    color: var(--muted);
+  }
+  .track.papers-track {
+    --per-view: 5;
+    --gap: 22px;
+    padding: 10px 6px 12px;
+    scroll-padding-inline: 6px;
+    /* Pages fade in and out at the edges as they slide past. */
+    mask-image: linear-gradient(to right, transparent, #000 3%, #000 97%, transparent);
+  }
+  @media (max-width: 1000px) {
+    .track.papers-track { --per-view: 4; }
+  }
+  @media (max-width: 720px) {
+    .track.papers-track { --per-view: 3; }
+  }
+  @media (max-width: 480px) {
+    .track.papers-track { --per-view: 2.2; --gap: 16px; }
+  }
+  /* The pages sit in a row inside the track, so the row can slide (see the script above).
+     Card widths come from the track's width (cqw), as with the other carousel. */
+  .track.papers-track {
+    display: block;
+    container-type: inline-size;
+  }
+  .papers-row {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: calc((100cqw - (var(--per-view) - 1) * var(--gap)) / var(--per-view));
+    gap: var(--gap);
+    width: max-content;
+    will-change: transform;
+  }
+  .papers-row .paper {
+    scroll-snap-align: start;
+  }
+  .topic-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 18px 0 0;
+    padding: 0;
+  }
+  .topic-links .chip {
+    text-decoration: none;
+    font-size: 0.75rem;
+    padding: 0.25rem 0.7rem;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .topic-links .chip:hover {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
   .deck {
     overflow: hidden;
     scroll-snap-align: start;

@@ -1,0 +1,122 @@
+---
+import Base from '../../layouts/Base.astro';
+import NoteViewer from '../../components/NoteViewer.astro';
+import { getAsdNotes } from '../../lib/content';
+
+const { notes, topics } = await getAsdNotes();
+---
+<Base
+  title="Algorithms & Data Structures notes"
+  description="The handwritten notes I used to teach the Algorithms and Data Structures course in 2026, grouped by topic."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow"><a href="/teaching/">Teaching</a> · 2026</p>
+      <h1>Algorithms &amp; Data Structures</h1>
+      <p class="lede">
+        The handwritten notes I used to teach the Algorithms and Data Structures course in 2026,
+        grouped by topic: {notes.length} pages, in Italian. Click a page to read it full size.
+      </p>
+    </header>
+
+    <nav class="topic-index" aria-label="Topics">
+      <ul>
+        {topics.map((t) => (
+          <li><a href={`#${t.slug}`}>{t.name} <span class="mono">{t.notes.length}</span></a></li>
+        ))}
+      </ul>
+    </nav>
+
+    {topics.map((t) => (
+      <section class="topic" id={t.slug}>
+        <div class="topic-head">
+          <h2>{t.name}</h2>
+          <span class="mono">{t.notes.length} {t.notes.length === 1 ? 'page' : 'pages'}</span>
+        </div>
+        <div class="papers">
+          {t.notes.map((n) => (
+            <button class="paper" type="button" data-note data-full={n.image} data-title={n.title} data-topic={n.topic}>
+              <span class="sheet"><img src={n.thumb} alt="" loading="lazy" decoding="async" width="420" height="560" /></span>
+              <span class="paper-title">{n.title}</span>
+            </button>
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+  <NoteViewer />
+</Base>
+
+<style>
+  .eyebrow a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .eyebrow a:hover {
+    text-decoration: underline;
+  }
+
+  .topic-index ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+  }
+  .topic-index a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-strong);
+    background: var(--surface);
+    font-size: 0.92rem;
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease;
+  }
+  .topic-index a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .topic-index .mono {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .topic {
+    padding: 36px 0 28px;
+    border-top: 1px solid var(--border);
+    margin-top: 28px;
+  }
+  .topic + .topic {
+    margin-top: 0;
+  }
+  .topic-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+  }
+  .topic-head h2 {
+    margin: 0;
+    font-size: 1.6rem;
+  }
+  .topic-head .mono {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .papers {
+    display: grid;
+    gap: 28px 20px;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 150px), 1fr));
+  }
+  @media (min-width: 720px) {
+    .papers {
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+    }
+  }
+</style>

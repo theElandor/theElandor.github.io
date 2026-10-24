@@ -89,6 +89,23 @@ content:
       - { name: description, label: Description, type: string }
       - { name: url, label: Link (e.g. /prova/sorting.html), type: string, required: true }
 
+  - name: asdNotes
+    label: Handwritten notes (Algorithms and Data Structures)
+    type: file
+    path: src/data/asd-notes.yaml
+    format: yaml
+    list: true
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - name: topic
+        label: Topic
+        type: select
+        required: true
+        options:
+          values: [Induction, Complexity, Sorting & searching, Recursion, Lists, Trees, Graphs, Greedy algorithms, Disjoint sets, Dynamic programming]
+      - { name: image, label: Photo of the page, type: image, required: true }
+      - { name: featured, label: Show in the carousel on /teaching/, type: boolean, default: false }
+
   - name: videos
     label: YouTube videos
     type: file

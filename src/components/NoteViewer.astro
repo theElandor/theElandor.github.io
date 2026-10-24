@@ -1,0 +1,239 @@
+---
+// Full-screen viewer for the handwritten notes. Any button on the page with `data-note`
+// (plus data-full, data-title, data-topic) opens it; ← / → move through the page's notes in order.
+---
+<dialog class="viewer" data-viewer aria-label="Handwritten note">
+  <div class="bar">
+    <p class="meta">
+      <span class="chip" data-v-topic></span>
+      <span class="count mono" data-v-count></span>
+    </p>
+    <div class="actions">
+      <a class="btn-icon" data-v-open target="_blank" rel="noopener" aria-label="Open the full image in a new tab" title="Open the full image">↗</a>
+      <button class="btn-icon" type="button" data-v-close autofocus aria-label="Close" title="Close (Esc)">✕</button>
+    </div>
+  </div>
+  <div class="stage" data-v-stage>
+    <img data-v-img alt="" title="Click to zoom" />
+  </div>
+  <p class="title" data-v-title></p>
+  <button class="nav prev" type="button" data-v-prev aria-label="Previous page">←</button>
+  <button class="nav next" type="button" data-v-next aria-label="Next page">→</button>
+</dialog>
+
+<script>
+  const dialog = document.querySelector<HTMLDialogElement>('[data-viewer]');
+  const items = [...document.querySelectorAll<HTMLElement>('[data-note]')];
+
+  if (dialog && items.length) {
+    const $ = <T extends HTMLElement>(sel: string) => dialog.querySelector<T>(sel)!;
+    const img = $<HTMLImageElement>('[data-v-img]');
+    const stage = $('[data-v-stage]');
+    const title = $('[data-v-title]');
+    const topic = $('[data-v-topic]');
+    const count = $('[data-v-count]');
+    const open = $<HTMLAnchorElement>('[data-v-open]');
+    let index = 0;
+
+    const preload = (i: number) => {
+      const el = items[(i + items.length) % items.length];
+      new Image().src = el.dataset.full!;
+    };
+
+    const show = (i: number) => {
+      index = (i + items.length) % items.length;
+      const el = items[index];
+      dialog.classList.remove('zoomed');
+      img.src = el.dataset.full!;
+      img.alt = el.dataset.title ?? '';
+      title.textContent = el.dataset.title ?? '';
+      topic.textContent = el.dataset.topic ?? '';
+      count.textContent = `${index + 1} / ${items.length}`;
+      open.href = el.dataset.full!;
+      stage.scrollTo(0, 0);
+      preload(index + 1);
+      preload(index - 1);
+    };
+
+    items.forEach((el, i) =>
+      el.addEventListener('click', () => {
+        show(i);
+        dialog.showModal();
+      }),
+    );
+
+    $('[data-v-prev]').addEventListener('click', () => show(index - 1));
+    $('[data-v-next]').addEventListener('click', () => show(index + 1));
+    $('[data-v-close]').addEventListener('click', () => dialog.close());
+    // Return focus to the page the viewer was opened from.
+    dialog.addEventListener('close', () => items[index].focus({ preventScroll: true }));
+
+    // Click the page to see it at full resolution (handwriting is small); click again to fit.
+    img.addEventListener('click', () => dialog.classList.toggle('zoomed'));
+    // Clicking the dark area around the page closes the viewer.
+    dialog.addEventListener('click', (e) => {
+      if (e.target === dialog || e.target === stage) dialog.close();
+    });
+    dialog.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') show(index - 1);
+      else if (e.key === 'ArrowRight') show(index + 1);
+      else return;
+      e.preventDefault();
+    });
+
+    // Swipe on touch screens (only when not zoomed, where dragging scrolls the page instead).
+    let startX = 0;
+    let startY = 0;
+    stage.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    }, { passive: true });
+    stage.addEventListener('touchend', (e) => {
+      if (dialog.classList.contains('zoomed')) return;
+      const dx = e.changedTouches[0].clientX - startX;
+      const dy = e.changedTouches[0].clientY - startY;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy)) show(index + (dx < 0 ? 1 : -1));
+    });
+  }
+</script>
+
+<style>
+  .viewer {
+    width: 100vw;
+    height: 100dvh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: #08080e;
+    color: #ececf3;
+    overflow: hidden;
+  }
+  .viewer[open] {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+  }
+  .viewer::backdrop {
+    background: rgb(0 0 0 / 0.5);
+  }
+  :global(html:has(.viewer[open])) {
+    overflow: hidden;
+  }
+
+  .bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px var(--gutter);
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    min-width: 0;
+  }
+  .meta .chip {
+    background: rgb(167 139 250 / 0.18);
+    color: #c4b5fd;
+  }
+  .count {
+    font-size: 0.8rem;
+    color: #8d8da3;
+  }
+  .actions {
+    display: flex;
+    gap: 8px;
+  }
+  .btn-icon,
+  .nav {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgb(255 255 255 / 0.16);
+    background: rgb(255 255 255 / 0.06);
+    color: inherit;
+    font: inherit;
+    font-size: 1rem;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn-icon:hover,
+  .nav:hover {
+    background: rgb(255 255 255 / 0.14);
+    border-color: #a78bfa;
+  }
+
+  .stage {
+    min-height: 0;
+    display: grid;
+    place-items: center;
+    overflow: auto;
+    padding: 0 72px;
+    overscroll-behavior: contain;
+  }
+  .stage img {
+    max-width: 100%;
+    max-height: calc(100dvh - 140px);
+    object-fit: contain;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px -20px rgb(0 0 0 / 0.8);
+    cursor: zoom-in;
+    background: #fff;
+  }
+  /* Zoomed: natural size, centred when it fits, scrollable from the left edge when it doesn't. */
+  .zoomed .stage {
+    display: block;
+    text-align: center;
+  }
+  .zoomed .stage img {
+    display: inline-block;
+    max-width: none;
+    max-height: none;
+    cursor: zoom-out;
+  }
+
+  .title {
+    margin: 0;
+    padding: 12px var(--gutter) 18px;
+    text-align: center;
+    font-family: var(--font-hand);
+    font-size: 1.2rem;
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    width: 48px;
+    height: 48px;
+    margin-top: -24px;
+  }
+  .prev {
+    left: 14px;
+  }
+  .next {
+    right: 14px;
+  }
+
+  @media (max-width: 640px) {
+    .stage {
+      padding: 0 8px;
+    }
+    .nav {
+      top: auto;
+      bottom: 10px;
+      margin: 0;
+      width: 42px;
+      height: 42px;
+    }
+    .title {
+      padding: 12px 64px 18px;
+      font-size: 1.05rem;
+    }
+  }
+</style>
